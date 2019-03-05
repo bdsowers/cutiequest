@@ -526,7 +526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 730660033}
-  collisionIgnoreList: []
+  collisionIgnoreList: 
+  collisionIdentity: 3
 --- !u!1 &1013031826
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065952959}
   - component: {fileID: 2065952958}
+  - component: {fileID: 2065952960}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -802,6 +804,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065952960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065952957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6f9f2954ea3aa45ae0c8000062002a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2093237219
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,75 +866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackerTemplate: {fileID: 1587744334}
---- !u!1001 &4885665929767905417
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 21.821
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.75562525
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -43
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738750450090089180, guid: f97d72f6de766ba49b93e1ac088f1471,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f97d72f6de766ba49b93e1ac088f1471, type: 3}
 --- !u!1001 &5795509674590756097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,20 +938,5 @@ PrefabInstance:
       propertyPath: follower
       value: 
       objectReference: {fileID: 859844111}
-    - target: {fileID: 5795509673542071335, guid: 0ea2087e9986ddc4399215f98e25fe59,
-        type: 3}
-      propertyPath: collisionIgnoreList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795509673542071335, guid: 0ea2087e9986ddc4399215f98e25fe59,
-        type: 3}
-      propertyPath: collisionIgnoreList.Array.data[0]
-      value: 
-      objectReference: {fileID: 859844109}
-    - target: {fileID: 5795509673542071335, guid: 0ea2087e9986ddc4399215f98e25fe59,
-        type: 3}
-      propertyPath: collisionIgnoreList.Array.data[1]
-      value: 
-      objectReference: {fileID: 730660033}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea2087e9986ddc4399215f98e25fe59, type: 3}

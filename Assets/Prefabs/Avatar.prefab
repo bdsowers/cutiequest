@@ -62,9 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 5795509673705362476}
-  collisionIgnoreList:
-  - {fileID: 0}
-  - {fileID: 0}
+  collisionIgnoreList: 03000000
+  collisionIdentity: 2
 --- !u!114 &5795509673542071334
 MonoBehaviour:
   m_ObjectHideFlags: 0

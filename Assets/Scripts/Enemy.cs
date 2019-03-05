@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
 
+    public float actionCooldown;
+    private float mActionCooldownTimer = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTurnGranted()
     {
-        MoveTowardAvatar();
+        UpdateAI();
     }
 
     // Update is called once per frame
@@ -41,18 +44,26 @@ public class Enemy : MonoBehaviour
         if (!mTurnBasedMovement.canTakeTurns)
         {
             float distance = Vector3.Distance(transform.position, GameObject.Find("Avatar").transform.position);
-            if (distance < 8f)
+            if (distance < 7f)
             {
                 mTurnBasedMovement.ActivateTurnMovement();
             }
         }
 
-        /* Realtime movement
-        if (mTurnBasedMovement.canTakeTurns)
+        if (Game.instance.realTime)
         {
-            if (!mSimpleMovement.isMoving && !mSimpleAttack.isAttacking)
-                MoveTowardAvatar();
-        }*/
+            if (mTurnBasedMovement.canTakeTurns)
+            {
+                if (mActionCooldownTimer >= 0f)
+                    mActionCooldownTimer -= Time.deltaTime;
+
+                if (!mSimpleMovement.isMoving && !mSimpleAttack.isAttacking && mActionCooldownTimer <= 0f)
+                {
+                    mActionCooldownTimer = actionCooldown;
+                    UpdateAI();
+                }
+            }
+        }
     }
 
     private Vector3 OrthogonalDirection(Transform source, Transform target, bool useLargeAxis)
@@ -86,7 +97,7 @@ public class Enemy : MonoBehaviour
         return direction.normalized;
     }
 
-    private void MoveTowardAvatar()
+    private void UpdateAI()
     {
         Vector3 direction = OrthogonalDirection(transform, GameObject.Find("Avatar").transform, true);
         

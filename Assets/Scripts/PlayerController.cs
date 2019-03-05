@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mSimpleMovement.isMoving)
+        if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)
             return;
 
         // Disable for real-time play
-        if (!mTurnBasedMovement.isMyTurn)
+        if (!mTurnBasedMovement.isMyTurn && !Game.instance.realTime)
             return;
 
         Vector3 followerDirection = transform.position - follower.transform.position;

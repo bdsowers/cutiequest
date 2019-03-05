@@ -26,6 +26,12 @@ public class Game : MonoBehaviour
         }
     }
 
+    // note bdsowers - eventually turn-based support will likely be deprecated
+    public bool realTime
+    {
+        get { return true; }
+    }
+
     private void Awake()
     {
         mInstance = this;

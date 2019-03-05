@@ -36,10 +36,14 @@ public class TurnManager : MonoBehaviour
 
     private void MoveToNextTurn()
     {
+        if (Game.instance.realTime)
+            return;
+
         // todo bdsowers - move this out of here, this shouldn't be changing view code
+        /*
         TurnOrderDisplay display = GameObject.FindObjectOfType<TurnOrderDisplay>();
         List<TurnBasedMovement> nextList = WhoIsNext(5);
-        display.UpdateList(nextList);
+        display.UpdateList(nextList);*/
 
         TurnBasedMovement next = WhoIsNext();
         next.effectiveSpeed += next.speed;
