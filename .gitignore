@@ -1,0 +1,12 @@
+/Library
+/Library/*
+/Logs
+/Logs/*
+/obj
+/obj/*
+/Temp
+/Temp/*
+/.vs
+/.vs/*
+*.csproj
+*.sln
