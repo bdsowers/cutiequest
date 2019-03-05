@@ -28,7 +28,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Intro w/basic tutorial
 
 ### QUALITY OF LIFE
-* Minimap
 * Map
 
 ### ADVANCEMENT
@@ -45,3 +44,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Enemy turns; speed~~
 * ~~Basic attack~~
 * ~~Better initial placement~~
+* ~~Minimap~~
