@@ -22,7 +22,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Tinder-esque swipe mechanic to get new Cuties
 * Taming Rod mechanic to tame new pets
 * Cutie & Pet actions
-* Better initial placement
 
 ### ONBOARDING
 * Title
@@ -45,3 +44,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #### FINISHED
 * ~~Enemy turns; speed~~
 * ~~Basic attack~~
+* ~~Better initial placement~~
