@@ -37,7 +37,7 @@ public class TitleScreen : MonoBehaviour
 
         if (mLeaving)
         {
-            mLeaveTimer += Time.deltaTime * 2f;
+            mLeaveTimer += Time.deltaTime * 6f;
             mLeaveTimer = Mathf.Min(mLeaveTimer, 1f);
             titleContainer.transform.localScale = new Vector3(1f - mLeaveTimer, 1f, 1f);
         }
