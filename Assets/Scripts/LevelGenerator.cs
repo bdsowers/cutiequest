@@ -10,6 +10,8 @@ public class LevelGenerator : MonoBehaviour
     RoomSet mRoomset;
     CollisionMap mCollisionMap;
 
+    public RandomDungeon dungeon {  get { return mDungeon; } }
+
     private void Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
