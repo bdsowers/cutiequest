@@ -22,6 +22,10 @@ public class SimpleMovement : MonoBehaviour
         get { return mIsMoving; }
     }
 
+    public bool useCollisionMap
+    {
+        get; set;
+    }
 
     private void Start()
     {
@@ -29,6 +33,7 @@ public class SimpleMovement : MonoBehaviour
 
         // todo bdsowers - there's a better way to do this...
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
+        useCollisionMap = (mCollisionMap != null);
     }
 
     public void Move(Vector3 direction)
@@ -38,33 +43,43 @@ public class SimpleMovement : MonoBehaviour
 
     public bool CanMove(Vector3 direction)
     {
-        Vector3 targetPos = transform.position + direction;
-        Vector2Int coords = targetPos.AsVector2IntUsingXZ();
-        int marking = mCollisionMap.SpaceMarking(coords.x, -coords.y);
+        if (!useCollisionMap)
+        {
+            Ray ray = new Ray(transform.position + new Vector3(0f, 0.2f, 0f),direction);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 1f);
+            for (int i = 0; i < hits.Length; ++i)
+            {
+                if (hits[i].collider.gameObject != gameObject)
+                {
+                    return false;
+                }
+            }
 
-        return marking == 0 || collisionIgnoreList.Contains(marking);
+            return true;
+        }
+        else
+        {
+            Vector3 targetPos = transform.position + direction;
+            Vector2Int coords = targetPos.AsVector2IntUsingXZ();
+            int marking = mCollisionMap.SpaceMarking(coords.x, -coords.y);
+
+            return marking == 0 || collisionIgnoreList.Contains(marking);
+        }
     }
 
     private void OnDestroy()
     {
         Vector2Int oldCoords = transform.position.AsVector2IntUsingXZ();
-        if (mCollisionMap.SpaceMarking(oldCoords.x, -oldCoords.y) == collisionIdentity)
+        if (mCollisionMap != null && mCollisionMap.SpaceMarking(oldCoords.x, -oldCoords.y) == collisionIdentity)
         {
             mCollisionMap.MarkSpace(oldCoords.x, -oldCoords.y, 0);
         }
     }
 
-    private IEnumerator MoveCoroutine(Vector3 direction)
+    private void UpdateCollisionMapForMove(Vector3 currentPosition, Vector3 targetPosition)
     {
-        mIsMoving = true;
-
-        Vector3 position = transform.position;
-        Vector3 targetPosition = transform.position + direction;
-
-        Vector2Int oldCoords = position.AsVector2IntUsingXZ();
+        Vector2Int oldCoords = currentPosition.AsVector2IntUsingXZ();
         Vector2Int newCoords = targetPosition.AsVector2IntUsingXZ();
-
-        bool adjustScale = transform.localScale.x > 0.1f;
 
         // Clear us from the old space, but only do it if we are currently registered
         // as being there. Certain overlap scenarios may make this not necessarily true.
@@ -74,7 +89,21 @@ public class SimpleMovement : MonoBehaviour
         }
 
         mCollisionMap.MarkSpace(newCoords.x, -newCoords.y, collisionIdentity);
-        
+    }
+
+    private IEnumerator MoveCoroutine(Vector3 direction)
+    {
+        mIsMoving = true;
+
+        Vector3 position = transform.position;
+        Vector3 targetPosition = transform.position + direction;
+        bool adjustScale = transform.localScale.x > 0.1f;
+
+        if (useCollisionMap)
+        {
+            UpdateCollisionMapForMove(position, targetPosition);
+        }
+
         float time = 0f;
         while (time < 1f)
         {
