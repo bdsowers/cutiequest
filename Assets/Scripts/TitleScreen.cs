@@ -61,6 +61,6 @@ public class TitleScreen : MonoBehaviour
 
     void MoveToNextScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HUB");
     }
 }
