@@ -49,7 +49,7 @@ public class SimpleMovement : MonoBehaviour
             RaycastHit[] hits = Physics.RaycastAll(ray, 1f);
             for (int i = 0; i < hits.Length; ++i)
             {
-                if (hits[i].collider.gameObject != gameObject)
+                if (hits[i].collider.gameObject != gameObject && !hits[i].collider.isTrigger)
                 {
                     return false;
                 }
