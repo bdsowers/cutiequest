@@ -24,7 +24,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Cutie & Pet actions
 
 ### ONBOARDING
-* Title
 * Intro w/basic tutorial
 
 ### QUALITY OF LIFE
@@ -45,3 +44,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Basic attack~~
 * ~~Better initial placement~~
 * ~~Minimap~~
+* ~~Title~~
