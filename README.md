@@ -18,7 +18,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Roadmap
 ### CORE
-* Tinder-esque swipe mechanic to get new Cuties
 * Taming Rod mechanic to tame new pets
 * Cutie & Pet actions
 
@@ -45,3 +44,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Minimap~~
 * ~~Title~~
 * ~~HUB~~
+* ~~Tinder-esque swipe mechanic to get new Cuties~~
