@@ -6,7 +6,8 @@ public class Game : MonoBehaviour
 {
     static Game mInstance = null;
 
-    GameObject mAvatar;
+    private GameObject mAvatar;
+    private PlayerData mPlayerData = new PlayerData();
 
     public static Game instance
     {
@@ -23,6 +24,15 @@ public class Game : MonoBehaviour
             }
 
             return mAvatar;
+        }
+    }
+
+    public PlayerData playerData { get { return mPlayerData; } }
+    public CharacterDataList characterDataList
+    {
+        get
+        {
+            return GetComponent<CharacterDataList>();
         }
     }
 

@@ -43,8 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fa8c23fc6b24041a06e36602f0eecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelName: Chr_Pirates_GovDaughter_01
+  modelName: 
   animatorController: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
+  scale: 0.5
+  rotation: 180
 --- !u!1 &4960390746840219058
 GameObject:
   m_ObjectHideFlags: 0

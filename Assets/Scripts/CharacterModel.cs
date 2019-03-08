@@ -17,6 +17,9 @@ public class CharacterModel : MonoBehaviour
 
     public void ChangeModel(string newModelName)
     {
+        if (string.IsNullOrEmpty(newModelName))
+            return;
+
         if (transform.childCount > 0)
             Destroy(transform.GetChild(0).gameObject);
 

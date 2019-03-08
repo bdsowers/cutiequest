@@ -86,6 +86,8 @@ public class LevelGenerator : MonoBehaviour
 
         // Also place any followers/pets adjacent to the player
         Follower follower = avatar.GetComponent<PlayerController>().follower;
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid).model);
+
         pos = FindEmptyNearbyPosition(pos);
         follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
     }

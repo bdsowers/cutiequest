@@ -81,6 +81,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         transform.localPosition = endPosition;
 
+        int character = mCurrentCharacter;
+
         if (swapAfter)
         {
             Swap();
@@ -88,7 +90,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (accepted)
         {
-            GetComponentInParent<QuestR>().AcceptCharacter(mAvailableCharacters[mCurrentCharacter]);
+            GetComponentInParent<QuestR>().AcceptCharacter(mAvailableCharacters[character]);
         }
         
         mIsQuestPanelAnimating = false;

@@ -11,6 +11,11 @@ public class QuestR : MonoBehaviour
 
     public void AcceptCharacter(CharacterData characterData)
     {
+        Follower follower = GameObject.FindObjectOfType<Follower>();
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(characterData.model);
+
+        Game.instance.playerData.followerUid = characterData.characterUniqueId;
+
         OnClosePressed();
     }
 }
