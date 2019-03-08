@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VectorExtensions;
+using ArrayExtensions;
+using UnityEngine.UI;
 
 public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public bool isFrontPanel;
+    public int characterOffset;
+
+    public GameObject cameraRig;
+
+    public Text nameLabel;
+    public Text taglineLabel;
+
+    private List<CharacterData> mAvailableCharacters;
+    private int mCurrentCharacter;
+
     private bool mIsMouseOver = false;
     private Vector2 mStartDragPosition;
     private static bool mIsQuestPanelAnimating = false;
     private float mThreshold = 500f;
-
-    public bool isFrontPanel;
-
-    public GameObject cameraRig;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -27,7 +36,10 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Start is called before the first frame update
     void Start()
     {
+        mAvailableCharacters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, 1);
         
+        mCurrentCharacter = characterOffset;
+        SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }
 
     // Update is called once per frame
@@ -86,9 +98,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         for (int i = 0; i < allPanels.Length; ++i)
             allPanels[i].isFrontPanel = !allPanels[i].isFrontPanel;
 
-        string newRandomModel = PrefabManager.instance.characterPrefabs[Random.Range(0, PrefabManager.instance.characterPrefabs.Length)].name;
-
-        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(newRandomModel);
+        mCurrentCharacter = (mCurrentCharacter + 2) % mAvailableCharacters.Count;
+        SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }
 
     void LateUpdate()
@@ -120,5 +131,13 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             StartCoroutine(FlyToPosition(Vector3.zero, false));
         }
+    }
+
+    public void SetupForCharacter(CharacterData characterData)
+    {
+        nameLabel.text = characterData.characterName + "   <color=#AAAAAA>" + characterData.age.ToString() + "</color>";
+        taglineLabel.text = characterData.tagline;
+
+        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData.model);
     }
 }

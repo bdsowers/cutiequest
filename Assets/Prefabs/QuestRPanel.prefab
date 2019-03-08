@@ -446,6 +446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de38d6b4e2087274a9453dfddb3d0a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFrontPanel: 0
+  cameraRig: {fileID: 0}
+  nameLabel: {fileID: 8939921601630574655}
+  taglineLabel: {fileID: 8939921600814767380}
 --- !u!222 &1536193944
 CanvasRenderer:
   m_ObjectHideFlags: 0

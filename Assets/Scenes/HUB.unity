@@ -1065,6 +1065,11 @@ PrefabInstance:
       propertyPath: cameraRig
       value: 
       objectReference: {fileID: 266954225}
+    - target: {fileID: 1554814688739111232, guid: a4f9d751ae4855d498bad3369baa4e32,
+        type: 3}
+      propertyPath: characterOffset
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f9d751ae4855d498bad3369baa4e32, type: 3}
 --- !u!224 &362501445 stripped
@@ -2471,6 +2476,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730660033}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &737141390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5940583348516570664, guid: 20d9e1181388fe14bb9d821825adaaee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1949433070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &737141391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737141390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba46f7d8c3ca0b4c8d2cb99b7df2758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData:
+  - {fileID: 11400000, guid: 9bb9d1f4a74cccb4c8d6c684c5b8d8d0, type: 2}
+  - {fileID: 11400000, guid: c30e426ea5f362e41ab0da573b5ad657, type: 2}
+  - {fileID: 11400000, guid: 5e2fa7955aa4aed4faee82c455b7d910, type: 2}
+  - {fileID: 11400000, guid: ada4b820018f1b14f925b2f2761dddf2, type: 2}
+  - {fileID: 11400000, guid: 6299e84d47723c944bcec5b9ed80acda, type: 2}
 --- !u!1 &749127738
 GameObject:
   m_ObjectHideFlags: 0
