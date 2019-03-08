@@ -60,13 +60,13 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (Mathf.Abs(transform.localPosition.x) >= mThreshold)
             {
-                StartCoroutine(FlyToPosition(Mathf.Sign(transform.localPosition.x) * 1500f * Vector3.right, true));
+                StartCoroutine(FlyToPosition(Mathf.Sign(transform.localPosition.x) * 1500f * Vector3.right, true, transform.localPosition.x > 0f));
                 mIsMouseOver = false;
             }
         }
     }
 
-    IEnumerator FlyToPosition(Vector3 endPosition, bool swapAfter)
+    IEnumerator FlyToPosition(Vector3 endPosition, bool swapAfter, bool accepted)
     {
         Vector3 startPosition = transform.localPosition;
         mIsQuestPanelAnimating = true;
@@ -86,13 +86,18 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             Swap();
         }
 
+        if (accepted)
+        {
+            GetComponentInParent<QuestR>().AcceptCharacter(mAvailableCharacters[mCurrentCharacter]);
+        }
+        
         mIsQuestPanelAnimating = false;
         yield break;
     }
 
     void Swap()
     {
-        transform.SetAsFirstSibling();
+        transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
         transform.localPosition = Vector3.zero;
         QuestRPanel[] allPanels = GameObject.FindObjectsOfType<QuestRPanel>();
         for (int i = 0; i < allPanels.Length; ++i)
@@ -129,7 +134,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (isFrontPanel && Mathf.Abs(transform.localPosition.x) < mThreshold)
         {
-            StartCoroutine(FlyToPosition(Vector3.zero, false));
+            StartCoroutine(FlyToPosition(Vector3.zero, false, false));
         }
     }
 
