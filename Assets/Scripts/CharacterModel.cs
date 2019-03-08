@@ -12,6 +12,16 @@ public class CharacterModel : MonoBehaviour
 
     private void Awake()
     {
+        ChangeModel(modelName);
+    }
+
+    public void ChangeModel(string newModelName)
+    {
+        if (transform.childCount > 0)
+            Destroy(transform.GetChild(0).gameObject);
+
+        modelName = newModelName;
+
         GameObject model = GameObject.Instantiate(PrefabManager.instance.PrefabByName(modelName));
         model.transform.SetParent(transform);
         model.transform.localPosition = Vector3.zero;

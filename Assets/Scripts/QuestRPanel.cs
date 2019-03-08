@@ -13,6 +13,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public bool isFrontPanel;
 
+    public GameObject cameraRig;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         
@@ -46,13 +48,13 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             if (Mathf.Abs(transform.localPosition.x) >= mThreshold)
             {
-                StartCoroutine(FlyToPosition(Mathf.Sign(transform.localPosition.x) * 1500f * Vector3.right));
+                StartCoroutine(FlyToPosition(Mathf.Sign(transform.localPosition.x) * 1500f * Vector3.right, true));
                 mIsMouseOver = false;
             }
         }
     }
 
-    IEnumerator FlyToPosition(Vector3 endPosition)
+    IEnumerator FlyToPosition(Vector3 endPosition, bool swapAfter)
     {
         Vector3 startPosition = transform.localPosition;
         mIsQuestPanelAnimating = true;
@@ -67,8 +69,26 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         transform.localPosition = endPosition;
 
+        if (swapAfter)
+        {
+            Swap();
+        }
+
         mIsQuestPanelAnimating = false;
         yield break;
+    }
+
+    void Swap()
+    {
+        transform.SetAsFirstSibling();
+        transform.localPosition = Vector3.zero;
+        QuestRPanel[] allPanels = GameObject.FindObjectsOfType<QuestRPanel>();
+        for (int i = 0; i < allPanels.Length; ++i)
+            allPanels[i].isFrontPanel = !allPanels[i].isFrontPanel;
+
+        string newRandomModel = PrefabManager.instance.characterPrefabs[Random.Range(0, PrefabManager.instance.characterPrefabs.Length)].name;
+
+        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(newRandomModel);
     }
 
     void LateUpdate()
@@ -96,9 +116,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         mIsMouseOver = false;
 
-        if (Mathf.Abs(transform.localPosition.x) < mThreshold)
+        if (isFrontPanel && Mathf.Abs(transform.localPosition.x) < mThreshold)
         {
-            StartCoroutine(FlyToPosition(Vector3.zero));
+            StartCoroutine(FlyToPosition(Vector3.zero, false));
         }
     }
 }
