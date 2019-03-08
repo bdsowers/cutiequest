@@ -10,3 +10,6 @@
 /.vs/*
 *.csproj
 *.sln
+/Assets/AssetPacks/
+/Assets/AssetPacks/*
+/Assets/AssetPacks

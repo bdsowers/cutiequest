@@ -26,7 +26,7 @@ public class LevelGenerator : MonoBehaviour
         mCollisionMap.SetupWithDungeon(mDungeon);
 
         PlaceAvatar();
-        // QQQ PlaceEnemies();
+        PlaceEnemies();
     }
 
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)

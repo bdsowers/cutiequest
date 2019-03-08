@@ -9,6 +9,7 @@ public class SimpleMovement : MonoBehaviour
     public event MoveFinished onMoveFinished;
 
     public GameObject mesh;
+    public GameObject subMesh;
     public List<int> collisionIgnoreList;
     public int collisionIdentity;
 
@@ -102,6 +103,26 @@ public class SimpleMovement : MonoBehaviour
         if (useCollisionMap)
         {
             UpdateCollisionMapForMove(position, targetPosition);
+        }
+
+        if (subMesh != null)
+        {
+            if (direction.x < -0.1f)
+            {
+                subMesh.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
+            }
+            else if (direction.x > 0.1f)
+            {
+                subMesh.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+            }
+            else if (direction.z < -0.1f)
+            {
+                subMesh.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else if (direction.z > 0.1f)
+            {
+                subMesh.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            }
         }
 
         float time = 0f;
