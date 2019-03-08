@@ -7,15 +7,22 @@ public class CharacterModel : MonoBehaviour
     public string modelName;
     public RuntimeAnimatorController animatorController;
 
+    public float scale = 0.5f;
+    public float rotation = 180f;
+
     private void Awake()
     {
         GameObject model = GameObject.Instantiate(PrefabManager.instance.PrefabByName(modelName));
         model.transform.SetParent(transform);
         model.transform.localPosition = Vector3.zero;
-        model.transform.localScale = Vector3.one * 0.5f;
-        model.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+        model.transform.localScale = Vector3.one * scale;
+        model.transform.localRotation = Quaternion.Euler(0f, rotation, 0f);
 
-        GetComponentInParent<SimpleMovement>().subMesh = model;
+        if (GetComponentInParent<SimpleMovement>() != null)
+        {
+            GetComponentInParent<SimpleMovement>().subMesh = model;
+        }
+
         model.GetComponent<Animator>().runtimeAnimatorController = animatorController;
     }
 }
