@@ -92,38 +92,53 @@ public class SimpleMovement : MonoBehaviour
         mCollisionMap.MarkSpace(newCoords.x, -newCoords.y, collisionIdentity);
     }
 
+    public static void OrientToDirection(GameObject subMesh, Vector3 direction)
+    {
+        if (subMesh != null)
+        {
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
+            {
+                if (direction.x < -0.1f)
+                {
+                    subMesh.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
+                }
+                else if (direction.x > 0.1f)
+                {
+                    subMesh.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+                }
+            }
+            else
+            {
+                if (direction.z < -0.1f)
+                {
+                    subMesh.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                }
+                else if (direction.z > 0.1f)
+                {
+                    subMesh.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                }
+            }
+        }
+    }
+
     private IEnumerator MoveCoroutine(Vector3 direction)
     {
         mIsMoving = true;
 
         Vector3 position = transform.position;
         Vector3 targetPosition = transform.position + direction;
-        bool adjustScale = transform.localScale.x > 0.1f;
+        bool adjustScale = transform.localScale.x > 0.9f;
+
+        RevealWhenAvatarIsClose revealComp = GetComponent<RevealWhenAvatarIsClose>();
+        if (revealComp != null)
+            adjustScale = revealComp.fullyRevealed;
 
         if (useCollisionMap)
         {
             UpdateCollisionMapForMove(position, targetPosition);
         }
 
-        if (subMesh != null)
-        {
-            if (direction.x < -0.1f)
-            {
-                subMesh.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
-            }
-            else if (direction.x > 0.1f)
-            {
-                subMesh.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
-            }
-            else if (direction.z < -0.1f)
-            {
-                subMesh.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-            }
-            else if (direction.z > 0.1f)
-            {
-                subMesh.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            }
-        }
+        OrientToDirection(subMesh, direction);
 
         float time = 0f;
         while (time < 1f)
@@ -168,7 +183,7 @@ public class SimpleMovement : MonoBehaviour
         }
 
         transform.position = targetPosition;
-        transform.localScale = Vector3.one;
+        if (adjustScale) transform.localScale = Vector3.one;
         mesh.transform.localRotation = Quaternion.identity;
         mesh.transform.localPosition = mMeshLocalPosition;
 

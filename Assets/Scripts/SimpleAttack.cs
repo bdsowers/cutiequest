@@ -53,6 +53,8 @@ public class SimpleAttack : MonoBehaviour
         if (mIsAttacking)
             yield break;
 
+        SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, direction);
+
         mIsAttacking = true;
         GameObject target = TargetInDirection(direction);
 

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class RevealWhenAvatarIsClose : MonoBehaviour
 {
+    public bool allowScaleVariation = true;
+
     private bool mRevealed = false;
+    private bool mFullyRevealed = false;
+
+    public bool fullyRevealed {  get { return mFullyRevealed; } }
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +48,10 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
 
         Vector3 startScale = Vector3.zero;
         Vector3 targetScale = Vector3.one;
-        targetScale.y = Random.Range(0.9f, 1.2f);
+
+        if (allowScaleVariation)
+            targetScale.y = Random.Range(0.9f, 1.2f);
+
         float overshoot = 0.2f;
         float time = 0f;
         float speed = 3f;
@@ -63,6 +71,8 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
         }
 
         transform.localScale = targetScale;
+
+        mFullyRevealed = true;
 
         yield break;
     }

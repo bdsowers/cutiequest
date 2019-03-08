@@ -34,7 +34,14 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
+        if (mInstance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         mInstance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
