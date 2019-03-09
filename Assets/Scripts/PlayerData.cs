@@ -8,10 +8,11 @@ public class PlayerData
     public event PlayerDataChanged onPlayerDataChanged;
 
     private string mFollowerUid;
-    private int mNumHearts;
-    private int mNumCoins;
-    private int mHealth;
-    private int mMaxHealth;
+    private int mNumHearts = 0;
+    private int mNumCoins = 0;
+    private int mHealth = 10;
+    private int mMaxHealth = 10;
+
     public string followerUid
     {
         get { return mFollowerUid; }
