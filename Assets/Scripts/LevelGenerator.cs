@@ -27,6 +27,7 @@ public class LevelGenerator : MonoBehaviour
 
         PlaceAvatar();
         PlaceEnemies();
+        PlaceHearts();
     }
 
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)
@@ -86,7 +87,11 @@ public class LevelGenerator : MonoBehaviour
 
         // Also place any followers/pets adjacent to the player
         Follower follower = avatar.GetComponent<PlayerController>().follower;
-        follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid).model);
+        string followerId = Game.instance.playerData.followerUid;
+        if (string.IsNullOrEmpty(followerId))
+            followerId = "1";
+        string followerModel = Game.instance.characterDataList.CharacterWithUID(followerId).model;
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(followerModel);
 
         pos = FindEmptyNearbyPosition(pos);
         follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
@@ -94,16 +99,34 @@ public class LevelGenerator : MonoBehaviour
 
     private void PlaceEnemies()
     {
-        List<Vector2Int> walkablePositions = mDungeon.WalkableTilePositions();
+        List<Vector2Int> walkablePositions = mCollisionMap.EmptyPositions();
 
         int numEnemies = 20;
         for (int i = 0; i < numEnemies; ++i)
         {
             GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Enemy"));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
+            walkablePositions.Remove(pos2);
             Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
             newEnemy.transform.position = pos;
             mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
+        }
+    }
+
+    private void PlaceHearts()
+    {
+        List<Vector2Int> walkablePositions = mCollisionMap.EmptyPositions();
+
+        int numHearts = 5;
+        for (int i = 0; i < numHearts; ++i)
+        {
+            GameObject newHeart = GameObject.Instantiate(PrefabManager.instance.PrefabByName("CollectableHeart"));
+            Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
+            walkablePositions.Remove(pos2);
+            Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+            newHeart.transform.position = pos;
+            
+            // Don't mark these on the collision map - entities can walk through them freely
         }
     }
 

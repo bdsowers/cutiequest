@@ -37,4 +37,20 @@ public class CollisionMap : MonoBehaviour
     {
         return mMap[x, y];
     }
+
+    public List<Vector2Int> EmptyPositions()
+    {
+        List<Vector2Int> positions = new List<Vector2Int>();
+        for (int x = 0; x < mMap.GetLength(0); ++x)
+        {
+            for (int y = 0; y < mMap.GetLength(1); ++y)
+            {
+                if (mMap[x,y] == 0)
+                {
+                    positions.Add(new Vector2Int(x, y));
+                }
+            }
+        }
+        return positions;
+    }
 }
