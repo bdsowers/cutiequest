@@ -191,6 +191,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126661594}
   m_CullTransparentMesh: 0
+--- !u!1 &139921316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4960390746840219058, guid: 4dcbc591e37a43d44a82ee2de759feb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4960390747163169727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &139921319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139921316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  defense: 1
+  magic: 1
+  speed: 1
+  luck: 1
 --- !u!1 &140335253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1181,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4960390747163169727}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 139921316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc1516ed8cec32840855e36b0b5812fc, type: 3}
@@ -1618,7 +1641,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 49868d0ce442f7d448d43304b70c9b7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51cb90c134011bb4e8076c700111c1e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2323,6 +2346,11 @@ PrefabInstance:
       propertyPath: follower
       value: 
       objectReference: {fileID: 859844111}
+    - target: {fileID: 1834469179357335505, guid: 0ea2087e9986ddc4399215f98e25fe59,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea2087e9986ddc4399215f98e25fe59, type: 3}
 --- !u!1001 &5940583349232495583

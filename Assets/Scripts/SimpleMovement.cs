@@ -17,6 +17,7 @@ public class SimpleMovement : MonoBehaviour
 
     private Vector3 mMeshLocalPosition;
     private CollisionMap mCollisionMap;
+    private CharacterStatistics mCharacterStatistics;
 
     public bool isMoving
     {
@@ -30,6 +31,7 @@ public class SimpleMovement : MonoBehaviour
 
     private void Start()
     {
+        mCharacterStatistics = GetComponent<CharacterStatistics>();
         mMeshLocalPosition = mesh.transform.localPosition;
 
         // todo bdsowers - there's a better way to do this...
@@ -140,11 +142,13 @@ public class SimpleMovement : MonoBehaviour
 
         OrientToDirection(subMesh, direction);
 
+        float speedMultiplier = 1f + mCharacterStatistics.ModifiedStatValue(CharacterStatType.Speed) / 10f;
+
         float time = 0f;
         while (time < 1f)
         {
             transform.position = Vector3.Lerp(position, targetPosition, time);
-            time += Time.deltaTime * 3f;
+            time += Time.deltaTime * 3f * speedMultiplier;
 
             float bounceY = (time > 0.5 ? 1f - time : time);
             bounceY *= bounceY;
