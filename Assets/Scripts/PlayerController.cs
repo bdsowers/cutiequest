@@ -61,23 +61,28 @@ public class PlayerController : MonoBehaviour
         mTurnBasedMovement.TurnFinished();
     }
 
+    private void CastSpellIfPossible()
+    {
+        Spell spell = GetComponentInChildren<Spell>();
+        if (spell != null && spell.canActivate)
+        {
+            spell.Activate(gameObject);
+        }
+
+        spell = follower.GetComponentInChildren<Spell>();
+        if (spell != null && spell.canActivate)
+        {
+            spell.Activate(gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         // todo bdsowers - these need to be queued up for when the player movement ends
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Spell spell = GetComponentInChildren<Spell>();
-            if (spell != null)
-            {
-                spell.Activate(gameObject);
-            }
-
-            spell = follower.GetComponentInChildren<Spell>();
-            if (spell != null)
-            {
-                spell.Activate(gameObject);
-            }
+            CastSpellIfPossible();
         }
 
         if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)

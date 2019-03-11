@@ -35,6 +35,22 @@ public class ExternalCharacterStatistics : CharacterStatistics
             }
         }
 
+        PlayerController pc = GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            // Apply relevant character stat boost
+            if (Game.instance.playerData.followerUid != null)
+            {
+                CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
+                Debug.Log(followerData.statBoost);
+                if (followerData.statBoost == statType)
+                {
+                    value += followerData.statBoostAmount;
+                    Debug.Log(followerData.statBoostAmount);
+                }
+            }
+        }
+
         return value;
     }
 }

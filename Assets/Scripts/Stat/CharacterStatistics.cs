@@ -71,7 +71,21 @@ public class CharacterStatistics : MonoBehaviour
                 value = modifiers[i].modification;
             }
         }
-        
+
+        PlayerController pc = GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            // Apply relevant character stat boost
+            if (Game.instance.playerData.followerUid != null)
+            {
+                CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
+                if (followerData.statBoost == statType)
+                {
+                    value += followerData.statBoostAmount;
+                }
+            }
+        }
+
         return value;
     }
 }

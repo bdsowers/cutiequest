@@ -12,8 +12,21 @@ public class Spell : MonoBehaviour
         get { return mCooldownTimer <= 0f; }
     }
 
+    public float cooldownTimer
+    {
+        get { return mCooldownTimer; }
+    }
+
     public virtual void Activate(GameObject caster)
     {
         mCooldownTimer = cooldown;
+    }
+
+    private void Update()
+    {
+        if (mCooldownTimer >= 0)
+        {
+            mCooldownTimer -= Time.deltaTime;
+        }
     }
 }

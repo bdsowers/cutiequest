@@ -18,7 +18,7 @@ MonoBehaviour:
   age: 30
   tagline: I like to swing swords and dance, dance, dance.
   levelRequirement: 1
-  ability: 1
+  spell: {fileID: 0}
   quirk: 0
-  statBoost: 0
+  statBoost: 5
   statBoostAmount: 1

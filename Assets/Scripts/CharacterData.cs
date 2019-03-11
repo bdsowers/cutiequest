@@ -9,15 +9,6 @@ public enum CharacterQuirk
     ShortSighted,
 }
 
-public enum CharacterPassiveStatBoost
-{
-    Strength,
-    Speed,
-    Defense,
-    Magic,
-    Luck,
-}
-
 [CreateAssetMenu(fileName = "Character", menuName = "CutieQuest")]
 public class CharacterData : ScriptableObject
 {
@@ -31,6 +22,6 @@ public class CharacterData : ScriptableObject
 
     public Spell spell;
     public CharacterQuirk quirk;
-    public CharacterPassiveStatBoost statBoost;
+    public CharacterStatType statBoost;
     public int statBoostAmount;
 }

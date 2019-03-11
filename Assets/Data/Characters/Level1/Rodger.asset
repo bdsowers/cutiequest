@@ -20,5 +20,5 @@ MonoBehaviour:
   levelRequirement: 1
   spell: {fileID: 7642233172062837188, guid: 092b1b48b10d1094eb260428b302de54, type: 3}
   quirk: 2
-  statBoost: 1
+  statBoost: 4
   statBoostAmount: 1

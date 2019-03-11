@@ -18,7 +18,7 @@ MonoBehaviour:
   age: 25
   tagline: If I were a cat lady, would you swipe right meow?
   levelRequirement: 1
-  ability: 4
+  spell: {fileID: 0}
   quirk: 0
-  statBoost: 4
+  statBoost: 1
   statBoostAmount: 1
