@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
+    private ExternalCharacterStatistics mCharacterStats;
 
     // Start is called before the first frame update
     void Start()
     {
+        mCharacterStats = GetComponent<ExternalCharacterStatistics>();
+        mCharacterStats.externalReference = Game.instance.playerStats;
+
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
@@ -67,14 +71,21 @@ public class PlayerController : MonoBehaviour
 
         if (intendedDirection.magnitude > 0.8f)
         {
-            if (mSimpleAttack.CanAttack(intendedDirection))
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                mSimpleAttack.Attack(intendedDirection);
+                SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
             }
-            else if (mSimpleMovement.CanMove(intendedDirection))
+            else
             {
-                mSimpleMovement.Move(intendedDirection);
-                MoveFollower(followerDirection);
+                if (mSimpleAttack.CanAttack(intendedDirection))
+                {
+                    mSimpleAttack.Attack(intendedDirection);
+                }
+                else if (mSimpleMovement.CanMove(intendedDirection))
+                {
+                    mSimpleMovement.Move(intendedDirection);
+                    MoveFollower(followerDirection);
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ public class HUD : MonoBehaviour
 
     private void OnPlayerDataChanged(PlayerData newData)
     {
-        healthBar.SetWithValues(0, newData.maxHealth, newData.health);
+        healthBar.SetWithValues(0, Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth), newData.health);
     }
 
     private void Update()

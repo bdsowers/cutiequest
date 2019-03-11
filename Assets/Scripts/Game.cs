@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
 
     private GameObject mAvatar;
     private PlayerData mPlayerData = new PlayerData();
+    private CharacterStatistics mPlayerStats;
 
     public static Game instance
     {
@@ -28,6 +29,8 @@ public class Game : MonoBehaviour
     }
 
     public PlayerData playerData { get { return mPlayerData; } }
+    public CharacterStatistics playerStats {  get { return mPlayerStats; } }
+
     public CharacterDataList characterDataList
     {
         get
@@ -52,6 +55,8 @@ public class Game : MonoBehaviour
 
         mInstance = this;
         DontDestroyOnLoad(gameObject);
+
+        mPlayerStats = GameObject.FindObjectOfType<CharacterStatistics>();
     }
 
     // Start is called before the first frame update

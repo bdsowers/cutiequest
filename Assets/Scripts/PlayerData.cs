@@ -11,8 +11,7 @@ public class PlayerData
     private int mNumHearts = 0;
     private int mNumCoins = 0;
     private int mHealth = 10;
-    private int mMaxHealth = 10;
-
+    
     public string followerUid
     {
         get { return mFollowerUid; }
@@ -49,20 +48,6 @@ public class PlayerData
             if (mNumCoins != value)
             {
                 mNumCoins = value;
-
-                MarkDirty();
-            }
-        }
-    }
-
-    public int maxHealth
-    {
-        get { return mMaxHealth; }
-        set
-        {
-            if (mMaxHealth != value)
-            {
-                mMaxHealth = value;
 
                 MarkDirty();
             }

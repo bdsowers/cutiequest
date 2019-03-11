@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum CharacterStatType
 {
+    MaxHealth,
     Strength,
     Defense,
     Magic,
@@ -13,30 +14,44 @@ public enum CharacterStatType
 
 public class CharacterStatistics : MonoBehaviour
 {
-    public int strength;
-    public int defense;
-    public int magic;
-    public int speed;
-    public int luck;
+    [SerializeField]
+    private int _maxHealth;
+
+    [SerializeField]
+    private int _strength;
+
+    [SerializeField]
+    private int _defense;
+
+    [SerializeField]
+    private int _magic;
+
+    [SerializeField]
+    private int _speed;
+
+    [SerializeField]
+    private int _luck;
 
     /// <summary>
     /// Returns a stat value including all equipment, perks, bonuses, etc that may apply.
     /// </summary>
     /// <param name="statType"></param>
     /// <returns></returns>
-    public int ModifiedStatValue(CharacterStatType statType)
+    public virtual int ModifiedStatValue(CharacterStatType statType)
     {
         int value = 0;
-        if (statType == CharacterStatType.Strength)
-            value = strength;
+        if (statType == CharacterStatType.MaxHealth)
+            value = _maxHealth;
+        else if (statType == CharacterStatType.Strength)
+            value = _strength;
         else if (statType == CharacterStatType.Defense)
-            value = defense;
+            value = _defense;
         else if (statType == CharacterStatType.Magic)
-            value = magic;
+            value = _magic;
         else if (statType == CharacterStatType.Speed)
-            value = speed;
+            value = _speed;
         else
-            value = luck;
+            value = _luck;
 
         return value;
     }
