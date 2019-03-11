@@ -7,7 +7,7 @@ public class CharacterStatModifier : MonoBehaviour
     private CharacterStatType mStatType;
     private int mRelativeModification = -1;
     private int mAbsoluteModification = -1;
-
+    
     public CharacterStatType statType
     {
         get { return mStatType; }
@@ -20,7 +20,7 @@ public class CharacterStatModifier : MonoBehaviour
 
     public bool isAbsolute { get { return mAbsoluteModification != -1; } }
     public bool isRelative {  get { return mRelativeModification != -1; } }
-
+    
     public void SetRelativeModification(CharacterStatType statType, int modification)
     {
         mStatType = statType;

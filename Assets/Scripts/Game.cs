@@ -29,7 +29,21 @@ public class Game : MonoBehaviour
     }
 
     public PlayerData playerData { get { return mPlayerData; } }
+
     public CharacterStatistics playerStats {  get { return mPlayerStats; } }
+
+    public CharacterData followerData
+    {
+        get
+        {
+            if (playerData.followerUid != null)
+            {
+                return characterDataList.CharacterWithUID(playerData.followerUid);
+            }
+
+            return null;
+        }
+    }
 
     public CharacterDataList characterDataList
     {

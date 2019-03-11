@@ -17,22 +17,35 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Roadmap
-### CORE
-* Taming Rod mechanic to tame new pets
-* Cutie & Pet actions
+### MVP Feature List
+* Follower quirk support
+* Dungeon levels & risk/reward mechanism
+* At least 5 levels of followers
+* 10 unique spells w/varying levels
+* 10 unique quirks
+* 10 unique enemies
+* HUB - permanent upgrade shop
+* Collectable coins
+* In-dungeon shops w/temporary boosts
+* Intro w/basic tutorials
+* 3 biomes w/unique boss each
+* Final boss
 
-### ONBOARDING
-* Intro w/basic tutorial
+### MVP Secondary Requirements
+* Improved QuestR interface that shows more
+* Improved title screen
+* Death screen
+* Game complete sequence
+* Improved map
+* HUB revamp
 
-### ADVANCEMENT
-* Basic currency - doesn't leave dungeon
-* Heart currency - reset each run
-* Leveling
-
-### EXTRA
-* Fancy treasure chests
-* Height variations?
+### MVP Background Feature List
+* Saving / loading
 * InControl controller support
+
+### Wishlist
+* Pets
+* Follower bios / humor info
 
 #### FINISHED
 * ~~Enemy turns; speed~~
