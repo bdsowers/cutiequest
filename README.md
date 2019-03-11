@@ -24,11 +24,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### ONBOARDING
 * Intro w/basic tutorial
 
-### QUALITY OF LIFE
-* Map
-
 ### ADVANCEMENT
-* Basic currency
+* Basic currency - doesn't leave dungeon
 * Heart currency - reset each run
 * Leveling
 
@@ -45,3 +42,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Title~~
 * ~~HUB~~
 * ~~Tinder-esque swipe mechanic to get new Cuties~~
+* ~~Map~~

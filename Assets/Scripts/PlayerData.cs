@@ -7,7 +7,7 @@ public class PlayerData
     public delegate void PlayerDataChanged(PlayerData newData);
     public event PlayerDataChanged onPlayerDataChanged;
 
-    private string mFollowerUid;
+    private string mFollowerUid = "1";
     private int mNumHearts = 0;
     private int mNumCoins = 0;
     private int mHealth = 10;

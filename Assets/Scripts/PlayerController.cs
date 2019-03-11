@@ -24,6 +24,31 @@ public class PlayerController : MonoBehaviour
         mTurnBasedMovement.ActivateTurnMovement();
         mSimpleMovement.onMoveFinished += OnMoveFinished;
         mSimpleAttack.onAttackFinished += OnAttackFinished;
+
+        OnFollowerChanged();
+    }
+
+    void OnFollowerChanged()
+    {
+        AttachFollowerSpell();
+    }
+
+    private void AttachFollowerSpell()
+    {
+        Spell oldSpell = GetComponentInChildren<Spell>();
+        if (oldSpell != null)
+        {
+            Destroy(oldSpell.gameObject);
+        }
+
+        if (Game.instance.playerData.followerUid != null)
+        {
+            CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
+            if (followerData.spell != null)
+            {
+                GameObject spell = GameObject.Instantiate(followerData.spell.gameObject, transform);
+            }
+        }
     }
 
     private void OnAttackFinished(GameObject attacker, GameObject target)
@@ -39,6 +64,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // todo bdsowers - these need to be queued up for when the player movement ends
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Spell spell = GetComponentInChildren<Spell>();
+            if (spell != null)
+            {
+                spell.Activate(gameObject);
+            }
+
+            spell = follower.GetComponentInChildren<Spell>();
+            if (spell != null)
+            {
+                spell.Activate(gameObject);
+            }
+        }
+
         if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)
             return;
 

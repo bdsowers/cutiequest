@@ -18,7 +18,7 @@ MonoBehaviour:
   age: 102
   tagline: Definitely not undead and not still living with my mom.
   levelRequirement: 1
-  ability: 3
+  spell: {fileID: 7642233172062837188, guid: 092b1b48b10d1094eb260428b302de54, type: 3}
   quirk: 2
   statBoost: 1
   statBoostAmount: 1

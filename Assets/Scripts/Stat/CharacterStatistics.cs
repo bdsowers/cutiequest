@@ -53,6 +53,25 @@ public class CharacterStatistics : MonoBehaviour
         else
             value = _luck;
 
+        CharacterStatModifier[] modifiers = GetComponentsInChildren<CharacterStatModifier>();
+
+        // Absolute modifications take preference over relative ones
+        for (int i = 0; i < modifiers.Length; ++i)
+        {
+            if (modifiers[i].statType == statType && modifiers[i].isRelative)
+            {
+                value += modifiers[i].modification;
+            }
+        }
+
+        for (int i = 0; i < modifiers.Length; ++i)
+        {
+            if (modifiers[i].statType == statType && modifiers[i].isAbsolute)
+            {
+                value = modifiers[i].modification;
+            }
+        }
+        
         return value;
     }
 }

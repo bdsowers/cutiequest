@@ -18,7 +18,7 @@ MonoBehaviour:
   age: 20
   tagline: Swipe right to find your soul mate.
   levelRequirement: 1
-  ability: 2
+  spell: {fileID: 7642233172062837188, guid: 092b1b48b10d1094eb260428b302de54, type: 3}
   quirk: 1
   statBoost: 3
   statBoostAmount: 1

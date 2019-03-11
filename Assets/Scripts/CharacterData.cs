@@ -2,15 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CharacterAbility
-{
-    Fireball,
-    Berserk,
-    IceBlast,
-    Haste,
-    MinorHealing,
-}
-
 public enum CharacterQuirk
 {
     Boring,
@@ -38,7 +29,7 @@ public class CharacterData : ScriptableObject
 
     public int levelRequirement;
 
-    public CharacterAbility ability;
+    public Spell spell;
     public CharacterQuirk quirk;
     public CharacterPassiveStatBoost statBoost;
     public int statBoostAmount;
