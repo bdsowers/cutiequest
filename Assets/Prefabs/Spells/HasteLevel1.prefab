@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 20
+  icon: {fileID: 21300000, guid: 51cb90c134011bb4e8076c700111c1e6, type: 3}
   speedModifier: 5
   duration: 5

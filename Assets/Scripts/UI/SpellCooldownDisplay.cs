@@ -22,6 +22,8 @@ public class SpellCooldownDisplay : MonoBehaviour
     {
         Spell spell = Game.instance.avatar.GetComponentInChildren<Spell>();
 
+        icon.sprite = spell.icon;
+
         inactiveBackground.SetActive(!spell.canActivate);
         activeBackground.SetActive(spell.canActivate);
         cooldownOverlay.gameObject.SetActive(!spell.canActivate);

@@ -7,6 +7,8 @@ public class Spell : MonoBehaviour
     public float cooldown;
     private float mCooldownTimer;
 
+    public Sprite icon;
+
     public bool canActivate
     {
         get { return mCooldownTimer <= 0f; }
