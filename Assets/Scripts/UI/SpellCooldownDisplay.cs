@@ -21,6 +21,8 @@ public class SpellCooldownDisplay : MonoBehaviour
     void Update()
     {
         Spell spell = Game.instance.avatar.GetComponentInChildren<Spell>();
+        if (spell == null)
+            return;
 
         icon.sprite = spell.icon;
 

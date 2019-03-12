@@ -70,7 +70,7 @@ public class Game : MonoBehaviour
         mInstance = this;
         DontDestroyOnLoad(gameObject);
 
-        mPlayerStats = GameObject.FindObjectOfType<CharacterStatistics>();
+        mPlayerStats = GetComponentInChildren<CharacterStatistics>();
     }
 
     // Start is called before the first frame update

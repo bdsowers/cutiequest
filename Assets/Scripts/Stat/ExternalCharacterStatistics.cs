@@ -14,6 +14,12 @@ public class ExternalCharacterStatistics : CharacterStatistics
 
     public override int ModifiedStatValue(CharacterStatType statType)
     {
+        if (externalReference == this)
+        {
+            Debug.Log("!!!");
+            return 1;
+        }
+
         int value = externalReference.ModifiedStatValue(statType);
 
         CharacterStatModifier[] modifiers = GetComponentsInChildren<CharacterStatModifier>();

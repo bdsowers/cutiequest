@@ -142,7 +142,9 @@ public class SimpleMovement : MonoBehaviour
 
         OrientToDirection(subMesh, direction);
 
-        float speedMultiplier = 1f + mCharacterStatistics.ModifiedStatValue(CharacterStatType.Speed) / 10f;
+        float speedMultiplier = 1f;
+        if (mCharacterStatistics != null)
+            speedMultiplier = 1f + mCharacterStatistics.ModifiedStatValue(CharacterStatType.Speed) / 10f;
 
         float time = 0f;
         while (time < 1f)

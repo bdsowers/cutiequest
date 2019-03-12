@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 5795509673542071334}
   - component: {fileID: 4234732941567524386}
   - component: {fileID: 1099098404}
-  - component: {fileID: 1834469179357335505}
+  - component: {fileID: 1073741718900896955}
   m_Layer: 9
   m_Name: Avatar
   m_TagString: Untagged
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
---- !u!114 &1834469179357335505
+--- !u!114 &1073741718900896955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,12 +176,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5795509673542071330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
+  m_Script: {fileID: 11500000, guid: 944966528cfe88843ba4d8f1703fa39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  strength: 1
-  defense: 1
-  magic: 1
-  speed: 1
-  luck: 1
+  _maxHealth: 0
+  _strength: 0
+  _defense: 0
+  _magic: 0
+  _speed: 0
+  _luck: 0
