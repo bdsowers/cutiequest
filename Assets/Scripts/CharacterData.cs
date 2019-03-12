@@ -9,7 +9,7 @@ public enum CharacterQuirk
     ShortSighted,
 }
 
-[CreateAssetMenu(fileName = "Character", menuName = "CutieQuest")]
+[CreateAssetMenu(fileName = "Character", menuName = "CutieQuest/CharacterData")]
 public class CharacterData : ScriptableObject
 {
     public string characterName;
