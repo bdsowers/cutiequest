@@ -104,7 +104,8 @@ public class LevelGenerator : MonoBehaviour
         int numEnemies = 20;
         for (int i = 0; i < numEnemies; ++i)
         {
-            GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Enemy"));
+            string enemy = Random.Range(0, 2) == 1 ? "Skeleton" : "Goblin";
+            GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
             Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
