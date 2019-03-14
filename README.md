@@ -37,7 +37,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Death screen
 * Game complete sequence
 * Improved map
-* HUB revamp
 
 ### MVP Background Feature List
 * Saving / loading
@@ -61,6 +60,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~HUB~~
 * ~~Tinder-esque swipe mechanic to get new Cuties~~
 * ~~Map~~
+* ~~HUB revamp~~
 
 ## Content Ideas
 ### Quirks
