@@ -28,6 +28,7 @@ public class LevelGenerator : MonoBehaviour
         PlaceAvatar();
         PlaceEnemies();
         PlaceHearts();
+        PlaceExit();
     }
 
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)
@@ -97,6 +98,17 @@ public class LevelGenerator : MonoBehaviour
         follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
     }
 
+    private void PlaceExit()
+    {
+        Vector2Int pos = mDungeon.primaryPathPositions[mDungeon.primaryPathPositions.Count - 1];
+        pos = FindEmptyNearbyPosition(pos);
+
+        mCollisionMap.MarkSpace(pos.x, pos.y, 99);
+
+        GameObject exit = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Exit"));
+        exit.transform.position = new Vector3(pos.x, 0f, -pos.y);
+    }
+
     private void PlaceEnemies()
     {
         List<Vector2Int> walkablePositions = mCollisionMap.EmptyPositions();
@@ -145,8 +157,8 @@ public class LevelGenerator : MonoBehaviour
         scope1.criticalPathMaxRooms = 6;
 
         RandomDungeonScopeData scope2 = new RandomDungeonScopeData();
-        scope2.criticalPathMinRooms = 6;
-        scope2.criticalPathMaxRooms = 10;
+        scope2.criticalPathMinRooms = 3;
+        scope2.criticalPathMaxRooms = 6;
 
         RandomDungeonScopeData scope3 = new RandomDungeonScopeData();
         scope3.criticalPathMinRooms = 3;
