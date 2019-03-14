@@ -20,7 +20,7 @@ public class DungeonEntrance : MonoBehaviour
     {
         if (other.GetComponentInParent<PlayerController>() != null)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+            Game.instance.transitionManager.TransitionToScreen("SampleScene");
         }
     }
 }

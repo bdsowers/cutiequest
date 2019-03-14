@@ -6,6 +6,6 @@ public class Frontloader : MonoBehaviour
 {
     public void Start()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HUB");
+        Game.instance.transitionManager.TransitionToScreen("HUB");
     }
 }

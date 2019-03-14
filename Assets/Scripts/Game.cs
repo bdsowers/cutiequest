@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     private PlayerData mPlayerData = new PlayerData();
     private CharacterStatistics mPlayerStats;
     private SaveManager mSaveManager;
+    private ScreenTransitionManager mTransitionManager;
 
     public static Game instance
     {
@@ -54,6 +55,14 @@ public class Game : MonoBehaviour
         }
     }
 
+    public ScreenTransitionManager transitionManager
+    {
+        get
+        {
+            return mTransitionManager;
+        }
+
+    }
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
@@ -73,6 +82,7 @@ public class Game : MonoBehaviour
 
         mPlayerStats = GetComponentInChildren<CharacterStatistics>();
         mSaveManager = GetComponent<SaveManager>();
+        mTransitionManager = GetComponentInChildren<ScreenTransitionManager>();
 
         mSaveManager.LoadGame();
 

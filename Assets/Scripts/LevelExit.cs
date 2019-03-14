@@ -20,8 +20,8 @@ public class LevelExit : MonoBehaviour
 
     private void Transition()
     {
-        
+
         // todo bdsowers - indicate movement to the next floor in some fashion; likely on the Game object
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        Game.instance.transitionManager.TransitionToScreen("SampleScene");
     }
 }
