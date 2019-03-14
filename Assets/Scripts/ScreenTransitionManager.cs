@@ -34,8 +34,13 @@ public class ScreenTransitionManager : MonoBehaviour
             StartCoroutine(Drop(entities[i].gameObject));
         }
 
-        yield return new WaitForSeconds(1.75f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSeconds(0.5f);
+
+        Game.instance.avatar.GetComponentInChildren<Animator>().Play("Falling");
+        GameObject.FindObjectOfType<Follower>().gameObject.GetComponentInChildren<Animator>().Play("Falling");
+
+        yield return new WaitForSeconds(0.75f);
+        StartCoroutine(StandardTransition("SampleScene"));
 
         yield break;
     }
