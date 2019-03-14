@@ -26,6 +26,8 @@ public class FillRegion : MonoBehaviour
                 obj.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
             }
         }
+
+        GetComponent<BoxCollider>().enabled = false;
     }
 
     // Update is called once per frame

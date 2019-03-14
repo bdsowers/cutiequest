@@ -16,7 +16,6 @@ public class ExternalCharacterStatistics : CharacterStatistics
     {
         if (externalReference == this)
         {
-            Debug.Log("!!!");
             return 1;
         }
 
@@ -48,11 +47,9 @@ public class ExternalCharacterStatistics : CharacterStatistics
             if (Game.instance.playerData.followerUid != null)
             {
                 CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
-                Debug.Log(followerData.statBoost);
                 if (followerData.statBoost == statType)
                 {
                     value += followerData.statBoostAmount;
-                    Debug.Log(followerData.statBoostAmount);
                 }
             }
         }
