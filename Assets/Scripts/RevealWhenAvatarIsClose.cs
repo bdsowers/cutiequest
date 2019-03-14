@@ -30,7 +30,7 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
         }
     }
 
-    void Reveal()
+    public void Reveal()
     {
         mRevealed = true;
 

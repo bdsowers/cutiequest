@@ -9,16 +9,74 @@ public class ScreenTransitionManager : MonoBehaviour
 
     public void TransitionToScreen(string name)
     {
-        StartCoroutine(StandardTransition(name));
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "SampleScene" &&
+            name == "SampleScene")
+        {
+            StartCoroutine(TransitionToNextDungeonLevel());
+        }
+        else
+        {
+            StartCoroutine(StandardTransition(name));
+        }
     }
 
     private IEnumerator TransitionToNextDungeonLevel()
     {
+        SnapToGround[] snappers = GameObject.FindObjectsOfType<SnapToGround>();
+        for (int i = 0; i < snappers.Length; ++i)
+        {
+            snappers[i].enabled = false;
+        }
+
+        RevealWhenAvatarIsClose[] entities = GameObject.FindObjectsOfType<RevealWhenAvatarIsClose>();
+        for (int i = 0; i < entities.Length; ++i)
+        {
+            StartCoroutine(Drop(entities[i].gameObject));
+        }
+
+        yield return new WaitForSeconds(1.75f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+
         yield break;
     }
 
     private IEnumerator TransitionToFirstDungeonLevel()
     {
+        yield break;
+    }
+
+    private IEnumerator Drop(GameObject obj)
+    {
+        Vector3 current = obj.transform.position;
+        Vector3 target = current + Vector3.down * 45f;
+        Vector3 slightUpward = current + Vector3.up * Random.Range(1f, 2f);
+
+        Vector3 currentScale = obj.transform.localScale;
+
+        float time = -Random.Range(0f, 1f);
+        while (time < 1f)
+        {
+            time += Time.deltaTime * 4f;
+            if (time >= 0f)
+            {
+                obj.transform.position = Vector3.Lerp(current, slightUpward, time);
+            }
+            yield return null;
+        }
+
+        current = obj.transform.position;
+
+        time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * 0.75f;
+            obj.transform.position = Vector3.Lerp(current, target, time);
+            obj.transform.localScale = Vector3.Lerp(currentScale, Vector3.zero, time);
+            yield return null;
+        }
+
+        obj.transform.localScale = Vector3.zero;
+
         yield break;
     }
 
