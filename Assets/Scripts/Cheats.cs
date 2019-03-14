@@ -26,5 +26,11 @@ public class Cheats : MonoBehaviour
                 revealers[i].Reveal();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
+            Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
+        }
     }
 }
