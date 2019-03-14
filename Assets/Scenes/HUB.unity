@@ -4612,12 +4612,12 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraRig
       value: 
-      objectReference: {fileID: 2053253717}
+      objectReference: {fileID: 266954225}
     - target: {fileID: 7366476555076766727, guid: 93f9f8e9337f5b94fbb4d927bf90a1c7,
         type: 3}
       propertyPath: cameraRig
       value: 
-      objectReference: {fileID: 266954225}
+      objectReference: {fileID: 2053253717}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f9f8e9337f5b94fbb4d927bf90a1c7, type: 3}
 --- !u!1001 &955850419
