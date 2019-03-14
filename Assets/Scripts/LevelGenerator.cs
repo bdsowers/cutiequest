@@ -103,10 +103,8 @@ public class LevelGenerator : MonoBehaviour
         Vector2Int pos = mDungeon.primaryPathPositions[mDungeon.primaryPathPositions.Count - 1];
         pos = FindEmptyNearbyPosition(pos);
 
-        mCollisionMap.MarkSpace(pos.x, pos.y, 99);
-
         GameObject exit = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Exit"));
-        exit.transform.position = new Vector3(pos.x, 0f, -pos.y);
+        exit.transform.position = new Vector3(pos.x, 0.4f, -pos.y);
     }
 
     private void PlaceEnemies()
