@@ -12,48 +12,18 @@ public class ExternalCharacterStatistics : CharacterStatistics
         set { mExternalReference = value; }
     }
 
-    public override int ModifiedStatValue(CharacterStatType statType)
+    public override int BaseStatValue(CharacterStatType statType)
     {
-        if (externalReference == this)
-        {
-            return 1;
-        }
+        return externalReference.BaseStatValue(statType);
+    }
 
-        int value = externalReference.ModifiedStatValue(statType);
+    public override void ChangeBaseStat(CharacterStatType statType, int newValue)
+    {
+        externalReference.ChangeBaseStat(statType, newValue);
+    }
 
-        CharacterStatModifier[] modifiers = GetComponentsInChildren<CharacterStatModifier>();
-
-        // Absolute modifications take preference over relative ones
-        for (int i = 0; i < modifiers.Length; ++i)
-        {
-            if (modifiers[i].statType == statType && modifiers[i].isRelative)
-            {
-                value += modifiers[i].modification;
-            }
-        }
-
-        for (int i = 0; i < modifiers.Length; ++i)
-        {
-            if (modifiers[i].statType == statType && modifiers[i].isAbsolute)
-            {
-                value = modifiers[i].modification;
-            }
-        }
-
-        PlayerController pc = GetComponent<PlayerController>();
-        if (pc != null)
-        {
-            // Apply relevant character stat boost
-            if (Game.instance.playerData.followerUid != null)
-            {
-                CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
-                if (followerData.statBoost == statType)
-                {
-                    value += followerData.statBoostAmount;
-                }
-            }
-        }
-
-        return value;
+    public override int ModifiedStatValue(CharacterStatType statType, GameObject entity)
+    {
+        return externalReference.ModifiedStatValue(statType, entity);
     }
 }

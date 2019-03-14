@@ -144,7 +144,7 @@ public class SimpleMovement : MonoBehaviour
 
         float speedMultiplier = 1f;
         if (mCharacterStatistics != null)
-            speedMultiplier = 1f + mCharacterStatistics.ModifiedStatValue(CharacterStatType.Speed) / 10f;
+            speedMultiplier = 1f + mCharacterStatistics.ModifiedStatValue(CharacterStatType.Speed, gameObject) / 10f;
 
         float time = 0f;
         while (time < 1f)

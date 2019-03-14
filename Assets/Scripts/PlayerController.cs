@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         mCharacterStats = GetComponent<ExternalCharacterStatistics>();
         mCharacterStats.externalReference = Game.instance.playerStats;
+        follower.GetComponent<ExternalCharacterStatistics>().externalReference = Game.instance.playerStats;
 
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleMovement = GetComponent<SimpleMovement>();

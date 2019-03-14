@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 4960390746840219057}
   - component: {fileID: 4960390746840219055}
   - component: {fileID: 4960390746840219056}
+  - component: {fileID: 8707221829055260559}
   m_Layer: 9
   m_Name: Follower
   m_TagString: Untagged
@@ -108,3 +109,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1516ed8cec32840855e36b0b5812fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8707221829055260559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960390746840219058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944966528cfe88843ba4d8f1703fa39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 0
+  _strength: 0
+  _defense: 0
+  _magic: 0
+  _speed: 0
+  _luck: 0

@@ -32,12 +32,10 @@ public class CharacterStatistics : MonoBehaviour
     [SerializeField]
     private int _luck;
 
-    /// <summary>
-    /// Returns a stat value including all equipment, perks, bonuses, etc that may apply.
-    /// </summary>
-    /// <param name="statType"></param>
-    /// <returns></returns>
-    public virtual int ModifiedStatValue(CharacterStatType statType)
+    public delegate void CharacterStatisticsChanged(CharacterStatistics stats);
+    public event CharacterStatisticsChanged onCharacterStatisticsChanged;
+
+    public virtual int BaseStatValue(CharacterStatType statType)
     {
         int value = 0;
         if (statType == CharacterStatType.MaxHealth)
@@ -53,8 +51,41 @@ public class CharacterStatistics : MonoBehaviour
         else
             value = _luck;
 
-        CharacterStatModifier[] modifiers = GetComponentsInChildren<CharacterStatModifier>();
+        return value;
+    }
 
+    public virtual void ChangeBaseStat(CharacterStatType statType, int newValue)
+    {
+        if (statType == CharacterStatType.MaxHealth)
+            _maxHealth = newValue;
+        else if (statType == CharacterStatType.Strength)
+            _strength = newValue;
+        else if (statType == CharacterStatType.Defense)
+            _defense = newValue;
+        else if (statType == CharacterStatType.Magic)
+            _magic = newValue;
+        else if (statType == CharacterStatType.Speed)
+            _speed = newValue;
+        else
+            _luck = newValue;
+
+        if (onCharacterStatisticsChanged != null)
+        {
+            onCharacterStatisticsChanged(this);
+        }
+    }
+
+    /// <summary>
+    /// Returns a stat value including all equipment, perks, bonuses, etc that may apply.
+    /// </summary>
+    /// <param name="statType"></param>
+    /// <returns></returns>
+    public virtual int ModifiedStatValue(CharacterStatType statType, GameObject entity)
+    {
+        int value = BaseStatValue(statType);
+       
+        CharacterStatModifier[] modifiers = entity.GetComponentsInChildren<CharacterStatModifier>();
+        
         // Absolute modifications take preference over relative ones
         for (int i = 0; i < modifiers.Length; ++i)
         {
@@ -72,7 +103,7 @@ public class CharacterStatistics : MonoBehaviour
             }
         }
 
-        PlayerController pc = GetComponent<PlayerController>();
+        PlayerController pc = entity.GetComponent<PlayerController>();
         if (pc != null)
         {
             // Apply relevant character stat boost

@@ -11,7 +11,8 @@ public class PlayerData
     private int mNumHearts = 0;
     private int mNumCoins = 0;
     private int mHealth = 10;
-    
+    private int mAttractiveness = 1;
+
     public string followerUid
     {
         get { return mFollowerUid; }
@@ -62,6 +63,20 @@ public class PlayerData
             if (mHealth != value)
             {
                 mHealth = value;
+
+                MarkDirty();
+            }
+        }
+    }
+
+    public int attractiveness
+    {
+        get { return mAttractiveness; }
+        set
+        {
+            if (mAttractiveness != value)
+            {
+                mAttractiveness = value;
 
                 MarkDirty();
             }

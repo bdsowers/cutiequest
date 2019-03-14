@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     private GameObject mAvatar;
     private PlayerData mPlayerData = new PlayerData();
     private CharacterStatistics mPlayerStats;
+    private SaveManager mSaveManager;
 
     public static Game instance
     {
@@ -71,6 +72,22 @@ public class Game : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         mPlayerStats = GetComponentInChildren<CharacterStatistics>();
+        mSaveManager = GetComponent<SaveManager>();
+
+        mSaveManager.LoadGame();
+
+        playerData.onPlayerDataChanged += OnPlayerDataChanged;
+        playerStats.onCharacterStatisticsChanged += OnPlayerStatsChanged;
+    }
+
+    private void OnPlayerStatsChanged(CharacterStatistics stats)
+    {
+        mSaveManager.SaveGame();
+    }
+
+    private void OnPlayerDataChanged(PlayerData newData)
+    {
+        mSaveManager.SaveGame();
     }
 
     // Start is called before the first frame update
