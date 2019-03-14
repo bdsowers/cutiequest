@@ -9,6 +9,7 @@ public class FillRegion : MonoBehaviour
     public Vector2 separation;
     public Vector2 scale;
     public float heightDeviation;
+    public bool randomRotation = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,11 @@ public class FillRegion : MonoBehaviour
                 GameObject obj = GameObject.Instantiate(fillPrefabs.Sample(), transform);
                 obj.transform.localScale = new Vector3(scale.x, 1f, scale.y);
                 obj.transform.localPosition = new Vector3(x, transform.position.y + Random.Range(0f, heightDeviation), z);
-                obj.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+
+                if (randomRotation)
+                {
+                    obj.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+                }
             }
         }
 
