@@ -39,7 +39,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Improved map
 
 ### MVP Background Feature List
-* Saving / loading
 * InControl controller support
 
 ### Polish
@@ -52,6 +51,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Follower bios / humor info
 
 #### FINISHED
+* ~~Saving / loading~~
 * ~~Enemy turns; speed~~
 * ~~Basic attack~~
 * ~~Better initial placement~~
