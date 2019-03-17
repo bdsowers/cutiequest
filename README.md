@@ -37,6 +37,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Death screen
 * Game complete sequence
 * Improved map
+* Traps & Shrines
 
 ### MVP Background Feature List
 * InControl controller support
