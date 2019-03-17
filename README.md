@@ -5,7 +5,12 @@ A rogue-lite made for the 7 Day Roguelike challenge.
 Made with Unity 2018.3.6f1.
 
 ## Notes
-Not everything is available here. In some cases, I'm using assets I don't have the licenses to share. Those are housed elsewhere. All code here is free for you to use according to the MIT license below, but I make no guarantees as to its quality and can in some cases say it's downright terrible. ;)
+Not everything is available here. In some cases, I'm using assets I don't have the licenses to share. Those are housed elsewhere. Here's a list of what I'm using so far that you would need to acquire separately:
+* Synty Polygon MINI Fantasy Characters
+* Synty Adventure Pack
+* InControl2
+
+All code here is free for you to use according to the MIT license below, but I make no guarantees as to its quality and can in some cases say it's downright terrible. ;)
 
 ## License
 Copyright 2019, One Method Monkey LLC
