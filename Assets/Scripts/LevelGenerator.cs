@@ -137,14 +137,38 @@ public class LevelGenerator : MonoBehaviour
         exit.transform.position = new Vector3(pos.x, 0.4f, -pos.y);
     }
 
+    private string ChooseEnemy(DungeonFloorData floorData)
+    {
+        DungeonEnemyData enemyData = floorData.enemyData;
+
+        int randomNum = Random.Range(0, 100);
+        if (randomNum < 50)
+        {
+            return enemyData.commonEnemy.name;
+        }
+        else if (randomNum < 75)
+        {
+            return enemyData.uncommonEnemy.name;
+        }
+        else if (randomNum < 95)
+        {
+            return enemyData.rareEnemy.name;
+        }
+        else
+        {
+            return enemyData.scaryEnemy.name;
+        }
+    }
+
     private void PlaceEnemies()
     {
         List<Vector2Int> walkablePositions = mCollisionMap.EmptyPositions();
+        DungeonFloorData data = CurrentDungeonFloorData();
+        int numEnemies = Random.Range(data.enemyData.minEnemies, data.enemyData.maxEnemies);
 
-        int numEnemies = 20;
         for (int i = 0; i < numEnemies; ++i)
         {
-            string enemy = Random.Range(0, 2) == 1 ? "Skeleton" : "Goblin";
+            string enemy = ChooseEnemy(data);
             GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
@@ -171,30 +195,19 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    private DungeonFloorData CurrentDungeonFloorData()
+    {
+        DungeonData dungeonData = Game.instance.currentDungeonData;
+        int floorIndex = Game.instance.currentDungeonFloor - 1;
+        floorIndex = Mathf.Min(floorIndex, dungeonData.floorData.Length - 1);
+        return dungeonData.floorData[floorIndex];
+    }
+
     private RandomDungeonGenerationData DungeonGenerationData()
     {
-        RandomDungeonGenerationData data = new RandomDungeonGenerationData();
-        data.enforceTwoTileHighWalls = false;
-        data.fillEmptyCellsWithWalls = false;
+        DungeonFloorData floorData = CurrentDungeonFloorData();
+        RandomDungeonGenerationData data = floorData.generationData;
         data.randomSeed = Random.Range(int.MinValue, int.MaxValue);
-        data.numExtraRoomsPlacedBeforeSpecialRooms = 10;
-        data.numExtraRoomsPlacedAfterSpecialRooms = 20;
-
-        RandomDungeonScopeData scope1 = new RandomDungeonScopeData();
-        scope1.criticalPathMinRooms = 3;
-        scope1.criticalPathMaxRooms = 6;
-
-        RandomDungeonScopeData scope2 = new RandomDungeonScopeData();
-        scope2.criticalPathMinRooms = 3;
-        scope2.criticalPathMaxRooms = 6;
-
-        RandomDungeonScopeData scope3 = new RandomDungeonScopeData();
-        scope3.criticalPathMinRooms = 3;
-        scope3.criticalPathMaxRooms = 6;
-
-        RandomDungeonScopeData[] scopes = new RandomDungeonScopeData[] { scope1, scope2, scope3 };
-        data.scopeData = scopes;
-
         return data;
     }
 }

@@ -17,28 +17,94 @@ MonoBehaviour:
     generationData:
       randomSeed: 0
       scopeData:
-      - criticalPathMinRooms: 3
-        criticalPathMaxRooms: 6
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
-      - criticalPathMinRooms: 3
-        criticalPathMaxRooms: 6
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
-      - criticalPathMinRooms: 3
-        criticalPathMaxRooms: 6
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 0
-      numExtraRoomsPlacedBeforeSpecialRooms: 10
-      numExtraRoomsPlacedAfterSpecialRooms: 20
+      numExtraRoomsPlacedBeforeSpecialRooms: 5
+      numExtraRoomsPlacedAfterSpecialRooms: 10
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
       minEnemies: 10
       maxEnemies: 15
       commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+  - roomSet: roomset6
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 8
+      numExtraRoomsPlacedAfterSpecialRooms: 15
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 15
+      maxEnemies: 20
+      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+  - roomSet: roomset6
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 8
+      numExtraRoomsPlacedAfterSpecialRooms: 15
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 15
+      maxEnemies: 20
+      commonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}

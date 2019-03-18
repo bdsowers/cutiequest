@@ -1755,6 +1755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a14df281ff4e614f84d9085ad735e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dungeonData: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441, type: 2}
 --- !u!65 &301101098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2915,7 +2916,7 @@ PrefabInstance:
     - target: {fileID: 4960390746840219057, guid: 4dcbc591e37a43d44a82ee2de759feb9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 4960390746840219057, guid: 4dcbc591e37a43d44a82ee2de759feb9,
         type: 3}
@@ -2925,7 +2926,7 @@ PrefabInstance:
     - target: {fileID: 4960390746840219057, guid: 4dcbc591e37a43d44a82ee2de759feb9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4960390746840219057, guid: 4dcbc591e37a43d44a82ee2de759feb9,
         type: 3}
@@ -11331,7 +11332,7 @@ PrefabInstance:
     - target: {fileID: 5795509673542071333, guid: 0ea2087e9986ddc4399215f98e25fe59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 5795509673542071333, guid: 0ea2087e9986ddc4399215f98e25fe59,
         type: 3}

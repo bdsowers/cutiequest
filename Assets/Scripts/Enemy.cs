@@ -109,11 +109,21 @@ public class Enemy : MonoBehaviour
         return direction.normalized;
     }
 
-    private void UpdateAI()
+    private bool CanUpdateAI()
     {
         if (!Game.instance.avatar.isAlive)
-            return;
+            return false;
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return false;
+        if (Game.instance.transitionManager.isTransitioning)
+            return false;
+
+        return true;
+    }
+
+    private void UpdateAI()
+    {
+        if (!CanUpdateAI())
             return;
 
         Vector3 direction = OrthogonalDirection(transform, Game.instance.avatar.transform, true);

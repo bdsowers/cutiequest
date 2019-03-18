@@ -204,9 +204,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinDropData:
-  - rate: 100
+  - rate: 10
+    amount: 10
+  - rate: 50
     amount: 5
-  heartDropData: []
+  - rate: 100
+    amount: 1
+  heartDropData:
+  - rate: 50
+    amount: 1
 --- !u!1 &2738750450637018143
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,8 @@ public class LevelExit : MonoBehaviour
 
     private void Transition()
     {
+        Game.instance.currentDungeonFloor++;
 
-        // todo bdsowers - indicate movement to the next floor in some fashion; likely on the Game object
         Game.instance.transitionManager.TransitionToScreen("Dungeon");
     }
 }

@@ -14,6 +14,12 @@ public class Game : MonoBehaviour
     private CinematicDirector mCinematicDirector;
     private CinematicDataProvider mCinematicDataProvider;
 
+    private DungeonData mCurrentDungeonData;
+    private int mCurrentDungeonFloor;
+
+    // Used only for dev purposes so we can start on the Dungeon scene.
+    public DungeonData defaultDungeonData;
+
     public static Game instance
     {
         get { return mInstance; }
@@ -92,6 +98,25 @@ public class Game : MonoBehaviour
         get { return true; }
     }
 
+    public DungeonData currentDungeonData
+    {
+        get { return mCurrentDungeonData; }
+    }
+
+    public int currentDungeonFloor
+    {
+        get { return mCurrentDungeonFloor; }
+        set { mCurrentDungeonFloor = value; }
+    }
+
+    public void EnterDungeon(DungeonData dungeonData)
+    {
+        Game.instance.playerData.numHearts = 0;
+
+        mCurrentDungeonData = dungeonData;
+        mCurrentDungeonFloor = 1;
+    }
+
     private void Awake()
     {
         if (mInstance != null)
@@ -128,7 +153,8 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        mCurrentDungeonData = defaultDungeonData;
+        mCurrentDungeonFloor = 1;
     }
 
     // Update is called once per frame

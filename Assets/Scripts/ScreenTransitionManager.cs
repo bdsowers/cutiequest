@@ -7,6 +7,8 @@ public class ScreenTransitionManager : MonoBehaviour
 {
     public Image fullScreenQuad;
 
+    public bool isTransitioning { get; private set; }
+
     public void TransitionToScreen(string name)
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon" &&
@@ -22,6 +24,8 @@ public class ScreenTransitionManager : MonoBehaviour
 
     private IEnumerator TransitionToNextDungeonLevel()
     {
+        isTransitioning = true;
+
         SnapToGround[] snappers = GameObject.FindObjectsOfType<SnapToGround>();
         for (int i = 0; i < snappers.Length; ++i)
         {
@@ -42,6 +46,7 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         StartCoroutine(StandardTransition("Dungeon"));
 
+        // Purposefully not setting isTransitioning to false here - the StandardTransition will do that at the right time.
         yield break;
     }
 
@@ -87,6 +92,8 @@ public class ScreenTransitionManager : MonoBehaviour
 
     private IEnumerator StandardTransition(string targetScene)
     {
+        isTransitioning = true;
+
         fullScreenQuad.gameObject.SetActive(true);
 
         float time = 0f;
@@ -108,6 +115,8 @@ public class ScreenTransitionManager : MonoBehaviour
         }
 
         fullScreenQuad.gameObject.SetActive(false);
+
+        isTransitioning = false;
 
         yield break;
     }
