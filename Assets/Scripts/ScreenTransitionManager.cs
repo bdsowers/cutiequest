@@ -9,8 +9,8 @@ public class ScreenTransitionManager : MonoBehaviour
 
     public void TransitionToScreen(string name)
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "SampleScene" &&
-            name == "SampleScene")
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon" &&
+            name == "Dungeon")
         {
             StartCoroutine(TransitionToNextDungeonLevel());
         }
@@ -40,7 +40,7 @@ public class ScreenTransitionManager : MonoBehaviour
         GameObject.FindObjectOfType<Follower>().gameObject.GetComponentInChildren<Animator>().Play("Falling");
 
         yield return new WaitForSeconds(0.75f);
-        StartCoroutine(StandardTransition("SampleScene"));
+        StartCoroutine(StandardTransition("Dungeon"));
 
         yield break;
     }

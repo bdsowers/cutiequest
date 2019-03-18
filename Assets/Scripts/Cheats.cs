@@ -18,7 +18,7 @@ public class Cheats : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Game.instance.transitionManager.TransitionToScreen("SampleScene");
+            Game.instance.transitionManager.TransitionToScreen("Dungeon");
         }
 
         if (Input.GetKeyDown(KeyCode.W))

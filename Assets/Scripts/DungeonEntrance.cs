@@ -30,6 +30,6 @@ public class DungeonEntrance : MonoBehaviour
         // want to dungeon dive before entering and resetting their hearts.
         Game.instance.playerData.numHearts = 0;
 
-        Game.instance.transitionManager.TransitionToScreen("SampleScene");
+        Game.instance.transitionManager.TransitionToScreen("Dungeon");
     }
 }
