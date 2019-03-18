@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
+    private Killable mKillable;
 
     public float actionCooldown;
     private float mActionCooldownTimer = -1;
@@ -17,10 +18,17 @@ public class Enemy : MonoBehaviour
         mSimpleMovement = GetComponent<SimpleMovement>();
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
+        mKillable = GetComponent<Killable>();
 
         mTurnBasedMovement.onTurnGranted += OnTurnGranted;
         mSimpleMovement.onMoveFinished += OnMoveFinished;
         mSimpleAttack.onAttackFinished += OnAttackFinished;
+        mKillable.onDeath += OnDeath;
+    }
+
+    private void OnDeath(Killable entity)
+    {
+        // todo bdsowers - random chance to drop coins & hearts based on player luck
     }
 
     private void OnAttackFinished(GameObject attacker, GameObject target)

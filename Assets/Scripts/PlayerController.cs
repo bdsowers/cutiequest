@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
     private ExternalCharacterStatistics mCharacterStats;
+    private Killable mKillable;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,21 @@ public class PlayerController : MonoBehaviour
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
+        mKillable = GetComponent<Killable>();
 
         mTurnBasedMovement.ActivateTurnMovement();
         mSimpleMovement.onMoveFinished += OnMoveFinished;
         mSimpleAttack.onAttackFinished += OnAttackFinished;
 
+        mKillable.onDeath += OnDeath;
         OnFollowerChanged();
+    }
+
+    private void OnDeath(Killable entity)
+    {
+        // todo bdsowers - need a fancier effect.
+
+        Game.instance.transitionManager.TransitionToScreen("HUB");
     }
 
     void OnFollowerChanged()

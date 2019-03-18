@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Killable : MonoBehaviour
 {
+    public delegate void Died(Killable entity);
+    public event Died onDeath;
+
     public int health;
 
     public void TakeDamage(int damage)
@@ -17,6 +20,11 @@ public class Killable : MonoBehaviour
         health -= damage;
         if (health <= 0f)
         {
+            if (onDeath != null)
+            {
+                onDeath(this);
+            }
+
             Destroy(gameObject);
         }
     }
