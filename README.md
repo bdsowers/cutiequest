@@ -30,7 +30,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * 10 unique quirks
 * 10 unique enemies
 * HUB - permanent upgrade shop
-* Collectable coins
 * In-dungeon shops w/temporary boosts
 * Intro w/basic tutorials
 * 3 biomes w/unique boss each
@@ -57,6 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Follower bios / humor info
 
 #### FINISHED
+* ~~Collectable coins~~
 * ~~Saving / loading~~
 * ~~Enemy turns; speed~~
 * ~~Basic attack~~
@@ -96,4 +96,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Haste
 * Fireball - straight projectile
 * Ice Blast - radial, short range blast
- 
+
