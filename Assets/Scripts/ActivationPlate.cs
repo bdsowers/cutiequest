@@ -5,8 +5,8 @@ using UnityEngine;
 public class ActivationPlate : MonoBehaviour
 {
     // todo bdsowers - better just to load all the cinematics at game start and fire the appropriate events.
-    public string cinematic { get; set; }
-    public string cinematicEvent { get; set; }
+    public string cinematic;
+    public string cinematicEvent;
 
     private bool mIsPlayerInside;
 
