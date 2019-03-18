@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
     {
         if (!mTurnBasedMovement.canTakeTurns)
         {
-            float distance = Vector3.Distance(transform.position, GameObject.Find("Avatar").transform.position);
+            float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);
             if (distance < 7f)
             {
                 mTurnBasedMovement.ActivateTurnMovement();
@@ -107,7 +107,10 @@ public class Enemy : MonoBehaviour
 
     private void UpdateAI()
     {
-        Vector3 direction = OrthogonalDirection(transform, GameObject.Find("Avatar").transform, true);
+        if (!Game.instance.avatar.isAlive)
+            return;
+
+        Vector3 direction = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
         
         if (mSimpleAttack.CanAttack(direction))
         {

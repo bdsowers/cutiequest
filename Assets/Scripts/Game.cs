@@ -6,7 +6,7 @@ public class Game : MonoBehaviour
 {
     static Game mInstance = null;
 
-    private GameObject mAvatar;
+    private PlayerController mAvatar;
     private PlayerData mPlayerData = new PlayerData();
     private CharacterStatistics mPlayerStats;
     private SaveManager mSaveManager;
@@ -17,13 +17,17 @@ public class Game : MonoBehaviour
         get { return mInstance; }
     }
 
-    public GameObject avatar
+    public PlayerController avatar
     {
         get
         {
             if (mAvatar == null)
             {
-                mAvatar = GameObject.Find("Avatar");
+                GameObject avatar = GameObject.Find("Avatar");
+                if (avatar != null)
+                {
+                    mAvatar = avatar.GetComponent<PlayerController>();
+                }
             }
 
             return mAvatar;

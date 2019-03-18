@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private ExternalCharacterStatistics mCharacterStats;
     private Killable mKillable;
 
+    public bool isAlive { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +32,15 @@ public class PlayerController : MonoBehaviour
 
         mKillable.onDeath += OnDeath;
         OnFollowerChanged();
+
+        isAlive = true;
     }
 
     private void OnDeath(Killable entity)
     {
         // todo bdsowers - need a fancier effect.
+
+        isAlive = false;
 
         Game.instance.transitionManager.TransitionToScreen("HUB");
     }

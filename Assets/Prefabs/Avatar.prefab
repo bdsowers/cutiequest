@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  deathResponse: 1
 --- !u!114 &1073741718900896955
 MonoBehaviour:
   m_ObjectHideFlags: 0
