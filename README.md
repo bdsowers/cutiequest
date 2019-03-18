@@ -25,7 +25,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### MVP Feature List
 * In-dungeon shops & special rooms w/temporary boosts
 * Follower quirk support
-* Dungeon levels & risk/reward mechanism
+* Risk/reward mechanism
 * At least 5 levels of followers
 * 10 unique spells w/varying levels
 * 10 unique quirks
@@ -56,6 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Follower bios / humor info
 
 #### FINISHED
+* ~~Dungeon levels~~
 * ~~Collectable coins~~
 * ~~Saving / loading~~
 * ~~Enemy turns; speed~~
