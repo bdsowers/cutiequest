@@ -5,6 +5,9 @@ using OMM.RDG;
 
 public class LevelGenerator : MonoBehaviour
 {
+    private const int SHOP_PEDESTAL = 7;
+    private const int SHOP_KEEPER = 8;
+
     RandomDungeon mDungeon;
     RandomDungeonGenerator mDungeonGenerator;
     RoomSet mRoomset;
@@ -21,14 +24,26 @@ public class LevelGenerator : MonoBehaviour
 
         mDungeon = mDungeonGenerator.GenerateDungeon(mRoomset, DungeonGenerationData());
 
-        GenerateEnvironmentFromDungeon(mDungeon);
         mCollisionMap = GetComponent<CollisionMap>();
-        mCollisionMap.SetupWithDungeon(mDungeon);
+        mCollisionMap.SetupWithSize(mDungeon.width, mDungeon.height);
+        GenerateEnvironmentFromDungeon(mDungeon);
 
         PlaceAvatar();
         PlaceEnemies();
         PlaceHearts();
         PlaceExit();
+    }
+
+    private void PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = -1, float yOffset = 0f)
+    {
+        GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
+        newItem.transform.SetParent(transform);
+        newItem.transform.position = new Vector3(tileX, yOffset, -tileY);
+
+        if (collisionMapMark != -1)
+        {
+            mCollisionMap.MarkSpace(tileX, tileY, collisionMapMark);
+        }
     }
 
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)
@@ -37,18 +52,27 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int y = 0; y < dungeon.height; ++y)
             {
-                if (dungeon.TileType(x, y) == RandomDungeonTileData.WALL_TILE)
+                if (dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
                 {
-                    GameObject newWall = GameObject.Instantiate(PrefabManager.instance.PrefabByName("StandardWall"));
-                    newWall.transform.SetParent(transform);
-                    newWall.transform.position = new Vector3(x, 0f, -y);
+                    mCollisionMap.MarkSpace(x, y, 1);
+                }
+                else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALL_TILE)
+                {
+                    PlaceMapPrefab("StandardWall", x, y, 1);
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE ||
                     dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE)
                 {
-                    GameObject newFloor = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Floor"));
-                    newFloor.transform.SetParent(transform);
-                    newFloor.transform.position = new Vector3(x, 0f, -y);
+                    PlaceMapPrefab("Floor", x, y);
+                }
+                else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
+                {
+                    PlaceMapPrefab("StandardWall", x, y, 1);
+                }
+                else if (dungeon.TileType(x,y) == SHOP_KEEPER)
+                {
+                    PlaceMapPrefab("Floor", x, y);
+                    PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
                 }
             }
         }

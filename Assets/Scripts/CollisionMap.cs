@@ -7,6 +7,11 @@ public class CollisionMap : MonoBehaviour
 {
     int[,] mMap;
 
+    public void SetupWithSize(int width, int height)
+    {
+        mMap = new int[width, height];
+    }
+
     public void SetupWithDungeon(RandomDungeon dungeon)
     {
         mMap = new int[dungeon.width, dungeon.height];
