@@ -6,10 +6,21 @@ public class CinematicDirector : MonoBehaviour
 {
     private List<CinematicAction> mLoadedCinematics = new List<CinematicAction>();
     private CinematicParser mCinematicParser = new CinematicParser();
-    private CinematicDataProvider mDataProvider = new CinematicDataProvider();
+    private CinematicDataProvider mDataProvider;
     private CinematicObjectMap mObjectMap = null;
 
-    public CinematicDataProvider dataProvider { get { return mDataProvider; } }
+    public CinematicDataProvider dataProvider
+    {
+        get
+        {
+            if (mDataProvider == null)
+            {
+                mDataProvider = GameObject.FindObjectOfType<CinematicDataProvider>();
+            }
+
+            return mDataProvider;
+        }
+    }
 
     public float playbackTimeScale { get; set; }
 
@@ -88,5 +99,18 @@ public class CinematicDirector : MonoBehaviour
         }
 
         return null;
+    }
+
+    public bool IsCinematicPlaying()
+    {
+        for (int i = 0; i < mLoadedCinematics.Count; ++i)
+        {
+            if (mLoadedCinematics[i].isPlaying)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

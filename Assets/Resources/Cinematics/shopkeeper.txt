@@ -1,0 +1,5 @@
+animation trigger: shopkeep_talk
+{
+	change_speaker Chr_Samurai_SamuraiWarrior_01
+	typewriter "What's up groovy cuties!? Welcome to my shop!\nEverything here is available for sale. Lotta good stuff if you don't mind me saying."
+}

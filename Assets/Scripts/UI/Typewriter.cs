@@ -47,7 +47,7 @@ public class Typewriter : MonoBehaviour
     public void ForceFinish()
     {
         StopAllCoroutines();
-        mLabel.text = mTargetText;
+        mLabel.text = mTargetText.Replace("\\n", "\n"); ;
         mIsAnimating = false;
     }
 

@@ -11,6 +11,8 @@ public class Game : MonoBehaviour
     private CharacterStatistics mPlayerStats;
     private SaveManager mSaveManager;
     private ScreenTransitionManager mTransitionManager;
+    private CinematicDirector mCinematicDirector;
+    private CinematicDataProvider mCinematicDataProvider;
 
     public static Game instance
     {
@@ -67,6 +69,23 @@ public class Game : MonoBehaviour
         }
 
     }
+
+    public CinematicDirector cinematicDirector
+    {
+        get
+        {
+            return mCinematicDirector;
+        }
+    }
+
+    public CinematicDataProvider cinematicDataProvider
+    {
+        get
+        {
+            return mCinematicDataProvider;
+        }
+    }
+
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
@@ -87,6 +106,8 @@ public class Game : MonoBehaviour
         mPlayerStats = GetComponentInChildren<CharacterStatistics>();
         mSaveManager = GetComponent<SaveManager>();
         mTransitionManager = GetComponentInChildren<ScreenTransitionManager>();
+        mCinematicDirector = GetComponentInChildren<CinematicDirector>();
+        mCinematicDataProvider = GetComponentInChildren<CinematicDataProvider>();
 
         mSaveManager.LoadGame();
 

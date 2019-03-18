@@ -36,9 +36,10 @@ public abstract class CinematicAction : System.ICloneable
     /// </summary>
     public string triggerEvent { get; set; }
 
+    public bool isPlaying { get; protected set; }
+
     /// <summary>
     /// Has the action finished playing?
-    /// It's up to individual actions to set this appropriately.
     /// </summary>
     public bool complete { get; protected set; }
 
@@ -122,12 +123,14 @@ public abstract class CinematicAction : System.ICloneable
     public IEnumerator Play(CinematicDirector player)
     {
         complete = false;
+        isPlaying = true;
 
         InterpretParameters(player.dataProvider);
         
         yield return PlayInternal(player);
 
         complete = true;
+        isPlaying = false;
 
         yield break;
     }

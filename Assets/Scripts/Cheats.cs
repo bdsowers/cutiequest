@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ArrayExtensions;
 
 public class Cheats : MonoBehaviour
 {
+    private int mCurrentActivationPlate = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,16 @@ public class Cheats : MonoBehaviour
         {
             LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
             Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ActivationPlate[] activationPlates = GameObject.FindObjectsOfType<ActivationPlate>();
+            if (activationPlates.Length > 0)
+            {
+                Game.instance.avatar.transform.position = activationPlates[mCurrentActivationPlate].transform.position + Vector3.up;
+                mCurrentActivationPlate = (mCurrentActivationPlate + 1) % activationPlates.Length;
+            }
         }
     }
 }

@@ -99,6 +99,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return;
+
         // todo bdsowers - these need to be queued up for when the player movement ends
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -151,6 +154,10 @@ public class PlayerController : MonoBehaviour
                 {
                     mSimpleMovement.Move(intendedDirection);
                     MoveFollower(followerDirection);
+                }
+                else
+                {
+                    SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
                 }
             }
         }

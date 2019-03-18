@@ -113,6 +113,8 @@ public class Enemy : MonoBehaviour
     {
         if (!Game.instance.avatar.isAlive)
             return;
+        if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return;
 
         Vector3 direction = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
         

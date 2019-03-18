@@ -34,7 +34,7 @@ public class LevelGenerator : MonoBehaviour
         PlaceExit();
     }
 
-    private void PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = -1, float yOffset = 0f)
+    private GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = -1, float yOffset = 0f)
     {
         GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
         newItem.transform.SetParent(transform);
@@ -44,6 +44,8 @@ public class LevelGenerator : MonoBehaviour
         {
             mCollisionMap.MarkSpace(tileX, tileY, collisionMapMark);
         }
+
+        return newItem;
     }
 
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)
@@ -73,6 +75,10 @@ public class LevelGenerator : MonoBehaviour
                 {
                     PlaceMapPrefab("Floor", x, y);
                     PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
+
+                    GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
+                    activationPlate.GetComponent<ActivationPlate>().cinematic = "Cinematics/shopkeeper";
+                    activationPlate.GetComponent<ActivationPlate>().cinematicEvent = "shopkeep_talk";
                 }
             }
         }
