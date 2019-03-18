@@ -38,9 +38,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnDeath(Killable entity)
     {
-        // todo bdsowers - need a fancier effect.
+        // todo bdsowers - need a fancier effect, including coin loss.
 
         isAlive = false;
+
+        Game.instance.playerData.numCoins = 0;
+        Game.instance.playerData.health = mCharacterStats.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject);
 
         Game.instance.transitionManager.TransitionToScreen("HUB");
     }

@@ -20,7 +20,16 @@ public class DungeonEntrance : MonoBehaviour
     {
         if (other.GetComponentInParent<PlayerController>() != null)
         {
-            Game.instance.transitionManager.TransitionToScreen("SampleScene");
+            EnterDungeon();
         }
+    }
+
+    private void EnterDungeon()
+    {
+        // todo bdsowers - if the player has hearts left, we need to ask them if they really
+        // want to dungeon dive before entering and resetting their hearts.
+        Game.instance.playerData.numHearts = 0;
+
+        Game.instance.transitionManager.TransitionToScreen("SampleScene");
     }
 }
