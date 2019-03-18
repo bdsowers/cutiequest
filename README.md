@@ -80,3 +80,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Gold Digger - follower takes half of all your money
 * Toxic - player starts each floor poisoned
 * Bad at Math - all numbers & health bars display incorrectly
+
+### HUB Shops
+* Stylist - increases attractiveness to unlock new matches
+* Trainer - permanently increases player stats
+* Wishing Well - single-run buffs
+* Weaponsmith - adds new items/buffs to in-dungeon shops
+
+### Biomes
+* Basic dungeon
+* Spaceship
+* ???
+
+### Spells
+* Haste
+* Fireball - straight projectile
+* Ice Blast - radial, short range blast
+ 

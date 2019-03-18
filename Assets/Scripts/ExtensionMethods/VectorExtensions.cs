@@ -31,4 +31,61 @@ namespace VectorExtensions
             return new Vector3(vec.x, vec.y, 0f);
         }
     }
+
+    public class VectorHelper
+    {
+        public static Vector3 RandomNormalizedVector3()
+        {
+            float x = Random.Range(-1f, 1f);
+            float y = Random.Range(-1f, 1f);
+            float z = Random.Range(-1f, 1f);
+            Vector3 vec = new Vector3(x, y, z);
+            vec.Normalize();
+
+            if (vec.magnitude > 0.01f)
+            {
+                return vec;
+            }
+            else
+            {
+                return Vector3.right;
+            }
+        }
+
+        public static Vector3 RandomNormalizedXZVector3()
+        {
+            float x = Random.Range(-1f, 1f);
+            float y = 0f;
+            float z = Random.Range(-1f, 1f);
+            Vector3 vec = new Vector3(x, y, z);
+            vec.Normalize();
+
+            if (vec.magnitude > 0.01f)
+            {
+                return vec;
+            }
+            else
+            {
+                return Vector3.right;
+            }
+        }
+
+        public static Vector3 RandomNormalizedXYVector3()
+        {
+            float x = Random.Range(-1f, 1f);
+            float y = Random.Range(-1f, 1f);
+            float z = 0f;
+            Vector3 vec = new Vector3(x, y, z);
+            vec.Normalize();
+
+            if (vec.magnitude > 0.01f)
+            {
+                return vec;
+            }
+            else
+            {
+                return Vector3.right;
+            }
+        }
+    }
 }

@@ -28,7 +28,11 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath(Killable entity)
     {
-        // todo bdsowers - random chance to drop coins & hearts based on player luck
+        DropsItems di = GetComponent<DropsItems>();
+        if (di != null)
+        {
+            di.Drop();
+        }
     }
 
     private void OnAttackFinished(GameObject attacker, GameObject target)
