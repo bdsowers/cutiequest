@@ -43,9 +43,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Improved map
 * Traps & Shrines
 
-### MVP Background Feature List
-* InControl controller support
-
 ### Polish
 * Attack VFX
 * Collection VFX
@@ -56,6 +53,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Follower bios / humor info
 
 #### FINISHED
+* ~~InControl controller support~~
 * ~~Dungeon levels~~
 * ~~Collectable coins~~
 * ~~Saving / loading~~

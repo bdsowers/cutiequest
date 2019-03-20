@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private SimpleAttack mSimpleAttack;
     private ExternalCharacterStatistics mCharacterStats;
     private Killable mKillable;
+    private BasicActionSet mActionSet;
 
     public bool isAlive { get; set; }
 
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
         OnFollowerChanged();
 
         isAlive = true;
+
+        mActionSet = new BasicActionSet();
     }
 
     private void OnDeath(Killable entity)
@@ -99,11 +102,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mActionSet.DetectController();
+
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
 
         // todo bdsowers - these need to be queued up for when the player movement ends
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (mActionSet.Spell.WasPressed)
         {
             CastSpellIfPossible();
         }
@@ -121,26 +126,27 @@ public class PlayerController : MonoBehaviour
 
         Vector3 intendedDirection = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        float moveThreshold = 0.5f;
+        if (mActionSet.Move.Y > moveThreshold)
         {
             intendedDirection = new Vector3(0f, 0f, 1f);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (mActionSet.Move.Y < -moveThreshold)
         {
             intendedDirection = new Vector3(0f, 0f, -1f);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (mActionSet.Move.X < -moveThreshold)
         {
             intendedDirection = new Vector3(-1f, 0f, 0f);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (mActionSet.Move.X > moveThreshold)
         {
             intendedDirection = new Vector3(1f, 0f, 0f);
         }
 
         if (intendedDirection.magnitude > 0.8f)
         {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            if (mActionSet.HoldPosition.IsPressed)
             {
                 SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
             }
