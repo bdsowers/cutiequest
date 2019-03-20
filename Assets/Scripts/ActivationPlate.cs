@@ -13,7 +13,7 @@ public class ActivationPlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Game.instance.avatar.actionSet.Activate.WasPressed)
         {
             if (mIsPlayerInside)
             {

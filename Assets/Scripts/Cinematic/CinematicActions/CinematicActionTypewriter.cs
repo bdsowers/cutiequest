@@ -51,19 +51,20 @@ public class CinematicActionTypewriter : CinematicAction
             yield return new WaitForSeconds(0.25f);
 
             bool keepWaiting = true;
+            BasicActionSet actionSet = Game.instance.avatar.actionSet; // todo bdsowers - this is not ideal
             while (keepWaiting)
             {
                 if (target.isAnimating)
                 {
                     // todo bdsowers - use InControl for this
-                    if (Input.GetMouseButtonUp(0))
+                    if (actionSet.Activate.WasPressed || actionSet.Spell.WasPressed)
                     {
                         target.ForceFinish();
                     }
                 }
                 else
                 {
-                    if (Input.GetMouseButtonUp(0))
+                    if (actionSet.Activate.WasPressed || actionSet.Spell.WasPressed)
                     {
                         keepWaiting = false;
                         target.HideText();

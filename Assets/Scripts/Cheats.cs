@@ -30,13 +30,13 @@ public class Cheats : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
             Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             ActivationPlate[] activationPlates = GameObject.FindObjectsOfType<ActivationPlate>();
             if (activationPlates.Length > 0)

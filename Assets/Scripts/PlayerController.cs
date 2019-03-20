@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
     public bool isAlive { get; set; }
 
+    // todo bdsowers - this probably shouldn't be part of the PlayerController so the same
+    // controls can be universal to the game itself.
+    public BasicActionSet actionSet {  get { return mActionSet; } }
+
     // Start is called before the first frame update
     void Start()
     {
