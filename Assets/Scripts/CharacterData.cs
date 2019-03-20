@@ -21,7 +21,7 @@ public class CharacterData : ScriptableObject
     public int levelRequirement;
 
     public Spell spell;
-    public CharacterQuirk quirk;
+    public Quirk quirk;
     public CharacterStatType statBoost;
     public int statBoostAmount;
 }

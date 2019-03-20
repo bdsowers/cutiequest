@@ -19,6 +19,6 @@ MonoBehaviour:
   tagline: Definitely not undead and not still living with my mom.
   levelRequirement: 1
   spell: {fileID: 7642233172062837188, guid: 092b1b48b10d1094eb260428b302de54, type: 3}
-  quirk: 2
+  quirk: {fileID: 264502382425159475, guid: e6e92a2f7b8308647a872c56fd142da3, type: 3}
   statBoost: 4
   statBoostAmount: 1

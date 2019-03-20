@@ -57,10 +57,10 @@ public class PlayerController : MonoBehaviour
 
     void OnFollowerChanged()
     {
-        AttachFollowerSpell();
+        AttachFollowerComponents();
     }
 
-    private void AttachFollowerSpell()
+    private void AttachFollowerComponents()
     {
         Spell oldSpell = GetComponentInChildren<Spell>();
         if (oldSpell != null)
@@ -74,6 +74,11 @@ public class PlayerController : MonoBehaviour
             if (followerData.spell != null)
             {
                 GameObject spell = GameObject.Instantiate(followerData.spell.gameObject, transform);
+            }
+
+            if (followerData.quirk != null)
+            {
+                GameObject quirk = GameObject.Instantiate(followerData.quirk.gameObject, transform);
             }
         }
     }

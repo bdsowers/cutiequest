@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
         mSimpleMovement.onMoveFinished += OnMoveFinished;
         mSimpleAttack.onAttackFinished += OnAttackFinished;
         mKillable.onDeath += OnDeath;
+
+        Game.instance.centralEvents.FireEnemyCreated(this);
     }
 
     private void OnDeath(Killable entity)

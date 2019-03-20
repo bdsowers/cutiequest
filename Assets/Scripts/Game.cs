@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
 
     private DungeonData mCurrentDungeonData;
     private int mCurrentDungeonFloor;
+    private CentralEvents mCentralEvents;
 
     // Used only for dev purposes so we can start on the Dungeon scene.
     public DungeonData defaultDungeonData;
@@ -109,6 +110,11 @@ public class Game : MonoBehaviour
         set { mCurrentDungeonFloor = value; }
     }
 
+    public CentralEvents centralEvents
+    {
+        get { return mCentralEvents; }
+    }
+
     public void EnterDungeon(DungeonData dungeonData)
     {
         Game.instance.playerData.numHearts = 0;
@@ -133,6 +139,7 @@ public class Game : MonoBehaviour
         mTransitionManager = GetComponentInChildren<ScreenTransitionManager>();
         mCinematicDirector = GetComponentInChildren<CinematicDirector>();
         mCinematicDataProvider = GetComponentInChildren<CinematicDataProvider>();
+        mCentralEvents = new CentralEvents();
 
         mSaveManager.LoadGame();
 
