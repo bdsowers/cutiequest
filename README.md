@@ -25,14 +25,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### MVP Feature List
 * In-dungeon shops & special rooms w/temporary boosts
 * Risk/reward mechanism
+* HUB - permanent upgrade shop
+* Intro w/basic tutorials
+* Final boss
+
+### MVP Content Requirements
 * At least 5 levels of followers
 * 10 unique spells w/varying levels
 * 10 unique quirks
 * 10 unique enemies
-* HUB - permanent upgrade shop
-* Intro w/basic tutorials
 * 3 biomes w/unique boss each
-* Final boss
 
 ### MVP Secondary Requirements
 * Improved QuestR interface that shows more
