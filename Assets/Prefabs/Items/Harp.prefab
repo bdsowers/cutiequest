@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932687729038033099}
   - component: {fileID: 690712235}
+  - component: {fileID: 1353051558056521512}
   m_Layer: 0
   m_Name: Harp
   m_TagString: Untagged
@@ -47,6 +48,18 @@ MonoBehaviour:
   friendlyName: Harp
   description: Swaps Your Cutie With Another One
   baseCost: 0
+--- !u!114 &1353051558056521512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932687729038033101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319f051021f09814e9b87f76c7b0fab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932687729658016426
 GameObject:
   m_ObjectHideFlags: 0

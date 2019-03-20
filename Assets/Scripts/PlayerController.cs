@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     // controls can be universal to the game itself.
     public BasicActionSet actionSet {  get { return mActionSet; } }
 
+    private string mFollowerId;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +38,29 @@ public class PlayerController : MonoBehaviour
         mSimpleAttack.onAttackFinished += OnAttackFinished;
 
         mKillable.onDeath += OnDeath;
+
+        mFollowerId = Game.instance.playerData.followerUid;
+        Game.instance.playerData.onPlayerDataChanged += OnPlayerDataChanged;
+
         OnFollowerChanged();
 
         isAlive = true;
 
         mActionSet = new BasicActionSet();
+    }
+
+    private void OnPlayerDataChanged(PlayerData newData)
+    {
+        if (mFollowerId != newData.followerUid)
+        {
+            mFollowerId = newData.followerUid;
+            OnFollowerChanged();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Game.instance.playerData.onPlayerDataChanged -= OnPlayerDataChanged;
     }
 
     private void OnDeath(Killable entity)
@@ -57,6 +77,9 @@ public class PlayerController : MonoBehaviour
 
     void OnFollowerChanged()
     {
+        Follower follower = GameObject.FindObjectOfType<Follower>();
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model);
+
         AttachFollowerComponents();
     }
 
@@ -66,6 +89,12 @@ public class PlayerController : MonoBehaviour
         if (oldSpell != null)
         {
             Destroy(oldSpell.gameObject);
+        }
+
+        Quirk oldQuirk = GetComponentInChildren<Quirk>();
+        if (oldQuirk != null)
+        {
+            Destroy(oldQuirk.gameObject);
         }
 
         if (Game.instance.playerData.followerUid != null)

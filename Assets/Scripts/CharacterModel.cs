@@ -20,8 +20,8 @@ public class CharacterModel : MonoBehaviour
         if (string.IsNullOrEmpty(newModelName))
             return;
 
-        if (transform.childCount > 0)
-            Destroy(transform.GetChild(0).gameObject);
+        for (int i = 0; i < transform.childCount; ++i)
+            Destroy(transform.GetChild(i).gameObject);
 
         modelName = newModelName;
 

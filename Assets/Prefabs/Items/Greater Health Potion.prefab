@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Greater Health Potion
   description: Heals You Fully
-  baseCost: 0
+  baseCost: 10000
 --- !u!1 &932687729658016426
 GameObject:
   m_ObjectHideFlags: 0
