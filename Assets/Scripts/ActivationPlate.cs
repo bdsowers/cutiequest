@@ -8,6 +8,8 @@ public class ActivationPlate : MonoBehaviour
     public string cinematic;
     public string cinematicEvent;
 
+    public Item item;
+
     private bool mIsPlayerInside;
 
     // Update is called once per frame
@@ -17,8 +19,16 @@ public class ActivationPlate : MonoBehaviour
         {
             if (mIsPlayerInside)
             {
-                Game.instance.cinematicDirector.LoadCinematicFromResource(cinematic);
-                Game.instance.cinematicDirector.PostCinematicEvent(cinematicEvent);
+                if (!string.IsNullOrEmpty(cinematic))
+                {
+                    Game.instance.cinematicDirector.LoadCinematicFromResource(cinematic);
+                    Game.instance.cinematicDirector.PostCinematicEvent(cinematicEvent);
+                }
+                else if (item != null)
+                {
+                    // Equip the item
+                    item.Equip();
+                }
             }
         }
     }

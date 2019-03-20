@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CharacterStatModifier : MonoBehaviour
 {
+    [SerializeField]
     private CharacterStatType mStatType;
+
+    [SerializeField]
     private int mRelativeModification = -1;
+
+    [SerializeField]
     private int mAbsoluteModification = -1;
     
     public CharacterStatType statType

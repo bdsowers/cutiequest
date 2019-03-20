@@ -24,6 +24,7 @@ public class ExternalCharacterStatistics : CharacterStatistics
 
     public override int ModifiedStatValue(CharacterStatType statType, GameObject entity)
     {
-        return externalReference.ModifiedStatValue(statType, entity);
+        int total = externalReference.ModifiedStatValue(statType, entity) + externalReference.ModifiedStatValue(statType, externalReference.gameObject);
+        return total;
     }
 }

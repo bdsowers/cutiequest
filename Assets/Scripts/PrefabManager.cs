@@ -6,6 +6,7 @@ public class PrefabManager : MonoBehaviour
 {
     public GameObject[] prefabs;
     public GameObject[] characterPrefabs;
+    public GameObject[] itemPrefabs;
 
     private Dictionary<string, GameObject> mPrefabMap = new Dictionary<string, GameObject>();
     private static PrefabManager sInstance = null;
@@ -21,14 +22,16 @@ public class PrefabManager : MonoBehaviour
     {
         sInstance = this;
 
-        for (int i = 0; i < prefabs.Length; ++i)
-        {
-            mPrefabMap[prefabs[i].name] = prefabs[i];
-        }
+        AddListToDictionary(prefabs);
+        AddListToDictionary(characterPrefabs);
+        AddListToDictionary(itemPrefabs);
+    }
 
-        for (int i = 0; i < characterPrefabs.Length; ++i)
+    private void AddListToDictionary(GameObject[] list)
+    {
+        for (int i = 0; i < list.Length; ++i)
         {
-            mPrefabMap[characterPrefabs[i].name] = characterPrefabs[i];
+            mPrefabMap[list[i].name] = list[i];
         }
     }
 }

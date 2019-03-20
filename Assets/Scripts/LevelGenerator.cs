@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using OMM.RDG;
+using ArrayExtensions;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -70,6 +71,10 @@ public class LevelGenerator : MonoBehaviour
                 else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
                 {
                     PlaceMapPrefab("StandardWall", x, y, 1);
+                    GameObject buyableItem = PlaceMapPrefab(RandomItem(), x, y);
+
+                    GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
+                    activationPlate.GetComponent<ActivationPlate>().item = buyableItem.GetComponent<Item>();
                 }
                 else if (dungeon.TileType(x,y) == SHOP_KEEPER)
                 {
@@ -82,6 +87,11 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
         }
+    }
+
+    private string RandomItem()
+    {
+        return PrefabManager.instance.itemPrefabs.Sample().name;
     }
 
     private Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)
