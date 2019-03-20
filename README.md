@@ -9,6 +9,7 @@ Not everything is available here. In some cases, I'm using assets I don't have t
 * Synty Polygon MINI Fantasy Characters
 * Synty Adventure Pack
 * InControl2
+* Shikashi's Fantasy Icon Pack
 
 All code here is free for you to use according to the MIT license below, but I make no guarantees as to its quality and can in some cases say it's downright terrible. ;)
 
