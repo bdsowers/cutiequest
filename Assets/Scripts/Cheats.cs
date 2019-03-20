@@ -45,5 +45,15 @@ public class Cheats : MonoBehaviour
                 mCurrentActivationPlate = (mCurrentActivationPlate + 1) % activationPlates.Length;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Game.instance.playerData.numCoins += 100;
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            Game.instance.playerData.numHearts += 2;
+        }
     }
 }

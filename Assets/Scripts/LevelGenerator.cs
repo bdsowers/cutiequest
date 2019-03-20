@@ -70,7 +70,7 @@ public class LevelGenerator : MonoBehaviour
                 }
                 else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
                 {
-                    PlaceMapPrefab("StandardWall", x, y, 1);
+                    PlaceMapPrefab("StandardWall", x, y, 1).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
                     GameObject buyableItem = PlaceMapPrefab(RandomItem(), x, y);
 
                     GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);

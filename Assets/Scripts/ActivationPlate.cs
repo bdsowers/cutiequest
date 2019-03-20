@@ -27,7 +27,11 @@ public class ActivationPlate : MonoBehaviour
                 else if (item != null)
                 {
                     // Equip the item
-                    item.Equip();
+                    if (item.Cost() <= Game.instance.playerData.numCoins)
+                    {
+                        Game.instance.playerData.numCoins -= item.Cost();
+                        item.Equip();
+                    }
                 }
             }
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932687729038033099}
   - component: {fileID: 690712235}
+  - component: {fileID: 6235618147279332454}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -47,6 +48,18 @@ MonoBehaviour:
   friendlyName: Map
   description: Reveals the Current Floor
   baseCost: 0
+--- !u!114 &6235618147279332454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932687729038033101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe3a5b1ae9b30d43ab9b54392723bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932687729658016426
 GameObject:
   m_ObjectHideFlags: 0

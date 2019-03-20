@@ -32,6 +32,9 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
 
     public void Reveal()
     {
+        if (mRevealed)
+            return;
+
         mRevealed = true;
 
         StartCoroutine(RevealAnimation());
