@@ -24,7 +24,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Roadmap
 ### MVP Feature List
-* In-dungeon shops & special rooms w/temporary boosts
+* Special rooms w/ boosts (ie: shrines)
 * Risk/reward mechanism
 * HUB - permanent upgrade shop
 * Intro w/basic tutorials
@@ -43,11 +43,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Death screen
 * Game complete sequence
 * Improved map
-* Traps & Shrines
+* Traps
 
 ### Polish
 * Attack VFX
 * Collection VFX
+* Character swap VFX
 * Screen transitions
 
 ### Wishlist
@@ -55,6 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Follower bios / humor info
 
 #### FINISHED
+* ~~In-dungeon shop~~
 * ~~Follower quirk support~~
 * ~~InControl controller support~~
 * ~~Dungeon levels~~
