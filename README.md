@@ -28,7 +28,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Risk/reward mechanism
 * HUB - permanent upgrade shop
 * Intro w/basic tutorials
-* Final boss
 
 ### MVP Content Requirements
 * At least 5 levels of followers
@@ -36,6 +35,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * 10 unique quirks
 * 10 unique enemies
 * 3 biomes w/unique boss each
+* Final boss
 
 ### MVP Secondary Requirements
 * Improved QuestR interface that shows more
