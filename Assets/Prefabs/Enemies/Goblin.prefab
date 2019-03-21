@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 50
   deathResponse: 0
 --- !u!114 &8268176248063259198
 MonoBehaviour:
@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 50
   _strength: 2
-  _defense: 1
+  _defense: 0
   _magic: 1
   _speed: 2
   _luck: 1

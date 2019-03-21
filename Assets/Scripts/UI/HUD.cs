@@ -9,6 +9,8 @@ public class HUD : MonoBehaviour
     private void Start()
     {
         Game.instance.playerData.onPlayerDataChanged += OnPlayerDataChanged;
+
+        OnPlayerDataChanged(Game.instance.playerData);
     }
 
     private void OnDestroy()
@@ -18,7 +20,8 @@ public class HUD : MonoBehaviour
 
     private void OnPlayerDataChanged(PlayerData newData)
     {
-        healthBar.SetWithValues(0, Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject), newData.health);
+        int maxHealth = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
+        healthBar.SetWithValues(0, maxHealth, newData.health);
     }
 
     private void Update()

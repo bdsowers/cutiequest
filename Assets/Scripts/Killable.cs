@@ -27,6 +27,7 @@ public class Killable : MonoBehaviour
         }
 
         health -= damage;
+        Debug.Log("H: " + health);
         if (health <= 0f)
         {
             HandleDeath();

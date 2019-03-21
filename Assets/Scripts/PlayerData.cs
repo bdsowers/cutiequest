@@ -10,7 +10,7 @@ public class PlayerData
     private string mFollowerUid = "1";
     private int mNumHearts = 0;
     private int mNumCoins = 0;
-    private int mHealth = 10;
+    private int mHealth = 100;
     private int mAttractiveness = 1;
 
     public string followerUid

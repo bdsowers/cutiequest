@@ -55,5 +55,11 @@ public class Cheats : MonoBehaviour
         {
             Game.instance.playerData.numHearts += 2;
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+        }
     }
 }
