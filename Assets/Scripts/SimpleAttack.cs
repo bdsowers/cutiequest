@@ -78,7 +78,16 @@ public class SimpleAttack : MonoBehaviour
         Killable targetKillable = target.GetComponentInParent<Killable>();
         if (targetKillable != null)
         {
-            targetKillable.TakeDamage(1);
+            int strength = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Strength, gameObject);
+            int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
+
+            // todo bdsowers - incorporate RNG into attacks at all?
+            // todo bdsowers - will need to tweak these equations for sure ... or tweak health values
+            // so that both strength and defense can always have an influence.
+            int damage = strength / 2 - defense / 4;
+            damage = Mathf.Max(damage, 1);
+
+            targetKillable.TakeDamage(damage);
         }
 
         if (onAttackFinished != null)

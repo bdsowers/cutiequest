@@ -50,6 +50,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Collection VFX
 * Character swap VFX
 * Screen transitions
+* Random level decorations / obstructions / debris
 
 ### Wishlist
 * Pets
