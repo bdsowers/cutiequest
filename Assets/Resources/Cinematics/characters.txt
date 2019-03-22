@@ -27,5 +27,17 @@ animation trigger: stylist_success
 animation trigger: stylist_fail
 {
 	change_speaker Chr_Fantasy_Bard_01
-	typewriter "You trying to put the hustle on me?! Get outta here!"
+	typewriter "You trying to put the hustle on me?! Get outta here! Go on, get!"
+}
+
+animation trigger: trainer_success
+{
+	change_speaker Chr_Vikings_ShieldMaiden_01
+	typewriter "Lookin swoll! Go flex your new muscles by beating up some goblins."
+}
+
+animation trigger: trainer_fail
+{
+	change_speaker Chr_Vikings_ShieldMaiden_01
+	typewriter "I oughtta beat you within an inch of your life for wasting my time."
 }

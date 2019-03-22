@@ -119,4 +119,22 @@ public class CharacterStatistics : MonoBehaviour
 
         return value;
     }
+
+    public static CharacterStatType StatTypeFromString(string str)
+    {
+        if (str == "maxhealth")
+            return CharacterStatType.MaxHealth;
+        else if (str == "strength")
+            return CharacterStatType.Strength;
+        else if (str == "defense")
+            return CharacterStatType.Defense;
+        else if (str == "magic")
+            return CharacterStatType.Magic;
+        else if (str == "speed")
+            return CharacterStatType.Speed;
+        else if (str == "luck")
+            return CharacterStatType.Luck;
+        else
+            return CharacterStatType.MaxHealth;
+    }
 }

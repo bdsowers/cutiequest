@@ -8,7 +8,12 @@ public class CinematicActionBuffStats : CinematicAction
 
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
-        // todo bdsowers
+        GameObject dialog = player.objectMap.GetObjectByName("buff_stats_dialog");
+        dialog.GetComponent<BuffStatsDialog>().ShowDialog();
+
+        while (dialog.activeInHierarchy)
+            yield return null;
+
         yield break;
     }
 }
