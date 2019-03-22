@@ -11449,10 +11449,6 @@ PrefabInstance:
       propertyPath: follower
       value: 
       objectReference: {fileID: 854897903}
-    - target: {fileID: 1099098404, guid: 0ea2087e9986ddc4399215f98e25fe59, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea2087e9986ddc4399215f98e25fe59, type: 3}
 --- !u!1001 &7208613043255410678
