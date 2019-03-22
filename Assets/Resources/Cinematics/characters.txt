@@ -1,0 +1,17 @@
+animation trigger: shopkeep_talk
+{
+	change_speaker Chr_Samurai_SamuraiWarrior_01
+	typewriter "What's up groovy cuties!? Welcome to my shop!\nEverything here is available for sale. Lotta good stuff if you don't mind me saying."
+}
+
+animation trigger: trainer_talk
+{
+	change_speaker Chr_Vikings_ShieldMaiden_01
+	typewriter "You want to get ripped?"
+}
+
+animation trigger: stylist_talk
+{
+	change_speaker Chr_Fantasy_Bard_01
+	typewriter "Hey handsome! Want to be more... handsome?"
+}

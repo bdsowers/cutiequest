@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ActivationPlate : MonoBehaviour
 {
-    // todo bdsowers - better just to load all the cinematics at game start and fire the appropriate events.
-    public string cinematic;
     public string cinematicEvent;
 
     public Item item;
@@ -15,13 +13,17 @@ public class ActivationPlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Game.instance.avatar.isAlive)
+            return;
+        if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return;
+
         if (Game.instance.avatar.actionSet.Activate.WasPressed)
         {
             if (mIsPlayerInside)
             {
-                if (!string.IsNullOrEmpty(cinematic))
+                if (!string.IsNullOrEmpty(cinematicEvent))
                 {
-                    Game.instance.cinematicDirector.LoadCinematicFromResource(cinematic);
                     Game.instance.cinematicDirector.PostCinematicEvent(cinematicEvent);
                 }
                 else if (item != null)

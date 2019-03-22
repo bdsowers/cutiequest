@@ -82,7 +82,6 @@ public class LevelGenerator : MonoBehaviour
                     PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
 
                     GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
-                    activationPlate.GetComponent<ActivationPlate>().cinematic = "Cinematics/shopkeeper";
                     activationPlate.GetComponent<ActivationPlate>().cinematicEvent = "shopkeep_talk";
                 }
             }

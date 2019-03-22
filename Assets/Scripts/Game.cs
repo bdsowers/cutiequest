@@ -162,6 +162,8 @@ public class Game : MonoBehaviour
     {
         mCurrentDungeonData = defaultDungeonData;
         mCurrentDungeonFloor = 1;
+
+        cinematicDirector.LoadCinematicFromResource("Cinematics/characters");
     }
 
     // Update is called once per frame
