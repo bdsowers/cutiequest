@@ -22,11 +22,14 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+vendor: 6.337404, 0.8439302, -2.683324
+stall: 6.08, 0, -2.48
+wall: 5.58, 0.147, 3.5231
+
 ## Roadmap
 ### MVP Feature List
 * Special rooms w/ boosts (ie: shrines)
 * Risk/reward mechanism
-* HUB - permanent upgrade shop
 * Intro w/basic tutorials
 
 ### MVP Content Requirements
@@ -57,6 +60,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Follower bios / humor info
 
 #### FINISHED
+* ~~HUB - permanent upgrade shop~~
 * ~~In-dungeon shop~~
 * ~~Follower quirk support~~
 * ~~InControl controller support~~
