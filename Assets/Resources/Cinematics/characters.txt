@@ -7,11 +7,25 @@ animation trigger: shopkeep_talk
 animation trigger: trainer_talk
 {
 	change_speaker Chr_Vikings_ShieldMaiden_01
-	typewriter "You want to get ripped?"
+	typewriter "You want to get ripped? I'll make you strong. Stronger than anyone."
+	buff_stats
 }
 
 animation trigger: stylist_talk
 {
 	change_speaker Chr_Fantasy_Bard_01
-	typewriter "Hey handsome! Want to be more... handsome?"
+	typewriter "Hey handsome! Want to be more... handsome?\nMy unique, patent-pending Cutie Styling Services will have you swooning new 'adventuring partners' in no time!"
+	increase_attraction
+}
+
+animation trigger: stylist_success
+{
+	change_speaker Chr_Fantasy_Bard_01
+	typewriter "Hot hot hot! Check out QuestR for new potential matches. ;)"
+}
+
+animation trigger: stylist_fail
+{
+	change_speaker Chr_Fantasy_Bard_01
+	typewriter "You trying to put the hustle on me?! Get outta here!"
 }
