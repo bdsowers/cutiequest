@@ -18,8 +18,6 @@ public class Killable : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // todo bdsowers - where to factor in defense?
-
         // If we're talking about the player, use their info that's stashed away in a saveable place
         if (GetComponent<PlayerController>())
         {
@@ -27,7 +25,7 @@ public class Killable : MonoBehaviour
         }
 
         health -= damage;
-        Debug.Log("H: " + health);
+        
         if (health <= 0f)
         {
             HandleDeath();
