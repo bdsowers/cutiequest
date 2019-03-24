@@ -43,6 +43,9 @@ public class BuffStatsDialog : MonoBehaviour
 
         if (Game.instance.playerData.numHearts >= cost)
         {
+            Game.instance.playerData.numHearts -= cost;
+            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, cost, NumberPopupReason.RemoveHearts);
+
             if (statSelected == CharacterStatType.MaxHealth)
             {
                 Game.instance.playerStats.ChangeBaseStat(statSelected, currentLevel + 10);

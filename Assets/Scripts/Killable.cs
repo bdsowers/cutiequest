@@ -25,7 +25,9 @@ public class Killable : MonoBehaviour
         }
 
         health -= damage;
-        
+
+        NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, damage, NumberPopupReason.TakeDamage);
+
         if (health <= 0f)
         {
             HandleDeath();

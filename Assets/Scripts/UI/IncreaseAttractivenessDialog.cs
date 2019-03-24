@@ -25,6 +25,9 @@ public class IncreaseAttractivenessDialog : MonoBehaviour
         {
             Game.instance.playerData.attractiveness += 1;
             Game.instance.playerData.numHearts -= mCost;
+
+            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, mCost, NumberPopupReason.RemoveHearts);
+
             Game.instance.cinematicDirector.PostCinematicEvent("stylist_success");
         }
         else

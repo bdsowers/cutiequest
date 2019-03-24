@@ -224,6 +224,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d730043efafafb40904bc252466cb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5603589423705441202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7093233881270901409}
+  - component: {fileID: 8893581952891326886}
+  m_Layer: 0
+  m_Name: NumberPopupGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7093233881270901409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603589423705441202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5940583348516570662}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8893581952891326886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603589423705441202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4ea6839ee5f7643bafe36f40ddb3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5940583348516570664
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +303,7 @@ Transform:
   - {fileID: 8367715773216874718}
   - {fileID: 279441292312064316}
   - {fileID: 9034846634664154275}
+  - {fileID: 7093233881270901409}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -483,6 +527,7 @@ MonoBehaviour:
   - {fileID: 5073518052470053920, guid: 53949cc138201de4bb538d3dbc288194, type: 3}
   - {fileID: 289324606603283205, guid: b10e3efc842659b4f8af76debf925f16, type: 3}
   - {fileID: 4663261001868242068, guid: ea75c6dc94e063a45b4d5b6b32542d89, type: 3}
+  - {fileID: 3301962538297025823, guid: e3aac659e83dd3b4baa8628c19b5fbfc, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}

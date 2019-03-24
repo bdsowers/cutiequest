@@ -32,6 +32,9 @@ public class ActivationPlate : MonoBehaviour
                     if (item.Cost() <= Game.instance.playerData.numCoins)
                     {
                         Game.instance.playerData.numCoins -= item.Cost();
+
+                        NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, item.Cost(), NumberPopupReason.RemoveCoins);
+
                         item.Equip();
                     }
                 }

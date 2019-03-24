@@ -60,6 +60,7 @@ public class SimpleAttack : MonoBehaviour
 
         Vector3 startPosition = transform.position;
         Vector3 hitPosition = startPosition + (target.transform.position - startPosition) * 0.7f;
+        bool damageDone = false;
 
         float time = 0f;
         while (time < 1f)
@@ -69,12 +70,28 @@ public class SimpleAttack : MonoBehaviour
             if (d > 1f) d = 2f - d;
             transform.position = Vector3.Lerp(startPosition, hitPosition, d);
 
+            if (time > 0.6f && !damageDone)
+            {
+                DealDamage(target);
+                damageDone = true;
+            }
+
             yield return null;
         }
 
         transform.position = startPosition;
-        
-        // Deal damage
+
+        if (onAttackFinished != null)
+        {
+            onAttackFinished(gameObject, target);
+        }
+
+        mIsAttacking = false;
+        yield break;
+    }
+
+    private void DealDamage(GameObject target)
+    {
         Killable targetKillable = target.GetComponentInParent<Killable>();
         if (targetKillable != null)
         {
@@ -86,16 +103,8 @@ public class SimpleAttack : MonoBehaviour
             // so that both strength and defense can always have an influence.
             int damage = strength * 10 - defense * 2;
             damage = Mathf.Max(damage, 1);
-            Debug.Log(damage);
+
             targetKillable.TakeDamage(damage);
         }
-
-        if (onAttackFinished != null)
-        {
-            onAttackFinished(gameObject, target);
-        }
-
-        mIsAttacking = false;
-        yield break;
     }
 }
