@@ -117,6 +117,20 @@ MonoBehaviour:
     - ForestFloor
     - ForestFloor2
     - ForestFloor3
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
+    - ForestFloor4
+    - ForestFloor
+    - ForestFloor6
+    - ForestFloor7
+    - ForestFloor8
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
     wallPrefabs:
     - ForestWall1
     - ForestWall2
