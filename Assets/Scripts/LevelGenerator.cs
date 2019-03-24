@@ -51,6 +51,8 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)
     {
+        DungeonBiomeData biomeData = Game.instance.currentDungeonData.biomeData;
+
         for (int x = 0; x < dungeon.width; ++x)
         {
             for (int y = 0; y < dungeon.height; ++y)
@@ -61,17 +63,20 @@ public class LevelGenerator : MonoBehaviour
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALL_TILE)
                 {
-                    PlaceMapPrefab("StandardWall", x, y, 1);
+                    PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, 1);
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE ||
                     dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE)
                 {
-                    PlaceMapPrefab("Floor", x, y);
+                    PlaceMapPrefab(biomeData.floorPrefabs.Sample(), x, y);
                 }
                 else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
                 {
-                    PlaceMapPrefab("StandardWall", x, y, 1).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
+                    PlaceMapPrefab(biomeData.floorPrefabs[0], x, y).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false; ;
+
+                    PlaceMapPrefab(biomeData.shopPedestablPrefab, x, y, 1).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
                     GameObject buyableItem = PlaceMapPrefab(RandomItem(), x, y);
+                    buyableItem.transform.localPosition += Vector3.up * 0.3f;
 
                     GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
                     activationPlate.GetComponent<ActivationPlate>().item = buyableItem.GetComponent<Item>();

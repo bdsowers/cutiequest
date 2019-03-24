@@ -16,6 +16,14 @@ public struct DungeonEnemyData
 }
 
 [System.Serializable]
+public struct DungeonBiomeData
+{
+    public List<string> floorPrefabs;
+    public List<string> wallPrefabs;
+    public string shopPedestablPrefab;
+}
+
+[System.Serializable]
 public struct DungeonFloorData
 {
     public string roomSet;
@@ -27,4 +35,5 @@ public struct DungeonFloorData
 public class DungeonData : ScriptableObject
 {
     public DungeonFloorData[] floorData;
+    public DungeonBiomeData biomeData;
 }
