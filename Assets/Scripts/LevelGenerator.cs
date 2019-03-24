@@ -73,7 +73,7 @@ public class LevelGenerator : MonoBehaviour
                 else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false; ;
-
+                    
                     PlaceMapPrefab(biomeData.shopPedestablPrefab, x, y, 1).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
                     GameObject buyableItem = PlaceMapPrefab(RandomItem(), x, y);
                     buyableItem.transform.localPosition += Vector3.up * 0.3f;
