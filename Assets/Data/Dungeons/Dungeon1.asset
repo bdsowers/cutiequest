@@ -114,7 +114,9 @@ MonoBehaviour:
         type: 3}
   biomeData:
     floorPrefabs:
-    - Floor
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
     wallPrefabs:
     - ForestWall1
     - ForestWall2
