@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d903a09c9c37a94aa7d112a11fc9d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDungeonData: {fileID: 11400000, guid: cb3f33d7f0fe87a4db68958c2f83080d, type: 2}
+  defaultDungeonData: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441, type: 2}
 --- !u!114 &5940583348516570660
 MonoBehaviour:
   m_ObjectHideFlags: 0

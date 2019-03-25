@@ -10,6 +10,7 @@ Not everything is available here. In some cases, I'm using assets I don't have t
 * Synty Adventure Pack
 * Synty SciFi MINI Characters
 * Synty SciFi Pack
+* Synty Polygon Knights Pack
 * InControl2
 * Shikashi's Fantasy Icon Pack
 
