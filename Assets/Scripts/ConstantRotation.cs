@@ -5,10 +5,11 @@ using UnityEngine;
 public class ConstantRotation : MonoBehaviour
 {
     public float speed;
+    public Vector3 axis = new Vector3(0f, 1f, 0f);
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0f, speed * Time.deltaTime, 0f);
+        transform.Rotate(axis, speed * Time.deltaTime);
     }
 }

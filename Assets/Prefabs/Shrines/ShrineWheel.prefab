@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 180
+  axis: {x: 1, y: 0, z: 0}
 --- !u!1 &6503758849492412173
 GameObject:
   m_ObjectHideFlags: 0
