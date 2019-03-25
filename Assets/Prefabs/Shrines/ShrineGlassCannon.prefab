@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676253970460433075}
   - component: {fileID: 8248482810137025732}
+  - component: {fileID: 4698780911416752863}
   m_Layer: 0
   m_Name: ShrineGlassCannon
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f248453082c126043a6e46b1154b3e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4698780911416752863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818454422392994760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8aca456462c8bc4590819b753e6df9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowScaleVariation: 0
 --- !u!1001 &3106351973807894032
 PrefabInstance:
   m_ObjectHideFlags: 0

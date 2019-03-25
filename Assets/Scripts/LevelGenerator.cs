@@ -103,11 +103,13 @@ public class LevelGenerator : MonoBehaviour
                     bool generateShrine = (Random.Range(0, 100) < 25);
                     if (generateShrine)
                     {
+                        Debug.Log("A special room has spawned including a shrine.");
                         PlaceMapPrefab(PrefabManager.instance.shrinePrefabs.Sample().name, x, y, 1);
                         PlaceMapPrefab("ActivationPlate", x, y + 1);
                     }
                     else
                     {
+                        Debug.Log("A special room has spawned including a chest.");
                         PlaceMapPrefab("Chest", x, y, 1);
                         PlaceMapPrefab("ActivationPlate", x, y + 1);
                     }

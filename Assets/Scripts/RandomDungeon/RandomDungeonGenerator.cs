@@ -331,7 +331,7 @@ namespace OMM.RDG
                 }
             }
 
-            int optionalSpecialRooms = mRNG.Next(minOptionalSpecialRooms, maxOptionalSpecialRooms);
+            int optionalSpecialRooms = mRNG.Next(minOptionalSpecialRooms, maxOptionalSpecialRooms + 1);
             for (int i = 0; i < optionalSpecialRooms; ++i)
             {
                 TryPlaceRoom("special_optional", false, -1, RoomPlacementOptions.AllowWallsToBecomeExits);
