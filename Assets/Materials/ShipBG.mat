@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CaveBG
+  m_Name: ShipBG
   m_Shader: {fileID: 4800000, guid: caaadcefffa92454a83ddbc0f46fde5e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -78,7 +78,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CloudColor: {r: 0.41960788, g: 0.3529412, b: 0.26666668, a: 1}
+    - _CloudColor: {r: 0.9056604, g: 0.508366, b: 0.82057315, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SkyColor: {r: 0.601, g: 0.49669424, b: 0.3725207, a: 1}
+    - _SkyColor: {r: 0.42, g: 0.23636365, b: 0.38000003, a: 1}

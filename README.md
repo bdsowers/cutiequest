@@ -8,6 +8,8 @@ Made with Unity 2018.3.6f1.
 Not everything is available here. In some cases, I'm using assets I don't have the licenses to share. Those are housed elsewhere. Here's a list of what I'm using so far that you would need to acquire separately:
 * Synty Polygon MINI Fantasy Characters
 * Synty Adventure Pack
+* Synty SciFi MINI Characters
+* Synty SciFi Pack
 * InControl2
 * Shikashi's Fantasy Icon Pack
 
@@ -36,8 +38,7 @@ wall: 5.58, 0.147, 3.5231
 * At least 5 levels of followers
 * 10 unique spells w/varying levels
 * 10 unique quirks
-* 10 unique enemies
-* 3 biomes w/unique boss each
+* 10 unique enemies + 3 bosses
 * Final boss
 
 ### MVP Secondary Requirements
@@ -60,6 +61,7 @@ wall: 5.58, 0.147, 3.5231
 * Follower bios / humor info
 
 #### FINISHED
+* ~~3 biomes~~
 * ~~HUB - permanent upgrade shop~~
 * ~~In-dungeon shop~~
 * ~~Follower quirk support~~

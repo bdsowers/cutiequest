@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d903a09c9c37a94aa7d112a11fc9d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDungeonData: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441, type: 2}
+  defaultDungeonData: {fileID: 11400000, guid: cb3f33d7f0fe87a4db68958c2f83080d, type: 2}
 --- !u!114 &5940583348516570660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +551,19 @@ MonoBehaviour:
   - {fileID: 9067581624821485147, guid: 6813e8788724923459ffb25db5eab30d, type: 3}
   - {fileID: 9067581624821485147, guid: b1467f80f98237143899576292e21f02, type: 3}
   - {fileID: 9067581624821485147, guid: 0b6d25960333d094caf08a0d1c7c07e8, type: 3}
+  - {fileID: 8791090138005552656, guid: 083e7ed02b311434cb2f713059889f04, type: 3}
+  - {fileID: 8791090138005552656, guid: 8775275028b6fcb40b06745738e484d4, type: 3}
+  - {fileID: 8791090138005552656, guid: 541f314806a838546a9210b660453e27, type: 3}
+  - {fileID: 8791090138005552656, guid: 9136b27725b4af240bef920a1d6da650, type: 3}
+  - {fileID: 8791090138005552656, guid: c64b74e224c27044c860275d2015469b, type: 3}
+  - {fileID: 8791090138005552656, guid: 9fa182ca9cb5d3f40a11a6f776bd2433, type: 3}
+  - {fileID: 8791090138005552656, guid: 724c6900af5d87c40b6bc90702af9926, type: 3}
+  - {fileID: 9067581624821485147, guid: 86a473d0c63cd174d8d33fe5a3d68dea, type: 3}
+  - {fileID: 9067581624821485147, guid: 7b5a6b689b10ea3478b9a3c9ed88b0ca, type: 3}
+  - {fileID: 9067581624821485147, guid: 142a5ffc512bb8542aecb79217da9acd, type: 3}
+  - {fileID: 9067581624821485147, guid: 17db66bff69189149a41521e7cda8f05, type: 3}
+  - {fileID: 9067581624821485147, guid: 05ad300e8752b3146b79ad4ccf62ed58, type: 3}
+  - {fileID: 9067581624821485147, guid: 055e0090b7bb8ff468b0b239f8604f09, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}
