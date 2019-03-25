@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cd82f2bc392f2439799a39efad31c2, type: 3}
+  m_Name: Dungeon2
+  m_EditorClassIdentifier: 
+  floorData:
+  - roomSet: roomset6
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 5
+      numExtraRoomsPlacedAfterSpecialRooms: 10
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 10
+      maxEnemies: 15
+      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+  - roomSet: roomset6
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 8
+      numExtraRoomsPlacedAfterSpecialRooms: 15
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 15
+      maxEnemies: 20
+      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+  - roomSet: roomset6
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 8
+      numExtraRoomsPlacedAfterSpecialRooms: 15
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 15
+      maxEnemies: 20
+      commonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+  biomeData:
+    floorPrefabs:
+    - CaveFloor
+    - CaveFloor2
+    - CaveFloor3
+    - CaveFloor
+    - CaveFloor2
+    - CaveFloor3
+    - CaveFloor
+    - CaveFloor2
+    - CaveFloor3
+    - CaveFloor4
+    - CaveFloor
+    - CaveFloor5
+    - CaveFloor6
+    - CaveFloor7
+    - CaveFloor
+    - CaveFloor2
+    - CaveFloor3
+    wallPrefabs:
+    - CaveWall1
+    - CaveWall2
+    - CaveWall3
+    - CaveWall4
+    shopPedestablPrefab: ShopPedestal

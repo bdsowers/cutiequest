@@ -9,6 +9,7 @@
 		_Softness("Softness", float) = 0.2
 
 		_CloudColor("CloudColor", Color) = (1,1,1,1)
+		_SkyColor("SkyColor", Color)  = (0.6, 0.8, 1.0, 1.0)
 		_FBMFactor("FBMFactor", float) = 3
 
 		_Distance("Distance", float) = 1
@@ -47,6 +48,7 @@
 			float _CloudScale;
 			float _Darkness;
 			float4 _CloudColor;
+			float4 _SkyColor;
 			float _Softness;
 			float _FBMFactor;
 			float _Distance;
@@ -138,7 +140,7 @@
 
 				float cloudsFromComb = saturate(clouds1+clouds2);
 
-				float4 skyColor = float4(0.6, 0.8, 1.0, 1.0);
+				float4 skyColor = _SkyColor;
 				float cloudCol = saturate(saturate(1.0-pow(color1,1.0)*0.2)*brightness);
 				float4 clouds1Color = float4(cloudCol,cloudCol,cloudCol,1.0) * _CloudColor;
 				float4 clouds2Color = lerp(clouds1Color*0.95,skyColor,0.25);
