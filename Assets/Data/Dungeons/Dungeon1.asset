@@ -30,7 +30,7 @@ MonoBehaviour:
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
-      maxSpecialRooms: 0
+      maxSpecialRooms: 1
       numExtraRoomsPlacedBeforeSpecialRooms: 5
       numExtraRoomsPlacedAfterSpecialRooms: 10
       enforceTwoTileHighWalls: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
-      maxSpecialRooms: 0
+      maxSpecialRooms: 1
       numExtraRoomsPlacedBeforeSpecialRooms: 8
       numExtraRoomsPlacedAfterSpecialRooms: 15
       enforceTwoTileHighWalls: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
-      maxSpecialRooms: 0
+      maxSpecialRooms: 1
       numExtraRoomsPlacedBeforeSpecialRooms: 8
       numExtraRoomsPlacedAfterSpecialRooms: 15
       enforceTwoTileHighWalls: 0

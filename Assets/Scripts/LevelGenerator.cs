@@ -57,6 +57,8 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int y = 0; y < dungeon.height; ++y)
             {
+                RandomDungeonTileData tileData = dungeon.Data(x, y);
+
                 if (dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
                 {
                     mCollisionMap.MarkSpace(x, y, 1);
@@ -83,11 +85,32 @@ public class LevelGenerator : MonoBehaviour
                 }
                 else if (dungeon.TileType(x,y) == SHOP_KEEPER)
                 {
-                    PlaceMapPrefab("Floor", x, y);
+                    PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
                     PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
 
                     GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
                     activationPlate.GetComponent<ActivationPlate>().cinematicEvent = "shopkeep_talk";
+                }
+
+
+                if (tileData.chest == 2)
+                {
+                    PlaceMapPrefab("Chest", x, y, 1);
+                    PlaceMapPrefab("ActivationPlate", x, y + 1);
+                }
+                else if (tileData.chest == 1)
+                {
+                    bool generateShrine = (Random.Range(0, 100) < 25);
+                    if (generateShrine)
+                    {
+                        PlaceMapPrefab(PrefabManager.instance.shrinePrefabs.Sample().name, x, y, 1);
+                        PlaceMapPrefab("ActivationPlate", x, y + 1);
+                    }
+                    else
+                    {
+                        PlaceMapPrefab("Chest", x, y, 1);
+                        PlaceMapPrefab("ActivationPlate", x, y + 1);
+                    }
                 }
             }
         }
