@@ -31,7 +31,6 @@ wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
 ### MVP Feature List
-* Risk/reward mechanism
 * Intro w/basic tutorials
 
 ### MVP Content Requirements
