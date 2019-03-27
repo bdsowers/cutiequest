@@ -2457,7 +2457,7 @@ Transform:
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &303108713
 PrefabInstance:
@@ -10727,6 +10727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 360
+  axis: {x: 0, y: 1, z: 0}
 --- !u!64 &1687432466
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15680,7 +15681,7 @@ PrefabInstance:
     - target: {fileID: 7208613043618338208, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7208613043618338208, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}

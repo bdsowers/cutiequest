@@ -565,6 +565,7 @@ MonoBehaviour:
   - {fileID: 9067581624821485147, guid: 05ad300e8752b3146b79ad4ccf62ed58, type: 3}
   - {fileID: 9067581624821485147, guid: 055e0090b7bb8ff468b0b239f8604f09, type: 3}
   - {fileID: 7818454422392994760, guid: 8946fdbf174ec224cad495fefa7c0bac, type: 3}
+  - {fileID: 8791090138005552656, guid: e6ec40d84d85e1b48ac1b591947ad48d, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}
@@ -648,3 +649,5 @@ MonoBehaviour:
   - {fileID: 7818454422392994760, guid: 49782ad2c861ff546b31566038c43db4, type: 3}
   - {fileID: 7818454422392994760, guid: 1289736070eb46e4fb59e2a470ef4851, type: 3}
   - {fileID: 7818454422392994760, guid: 6c46cc69b0b0e2e409067fc67442adeb, type: 3}
+  spellEffectPrefabs:
+  - {fileID: 4116899431906014084, guid: ec756ba3d5f7fc94d817730c73b5f6b7, type: 3}

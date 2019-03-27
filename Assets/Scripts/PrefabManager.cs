@@ -8,6 +8,7 @@ public class PrefabManager : MonoBehaviour
     public GameObject[] characterPrefabs;
     public GameObject[] itemPrefabs;
     public GameObject[] shrinePrefabs;
+    public GameObject[] spellEffectPrefabs;
 
     private Dictionary<string, GameObject> mPrefabMap = new Dictionary<string, GameObject>();
     private static PrefabManager sInstance = null;
@@ -27,6 +28,7 @@ public class PrefabManager : MonoBehaviour
         AddListToDictionary(characterPrefabs);
         AddListToDictionary(itemPrefabs);
         AddListToDictionary(shrinePrefabs);
+        AddListToDictionary(spellEffectPrefabs);
     }
 
     private void AddListToDictionary(GameObject[] list)
