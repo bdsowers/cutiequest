@@ -31,7 +31,6 @@ wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
 ### MVP Feature List
-* Special rooms w/ boosts (ie: shrines)
 * Risk/reward mechanism
 * Intro w/basic tutorials
 
@@ -62,6 +61,7 @@ wall: 5.58, 0.147, 3.5231
 * Follower bios / humor info
 
 #### FINISHED
+* ~~Special rooms w/ boosts (ie: shrines)~~
 * ~~3 biomes~~
 * ~~HUB - permanent upgrade shop~~
 * ~~In-dungeon shop~~
