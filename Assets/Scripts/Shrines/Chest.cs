@@ -10,11 +10,13 @@ public class Chest : Shrine
 {
     public GameObject lid;
 
-    public override void Activate()
+    protected override IEnumerator ActivationCoroutine()
     {
-        base.Activate();
+        yield return base.ActivationCoroutine();
 
         StartCoroutine(PlayOpenSequence());
+
+        yield break;
     }
 
     private IEnumerator PlayOpenSequence()

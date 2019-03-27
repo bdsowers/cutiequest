@@ -41,3 +41,10 @@ animation trigger: trainer_fail
 	change_speaker Chr_Vikings_ShieldMaiden_01
 	typewriter "I oughtta beat you within an inch of your life for wasting my time."
 }
+
+animation trigger: activate_shrine
+{
+	change_speaker none
+	typewriter shrine_message
+	generic_choice text: "Take the bargain?", button1: yes, button1_text: Yes, button2: no, button2_text: No
+}

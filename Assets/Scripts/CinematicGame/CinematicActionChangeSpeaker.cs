@@ -23,7 +23,19 @@ public class CinematicActionChangeSpeaker : CinematicAction
 
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
-        GameObject.Find("CharacterImageCapture").GetComponentInChildren<CharacterModel>().ChangeModel(mSpeakerModel);
+        GameObject speakerContainer = player.objectMap.GetObjectByName("speaker");
+        bool showSpeaker = (mSpeakerModel != "none");
+
+        if (speakerContainer != null)
+        {
+            player.objectMap.GetObjectByName("speaker").SetActive(showSpeaker);
+        }
+
+        if (showSpeaker)
+        {
+            GameObject.Find("CharacterImageCapture").GetComponentInChildren<CharacterModel>().ChangeModel(mSpeakerModel);
+        }
+
         yield break;
     }
 }
