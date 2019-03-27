@@ -14,6 +14,8 @@ public class Collectable : MonoBehaviour
 {
     public CurrencyType currencyType;
 
+    private bool mIsAnimating;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,20 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<PlayerController>() != null)
+        CollectIfPossible(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        CollectIfPossible(other);
+    }
+
+    private void CollectIfPossible(Collider collider)
+    {
+        if (mIsAnimating)
+            return;
+
+        if (collider.GetComponentInParent<PlayerController>() != null)
         {
             if (currencyType == CurrencyType.Hearts)
             {
@@ -49,6 +64,8 @@ public class Collectable : MonoBehaviour
 
     private IEnumerator PlayDropAnimation(GameObject obj, Vector3 sourcePosition, Vector3 endPosition, bool shouldDelay)
     {
+        mIsAnimating = true;
+
         obj.transform.localScale = Vector3.zero;
 
         float startY = obj.transform.GetChild(0).transform.localPosition.y;
@@ -90,6 +107,8 @@ public class Collectable : MonoBehaviour
         obj.transform.localScale = Vector3.one;
         obj.transform.position = endPosition;
         obj.transform.GetChild(0).transform.localPosition = Vector3.up * startY;
+
+        mIsAnimating = false;
 
         yield break;
     }

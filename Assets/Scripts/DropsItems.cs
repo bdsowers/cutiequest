@@ -15,6 +15,7 @@ public class DropsItems : MonoBehaviour
     // These should be sorted lowest to highest
     public DropData[] coinDropData;
     public DropData[] heartDropData;
+    public bool scatter;
 
     public void Drop()
     {
@@ -39,6 +40,16 @@ public class DropsItems : MonoBehaviour
             GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
             Vector3 sourcePosition = transform.position;
             Vector3 endPosition = transform.position + VectorHelper.RandomNormalizedXZVector3() * 0.3f;
+
+            if (scatter)
+            {
+                int randX = Random.Range(-1, 2);
+                int randZ = Random.Range(-1, 2);
+                if (randX == 0 && randZ == 0) randX = 1;
+
+                endPosition += new Vector3(randX, 0f, randZ);
+            }
+
             newItem.transform.position = sourcePosition;
             newItem.GetComponentInChildren<RevealWhenAvatarIsClose>().enabled = false;
             

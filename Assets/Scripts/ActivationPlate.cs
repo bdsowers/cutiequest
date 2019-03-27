@@ -7,6 +7,7 @@ public class ActivationPlate : MonoBehaviour
     public string cinematicEvent;
 
     public Item item;
+    public Shrine shrine;
 
     private bool mIsPlayerInside;
 
@@ -36,6 +37,13 @@ public class ActivationPlate : MonoBehaviour
                         NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, item.Cost(), NumberPopupReason.RemoveCoins);
 
                         item.Equip();
+                    }
+                }
+                else if (shrine != null)
+                {
+                    if (!shrine.activated)
+                    {
+                        shrine.Activate();
                     }
                 }
             }

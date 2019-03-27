@@ -95,8 +95,8 @@ public class LevelGenerator : MonoBehaviour
 
                 if (tileData.chest == 2)
                 {
-                    PlaceMapPrefab("Chest", x, y, 1);
-                    PlaceMapPrefab("ActivationPlate", x, y + 1);
+                    GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
+                    PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = chest.GetComponent<Shrine>();
                 }
                 else if (tileData.chest == 1)
                 {
@@ -110,8 +110,8 @@ public class LevelGenerator : MonoBehaviour
                     else
                     {
                         Debug.Log("A special room has spawned including a chest.");
-                        PlaceMapPrefab("Chest", x, y, 1);
-                        PlaceMapPrefab("ActivationPlate", x, y + 1);
+                        GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
+                        PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = chest.GetComponent<Shrine>();
                     }
                 }
             }

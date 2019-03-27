@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1676253970460433075}
   - component: {fileID: 8248482810137025732}
   - component: {fileID: 2250322075721520}
+  - component: {fileID: 2371488217570664590}
+  - component: {fileID: 6773988775449502650}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -58,6 +60,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
+--- !u!114 &2371488217570664590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818454422392994760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e11583cb9a8b3643ae7e1f1f2b3082c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preActivationMessage: 
+  lid: {fileID: 5732693976304834061}
+--- !u!114 &6773988775449502650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818454422392994760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a190e20f0ebc641b81ae106ec8b060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinDropData:
+  - rate: 10
+    amount: 15
+  - rate: 50
+    amount: 10
+  - rate: 100
+    amount: 5
+  heartDropData:
+  - rate: 10
+    amount: 3
+  - rate: 50
+    amount: 2
+  - rate: 100
+    amount: 1
+  scatter: 1
 --- !u!1001 &5732693976304705255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +173,12 @@ PrefabInstance:
 --- !u!4 &5732693976305034995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 473108, guid: 1c64fbe146825d4439e21d3a3c64b4fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5732693976304705255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5732693976304834061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133354, guid: 1c64fbe146825d4439e21d3a3c64b4fb,
     type: 3}
   m_PrefabInstance: {fileID: 5732693976304705255}
   m_PrefabAsset: {fileID: 0}
