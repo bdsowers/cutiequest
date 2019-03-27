@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpellCaster : MonoBehaviour
 {
     public int targetDeviation = 0;
+    public bool isCasting { get; private set; }
 
     private int[,] mPattern = new int[,]
     {
@@ -30,6 +31,11 @@ public class SpellCaster : MonoBehaviour
         }
     }
 
+    public bool CanCast()
+    {
+        return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 4f;
+    }
+
     public void CastSpell()
     {
         StartCoroutine(CastSpellCoroutine());
@@ -37,6 +43,8 @@ public class SpellCaster : MonoBehaviour
 
     public IEnumerator CastSpellCoroutine()
     {
+        isCasting = true;
+
         Vector3 avatarPosition = Game.instance.avatar.transform.position;
 
         int spellX = Mathf.RoundToInt(avatarPosition.x);
@@ -50,16 +58,16 @@ public class SpellCaster : MonoBehaviour
 
         spellZ = -spellZ;
 
-        
-
         int currentPart = 1;
         bool keepCasting = true;
         while (keepCasting)
         {
             keepCasting = CastSpellPart(currentPart, spellX, spellZ);
             ++currentPart;
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1.75f);
         }
+
+        isCasting = false;
 
         yield break;
     }

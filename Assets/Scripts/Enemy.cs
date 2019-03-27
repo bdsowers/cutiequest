@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
+    private SpellCaster mSpellCaster;
     private Killable mKillable;
 
     public float actionCooldown;
@@ -18,11 +19,17 @@ public class Enemy : MonoBehaviour
         mSimpleMovement = GetComponent<SimpleMovement>();
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
+        mSpellCaster = GetComponent<SpellCaster>();
         mKillable = GetComponent<Killable>();
 
         mTurnBasedMovement.onTurnGranted += OnTurnGranted;
         mSimpleMovement.onMoveFinished += OnMoveFinished;
-        mSimpleAttack.onAttackFinished += OnAttackFinished;
+
+        if (mSimpleAttack != null)
+        {
+            mSimpleAttack.onAttackFinished += OnAttackFinished;
+        }
+
         mKillable.onDeath += OnDeath;
 
         Game.instance.centralEvents.FireEnemyCreated(this);
@@ -71,13 +78,34 @@ public class Enemy : MonoBehaviour
                 if (mActionCooldownTimer >= 0f)
                     mActionCooldownTimer -= Time.deltaTime;
 
-                if (!mSimpleMovement.isMoving && !mSimpleAttack.isAttacking && mActionCooldownTimer <= 0f)
-                {
-                    mActionCooldownTimer = actionCooldown;
+                if (CanUpdateAI())
+                {   
                     UpdateAI();
+                    mActionCooldownTimer = actionCooldown;
                 }
             }
         }
+    }
+
+    private bool CanUpdateAI()
+    {
+        if (mSimpleMovement.isMoving)
+            return false;
+        if (mSimpleAttack != null && mSimpleAttack.isAttacking)
+            return false;
+        if (mSpellCaster != null && mSpellCaster.isCasting)
+            return false;
+        if (mActionCooldownTimer > 0f)
+            return false;
+
+        if (!Game.instance.avatar.isAlive)
+            return false;
+        if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return false;
+        if (Game.instance.transitionManager.isTransitioning)
+            return false;
+
+        return true;
     }
 
     private Vector3 OrthogonalDirection(Transform source, Transform target, bool useLargeAxis)
@@ -111,26 +139,20 @@ public class Enemy : MonoBehaviour
         return direction.normalized;
     }
 
-    private bool CanUpdateAI()
-    {
-        if (!Game.instance.avatar.isAlive)
-            return false;
-        if (Game.instance.cinematicDirector.IsCinematicPlaying())
-            return false;
-        if (Game.instance.transitionManager.isTransitioning)
-            return false;
-
-        return true;
-    }
-
     private void UpdateAI()
     {
         if (!CanUpdateAI())
             return;
 
         Vector3 direction = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
+
+        // todo bdsowers - refactor so that melee and spell-based enemies behave differently.
         
-        if (mSimpleAttack.CanAttack(direction))
+        if (mSpellCaster != null && mSpellCaster.CanCast())
+        {
+            mSpellCaster.CastSpell();
+        }
+        else if (mSimpleAttack != null && mSimpleAttack.CanAttack(direction))
         {
             mSimpleAttack.Attack(direction);
         }
