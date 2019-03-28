@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 50
-  _strength: 2
+  _strength: 5
   _defense: 0
   _magic: 1
   _speed: 2
@@ -163,6 +163,7 @@ MonoBehaviour:
   heartDropData:
   - rate: 50
     amount: 1
+  scatter: 0
 --- !u!1 &2738750450637018143
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ public class SimpleAttack : MonoBehaviour
             // todo bdsowers - incorporate RNG into attacks at all?
             // todo bdsowers - will need to tweak these equations for sure ... or tweak health values
             // so that both strength and defense can always have an influence.
-            int damage = strength * 10 - defense * 2;
+            int damage = strength * 4 - defense * 2;
             damage = Mathf.Max(damage, 1);
 
             targetKillable.TakeDamage(damage);

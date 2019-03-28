@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 50
-  _strength: 2
+  _strength: 5
   _defense: 0
-  _magic: 1
+  _magic: 5
   _speed: 2
   _luck: 1
 --- !u!114 &6961990967797571961

@@ -60,6 +60,8 @@ public class SpellCaster : MonoBehaviour
 
     public IEnumerator CastSpellCoroutine()
     {
+        GetComponentInChildren<Animator>().Play("Spell");
+
         isCasting = true;
 
         Vector3 avatarPosition = Game.instance.avatar.transform.position;
