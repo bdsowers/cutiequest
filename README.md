@@ -30,8 +30,19 @@ stall: 6.08, 0, -2.48
 wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
-### MVP Feature List
+### MVP Alpha Features / Improvements
+* Traps
+* Projectile-throwing enemies
+* Death screen
+* Improved title screen
+* Improved QuestR
+* Locked HUB improvement system
+* Flow from biome to biome / endgame
+
+### MVP Beta Features
 * Intro w/basic tutorials
+* Improved map
+* Follower bios / humor info
 
 ### MVP Content Requirements
 * At least 5 levels of followers
@@ -40,14 +51,6 @@ wall: 5.58, 0.147, 3.5231
 * 10 unique enemies + 3 bosses
 * Final boss
 
-### MVP Secondary Requirements
-* Improved QuestR interface that shows more
-* Improved title screen
-* Death screen
-* Game complete sequence
-* Improved map
-* Traps
-
 ### Polish
 * Attack VFX
 * Collection VFX
@@ -55,9 +58,16 @@ wall: 5.58, 0.147, 3.5231
 * Screen transitions
 * Random level decorations / obstructions / debris
 
-### Wishlist
+### Production Schedule
+* Road to Alha - 2 weeks
+* 1 follower w/spell & quirk, enemy, polish item per day; timeboxed - 2 weeks
+* Bosses; fleshed game flow - 2 weeks
+* Balance, polish - 4 weeks
+* Bug fixing - 2 weeks
+
+### Post-MVP Wishlist
 * Pets
-* Follower bios / humor info
+* Gardening
 
 #### FINISHED
 * ~~Special rooms w/ boosts (ie: shrines)~~
