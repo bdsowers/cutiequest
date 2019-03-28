@@ -38,6 +38,7 @@ wall: 5.58, 0.147, 3.5231
 * Improved QuestR
 * Locked HUB improvement system
 * Flow from biome to biome / endgame
+* AI improvements (melee vs projectile vs spellcaster vs hybrid)
 
 ### MVP Beta Features
 * Intro w/basic tutorials
