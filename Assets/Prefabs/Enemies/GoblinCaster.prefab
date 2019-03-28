@@ -164,7 +164,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84610f668f27b6e40a2ad91dc409aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDeviation: 2
+  targetDeviation: 0
+  targetCaster: 0
+  orientToDirection: 0
+  patternString: '22222
+
+    21112
+
+    21012
+
+    21112
+
+    22222
+
+'
 --- !u!1 &2738750450637018143
 GameObject:
   m_ObjectHideFlags: 0
