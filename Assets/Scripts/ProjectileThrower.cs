@@ -41,6 +41,13 @@ public class ProjectileThrower : MonoBehaviour
         Transform handTransform = GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
         projectile.transform.position = handTransform.position;
 
+        projectile.transform.localRotation = GetComponentInChildren<Animator>().transform.localRotation;
+
+        // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
+        float y = projectile.transform.localRotation.eulerAngles.y;
+        y = Mathf.Round(y / 90) * 90.0f;
+        projectile.transform.localRotation = Quaternion.Euler(projectile.transform.localRotation.eulerAngles.x, y, projectile.transform.localRotation.eulerAngles.z);
+
         yield return new WaitForSeconds(2f);
 
         isThrowing = false;

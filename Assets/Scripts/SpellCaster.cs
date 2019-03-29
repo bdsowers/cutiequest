@@ -16,7 +16,7 @@ public class SpellCaster : MonoBehaviour
     private int[,] mPattern = null;
 
     private CollisionMap mCollisionMap;
-    private float timeScale = 4f;
+    public float castSpeed = 4f;
 
     private void Start()
     {
@@ -89,7 +89,7 @@ public class SpellCaster : MonoBehaviour
         {
             keepCasting = CastSpellPart(currentPart, spellX, spellZ);
             ++currentPart;
-            yield return new WaitForSeconds(1.75f / timeScale);
+            yield return new WaitForSeconds(1.75f / castSpeed);
         }
 
         isCasting = false;
@@ -121,7 +121,7 @@ public class SpellCaster : MonoBehaviour
                 {
                     GameObject target = GameObject.Instantiate(PrefabManager.instance.PrefabByName("SpellTarget"), spellContainer.transform);
                     target.transform.position = new Vector3(targetX, 1f, -targetZ);
-                    target.GetComponent<SpellTarget>().castTime = 1f * (1f / timeScale);
+                    target.GetComponent<SpellTarget>().castTime = 1f * (1f / castSpeed);
                     target.GetComponent<SpellTarget>().effect = "Explosion";
 
                     partFound = true;
