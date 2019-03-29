@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4960390745359260309}
   - component: {fileID: 4960390745359260308}
+  - component: {fileID: 5852636950313230303}
   m_Layer: 9
   m_Name: ModelContainer
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
   scale: 0.5
   rotation: 180
+--- !u!65 &5852636950313230303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960390745359260310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4960390746840219058
 GameObject:
   m_ObjectHideFlags: 0

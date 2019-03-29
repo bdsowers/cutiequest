@@ -42,6 +42,7 @@ public class ProjectileThrower : MonoBehaviour
         projectile.transform.position = handTransform.position;
 
         projectile.transform.localRotation = GetComponentInChildren<Animator>().transform.localRotation;
+        RecursiveSetLayer(projectile.transform, gameObject.layer);
 
         // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
         float y = projectile.transform.localRotation.eulerAngles.y;
@@ -53,5 +54,14 @@ public class ProjectileThrower : MonoBehaviour
         isThrowing = false;
 
         yield break;
+    }
+
+    private void RecursiveSetLayer(Transform obj, int layer)
+    {
+        obj.gameObject.layer = layer;
+        for (int i = 0; i < obj.childCount; ++i)
+        {
+            RecursiveSetLayer(obj.GetChild(i), layer);
+        }
     }
 }
