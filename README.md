@@ -32,7 +32,6 @@ wall: 5.58, 0.147, 3.5231
 ## Roadmap
 ### MVP Alpha Features / Improvements
 * Traps
-* Projectile-throwing enemies
 * Death screen
 * Improved title screen
 * Improved QuestR
@@ -71,6 +70,7 @@ wall: 5.58, 0.147, 3.5231
 * Gardening
 
 #### FINISHED
+* ~~Projectile-throwing enemies~~
 * ~~Special rooms w/ boosts (ie: shrines)~~
 * ~~3 biomes~~
 * ~~HUB - permanent upgrade shop~~
