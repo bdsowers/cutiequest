@@ -155,11 +155,13 @@ public class Enemy : MonoBehaviour
         
         if (mProjectileThrower != null && mProjectileThrower.ShouldThrow())
         {
-            mProjectileThrower.ThrowProjectile();
+            int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
+            mProjectileThrower.ThrowProjectile(magic);
         }
         else if (mSpellCaster != null && mSpellCaster.CanCast())
         {
-            mSpellCaster.CastSpell();
+            int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
+            mSpellCaster.CastSpell(magic);
         }
         else if (mSimpleAttack != null && mSimpleAttack.CanAttack(direction))
         {

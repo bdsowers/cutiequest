@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameObjectExtensions;
 
 public class SpellCaster : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class SpellCaster : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            CastSpell();
+            CastSpell(2);
         }
     }
 
@@ -53,12 +54,12 @@ public class SpellCaster : MonoBehaviour
         return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 4f;
     }
 
-    public void CastSpell()
+    public void CastSpell(int strength)
     {
-        StartCoroutine(CastSpellCoroutine());
+        StartCoroutine(CastSpellCoroutine(strength));
     }
 
-    public IEnumerator CastSpellCoroutine()
+    public IEnumerator CastSpellCoroutine(int strength)
     {
         GetComponentInChildren<Animator>().Play("Spell");
 
@@ -87,7 +88,7 @@ public class SpellCaster : MonoBehaviour
         bool keepCasting = true;
         while (keepCasting)
         {
-            keepCasting = CastSpellPart(currentPart, spellX, spellZ);
+            keepCasting = CastSpellPart(currentPart, spellX, spellZ, strength);
             ++currentPart;
             yield return new WaitForSeconds(1.75f / castSpeed);
         }
@@ -97,7 +98,7 @@ public class SpellCaster : MonoBehaviour
         yield break;
     }
 
-    private bool CastSpellPart(int currentPart, int spellX, int spellZ)
+    private bool CastSpellPart(int currentPart, int spellX, int spellZ, int strength)
     {
         bool partFound = false;
 
@@ -123,6 +124,8 @@ public class SpellCaster : MonoBehaviour
                     target.transform.position = new Vector3(targetX, 1f, -targetZ);
                     target.GetComponent<SpellTarget>().castTime = 1f * (1f / castSpeed);
                     target.GetComponent<SpellTarget>().effect = "Explosion";
+                    target.GetComponent<SpellTarget>().strength = strength;
+                    target.SetLayerRecursive(gameObject.layer);
 
                     partFound = true;
                 }

@@ -15,6 +15,8 @@ public class SpellTarget : MonoBehaviour
     public float castTime { get; set; }
     public string effect { get; set; }
 
+    public int strength { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +80,9 @@ public class SpellTarget : MonoBehaviour
         }
 
         PlayEffect();
+        yield return new WaitForSeconds(0.35f);
+        DealDamage();
+
         Destroy(gameObject);
 
         yield break;
@@ -87,5 +92,35 @@ public class SpellTarget : MonoBehaviour
     {
         GameObject newEffect = GameObject.Instantiate(PrefabManager.instance.PrefabByName(effect));
         newEffect.transform.position = transform.position;
+    }
+
+    private void DealDamage()
+    {
+        // See if a targetable entity is in the same space as us
+        // Targetable in this case = someone not currently on the same layer as us
+        Killable targetKillable = EntityInThisSpace();
+        if (targetKillable != null && targetKillable.gameObject.layer != gameObject.layer)
+        {
+            int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
+            int damage = strength * 4 - defense * 2;
+
+            targetKillable.TakeDamage(damage);
+        }
+    }
+
+    // todo bdsowers - this is worth some optimization
+    Killable EntityInThisSpace()
+    {
+        Killable[] allKillables = GameObject.FindObjectsOfType<Killable>();
+        for (int i = 0; i < allKillables.Length; ++i)
+        {
+            Vector3 dist = transform.position - allKillables[i].transform.position;
+            if (Mathf.Abs(dist.x) < 0.1f && Mathf.Abs(dist.z) < 0.1f)
+            {
+                return allKillables[i];
+            }
+        }
+
+        return null;
     }
 }

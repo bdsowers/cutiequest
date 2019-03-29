@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameObjectExtensions;
 
 public class ProjectileThrower : MonoBehaviour
 {
@@ -13,12 +14,12 @@ public class ProjectileThrower : MonoBehaviour
         return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 4f;
     }
 
-    public void ThrowProjectile()
+    public void ThrowProjectile(int strength)
     {
-        StartCoroutine(ThrowProjectileCoroutine());
+        StartCoroutine(ThrowProjectileCoroutine(strength));
     }
 
-    public IEnumerator ThrowProjectileCoroutine()
+    public IEnumerator ThrowProjectileCoroutine(int strength)
     {
         isThrowing = true;
         Vector3 avatarDirection = (Game.instance.avatar.transform.position - transform.position);
@@ -37,12 +38,13 @@ public class ProjectileThrower : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
 
         GameObject projectile = GameObject.Instantiate(projectilePrefab);
+        projectile.GetComponent<Projectile>().strength = strength;
         projectile.GetComponent<ConstantTranslation>().direction = avatarDirection;
         Transform handTransform = GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
         projectile.transform.position = handTransform.position;
 
         projectile.transform.localRotation = GetComponentInChildren<Animator>().transform.localRotation;
-        RecursiveSetLayer(projectile.transform, gameObject.layer);
+        projectile.SetLayerRecursive(gameObject.layer);
 
         // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
         float y = projectile.transform.localRotation.eulerAngles.y;
@@ -54,14 +56,5 @@ public class ProjectileThrower : MonoBehaviour
         isThrowing = false;
 
         yield break;
-    }
-
-    private void RecursiveSetLayer(Transform obj, int layer)
-    {
-        obj.gameObject.layer = layer;
-        for (int i = 0; i < obj.childCount; ++i)
-        {
-            RecursiveSetLayer(obj.GetChild(i), layer);
-        }
     }
 }
