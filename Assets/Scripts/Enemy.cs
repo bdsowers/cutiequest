@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
     private SpellCaster mSpellCaster;
+    private ProjectileThrower mProjectileThrower;
+
     private Killable mKillable;
 
     public float actionCooldown;
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
         mSpellCaster = GetComponent<SpellCaster>();
+        mProjectileThrower = GetComponent<ProjectileThrower>();
         mKillable = GetComponent<Killable>();
 
         mTurnBasedMovement.onTurnGranted += OnTurnGranted;
@@ -95,6 +98,8 @@ public class Enemy : MonoBehaviour
             return false;
         if (mSpellCaster != null && mSpellCaster.isCasting)
             return false;
+        if (mProjectileThrower != null && mProjectileThrower.isThrowing)
+            return false;
         if (mActionCooldownTimer > 0f)
             return false;
 
@@ -148,7 +153,11 @@ public class Enemy : MonoBehaviour
 
         // todo bdsowers - refactor so that melee and spell-based enemies behave differently.
         
-        if (mSpellCaster != null && mSpellCaster.CanCast())
+        if (mProjectileThrower != null && mProjectileThrower.ShouldThrow())
+        {
+            mProjectileThrower.ThrowProjectile();
+        }
+        else if (mSpellCaster != null && mSpellCaster.CanCast())
         {
             mSpellCaster.CastSpell();
         }

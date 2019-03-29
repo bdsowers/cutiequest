@@ -61,7 +61,7 @@ wall: 5.58, 0.147, 3.5231
 
 ### Production Schedule
 * Road to Alha - 2 weeks
-* 1 follower w/spell & quirk, enemy, polish item per day; timeboxed - 2 weeks
+* 1 follower w/spell & quirk, enemy, shrine, item, polish task per day; timeboxed - 2 weeks
 * Bosses; fleshed game flow - 2 weeks
 * Balance, polish - 4 weeks
 * Bug fixing - 2 weeks
