@@ -31,7 +31,6 @@ wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
 ### MVP Alpha Features / Improvements
-* Traps
 * Death screen
 * Improved title screen
 * Improved QuestR
@@ -60,7 +59,7 @@ wall: 5.58, 0.147, 3.5231
 
 ### Production Schedule
 * Road to Alha - 2 weeks
-* 1 follower w/spell & quirk, enemy, shrine, item, polish task per day; timeboxed - 2 weeks
+* 1 follower w/spell & quirk, enemy, shrine, item, trap, polish task per day; timeboxed - 2 weeks
 * Bosses; fleshed game flow - 2 weeks
 * Balance, polish - 4 weeks
 * Bug fixing - 2 weeks
@@ -70,6 +69,7 @@ wall: 5.58, 0.147, 3.5231
 * Gardening
 
 #### FINISHED
+* ~~Traps~~
 * ~~Projectile-throwing enemies~~
 * ~~Special rooms w/ boosts (ie: shrines)~~
 * ~~3 biomes~~
