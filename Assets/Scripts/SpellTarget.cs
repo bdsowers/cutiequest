@@ -115,7 +115,7 @@ public class SpellTarget : MonoBehaviour
         for (int i = 0; i < allKillables.Length; ++i)
         {
             Vector3 dist = transform.position - allKillables[i].transform.position;
-            if (Mathf.Abs(dist.x) < 0.1f && Mathf.Abs(dist.z) < 0.1f)
+            if (Mathf.Abs(dist.x) < 0.7f && Mathf.Abs(dist.z) < 0.7f)
             {
                 return allKillables[i];
             }

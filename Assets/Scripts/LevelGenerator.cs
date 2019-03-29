@@ -114,6 +114,11 @@ public class LevelGenerator : MonoBehaviour
                         PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = chest.GetComponent<Shrine>();
                     }
                 }
+
+                if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE && Random.Range(0, 100) < 10)
+                {
+                    GameObject trap = PlaceMapPrefab("SpikeTrap", x, y);
+                }
             }
         }
     }

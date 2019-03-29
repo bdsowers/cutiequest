@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
         isAlive = true;
 
         mActionSet = new BasicActionSet();
+
+        GetComponent<Killable>().health = Game.instance.playerData.health;
     }
 
     private void OnPlayerDataChanged(PlayerData newData)
