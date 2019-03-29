@@ -98,7 +98,7 @@ public class SpellTarget : MonoBehaviour
     {
         // See if a targetable entity is in the same space as us
         // Targetable in this case = someone not currently on the same layer as us
-        Killable targetKillable = EntityInThisSpace();
+        Killable targetKillable = KillableMap.instance.KillableAtWorldPosition(transform.position);
         if (targetKillable != null && targetKillable.gameObject.layer != gameObject.layer)
         {
             int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
@@ -106,21 +106,5 @@ public class SpellTarget : MonoBehaviour
 
             targetKillable.TakeDamage(damage);
         }
-    }
-
-    // todo bdsowers - this is worth some optimization
-    Killable EntityInThisSpace()
-    {
-        Killable[] allKillables = GameObject.FindObjectsOfType<Killable>();
-        for (int i = 0; i < allKillables.Length; ++i)
-        {
-            Vector3 dist = transform.position - allKillables[i].transform.position;
-            if (Mathf.Abs(dist.x) < 0.7f && Mathf.Abs(dist.z) < 0.7f)
-            {
-                return allKillables[i];
-            }
-        }
-
-        return null;
     }
 }

@@ -14,6 +14,22 @@ public class SaveManager : MonoBehaviour
         { "Luck", CharacterStatType.Luck },
     };
 
+    private bool mSaveTriggered = false;
+
+    private void Update()
+    {
+        if (!mSaveTriggered)
+            return;
+
+        mSaveTriggered = false;
+        SaveGame();
+    }
+
+    public void TriggerSave()
+    {
+        mSaveTriggered = true;
+    }
+
     public void SaveGame()
     {
         Debug.Log("Saving game...");

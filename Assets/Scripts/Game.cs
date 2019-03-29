@@ -149,12 +149,12 @@ public class Game : MonoBehaviour
 
     private void OnPlayerStatsChanged(CharacterStatistics stats)
     {
-        mSaveManager.SaveGame();
+        mSaveManager.TriggerSave();
     }
 
     private void OnPlayerDataChanged(PlayerData newData)
     {
-        mSaveManager.SaveGame();
+        mSaveManager.TriggerSave();
     }
 
     // Start is called before the first frame update

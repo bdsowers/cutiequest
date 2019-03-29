@@ -13,6 +13,7 @@ public class LevelGenerator : MonoBehaviour
     RandomDungeonGenerator mDungeonGenerator;
     RoomSet mRoomset;
     CollisionMap mCollisionMap;
+    KillableMap mKillableMap;
 
     public RandomDungeon dungeon {  get { return mDungeon; } }
 
@@ -25,11 +26,15 @@ public class LevelGenerator : MonoBehaviour
 
         mDungeon = mDungeonGenerator.GenerateDungeon(mRoomset, DungeonGenerationData());
 
+        mKillableMap = GetComponent<KillableMap>();
+        mKillableMap.SetupWithDungeon(mDungeon);
+
         mCollisionMap = GetComponent<CollisionMap>();
         mCollisionMap.SetupWithSize(mDungeon.width, mDungeon.height);
         GenerateEnvironmentFromDungeon(mDungeon);
 
         PlaceAvatar();
+        PlaceTraps();
         PlaceEnemies();
         PlaceHearts();
         PlaceExit();
@@ -113,11 +118,6 @@ public class LevelGenerator : MonoBehaviour
                         GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
                         PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = chest.GetComponent<Shrine>();
                     }
-                }
-
-                if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE && Random.Range(0, 100) < 10)
-                {
-                    GameObject trap = PlaceMapPrefab("SpikeTrap", x, y);
                 }
             }
         }
@@ -236,6 +236,49 @@ public class LevelGenerator : MonoBehaviour
             newHeart.transform.position = pos;
             
             // Don't mark these on the collision map - entities can walk through them freely
+        }
+    }
+
+    private void PlaceTraps()
+    {
+        // Collect regions with shared trap IDs
+        Dictionary<int, List<Vector2Int>> regions = new Dictionary<int, List<Vector2Int>>();
+        for (int x = 0; x < mDungeon.width; ++x)
+        {
+            for (int y = 0;  y < mDungeon.height; ++y)
+            {
+                RandomDungeonTileData td = mDungeon.Data(x, y);
+                if (td.trap >= 0)
+                {
+                    List<Vector2Int> positions = null;
+                    bool exists = regions.TryGetValue(td.trap, out positions);
+                    if (!exists)
+                    {
+                        positions = new List<Vector2Int>();
+                        regions.Add(td.trap, positions);
+                    }
+
+                    positions.Add(new Vector2Int(x, y));
+                }
+            }
+        }
+
+        // Now generate traps, filling the respective regions (where still possible)
+        foreach(KeyValuePair<int, List<Vector2Int>> pair in regions)
+        {
+            // todo bdsowers - trap density, my dude
+            if (Random.Range(0, 100) > 15)
+                continue;
+
+            // Generate the trap, making sure we're not generating out of turn
+            for (int posIdx = 0; posIdx < pair.Value.Count; ++posIdx)
+            {
+                Vector2Int pos = pair.Value[posIdx];
+                if (mDungeon.TileType(pos) == RandomDungeonTileData.WALKABLE_TILE || mDungeon.TileType(pos) == RandomDungeonTileData.EXIT_TILE)
+                {
+                    PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
+                }
+            }
         }
     }
 

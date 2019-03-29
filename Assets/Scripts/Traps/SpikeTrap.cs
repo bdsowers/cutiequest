@@ -35,6 +35,8 @@ public class SpikeTrap : MonoBehaviour
             yield return null;
         }
 
+        DealDamage();
+
         while (time > 0f)
         {
             time -= Time.deltaTime * 6f;
@@ -47,5 +49,14 @@ public class SpikeTrap : MonoBehaviour
         mAnimationPlaying = false;
 
         yield break;
+    }
+
+    private void DealDamage()
+    {
+        Killable killable = KillableMap.instance.KillableAtWorldPosition(transform.position);
+        if (killable != null && killable.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            killable.TakeDamage(15);
+        }
     }
 }
