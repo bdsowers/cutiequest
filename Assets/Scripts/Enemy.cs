@@ -6,9 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
-    private SimpleAttack mSimpleAttack;
-    private SpellCaster mSpellCaster;
-    private ProjectileThrower mProjectileThrower;
+    private EnemyAI mEnemyAI;
 
     private Killable mKillable;
 
@@ -18,20 +16,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mEnemyAI = GetComponent<EnemyAI>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
-        mSimpleAttack = GetComponent<SimpleAttack>();
-        mSpellCaster = GetComponent<SpellCaster>();
-        mProjectileThrower = GetComponent<ProjectileThrower>();
         mKillable = GetComponent<Killable>();
 
         mTurnBasedMovement.onTurnGranted += OnTurnGranted;
-        mSimpleMovement.onMoveFinished += OnMoveFinished;
-
-        if (mSimpleAttack != null)
-        {
-            mSimpleAttack.onAttackFinished += OnAttackFinished;
-        }
 
         mKillable.onDeath += OnDeath;
 
@@ -45,16 +35,6 @@ public class Enemy : MonoBehaviour
         {
             di.Drop();
         }
-    }
-
-    private void OnAttackFinished(GameObject attacker, GameObject target)
-    {
-        mTurnBasedMovement.TurnFinished();
-    }
-
-    private void OnMoveFinished()
-    {
-        mTurnBasedMovement.TurnFinished();
     }
 
     private void OnTurnGranted()
@@ -92,17 +72,11 @@ public class Enemy : MonoBehaviour
 
     private bool CanUpdateAI()
     {
-        if (mSimpleMovement.isMoving)
-            return false;
-        if (mSimpleAttack != null && mSimpleAttack.isAttacking)
-            return false;
-        if (mSpellCaster != null && mSpellCaster.isCasting)
-            return false;
-        if (mProjectileThrower != null && mProjectileThrower.isThrowing)
-            return false;
         if (mActionCooldownTimer > 0f)
             return false;
-
+        if (mSimpleMovement.isMoving)
+            return false;
+        
         if (!Game.instance.avatar.isAlive)
             return false;
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
@@ -110,38 +84,7 @@ public class Enemy : MonoBehaviour
         if (Game.instance.transitionManager.isTransitioning)
             return false;
 
-        return true;
-    }
-
-    private Vector3 OrthogonalDirection(Transform source, Transform target, bool useLargeAxis)
-    {
-        Vector3 direction = target.position - source.position;
-        direction.y = 0f;
-
-        if (useLargeAxis)
-        {
-            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
-            {
-                direction.z = 0f;
-            }
-            else
-            {
-                direction.x = 0f;
-            }
-        }
-        else
-        {
-            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
-            {
-                direction.x = 0f;
-            }
-            else
-            {
-                direction.z = 0f;
-            }
-        }
-
-        return direction.normalized;
+        return mEnemyAI.CanUpdateAI();
     }
 
     private void UpdateAI()
@@ -149,40 +92,6 @@ public class Enemy : MonoBehaviour
         if (!CanUpdateAI())
             return;
 
-        Vector3 direction = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
-
-        // todo bdsowers - refactor so that melee and spell-based enemies behave differently.
-        
-        if (mProjectileThrower != null && mProjectileThrower.ShouldThrow())
-        {
-            int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
-            mProjectileThrower.ThrowProjectile(magic);
-        }
-        else if (mSpellCaster != null && mSpellCaster.CanCast())
-        {
-            int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
-            mSpellCaster.CastSpell(magic);
-        }
-        else if (mSimpleAttack != null && mSimpleAttack.CanAttack(direction))
-        {
-            mSimpleAttack.Attack(direction);
-        }
-        else if (mSimpleMovement.CanMove(direction))
-        {
-            mSimpleMovement.Move(direction);
-        }
-        else
-        {
-            direction = OrthogonalDirection(transform, GameObject.Find("Avatar").transform, false);
-            if (mSimpleMovement.CanMove(direction))
-            {
-                mSimpleMovement.Move(direction);
-            }
-            else
-            {
-                // Cede our turn
-                mTurnBasedMovement.TurnFinished();
-            }
-        }
+        mEnemyAI.UpdateAI();
     }
 }
