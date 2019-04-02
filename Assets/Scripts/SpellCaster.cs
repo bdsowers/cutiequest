@@ -49,9 +49,19 @@ public class SpellCaster : MonoBehaviour
         }
     }
 
-    public bool CanCast()
+    public bool IsInRange()
     {
-        return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 4f;
+        float range = 0f;
+        if (targetCaster)
+        {
+            range = mPattern.GetLength(0) + 1;
+        }
+        else
+        {
+            range = 5f;
+        }
+
+        return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 5f;
     }
 
     public void CastSpell(int strength)
