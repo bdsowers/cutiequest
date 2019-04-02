@@ -31,7 +31,6 @@ wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
 ### MVP Alpha Features / Improvements
-* AI improvements (melee vs projectile vs spellcaster vs hybrid)
 * Death screen
 * Improved title screen
 * Improved QuestR
@@ -69,6 +68,7 @@ wall: 5.58, 0.147, 3.5231
 * Gardening
 
 #### FINISHED
+* ~~AI improvements (melee vs projectile vs spellcaster vs hybrid)~~
 * ~~Traps~~
 * ~~Projectile-throwing enemies~~
 * ~~Special rooms w/ boosts (ie: shrines)~~
