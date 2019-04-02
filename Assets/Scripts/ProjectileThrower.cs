@@ -9,9 +9,9 @@ public class ProjectileThrower : MonoBehaviour
 
     public bool isThrowing { get; private set; }
 
-    public bool ShouldThrow()
+    public bool IsInRange()
     {
-        return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 4f;
+        return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 5f;
     }
 
     public void ThrowProjectile(int strength)

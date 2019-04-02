@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VectorExtensions;
 
 public class EnemyProjectileThrower : EnemyAI
 {
@@ -13,25 +14,71 @@ public class EnemyProjectileThrower : EnemyAI
         mSimpleMovement = GetComponent<SimpleMovement>();
     }
 
+    private void ThrowProjectile()
+    {
+        int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
+        mProjectileThrower.ThrowProjectile(magic);
+    }
+
     public override void UpdateAI()
     {
-        Vector3 direction = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
+        Vector3 largeDistanceDirection = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
+        Vector3 smallDistanceDirection = OrthogonalDirection(transform, Game.instance.avatar.transform, false);
 
-        if (mProjectileThrower != null && mProjectileThrower.ShouldThrow())
+        Vector3 diff = transform.position - Game.instance.avatar.transform.position;
+        bool alignedOnXAxis = (Mathf.Abs(diff.x) < 0.1f);
+        bool alignedOnZAxis = (Mathf.Abs(diff.z) < 0.1f);
+        bool alignedOnEitherAxis = (alignedOnXAxis || alignedOnZAxis);
+
+        if (mProjectileThrower.IsInRange())
         {
-            int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
-            mProjectileThrower.ThrowProjectile(magic);
-        }
-        else if (mSimpleMovement.CanMove(direction))
-        {
-            mSimpleMovement.Move(direction);
+            if (alignedOnEitherAxis)
+            {
+                // Large chance we're going to throw but a small chance we'll move in a random direction instead
+                if (Random.Range(0, 100) > 15)
+                {
+                    ThrowProjectile();
+                }
+                else
+                {
+                    Vector3 randomDirection = VectorHelper.RandomDirectionXZ();
+                    if (mSimpleMovement.CanMove(randomDirection))
+                    {
+                        mSimpleMovement.Move(randomDirection);
+                    }
+                    else
+                    {
+                        ThrowProjectile();
+                    }
+                }
+            }
+            else
+            {
+                // If we're not aligned on one of the axis, there's a decent chance we'll try to become aligned;
+                // otherwise, we'll just do a throw.
+                if (Random.Range(0, 100) < 20)
+                {
+                    ThrowProjectile();
+                }
+                else
+                {
+                    if (mSimpleMovement.CanMove(smallDistanceDirection))
+                    {
+                        mSimpleMovement.Move(smallDistanceDirection);
+                    }
+                }
+            }
         }
         else
         {
-            direction = OrthogonalDirection(transform, GameObject.Find("Avatar").transform, false);
-            if (mSimpleMovement.CanMove(direction))
+            // If we're not in range, try ot get in range...
+            if (mSimpleMovement.CanMove(largeDistanceDirection))
             {
-                mSimpleMovement.Move(direction);
+                mSimpleMovement.Move(largeDistanceDirection);
+            }
+            else if (mSimpleMovement.CanMove(smallDistanceDirection))
+            {
+                mSimpleMovement.Move(smallDistanceDirection);
             }
         }
     }

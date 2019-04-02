@@ -87,5 +87,38 @@ namespace VectorExtensions
                 return Vector3.right;
             }
         }
+
+        public static float DistanceXY(Vector3 v1, Vector3 v2)
+        {
+            v1.z = 0f;
+            v2.z = 0f;
+            return Vector3.Distance(v1, v2);
+        }
+
+        public static float DistanceXZ(Vector3 v1, Vector3 v2)
+        {
+            v1.y = 0f;
+            v2.y = 0f;
+            return Vector3.Distance(v1, v2);
+        }
+
+        public static Vector3 RandomDirectionXZ()
+        {
+            float x = 0f;
+            float z = 0f;
+
+            if (Random.Range(0, 2) == 0)
+            {
+                x = 0f;
+                z = (Random.Range(0, 2) == 0 ? -1 : 1);
+            }
+            else
+            {
+                x = (Random.Range(0, 2) == 0 ? -1 : 1);
+                z = 0f;
+            }
+
+            return new Vector3(x, 0f, z);
+        }
     }
 }
