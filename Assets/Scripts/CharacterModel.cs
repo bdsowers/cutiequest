@@ -15,7 +15,7 @@ public class CharacterModel : MonoBehaviour
         ChangeModel(modelName);
     }
 
-    public void ChangeModel(string newModelName)
+    public void ChangeModel(string newModelName, bool castShadows = true)
     {
         if (string.IsNullOrEmpty(newModelName))
             return;
@@ -42,5 +42,8 @@ public class CharacterModel : MonoBehaviour
         }
 
         model.GetComponent<Animator>().runtimeAnimatorController = animatorController;
+
+        if (!castShadows)
+            model.GetComponentInChildren<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 }

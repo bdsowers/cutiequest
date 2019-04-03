@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 1099098404}
   - component: {fileID: 1073741718900896955}
   - component: {fileID: 4655362783821946498}
-  - component: {fileID: 6731398494365286078}
   m_Layer: 9
   m_Name: Avatar
   m_TagString: Untagged
@@ -158,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subMesh: {fileID: 0}
+  noDamage: 0
 --- !u!114 &1099098404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,23 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreList: []
---- !u!114 &6731398494365286078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5795509673542071330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84610f668f27b6e40a2ad91dc409aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDeviation: 0
-  targetCaster: 0
-  orientToDirection: 0
-  patternString: 
-  castSpeed: 4
 --- !u!1001 &5795509673989531086
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -45,7 +45,8 @@ wall: 5.58, 0.147, 3.5231
 * At least 5 levels of followers
 * 10 unique spells w/varying levels
 * 10 unique quirks
-* 10 unique enemies + 3 bosses
+* 10 unique enemies
+* 3 bosses
 * Final boss
 
 ### Polish

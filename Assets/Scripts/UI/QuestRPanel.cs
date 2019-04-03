@@ -145,6 +145,6 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         nameLabel.text = characterData.characterName + "   <color=#AAAAAA>" + characterData.age.ToString() + "</color>";
         taglineLabel.text = characterData.tagline;
 
-        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData.model);
+        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData.model, false);
     }
 }
