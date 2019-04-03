@@ -12,6 +12,7 @@ public class SimpleAttack : MonoBehaviour
     private bool mIsAttacking;
 
     public GameObject subMesh;
+    public bool noDamage;
 
     public bool isAttacking {  get { return mIsAttacking; } }
 
@@ -60,6 +61,12 @@ public class SimpleAttack : MonoBehaviour
         mIsAttacking = true;
         GameObject target = TargetInDirection(direction);
 
+        if (target == null)
+        {
+            mIsAttacking = false;
+            yield break;
+        }
+
         Vector3 startPosition = subMesh.transform.position;
         Vector3 hitPosition = startPosition + (target.transform.position - startPosition) * 0.7f;
         bool damageDone = false;
@@ -94,6 +101,9 @@ public class SimpleAttack : MonoBehaviour
 
     private void DealDamage(GameObject target)
     {
+        if (noDamage)
+            return;
+
         Killable targetKillable = target.GetComponentInParent<Killable>();
         if (targetKillable != null)
         {

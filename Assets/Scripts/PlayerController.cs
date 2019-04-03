@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
                 if (mSimpleAttack.CanAttack(intendedDirection))
                 {
                     mSimpleAttack.Attack(intendedDirection);
+                    AttackFollower(intendedDirection);
                 }
                 else if (mSimpleMovement.CanMove(intendedDirection))
                 {
@@ -204,6 +205,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
+                    SimpleMovement.OrientToDirection(follower.GetComponentInChildren<Animator>().gameObject, intendedDirection);
                 }
             }
         }
@@ -223,6 +225,24 @@ public class PlayerController : MonoBehaviour
         }
 
         follower.GetComponent<SimpleMovement>().Move(direction, playerTargetPosition + new Vector3(-0.25f, 0f, 0.25f));
+        yield break;
+    }
+
+    void AttackFollower(Vector3 direction)
+    {
+        StartCoroutine(AttackFollowerCoroutine(direction, 0.1f));
+    }
+
+    IEnumerator AttackFollowerCoroutine(Vector3 direction, float delay)
+    {
+        while (delay > 0f)
+        {
+            delay -= Time.deltaTime;
+            yield return null;
+        }
+
+        follower.GetComponent<SimpleAttack>().Attack(direction);
+
         yield break;
     }
 }

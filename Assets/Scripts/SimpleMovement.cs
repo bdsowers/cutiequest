@@ -81,6 +81,9 @@ public class SimpleMovement : MonoBehaviour
 
     private void UpdateCollisionMapForMove(Vector3 currentPosition, Vector3 targetPosition)
     {
+        if (collisionIdentity < 0)
+            return;
+
         Vector2Int oldCoords = currentPosition.AsVector2IntUsingXZ();
         Vector2Int newCoords = targetPosition.AsVector2IntUsingXZ();
 
