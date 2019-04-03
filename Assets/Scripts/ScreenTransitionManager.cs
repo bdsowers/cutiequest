@@ -2,12 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ColorExtensions;
+using ArrayExtensions;
 
 public class ScreenTransitionManager : MonoBehaviour
 {
     public Image fullScreenQuad;
+    public Typewriter deathMessage;
+    public RawImage deathSpeakerImage;
 
     public bool isTransitioning { get; private set; }
+
+    private GameObject mCharacterImageCapture;
+
+    private string[] mDeathMessages = new string[]
+    {
+        "Maybe we should see other adventurers.",
+        "I'm sorry, I just don't think you're the hero for me.",
+        "Call me when you've got your life sorted out.",
+        "It's not you. Well, I mean, it kinda is.",
+        "I just think we're in different places in our lives, y'know?"
+    };
 
     public void TransitionToScreen(string name)
     {
@@ -15,6 +30,11 @@ public class ScreenTransitionManager : MonoBehaviour
             name == "Dungeon")
         {
             StartCoroutine(TransitionToNextDungeonLevel());
+        }
+        else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon" &&
+            name == "HUB")
+        {
+            StartCoroutine(DeathTransition());
         }
         else
         {
@@ -94,30 +114,84 @@ public class ScreenTransitionManager : MonoBehaviour
     {
         isTransitioning = true;
 
+        yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
+        
+        UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+
+        yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
+
+        fullScreenQuad.gameObject.SetActive(false);
+
+        isTransitioning = false;
+
+        yield break;
+    }
+
+    private IEnumerator DeathTransition()
+    {
+        isTransitioning = true;
+
+        deathMessage.GetComponentInChildren<Text>().CrossFadeAlpha(1f, 0f, false);
+
+        yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
+
+        mCharacterImageCapture = GameObject.Find("CharacterImageCapture");
+        mCharacterImageCapture.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model);
+
+        deathSpeakerImage.gameObject.SetActive(true);
+        StartCoroutine(FadeDeathSpeaker(new Color(0, 0, 0, 0), new Color(1, 1, 1, 1)));
+
+        yield return deathMessage.ShowTextCoroutine(mDeathMessages.Sample(), 1f);
+        yield return new WaitForSeconds(1f);
+
+        deathMessage.GetComponentInChildren<Text>().CrossFadeAlpha(0f, 0.5f, false);
+        yield return StartCoroutine(FadeDeathSpeaker(new Color(1, 1, 1, 1), new Color(0, 0, 0, 0)));
+
+        deathSpeakerImage.gameObject.SetActive(false);
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HUB");
+
+        yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
+
+        fullScreenQuad.gameObject.SetActive(false);
+        
+        deathMessage.gameObject.SetActive(false);
+
+        isTransitioning = false;
+
+        yield break;
+    }
+
+    private IEnumerator Fade(Color startColor, Color targetColor)
+    {
         fullScreenQuad.gameObject.SetActive(true);
 
         float time = 0f;
         while (time < 1f)
         {
             time += Time.deltaTime;
-            fullScreenQuad.color = new Color(0f, 0f, 0f, time);
+            fullScreenQuad.color = ColorHelper.Lerp(startColor, targetColor, time);
             yield return null;
         }
 
-        fullScreenQuad.color = new Color(0f, 0f, 0f, 1f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+        fullScreenQuad.color = targetColor;
 
-        while (time > 0f)
+        yield break;
+    }
+
+    private IEnumerator FadeDeathSpeaker(Color startColor, Color targetColor)
+    {
+        float time = 0f;
+        while (time < 1f)
         {
-            time -= Time.deltaTime;
-            fullScreenQuad.color = new Color(0f, 0f, 0f, time);
+            time += Time.deltaTime;
+            Color color = ColorHelper.Lerp(startColor, targetColor, time);
+            deathSpeakerImage.color = color;
             yield return null;
         }
 
-        fullScreenQuad.gameObject.SetActive(false);
-
-        isTransitioning = false;
-
+        deathSpeakerImage.color = targetColor;
+        
         yield break;
     }
 }

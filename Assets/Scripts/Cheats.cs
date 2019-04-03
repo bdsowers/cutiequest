@@ -61,5 +61,12 @@ public class Cheats : MonoBehaviour
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Game.instance.playerData.health = 1;
+            Game.instance.avatar.GetComponent<Killable>().health = 1;
+            Game.instance.avatar.GetComponent<Killable>().TakeDamage(1);
+        }
     }
 }

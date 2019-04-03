@@ -99,7 +99,7 @@ public class Typewriter : MonoBehaviour
             }
 
             mLabel.text = stringBuilder.ToString();
-
+            Debug.Log(mLabel.text);
             yield return new WaitForSeconds(0.03f);
         }
 

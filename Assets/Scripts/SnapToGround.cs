@@ -13,7 +13,7 @@ public class SnapToGround : MonoBehaviour
     // optimization opportunity here.
     private void LateUpdate()
     {
-        if (ignoreList.Length == 0)
+        if (ignoreList == null || ignoreList.Length == 0)
         {
             SimpleSnap();
         }
