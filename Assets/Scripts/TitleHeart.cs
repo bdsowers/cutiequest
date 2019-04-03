@@ -36,13 +36,20 @@ public class TitleHeart : MonoBehaviour
         }
         else
         {
-            mAnimationTimer += Time.deltaTime * 0.25f;
+            mAnimationTimer += Time.deltaTime;
             if (mAnimationTimer > 1f)
             {
                 mAnimationTimer = 1f;
                 mDelay = Random.Range(0f, 20f);
             }
+
             transform.localRotation = Quaternion.Euler(0f, mStartRotation + 180f * mAnimationTimer, 0f);
+
+            float scale = mAnimationTimer * 2f;
+            if (mAnimationTimer > 0.5f)
+                scale = (1f - mAnimationTimer) * 2f;
+
+            transform.localScale = Vector3.one * (3f + scale * 0.6f);
         }
         
     }

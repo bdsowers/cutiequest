@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TitleScreen : MonoBehaviour
 
     private bool mLeaving = false;
     private float mLeaveTimer = 0f;
+
+    private float mStartupDelay = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,7 @@ public class TitleScreen : MonoBehaviour
                 if (y <= 0)
                     offset = -1f;
 
-                Vector3 pos = new Vector3(x * 4f, offset + y * 4f, 0f);
+                Vector3 pos = new Vector3(x * 3.75f, offset + y * 4f, 0f);
                 GameObject newHeart = GameObject.Instantiate(heartPrefab);
                 newHeart.transform.position = pos;
             }
@@ -32,6 +35,12 @@ public class TitleScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mStartupDelay > 0f)
+        {
+            mStartupDelay -= Time.deltaTime;
+            return;
+        }
+
         if (Input.anyKeyDown)
             Leave();
 
