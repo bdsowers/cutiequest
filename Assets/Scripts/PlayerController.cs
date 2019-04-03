@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
                 else if (mSimpleMovement.CanMove(intendedDirection))
                 {
                     mSimpleMovement.Move(intendedDirection);
-                    MoveFollower(followerDirection);
+                    MoveFollower(intendedDirection, transform.position + intendedDirection);
                 }
                 else
                 {
@@ -209,12 +209,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void MoveFollower(Vector3 direction)
+    void MoveFollower(Vector3 direction, Vector3 playerTargetPosition)
     {
-        StartCoroutine(MoveFollowerCoroutine(direction, 0.1f));
+        StartCoroutine(MoveFollowerCoroutine(direction, 0.1f, playerTargetPosition));
     }
 
-    IEnumerator MoveFollowerCoroutine(Vector3 direction, float delay)
+    IEnumerator MoveFollowerCoroutine(Vector3 direction, float delay, Vector3 playerTargetPosition)
     {
         while (delay > 0f)
         {
@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        follower.GetComponent<SimpleMovement>().Move(direction);
+        follower.GetComponent<SimpleMovement>().Move(direction, playerTargetPosition + new Vector3(-0.25f, 0f, 0.25f));
         yield break;
     }
 }

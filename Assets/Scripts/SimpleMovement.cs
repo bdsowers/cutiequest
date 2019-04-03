@@ -39,9 +39,9 @@ public class SimpleMovement : MonoBehaviour
         useCollisionMap = (mCollisionMap != null);
     }
 
-    public void Move(Vector3 direction)
+    public void Move(Vector3 direction, Vector3? absolutePosition = null)
     {
-        StartCoroutine(MoveCoroutine(direction));
+        StartCoroutine(MoveCoroutine(direction, absolutePosition));
     }
 
     public bool CanMove(Vector3 direction)
@@ -123,12 +123,16 @@ public class SimpleMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator MoveCoroutine(Vector3 direction)
+    private IEnumerator MoveCoroutine(Vector3 direction, Vector3? absoluteTargetPosition = null)
     {
         mIsMoving = true;
 
         Vector3 position = transform.position;
         Vector3 targetPosition = transform.position + direction;
+
+        if (absoluteTargetPosition.HasValue)
+            targetPosition = absoluteTargetPosition.Value;
+
         bool adjustScale = transform.localScale.x > 0.9f;
 
         RevealWhenAvatarIsClose revealComp = GetComponent<RevealWhenAvatarIsClose>();
