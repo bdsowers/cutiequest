@@ -118,6 +118,7 @@ public class Game : MonoBehaviour
     public void EnterDungeon(DungeonData dungeonData)
     {
         Game.instance.playerData.numHearts = 0;
+        Game.instance.playerData.numCoins = 0;
 
         mCurrentDungeonData = dungeonData;
         mCurrentDungeonFloor = 1;
