@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using OMM.RDG;
 using ArrayExtensions;
+using VectorExtensions;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class LevelGenerator : MonoBehaviour
     KillableMap mKillableMap;
 
     public RandomDungeon dungeon {  get { return mDungeon; } }
+
+    private Vector2Int mAvatarStartPosition;
 
     private void Start()
     {
@@ -156,6 +159,7 @@ public class LevelGenerator : MonoBehaviour
         GameObject avatar = GameObject.Find("Avatar");
         Vector2Int pos = mDungeon.primaryPathPositions[0];
         pos = FindEmptyNearbyPosition(pos);
+        mAvatarStartPosition = pos;
 
         mCollisionMap.MarkSpace(pos.x, pos.y, avatar.GetComponent<SimpleMovement>().collisionIdentity);
         avatar.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
@@ -207,11 +211,18 @@ public class LevelGenerator : MonoBehaviour
     private void PlaceEnemies()
     {
         List<Vector2Int> walkablePositions = mCollisionMap.EmptyPositions();
+
+        // Remove any walkable positions too close to the avatar
+       walkablePositions.RemoveAll((pos) => VectorHelper.OrthogonalDistance(pos, mAvatarStartPosition) < 10);
+
         DungeonFloorData data = CurrentDungeonFloorData();
         int numEnemies = Random.Range(data.enemyData.minEnemies, data.enemyData.maxEnemies);
 
         for (int i = 0; i < numEnemies; ++i)
         {
+            if (walkablePositions.Count == 0)
+                return;
+
             string enemy = ChooseEnemy(data);
             GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];

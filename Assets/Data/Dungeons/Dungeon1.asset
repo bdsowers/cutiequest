@@ -36,8 +36,8 @@ MonoBehaviour:
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 10
-      maxEnemies: 15
+      minEnemies: 20
+      maxEnemies: 25
       commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
@@ -69,8 +69,8 @@ MonoBehaviour:
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 15
-      maxEnemies: 20
+      minEnemies: 40
+      maxEnemies: 50
       commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
@@ -102,8 +102,8 @@ MonoBehaviour:
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 15
-      maxEnemies: 20
+      minEnemies: 85
+      maxEnemies: 95
       commonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,

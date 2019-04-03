@@ -120,5 +120,17 @@ namespace VectorExtensions
 
             return new Vector3(x, 0f, z);
         }
+
+        public static float OrthogonalDistance(Vector2 v1, Vector2 v2)
+        {
+            Vector2 diff = v1 - v2;
+            return Mathf.Abs(diff.x) + Mathf.Abs(diff.y);
+        }
+
+        public static float OrthogonalDistance(Vector3 v1, Vector3 v2)
+        {
+            Vector3 diff = v1 - v2;
+            return Mathf.Abs(diff.x) + Mathf.Abs(diff.y) + Mathf.Abs(diff.z);
+        }
     }
 }

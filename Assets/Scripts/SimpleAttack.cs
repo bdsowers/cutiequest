@@ -11,6 +11,8 @@ public class SimpleAttack : MonoBehaviour
     private int mEnemyLayer;
     private bool mIsAttacking;
 
+    public GameObject subMesh;
+
     public bool isAttacking {  get { return mIsAttacking; } }
 
     private void Start()
@@ -58,7 +60,7 @@ public class SimpleAttack : MonoBehaviour
         mIsAttacking = true;
         GameObject target = TargetInDirection(direction);
 
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = subMesh.transform.position;
         Vector3 hitPosition = startPosition + (target.transform.position - startPosition) * 0.7f;
         bool damageDone = false;
 
@@ -68,7 +70,7 @@ public class SimpleAttack : MonoBehaviour
             time += Time.deltaTime * 3f;
             float d = time / 0.5f;
             if (d > 1f) d = 2f - d;
-            transform.position = Vector3.Lerp(startPosition, hitPosition, d);
+            subMesh.transform.position = Vector3.Lerp(startPosition, hitPosition, d);
 
             if (time > 0.6f && !damageDone)
             {
@@ -79,7 +81,7 @@ public class SimpleAttack : MonoBehaviour
             yield return null;
         }
 
-        transform.position = startPosition;
+        subMesh.transform.position = startPosition;
 
         if (onAttackFinished != null)
         {

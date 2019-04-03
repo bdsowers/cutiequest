@@ -36,6 +36,11 @@ public class CharacterModel : MonoBehaviour
             GetComponentInParent<SimpleMovement>().subMesh = model;
         }
 
+        if (GetComponentInParent<SimpleAttack>() != null)
+        {
+            GetComponentInParent<SimpleAttack>().subMesh = model;
+        }
+
         model.GetComponent<Animator>().runtimeAnimatorController = animatorController;
     }
 }
