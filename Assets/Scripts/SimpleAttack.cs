@@ -23,7 +23,7 @@ public class SimpleAttack : MonoBehaviour
 
     private GameObject TargetInDirection(Vector3 direction)
     {
-        Ray ray = new Ray(transform.position + new Vector3(0f, 0.2f, 0f), direction);
+        Ray ray = new Ray(transform.position + new Vector3(0f, 0.4f, 0f), direction);
         RaycastHit[] results = Physics.RaycastAll(ray, 1f);
         for (int i = 0; i < results.Length; ++i)
         {
