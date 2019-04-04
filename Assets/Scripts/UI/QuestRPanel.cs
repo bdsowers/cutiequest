@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public GameObject standardView;
+    public GameObject moreInfoView;
+
     public bool isFrontPanel;
     public int characterOffset;
 
@@ -146,5 +149,62 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         taglineLabel.text = characterData.tagline;
 
         cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData.model, false);
+
+        standardView.gameObject.SetActive(true);
+        standardView.GetComponent<CanvasGroup>().alpha = 1f;
+        moreInfoView.gameObject.SetActive(false);
+    }
+
+    public void OnMoreInfoPressed()
+    {
+        moreInfoView.gameObject.SetActive(true);
+
+        StartCoroutine(FadeCanvasGroup(standardView.GetComponent<CanvasGroup>(), 1f, 0f));
+        StartCoroutine(FadeCanvasGroup(moreInfoView.GetComponent<CanvasGroup>(), 0f, 1f));
+    }
+
+    public void OnLessInfoPressed()
+    {
+        standardView.gameObject.SetActive(true);
+
+        StartCoroutine(FadeCanvasGroup(standardView.GetComponent<CanvasGroup>(), 0f, 1f));
+        StartCoroutine(FadeCanvasGroup(moreInfoView.GetComponent<CanvasGroup>(), 1f, 0f));
+    }
+
+    public void OnLikePressed()
+    {
+        if (!isFrontPanel)
+            return;
+
+        StartCoroutine(FlyToPosition(1 * 1500f * Vector3.right, true, true));
+    }
+
+    public void OnPassPressed()
+    {
+        if (!isFrontPanel)
+            return;
+
+        StartCoroutine(FlyToPosition(-1 * 1500f * Vector3.right, true, false));
+
+    }
+
+    private IEnumerator FadeCanvasGroup(CanvasGroup group, float sourceAlpha, float targetAlpha)
+    {
+        group.alpha = sourceAlpha;
+
+        float time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * 3f;
+            group.alpha = Mathf.Lerp(sourceAlpha, targetAlpha, time);
+            yield return null;
+        }
+
+        group.alpha = targetAlpha;
+
+        if (targetAlpha < 0.1f)
+            group.gameObject.SetActive(false);
+
+        yield break;
     }
 }
