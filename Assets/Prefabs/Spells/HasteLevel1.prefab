@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b13f45ffae783d46a2b88adec9976c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyName: Haste
+  description: You move faster for a limited amount of time.
   cooldown: 20
   icon: {fileID: 21300000, guid: 51cb90c134011bb4e8076c700111c1e6, type: 3}
   speedModifier: 5

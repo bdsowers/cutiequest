@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
+    public string friendlyName;
+    public string description;
+
     public float cooldown;
     private float mCooldownTimer;
 

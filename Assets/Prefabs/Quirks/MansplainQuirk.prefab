@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36220956575bd0479718390f6d217b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyName: Mansplain
+  description: Constantly correcting you. Won't shut the hell up.
   mansplainCanvas: {fileID: 6292129904788664200}
 --- !u!1 &856810096776967386
 GameObject:
