@@ -176,21 +176,21 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (characterData.spell != null)
         {
             System.Array.ForEach(spellImages, (image) => image.sprite = characterData.spell.icon);
-            System.Array.ForEach(spellTitleLabels, (label) => label.text = characterData.spell.friendlyName);
+            System.Array.ForEach(spellTitleLabels, (label) => label.text = "Spell: " + characterData.spell.friendlyName);
             System.Array.ForEach(spellDescLabels, (label) => label.text = characterData.spell.description);
         }
 
         if (characterData.quirk != null)
         {
             System.Array.ForEach(quirkImages, (image) => image.sprite = characterData.quirk.icon);
-            System.Array.ForEach(quirkTitleLabels, (label) => label.text = characterData.quirk.friendlyName);
+            System.Array.ForEach(quirkTitleLabels, (label) => label.text = "Quirk: " + characterData.quirk.friendlyName);
             System.Array.ForEach(quirkDescLabels, (label) => label.text = characterData.quirk.description);
         }
 
         CharacterStatData statData = Game.instance.characterStatInfo.DataForStat(characterData.statBoost);
         System.Array.ForEach(boostImages, (image) => image.sprite = statData.icon);
-        System.Array.ForEach(boostTitleLabels, (label) => label.text = statData.name);
-        System.Array.ForEach(boostTitleLabels, (label) => label.text = statData.description);
+        System.Array.ForEach(boostTitleLabels, (label) => label.text = "Passive Boost: " + statData.name + " +" + characterData.statBoostAmount.ToString());
+        System.Array.ForEach(boostDescLabels, (label) => label.text = statData.description);
         
         bioLabel.text = characterData.bio;
 
