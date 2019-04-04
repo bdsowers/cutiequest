@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     private ScreenTransitionManager mTransitionManager;
     private CinematicDirector mCinematicDirector;
     private CinematicDataProvider mCinematicDataProvider;
+    private CharacterStatInfo mCharacterStatInfo;
 
     private DungeonData mCurrentDungeonData;
     private int mCurrentDungeonFloor;
@@ -93,6 +94,14 @@ public class Game : MonoBehaviour
         }
     }
 
+    public CharacterStatInfo characterStatInfo
+    {
+        get
+        {
+            return mCharacterStatInfo;
+        }
+    }
+
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
@@ -140,6 +149,7 @@ public class Game : MonoBehaviour
         mTransitionManager = GetComponentInChildren<ScreenTransitionManager>();
         mCinematicDirector = GetComponentInChildren<CinematicDirector>();
         mCinematicDataProvider = GetComponentInChildren<CinematicDataProvider>();
+        mCharacterStatInfo = GetComponentInChildren<CharacterStatInfo>();
         mCentralEvents = new CentralEvents();
 
         mSaveManager.LoadGame();

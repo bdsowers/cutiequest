@@ -12,4 +12,5 @@ public class Quirk : MonoBehaviour
 {
     public string friendlyName;
     public string description;
+    public Sprite icon;
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8072563998254039743}
   - component: {fileID: 5972887052822463312}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SpellImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4801852633953254710}
   - component: {fileID: 1984439472961737712}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: BoostTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 529686268580101548}
   - component: {fileID: 169829848101538684}
   m_Layer: 5
-  m_Name: Description (1)
+  m_Name: BoostDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 5129798008899071687}
   - component: {fileID: 1076096703225051806}
   m_Layer: 5
-  m_Name: Title
+  m_Name: SpellTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 495450220056565555}
   - component: {fileID: 7939332978346211889}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: QuirkImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 2171088627030775611}
   - component: {fileID: 3807806825726990500}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: QuirkImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 5215788531939750105}
   - component: {fileID: 7973385270277896225}
   m_Layer: 5
-  m_Name: Name (2)
+  m_Name: MoreInfoViewName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,7 +1613,7 @@ GameObject:
   - component: {fileID: 1204311745624363457}
   - component: {fileID: 5078498990584027270}
   m_Layer: 5
-  m_Name: Description
+  m_Name: SpellDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1692,7 +1692,7 @@ GameObject:
   - component: {fileID: 743615212057882052}
   - component: {fileID: 3608440855475955621}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: MoreInfoViewTagline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1771,7 +1771,7 @@ GameObject:
   - component: {fileID: 7850550404648935111}
   - component: {fileID: 3685383339403188191}
   m_Layer: 5
-  m_Name: Title (2)
+  m_Name: QuirkTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2077,7 +2077,7 @@ GameObject:
   - component: {fileID: 8712876895163375059}
   - component: {fileID: 7799613689576296930}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SpellImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,7 +2151,7 @@ GameObject:
   - component: {fileID: 4096394651030969716}
   - component: {fileID: 2763672998603672999}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: BoostImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2376,7 +2376,7 @@ GameObject:
   - component: {fileID: 4691739859430845694}
   - component: {fileID: 7040048891681976692}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: BoostImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2864,7 +2864,7 @@ GameObject:
   - component: {fileID: 8939921600814767371}
   - component: {fileID: 8939921600814767380}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StandardViewTagline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3017,7 +3017,7 @@ GameObject:
   - component: {fileID: 8939921601630574654}
   - component: {fileID: 8939921601630574655}
   m_Layer: 5
-  m_Name: Name
+  m_Name: StandardViewName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3143,8 +3143,34 @@ MonoBehaviour:
   isFrontPanel: 0
   characterOffset: 0
   cameraRig: {fileID: 0}
-  nameLabel: {fileID: 8939921601630574655}
-  taglineLabel: {fileID: 8939921600814767380}
+  nameLabels:
+  - {fileID: 8939921601630574655}
+  - {fileID: 7973385270277896225}
+  taglineLabels:
+  - {fileID: 8939921600814767380}
+  - {fileID: 3608440855475955621}
+  spellImages:
+  - {fileID: 5972887052822463312}
+  - {fileID: 7799613689576296930}
+  boostImages:
+  - {fileID: 7040048891681976692}
+  - {fileID: 2763672998603672999}
+  quirkImages:
+  - {fileID: 7939332978346211889}
+  - {fileID: 3807806825726990500}
+  bioLabel: {fileID: 1990674912844358113}
+  spellTitleLabels:
+  - {fileID: 1076096703225051806}
+  spellDescLabels:
+  - {fileID: 5078498990584027270}
+  boostTitleLabels:
+  - {fileID: 1984439472961737712}
+  boostDescLabels:
+  - {fileID: 169829848101538684}
+  quirkTitleLabels:
+  - {fileID: 3685383339403188191}
+  quirkDescLabels:
+  - {fileID: 1813941752526444620}
 --- !u!222 &1536193944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3715,7 +3741,7 @@ GameObject:
   - component: {fileID: 6024488260170125270}
   - component: {fileID: 1813941752526444620}
   m_Layer: 5
-  m_Name: Description (2)
+  m_Name: QuirkDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

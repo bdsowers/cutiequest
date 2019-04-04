@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Mansplain
   description: Constantly correcting you. Won't shut the hell up.
+  icon: {fileID: 21300078, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
   mansplainCanvas: {fileID: 6292129904788664200}
 --- !u!1 &856810096776967386
 GameObject:

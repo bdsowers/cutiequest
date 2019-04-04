@@ -17,8 +17,9 @@ MonoBehaviour:
   model: Chr_Fantasy_Gypsy_01
   age: 20
   tagline: Swipe right to find your soul mate.
+  bio: I'm just a girl in the world. That's all that they'll let me be.
   levelRequirement: 1
   spell: {fileID: 7642233172062837188, guid: 092b1b48b10d1094eb260428b302de54, type: 3}
-  quirk: 1
+  quirk: {fileID: 0}
   statBoost: 3
   statBoostAmount: 1

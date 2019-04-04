@@ -18,6 +18,9 @@ public class CharacterData : ScriptableObject
     public int age;
     public string tagline;
 
+    [TextArea(5, 10)]
+    public string bio;
+
     public int levelRequirement;
 
     public Spell spell;

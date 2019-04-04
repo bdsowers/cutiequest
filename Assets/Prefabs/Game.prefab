@@ -121,6 +121,74 @@ MonoBehaviour:
   _magic: 2
   _speed: 2
   _luck: 2
+--- !u!1 &1394048901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394048902}
+  - component: {fileID: 1394048903}
+  m_Layer: 0
+  m_Name: CharacterStatInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1394048902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394048901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5940583348516570662}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394048903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394048901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e256f16779b40684a954230722a59782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+  - stat: 0
+    icon: {fileID: 21300012, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    name: Max Health
+    description: 
+  - stat: 1
+    icon: {fileID: 21300030, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    name: Strength
+    description: 
+  - stat: 2
+    icon: {fileID: 21300128, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    name: Defense
+    description: 
+  - stat: 3
+    icon: {fileID: 21300144, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    name: Magic
+    description: 
+  - stat: 4
+    icon: {fileID: 21300188, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    name: Speed
+    description: 
+  - stat: 5
+    icon: {fileID: 21300322, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    name: Luck
+    description: 
 --- !u!1 &466082938260821529
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +576,7 @@ Transform:
   - {fileID: 279441292312064316}
   - {fileID: 9034846634664154275}
   - {fileID: 7093233881270901409}
+  - {fileID: 1394048902}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d903a09c9c37a94aa7d112a11fc9d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDungeonData: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441, type: 2}
+  defaultDungeonData: {fileID: 11400000, guid: cb3f33d7f0fe87a4db68958c2f83080d, type: 2}
 --- !u!114 &5940583348516570660
 MonoBehaviour:
   m_ObjectHideFlags: 0
