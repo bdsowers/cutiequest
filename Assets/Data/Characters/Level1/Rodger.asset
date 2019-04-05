@@ -17,6 +17,12 @@ MonoBehaviour:
   model: Chr_Dungeon_SkeletonKnight_01
   age: 102
   tagline: Definitely not undead and not still living with my mom.
+  bio: 'M''lord.
+
+    If you''re looking for a real man, look no further.
+
+    Note: not looking to talk about how I''m basically a pile of sticks glued together.
+    If that''s all you want to talk about, swipe left.'
   levelRequirement: 1
   spell: {fileID: 7642233172062837188, guid: 092b1b48b10d1094eb260428b302de54, type: 3}
   quirk: {fileID: 264502382425159475, guid: e6e92a2f7b8308647a872c56fd142da3, type: 3}

@@ -31,7 +31,6 @@ wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
 ### MVP Alpha Features / Improvements
-* Improved QuestR
 * Locked HUB improvement system
 * Flow from biome to biome / endgame
 
@@ -67,6 +66,7 @@ wall: 5.58, 0.147, 3.5231
 * Gardening
 
 #### FINISHED
+* ~~Improved QuestR~~
 * ~~Improved title screen~~
 * ~~Death screen~~
 * ~~AI improvements (melee vs projectile vs spellcaster vs hybrid)~~
