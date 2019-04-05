@@ -1238,7 +1238,7 @@ PrefabInstance:
     - target: {fileID: 7208613043618338208, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.54
+      value: 6.83
       objectReference: {fileID: 0}
     - target: {fileID: 7208613043618338208, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}
@@ -1284,6 +1284,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207967157, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 207967157, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 207967156, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208613044072731669, guid: 4885b3e38732daf47bc0a57f00663f47,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
@@ -2173,33 +2190,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5940583348516570661, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: defaultDungeonData
-      value: 
-      objectReference: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441,
-        type: 2}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: vfxPrefabs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: vfxPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37,
-        type: 3}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: vfxPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: vfxPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
 --- !u!1001 &7503897035181368411
