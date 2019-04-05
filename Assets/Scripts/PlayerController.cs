@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Follower follower;
+    public GameObject modelContainer;
 
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;

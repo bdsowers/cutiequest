@@ -44,17 +44,42 @@ public class Collectable : MonoBehaviour
 
         if (collider.GetComponentInParent<PlayerController>() != null)
         {
-            if (currencyType == CurrencyType.Hearts)
-            {
-                Game.instance.playerData.numHearts++;
-            }
-            else
-            {
-                Game.instance.playerData.numCoins++;
-            }
-
-            Destroy(gameObject);
+            StartCoroutine(CollectCoroutine());
         }
+    }
+
+    private IEnumerator CollectCoroutine()
+    {
+        mIsAnimating = true;
+        Vector3 startPosition = transform.position;
+
+        float time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * 5f;
+            Vector3 position = Vector3.Lerp(startPosition, Game.instance.avatar.modelContainer.transform.position, time);
+            transform.position = position;
+            yield return null;
+        }
+
+        mIsAnimating = false;
+
+        if (currencyType == CurrencyType.Hearts)
+        {
+            Game.instance.playerData.numHearts++;
+        }
+        else
+        {
+            Game.instance.playerData.numCoins++;
+        }
+
+        GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX3_Hit_Misc_D");
+        vfx.transform.position = transform.position + Vector3.up * 0.4f;
+        vfx.AddComponent<DestroyAfterTimeElapsed>().time = 1f;
+
+        Destroy(gameObject);
+
+        yield break;
     }
 
     public void PlayDropAnimation(Vector3 sourcePosition, Vector3 endPosition, bool shouldDelay)
@@ -77,7 +102,7 @@ public class Collectable : MonoBehaviour
 
         while (delay > 0)
         {
-            delay -= Time.deltaTime;
+            delay -= Time.deltaTime * 0.75f;
             yield return null;
         }
         
