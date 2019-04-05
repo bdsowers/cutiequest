@@ -74,6 +74,13 @@ public class PlayerController : MonoBehaviour
         Game.instance.playerData.numCoins = 0;
         Game.instance.playerData.health = mCharacterStats.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject);
 
+        GetComponentInChildren<Animator>().Play("Death");
+
+        Invoke("TransitionAfterDelay", 2.5f);
+    }
+
+    void TransitionAfterDelay()
+    {
         Game.instance.transitionManager.TransitionToScreen("HUB");
     }
 

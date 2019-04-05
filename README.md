@@ -50,10 +50,8 @@ wall: 5.58, 0.147, 3.5231
 * Final boss
 
 ### Polish
-* Attack VFX
 * Collection VFX
 * Character swap VFX
-* Screen transitions
 * Random level decorations / obstructions / debris
 
 ### Production Schedule
@@ -68,6 +66,8 @@ wall: 5.58, 0.147, 3.5231
 * Gardening
 
 #### FINISHED
+* ~~Screen transitions~~
+* ~~Attack VFX~~
 * ~~Improved QuestR~~
 * ~~Improved title screen~~
 * ~~Death screen~~

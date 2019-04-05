@@ -60,18 +60,21 @@ public class Killable : MonoBehaviour
             onDeath(this);
         }
 
-        GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_EnemyDeathSkull");
-        vfx.transform.position = transform.position + Vector3.up * 0.5f;
-        vfx.transform.localScale = Vector3.one * 0.75f;
-        vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
-
         if (deathResponse == DeathResponse.Destroy)
         {
+            GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_EnemyDeathSkull");
+            vfx.transform.position = transform.position + Vector3.up * 0.5f;
+            vfx.transform.localScale = Vector3.one * 0.75f;
+            vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
+
             Destroy(gameObject);
         }
         else
         {
-            gameObject.SetActive(false);
+            GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_BrokenHeart");
+            vfx.transform.position = transform.position + Vector3.up * 0.5f;
+
+            // gameObject.SetActive(false);
         }
     }
 }

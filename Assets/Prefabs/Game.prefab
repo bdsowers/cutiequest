@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d903a09c9c37a94aa7d112a11fc9d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDungeonData: {fileID: 11400000, guid: cb3f33d7f0fe87a4db68958c2f83080d, type: 2}
+  defaultDungeonData: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441, type: 2}
 --- !u!114 &5940583348516570660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,3 +1019,7 @@ MonoBehaviour:
   - {fileID: 4116899431906014084, guid: ec756ba3d5f7fc94d817730c73b5f6b7, type: 3}
   vfxPrefabs:
   - {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  - {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
+  - {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+  - {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  - {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
