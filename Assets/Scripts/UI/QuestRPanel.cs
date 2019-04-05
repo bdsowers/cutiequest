@@ -48,7 +48,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         mAvailableCharacters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
         
