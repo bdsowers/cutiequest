@@ -9,6 +9,7 @@ public class PrefabManager : MonoBehaviour
     public GameObject[] itemPrefabs;
     public GameObject[] shrinePrefabs;
     public GameObject[] spellEffectPrefabs;
+    public GameObject[] vfxPrefabs;
 
     private Dictionary<string, GameObject> mPrefabMap = new Dictionary<string, GameObject>();
     private static PrefabManager sInstance = null;
@@ -20,6 +21,13 @@ public class PrefabManager : MonoBehaviour
         return mPrefabMap[name];
     }
 
+    public GameObject InstantiatePrefabByName(string name, Transform parent = null)
+    {
+        GameObject instance = GameObject.Instantiate(PrefabByName(name), parent);
+
+        return instance;
+    }
+
     private void Awake()
     {
         sInstance = this;
@@ -29,6 +37,7 @@ public class PrefabManager : MonoBehaviour
         AddListToDictionary(itemPrefabs);
         AddListToDictionary(shrinePrefabs);
         AddListToDictionary(spellEffectPrefabs);
+        AddListToDictionary(vfxPrefabs);
     }
 
     private void AddListToDictionary(GameObject[] list)

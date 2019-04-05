@@ -13,6 +13,7 @@ Not everything is available here. In some cases, I'm using assets I don't have t
 * Synty Polygon Knights Pack
 * InControl2
 * Shikashi's Fantasy Icon Pack
+* JMO (Jean Moreno) Cartoon VFX
 
 All code here is free for you to use according to the MIT license below, but I make no guarantees as to its quality and can in some cases say it's downright terrible. ;)
 
@@ -38,6 +39,7 @@ wall: 5.58, 0.147, 3.5231
 * Follower bios / humor info
 * Locked HUB improvement system
 * Flow from biome to biome / endgame
+* Character select on new game
 
 ### MVP Content Requirements
 * At least 5 levels of followers

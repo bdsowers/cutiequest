@@ -13566,30 +13566,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1394048903, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
-      propertyPath: data.Array.data[0].description
-      value: How much damage you can take before you're kaput.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394048903, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
-      propertyPath: data.Array.data[1].description
-      value: Melee damage you deal with every blow.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394048903, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
-      propertyPath: data.Array.data[2].description
-      value: Resistance to all attacks.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394048903, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
-      propertyPath: data.Array.data[3].description
-      value: Magic attack strength and how long spells  take to recharge.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394048903, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
-      propertyPath: data.Array.data[4].description
-      value: General movement speed.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394048903, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
-      propertyPath: data.Array.data[5].description
-      value: Likelihood of good things happening.
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
 --- !u!4 &1952840924 stripped

@@ -168,27 +168,27 @@ MonoBehaviour:
   - stat: 0
     icon: {fileID: 21300012, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
     name: Max Health
-    description: 
+    description: How much damage you can take before you're kaput.
   - stat: 1
     icon: {fileID: 21300030, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
     name: Strength
-    description: 
+    description: Melee damage you deal with every blow.
   - stat: 2
     icon: {fileID: 21300128, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
     name: Defense
-    description: 
+    description: Resistance to all attacks.
   - stat: 3
     icon: {fileID: 21300144, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
     name: Magic
-    description: 
+    description: Magic attack strength and how long spells  take to recharge.
   - stat: 4
     icon: {fileID: 21300188, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
     name: Speed
-    description: 
+    description: General movement speed.
   - stat: 5
     icon: {fileID: 21300322, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
     name: Luck
-    description: 
+    description: Likelihood of good things happening.
 --- !u!1 &466082938260821529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,3 +1017,5 @@ MonoBehaviour:
   - {fileID: 7818454422392994760, guid: 6c46cc69b0b0e2e409067fc67442adeb, type: 3}
   spellEffectPrefabs:
   - {fileID: 4116899431906014084, guid: ec756ba3d5f7fc94d817730c73b5f6b7, type: 3}
+  vfxPrefabs:
+  - {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
