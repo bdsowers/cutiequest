@@ -31,13 +31,13 @@ wall: 5.58, 0.147, 3.5231
 
 ## Roadmap
 ### MVP Alpha Features / Improvements
-* Locked HUB improvement system
-* Flow from biome to biome / endgame
 
 ### MVP Beta Features
 * Intro w/basic tutorials
 * Improved map
 * Follower bios / humor info
+* Locked HUB improvement system
+* Flow from biome to biome / endgame
 
 ### MVP Content Requirements
 * At least 5 levels of followers
