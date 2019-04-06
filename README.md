@@ -51,8 +51,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Random level decorations / obstructions / debris
 
 ### Production Schedule
-* Road to Alha - 2 weeks
-* 1 follower w/spell & quirk, enemy, shrine, item, trap, polish task per day; timeboxed - 2 weeks
+* 1 follower w/spell & quirk, enemy, shrine, item, trap, polish task per day; timeboxed - 3 weeks
 * Bosses; fleshed game flow - 2 weeks
 * Balance, polish - 4 weeks
 * Bug fixing - 2 weeks
@@ -62,6 +61,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Gardening
 
 #### FINISHED
+* ~~ (Production Schedule) Road to Alha - 2 weeks~~
 * ~~Screen transitions~~
 * ~~Attack VFX~~
 * ~~Improved QuestR~~
