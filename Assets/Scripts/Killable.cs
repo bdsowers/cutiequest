@@ -16,8 +16,19 @@ public class Killable : MonoBehaviour
     public int health;
     public DeathResponse deathResponse;
 
+    private bool CanTakeDamage()
+    {
+        if (Game.instance.transitionManager.isTransitioning)
+            return false;
+        
+        return true;
+    }
+
     public void TakeDamage(int damage)
     {
+        if (!CanTakeDamage())
+            return;
+
         // No attack can ever do less than 1 damage, no matter strength/defense equations
         damage = Mathf.Max(damage, 1);
 
