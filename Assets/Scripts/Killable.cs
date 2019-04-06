@@ -18,6 +18,9 @@ public class Killable : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        // No attack can ever do less than 1 damage, no matter strength/defense equations
+        damage = Mathf.Max(damage, 1);
+
         CreateHitVFX();
 
         // If we're talking about the player, use their info that's stashed away in a saveable place
