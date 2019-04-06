@@ -68,7 +68,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDeath(Killable entity)
     {
-        // todo bdsowers - need a fancier effect, including coin loss.
+        if (!isAlive)
+            return;
 
         isAlive = false;
 
