@@ -6,6 +6,9 @@ public class MinimapCamera : MonoBehaviour
 {
     public GameObject target;
 
+    public GameObject miniMap;
+    public GameObject fullMap;
+
     private float mOriginalOrthoSize;
     private Camera mCamera;
 
@@ -38,6 +41,9 @@ public class MinimapCamera : MonoBehaviour
             {
                 mCamera.orthographicSize = mOriginalOrthoSize;
             }
+
+            fullMap.SetActive(mShowingWholeMap);
+            miniMap.SetActive(!mShowingWholeMap);
         }
     }
 

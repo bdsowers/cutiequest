@@ -234,6 +234,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
+        Debug.Log(playerTargetPosition);
         follower.GetComponent<SimpleMovement>().Move(direction, playerTargetPosition + new Vector3(-0.25f, 0f, 0.25f));
         yield break;
     }
