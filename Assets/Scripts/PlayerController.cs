@@ -154,6 +154,8 @@ public class PlayerController : MonoBehaviour
 
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
+        if (!isAlive)
+            return;
 
         // todo bdsowers - these need to be queued up for when the player movement ends
         if (mActionSet.Spell.WasPressed)
