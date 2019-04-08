@@ -16,10 +16,14 @@ public class SimpleAttack : MonoBehaviour
 
     public bool isAttacking {  get { return mIsAttacking; } }
 
+    private Vector3 mSubMeshLocalPosition;
+
     private void Start()
     {
         mPlayerLayer = LayerMask.NameToLayer("Player");
         mEnemyLayer = LayerMask.NameToLayer("Enemy");
+
+        mSubMeshLocalPosition = subMesh.transform.localPosition;
     }
 
     private GameObject TargetInDirection(Vector3 direction)
@@ -88,7 +92,7 @@ public class SimpleAttack : MonoBehaviour
             yield return null;
         }
 
-        subMesh.transform.position = startPosition;
+        subMesh.transform.localPosition = mSubMeshLocalPosition;
 
         if (onAttackFinished != null)
         {
