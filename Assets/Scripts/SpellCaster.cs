@@ -141,7 +141,7 @@ public class SpellCaster : MonoBehaviour
                     target.SetLayerRecursive(gameObject.layer);
                     target.GetComponentInChildren<Renderer>().enabled = showTargetArea;
                     target.GetComponent<SpellTarget>().effect = effectName;
-
+                    Debug.Log(effectName);
                     partFound = true;
                 }
             }
@@ -149,7 +149,7 @@ public class SpellCaster : MonoBehaviour
 
         if (orientToDirection)
         {
-            spellContainer.transform.localRotation = GetComponentInChildren<Animator>().transform.localRotation;
+            spellContainer.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
 
             // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
             float y = spellContainer.transform.localRotation.eulerAngles.y;

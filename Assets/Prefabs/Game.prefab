@@ -1025,3 +1025,5 @@ MonoBehaviour:
   - {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
   - {fileID: 100004, guid: fb7b0526ade434043b350a180d741cf3, type: 3}
   - {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
+  - {fileID: 100004, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+  - {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7642233172062837191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7642233172062837189}
+  - component: {fileID: 3543470525067437546}
+  - component: {fileID: 2686321477596012508}
+  m_Layer: 0
+  m_Name: FireWallLevel1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7642233172062837189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642233172062837191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3543470525067437546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642233172062837191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84610f668f27b6e40a2ad91dc409aede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDeviation: 0
+  targetCaster: 1
+  orientToDirection: 1
+  showTargetArea: 0
+  patternString: '03330
+
+    02220
+
+    01110
+
+    00000
+
+    00000
+
+    00000
+
+    00000'
+  castSpeed: 4
+  effectName: CFX4 Fire
+--- !u!114 &2686321477596012508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642233172062837191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43ec31bffbc04b4a9790fbbff4e108b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friendlyName: Fire Wall
+  description: Creates an enormous blaze that is definitely not safe anywhere.
+  cooldown: 12
+  icon: {fileID: 21300082, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  level: 1

@@ -6,7 +6,8 @@ public class BadAtMathQuirk : Quirk
 {
     public static int ApplyQuirkIfPresent(int cost)
     {
-        if (GameObject.FindObjectsOfType<BadAtMathQuirk>() != null)
+        BadAtMathQuirk quirk = GameObject.FindObjectOfType<BadAtMathQuirk>();
+        if (quirk != null)
         {
             return Random.Range(1, 999);
         }
