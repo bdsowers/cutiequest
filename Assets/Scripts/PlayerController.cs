@@ -171,6 +171,14 @@ public class PlayerController : MonoBehaviour
         if (!mTurnBasedMovement.isMyTurn && !Game.instance.realTime)
             return;
 
+        SpellCaster caster = GetComponentInChildren<SpellCaster>();
+        if (caster != null && caster.isCasting)
+            return;
+
+        ProjectileThrower thrower = GetComponentInChildren<ProjectileThrower>();
+        if (thrower != null && thrower.isThrowing)
+            return;
+
         Vector3 followerDirection = transform.position - follower.transform.position;
         followerDirection.y = 0f;
         followerDirection.Normalize();
@@ -235,7 +243,6 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log(playerTargetPosition);
         follower.GetComponent<SimpleMovement>().Move(direction, playerTargetPosition + new Vector3(-0.25f, 0f, 0.25f));
         yield break;
     }

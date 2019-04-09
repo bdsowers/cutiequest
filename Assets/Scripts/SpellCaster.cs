@@ -8,6 +8,7 @@ public class SpellCaster : MonoBehaviour
     public int targetDeviation = 0;
     public bool targetCaster;
     public bool orientToDirection;
+    public bool showTargetArea = true;
 
     [TextArea(8, 10)]
     public string patternString;
@@ -71,7 +72,8 @@ public class SpellCaster : MonoBehaviour
 
     public IEnumerator CastSpellCoroutine(int strength)
     {
-        GetComponentInChildren<Animator>().Play("Spell");
+        // todo bdsowers - UGH
+        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Spell");
 
         isCasting = true;
 
@@ -136,6 +138,7 @@ public class SpellCaster : MonoBehaviour
                     target.GetComponent<SpellTarget>().effect = "Explosion";
                     target.GetComponent<SpellTarget>().strength = strength;
                     target.SetLayerRecursive(gameObject.layer);
+                    target.GetComponentInChildren<Renderer>().enabled = showTargetArea;
 
                     partFound = true;
                 }

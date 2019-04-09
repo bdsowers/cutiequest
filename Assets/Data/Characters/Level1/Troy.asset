@@ -19,7 +19,7 @@ MonoBehaviour:
   tagline: Just a humble adventurer looking to party.
   bio: 
   levelRequirement: 1
-  spell: {fileID: 0}
-  quirk: {fileID: 7013615852770308928, guid: 4b41fdb69e5f9924a921bf2cf96a93de, type: 3}
+  spell: {fileID: 5769347195654040772, guid: 1f25d155db9e42d458aa8bfdc640e553, type: 3}
+  quirk: {fileID: 4652064280478007931, guid: 4b41fdb69e5f9924a921bf2cf96a93de, type: 3}
   statBoost: 2
   statBoostAmount: 1
