@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264502382425159474}
-  - component: {fileID: 4652064280478007931}
+  - component: {fileID: 4843633041352599488}
   m_Layer: 0
-  m_Name: BadAtMathQuirk
+  m_Name: NearsightedQuirk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4652064280478007931
+--- !u!114 &4843633041352599488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 264502382425159473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dc89018ae360e74da80c532f1378cec, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e894ff4e12e270428b4992ba3e0c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Bad at Math
-  description: All numbers display wrong. What even is a 7 anyway?
-  icon: {fileID: 21300354, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  friendlyName: Nearsighted
+  description: You can't see so great.
+  icon: {fileID: 21300252, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}

@@ -24,7 +24,7 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
             return;
 
         float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);
-        if (distance < 6.5f)
+        if (distance < NearsightedQuirk.ApplyQuirkIfPresent(6.5f))
         {
             Reveal();
         }
@@ -76,6 +76,8 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
         transform.localScale = targetScale;
 
         mFullyRevealed = true;
+
+        enabled = false;
 
         yield break;
     }

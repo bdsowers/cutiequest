@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BadAtMathQuirk : Quirk
+public class NearsightedQuirk : Quirk
 {
     private static bool mEnabled;
 
@@ -26,13 +26,13 @@ public class BadAtMathQuirk : Quirk
         mEnabled = false;
     }
 
-    public static int ApplyQuirkIfPresent(int cost)
+    public static float ApplyQuirkIfPresent(float range)
     {
         if (mEnabled)
         {
-            return Random.Range(1, 999);
+            return range / 2;
         }
 
-        return cost;
+        return range;
     }
 }

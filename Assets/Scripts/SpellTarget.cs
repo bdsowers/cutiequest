@@ -96,6 +96,8 @@ public class SpellTarget : MonoBehaviour
 
     private void DealDamage()
     {
+        // todo bdsowers - this is perhaps  a little too precise and misses some hits
+
         // See if a targetable entity is in the same space as us
         // Targetable in this case = someone not currently on the same layer as us
         Killable targetKillable = KillableMap.instance.KillableAtWorldPosition(transform.position);
