@@ -10,7 +10,9 @@ public class IceBlast : Spell
     {
         base.Activate(caster);
 
-        int strength = caster.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, caster) + level * 2;
+        int strength = caster.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, caster);
+        strength += level * 3;
+
         caster.GetComponentInChildren<SpellCaster>().CastSpell(strength);
     }
 }
