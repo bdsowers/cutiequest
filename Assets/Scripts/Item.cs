@@ -23,7 +23,7 @@ public class Item : MonoBehaviour
         Text[] labels = costCanvas.GetComponentsInChildren<Text>();
         for (int i = 0; i < labels.Length; ++i)
         {
-            labels[i].text = Cost().ToString();
+            labels[i].text = BadAtMathQuirk.ApplyQuirkIfPresent(Cost()).ToString();
         }
     }
 

@@ -26,6 +26,6 @@ public class HeartDisplay : MonoBehaviour
 
     private void UpdateLabel()
     {
-        amountLabel.text = Game.instance.playerData.numHearts.ToString();
+        amountLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(Game.instance.playerData.numHearts).ToString();
     }
 }

@@ -14,12 +14,12 @@ public class BuffStatsDialog : MonoBehaviour
 
     public void ShowDialog()
     {
-        maxHealthCostLabel.text = UpgradeCost(CharacterStatType.MaxHealth).ToString();
-        strengthCostLabel.text = UpgradeCost(CharacterStatType.Strength).ToString();
-        defenseCostLabel.text = UpgradeCost(CharacterStatType.Defense).ToString();
-        magicCostLabel.text = UpgradeCost(CharacterStatType.Magic).ToString();
-        speedCostLabel.text = UpgradeCost(CharacterStatType.Speed).ToString();
-        luckCostLabel.text = UpgradeCost(CharacterStatType.Luck).ToString();
+        maxHealthCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.MaxHealth)).ToString();
+        strengthCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Strength)).ToString();
+        defenseCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Defense)).ToString();
+        magicCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Magic)).ToString();
+        speedCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Speed)).ToString();
+        luckCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Luck)).ToString();
 
         gameObject.SetActive(true);
     }

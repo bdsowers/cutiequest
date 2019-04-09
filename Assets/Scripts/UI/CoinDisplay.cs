@@ -26,6 +26,6 @@ public class CoinDisplay : MonoBehaviour
 
     private void UpdateLabel()
     {
-        amountLabel.text = Game.instance.playerData.numCoins.ToString();
+        amountLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(Game.instance.playerData.numCoins).ToString();
     }
 }

@@ -16,7 +16,7 @@ public class ProgressBar : MonoBehaviour
 
         if (label != null)
         {
-            label.text = "" + value + " / " + max;
+            label.text = "" + BadAtMathQuirk.ApplyQuirkIfPresent(value) + " / " + BadAtMathQuirk.ApplyQuirkIfPresent(max);
         }
     }
 

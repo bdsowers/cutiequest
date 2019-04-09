@@ -17,8 +17,9 @@ MonoBehaviour:
   model: Chr_Adventure_Peasant_01
   age: 24
   tagline: Just a humble adventurer looking to party.
+  bio: 
   levelRequirement: 1
-  ability: 0
-  quirk: 0
+  spell: {fileID: 0}
+  quirk: {fileID: 7013615852770308928, guid: 4b41fdb69e5f9924a921bf2cf96a93de, type: 3}
   statBoost: 2
   statBoostAmount: 1

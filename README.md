@@ -101,6 +101,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Gold Digger - follower takes half of all your money
 * Toxic - player starts each floor poisoned
 * Bad at Math - all numbers & health bars display incorrectly
+* Ghosted - spell sometimes passes through enemies
+* Expensive Tastes - shop prices are more expensive
 
 ### HUB Shops
 * Stylist - increases attractiveness to unlock new matches

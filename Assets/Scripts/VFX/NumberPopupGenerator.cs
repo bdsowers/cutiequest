@@ -26,6 +26,8 @@ public class NumberPopupGenerator : MonoBehaviour
 
     public void GeneratePopup(Vector3 position, int amount, NumberPopupReason reason)
     {
+        amount = BadAtMathQuirk.ApplyQuirkIfPresent(amount);
+
         GameObject newPopup = GameObject.Instantiate(PrefabManager.instance.PrefabByName("NumberPopup"));
         newPopup.transform.position = position;
         newPopup.GetComponent<NumberPopup>().PlayPopup(amount, reason);

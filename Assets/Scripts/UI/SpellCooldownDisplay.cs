@@ -32,7 +32,7 @@ public class SpellCooldownDisplay : MonoBehaviour
         cooldownSecondsLabel.gameObject.SetActive(!spell.canActivate);
 
         int secondsRemaining = Mathf.CeilToInt(spell.cooldownTimer);
-        cooldownSecondsLabel.text = secondsRemaining.ToString();
+        cooldownSecondsLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(secondsRemaining).ToString();
 
         cooldownOverlay.fillAmount = (spell.cooldownTimer / spell.cooldown);
     }
