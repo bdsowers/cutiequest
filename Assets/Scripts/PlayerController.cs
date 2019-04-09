@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameObjectExtensions;
 
 public class PlayerController : MonoBehaviour
 {
@@ -114,11 +115,13 @@ public class PlayerController : MonoBehaviour
             if (followerData.spell != null)
             {
                 GameObject spell = GameObject.Instantiate(followerData.spell.gameObject, transform);
+                spell.SetLayerRecursive(LayerMask.NameToLayer("Player"));
             }
 
             if (followerData.quirk != null)
             {
                 GameObject quirk = GameObject.Instantiate(followerData.quirk.gameObject, transform);
+                quirk.SetLayerRecursive(LayerMask.NameToLayer("Player"));
             }
         }
     }

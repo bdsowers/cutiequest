@@ -17,7 +17,11 @@ MonoBehaviour:
   model: Chr_Adventure_Peasant_01
   age: 24
   tagline: Just a humble adventurer looking to party.
-  bio: 
+  bio: 'Hey everyone I''m Troy!
+
+    I''m just your typical guy, y''know? I like hiking, watching movies, and travel.
+
+    I promise I''m not boring. Hehe lol.'
   levelRequirement: 1
   spell: {fileID: 5769347195654040772, guid: 1f25d155db9e42d458aa8bfdc640e553, type: 3}
   quirk: {fileID: 4652064280478007931, guid: 4b41fdb69e5f9924a921bf2cf96a93de, type: 3}

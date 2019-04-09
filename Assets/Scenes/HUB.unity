@@ -14044,6 +14044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1099098403}
+  miniMap: {fileID: 0}
+  fullMap: {fileID: 0}
 --- !u!81 &2055356389
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14985,6 +14987,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303312170955244080, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303312170955244080, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}

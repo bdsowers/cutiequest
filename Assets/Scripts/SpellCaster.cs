@@ -20,6 +20,8 @@ public class SpellCaster : MonoBehaviour
     private CollisionMap mCollisionMap;
     public float castSpeed = 4f;
 
+    public string effectName;
+
     private void Start()
     {
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
@@ -135,10 +137,10 @@ public class SpellCaster : MonoBehaviour
                     GameObject target = GameObject.Instantiate(PrefabManager.instance.PrefabByName("SpellTarget"), spellContainer.transform);
                     target.transform.position = new Vector3(targetX, 1f, -targetZ);
                     target.GetComponent<SpellTarget>().castTime = 1f * (1f / castSpeed);
-                    target.GetComponent<SpellTarget>().effect = "Explosion";
                     target.GetComponent<SpellTarget>().strength = strength;
                     target.SetLayerRecursive(gameObject.layer);
                     target.GetComponentInChildren<Renderer>().enabled = showTargetArea;
+                    target.GetComponent<SpellTarget>().effect = effectName;
 
                     partFound = true;
                 }

@@ -11,6 +11,8 @@ public class SpellCooldownDisplay : MonoBehaviour
     public Image cooldownOverlay;
     public Text cooldownSecondsLabel;
 
+    private int mPreviousDisplaySeconds = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,11 @@ public class SpellCooldownDisplay : MonoBehaviour
         cooldownSecondsLabel.gameObject.SetActive(!spell.canActivate);
 
         int secondsRemaining = Mathf.CeilToInt(spell.cooldownTimer);
-        cooldownSecondsLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(secondsRemaining).ToString();
+        if (mPreviousDisplaySeconds != secondsRemaining)
+        {
+            mPreviousDisplaySeconds = secondsRemaining;
+            cooldownSecondsLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(secondsRemaining).ToString();
+        }
 
         cooldownOverlay.fillAmount = (spell.cooldownTimer / spell.cooldown);
     }

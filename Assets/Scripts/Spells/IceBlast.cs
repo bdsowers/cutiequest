@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class IceBlast : Spell
 {
+    public int level = 1;
+
     public override void Activate(GameObject caster)
     {
         base.Activate(caster);
 
-        caster.GetComponentInChildren<SpellCaster>().CastSpell(5);
+        int strength = caster.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, caster) + level * 2;
+        caster.GetComponentInChildren<SpellCaster>().CastSpell(strength);
     }
 }
