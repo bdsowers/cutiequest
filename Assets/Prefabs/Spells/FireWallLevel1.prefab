@@ -61,7 +61,7 @@ MonoBehaviour:
     00000
 
     00000'
-  castSpeed: 4
+  castSpeed: 10
   effectName: CFX4 Fire
 --- !u!114 &2686321477596012508
 MonoBehaviour:
