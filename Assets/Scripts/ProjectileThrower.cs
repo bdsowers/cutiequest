@@ -6,6 +6,7 @@ using GameObjectExtensions;
 public class ProjectileThrower : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public float throwSpeed = 1f;
 
     public bool isThrowing { get; private set; }
 
@@ -24,7 +25,9 @@ public class ProjectileThrower : MonoBehaviour
         isThrowing = true;
 
         GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Throw", 0, 0f);
-        yield return new WaitForSeconds(0.75f);
+        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = throwSpeed;
+
+        yield return new WaitForSeconds(0.75f / throwSpeed);
 
         GameObject projectile = GameObject.Instantiate(projectilePrefab);
         projectile.GetComponent<Projectile>().strength = strength;
@@ -40,8 +43,9 @@ public class ProjectileThrower : MonoBehaviour
         y = Mathf.Round(y / 90) * 90.0f;
         projectile.transform.localRotation = Quaternion.Euler(projectile.transform.localRotation.eulerAngles.x, y, projectile.transform.localRotation.eulerAngles.z);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f / throwSpeed);
 
+        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = 1f;
         isThrowing = false;
 
         yield break;

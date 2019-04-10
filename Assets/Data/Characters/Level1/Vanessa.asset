@@ -17,7 +17,17 @@ MonoBehaviour:
   model: Chr_Dungeon_KnightFemale_01
   age: 30
   tagline: I like to swing swords and dance, dance, dance.
-  bio: 
+  bio: 'While you were drinking ale I studied the blade.
+
+    While you were engaged in debauchery I practiced the blade.
+
+    While you spent months at the dojo for the sake of vanity I used the blade.
+
+    Now that the demons are here you are all unprepared. Except for me.
+
+    For I studied the blade.
+
+'
   levelRequirement: 1
   spell: {fileID: 7208245668416113632, guid: 5ab68f533909674488fb3defb25793ab, type: 3}
   quirk: {fileID: 4518286651245176918, guid: a360f08410b01fe4a94428091b623243, type: 3}

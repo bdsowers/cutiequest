@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Whirlwind
   description: Throw a tornado at your enemies and watch them freak out.
-  cooldown: 4
+  cooldown: 10
   icon: {fileID: 21300070, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  level: 1
 --- !u!114 &2360203249256742559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +63,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8135455753806573312, guid: db05833c46a003f4c80001e7fcfe7ac7,
     type: 3}
+  throwSpeed: 3
