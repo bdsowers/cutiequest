@@ -36,6 +36,11 @@ public class Item : MonoBehaviour
             // Items get more expensive the further into the dungeon you go.
             // Plus there's always some variability.
             progressSpecificCost = Game.instance.currentDungeonFloor * 25 + Random.Range(-15, 50);
+
+            if (ExpensiveTastesQuirk.isQuirkPresent)
+            {
+                progressSpecificCost += ExpensiveTastesQuirk.CostModification();
+            }
         }
 
         return baseCost + progressSpecificCost;

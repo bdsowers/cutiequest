@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private string mFollowerId;
 
+    public Vector3 direction { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -208,6 +210,8 @@ public class PlayerController : MonoBehaviour
 
         if (intendedDirection.magnitude > 0.8f)
         {
+            direction = intendedDirection;
+
             if (mActionSet.HoldPosition.IsPressed)
             {
                 SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);

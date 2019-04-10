@@ -16,8 +16,27 @@ public class EnemyProjectileThrower : EnemyAI
 
     private void ThrowProjectile()
     {
+        SimpleMovement.OrientToDirection(GetComponent<SimpleMovement>().subMesh, AvatarDirection());
+
         int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
-        mProjectileThrower.ThrowProjectile(magic);
+        mProjectileThrower.ThrowProjectile(magic, AvatarDirection());
+    }
+
+    private Vector3 AvatarDirection()
+    {
+        Vector3 avatarDirection = (Game.instance.avatar.transform.position - transform.position);
+        avatarDirection.y = 0f;
+        avatarDirection.x = Mathf.Round(avatarDirection.x);
+        avatarDirection.z = Mathf.Round(avatarDirection.z);
+
+        if (Mathf.Abs(avatarDirection.x) > Mathf.Abs(avatarDirection.z))
+            avatarDirection.z = 0f;
+        else
+            avatarDirection.x = 0f;
+
+        avatarDirection.Normalize();
+
+        return avatarDirection;
     }
 
     public override void UpdateAI()

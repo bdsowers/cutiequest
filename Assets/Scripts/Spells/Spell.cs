@@ -24,7 +24,11 @@ public class Spell : MonoBehaviour
 
     public virtual void Activate(GameObject caster)
     {
-        mCooldownTimer = cooldown;
+        int magic = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Magic, Game.instance.avatar.gameObject);
+        float actualCooldown = cooldown - (magic / 4f);
+        actualCooldown = Mathf.Max(1f, actualCooldown);
+
+        mCooldownTimer = actualCooldown;
     }
 
     private void Update()

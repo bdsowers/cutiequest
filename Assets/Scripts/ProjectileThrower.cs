@@ -14,36 +14,25 @@ public class ProjectileThrower : MonoBehaviour
         return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 5f;
     }
 
-    public void ThrowProjectile(int strength)
+    public void ThrowProjectile(int strength, Vector3 direction)
     {
-        StartCoroutine(ThrowProjectileCoroutine(strength));
+        StartCoroutine(ThrowProjectileCoroutine(strength, direction));
     }
 
-    public IEnumerator ThrowProjectileCoroutine(int strength)
+    public IEnumerator ThrowProjectileCoroutine(int strength, Vector3 direction)
     {
         isThrowing = true;
-        Vector3 avatarDirection = (Game.instance.avatar.transform.position - transform.position);
-        avatarDirection.y = 0f;
-        avatarDirection.x = Mathf.Round(avatarDirection.x);
-        avatarDirection.z = Mathf.Round(avatarDirection.z);
-        if (Mathf.Abs(avatarDirection.x) > Mathf.Abs(avatarDirection.z))
-            avatarDirection.z = 0f;
-        else
-            avatarDirection.x = 0f;
 
-        avatarDirection.Normalize();
-
-        SimpleMovement.OrientToDirection(GetComponent<SimpleMovement>().subMesh, avatarDirection);
-        GetComponentInChildren<Animator>().Play("Throw", 0, 0f);
+        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Throw", 0, 0f);
         yield return new WaitForSeconds(0.75f);
 
         GameObject projectile = GameObject.Instantiate(projectilePrefab);
         projectile.GetComponent<Projectile>().strength = strength;
-        projectile.GetComponent<ConstantTranslation>().direction = avatarDirection;
-        Transform handTransform = GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
+        projectile.GetComponent<ConstantTranslation>().direction = direction;
+        Transform handTransform = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
         projectile.transform.position = handTransform.position;
 
-        projectile.transform.localRotation = GetComponentInChildren<Animator>().transform.localRotation;
+        projectile.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
         projectile.SetLayerRecursive(gameObject.layer);
 
         // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
