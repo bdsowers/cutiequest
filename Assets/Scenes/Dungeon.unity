@@ -841,6 +841,7 @@ GameObject:
   - component: {fileID: 371133711}
   - component: {fileID: 371133710}
   - component: {fileID: 371133709}
+  - component: {fileID: 371133713}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -933,6 +934,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &371133713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371133708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e09448b75f3b4c4e9bfd0d243a1bfb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duckpicUI: {fileID: 1591441423423986456}
 --- !u!224 &372057054 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5303312171234136626, guid: c61028de0690a04489e563a5c9c1627d,
@@ -1320,7 +1334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 185.79999, y: 149.9}
+  m_AnchoredPosition: {x: 185.7998, y: 149.8999}
   m_SizeDelta: {x: 354, y: 322}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &914993445
@@ -2751,7 +2765,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1591441423423986456}
         m_MethodName: OnClosePressed
         m_Mode: 1
         m_Arguments:
@@ -3021,6 +3035,7 @@ GameObject:
   - component: {fileID: 1591441423423986452}
   - component: {fileID: 1591441423423986442}
   - component: {fileID: 1591441423423986453}
+  - component: {fileID: 1591441423423986456}
   m_Layer: 5
   m_Name: QuestR_Duckpic
   m_TagString: Untagged
@@ -3028,6 +3043,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1591441423423986456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591441423423986455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc70712901ee40341bf67b12be1f29d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: {fileID: 179667613}
+  image: {fileID: 144209512}
 --- !u!114 &1591441423499211954
 MonoBehaviour:
   m_ObjectHideFlags: 0
