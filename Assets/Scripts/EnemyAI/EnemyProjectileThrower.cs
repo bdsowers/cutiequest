@@ -60,7 +60,7 @@ public class EnemyProjectileThrower : EnemyAI
                 }
                 else
                 {
-                    Vector3 randomDirection = VectorHelper.RandomDirectionXZ();
+                    Vector3 randomDirection = VectorHelper.RandomOrthogonalVectorXZ();
                     if (mSimpleMovement.CanMove(randomDirection))
                     {
                         mSimpleMovement.Move(randomDirection);

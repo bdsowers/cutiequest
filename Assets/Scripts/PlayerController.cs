@@ -217,6 +217,8 @@ public class PlayerController : MonoBehaviour
             intendedDirection = new Vector3(1f, 0f, 0f);
         }
 
+        intendedDirection = SpaceCadetQuirk.ApplyQuirkIfPresent(intendedDirection);
+
         if (intendedDirection.magnitude > 0.8f)
         {
             direction = intendedDirection;

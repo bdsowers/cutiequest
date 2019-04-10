@@ -102,7 +102,7 @@ namespace VectorExtensions
             return Vector3.Distance(v1, v2);
         }
 
-        public static Vector3 RandomDirectionXZ()
+        public static Vector3 RandomOrthogonalVectorXZ()
         {
             float x = 0f;
             float z = 0f;
