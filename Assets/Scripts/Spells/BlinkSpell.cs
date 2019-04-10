@@ -36,7 +36,11 @@ public class BlinkSpell : Spell
         if (viablePositions.Count == 0)
             return;
 
+        
         Vector2Int pos = viablePositions.Sample();
+
+        collisionMap.MarkSpace(x, y, 0);
+        collisionMap.MarkSpace(pos.x, pos.y, Game.instance.avatar.GetComponent<SimpleMovement>().collisionIdentity);
 
         Game.instance.avatar.transform.position = new Vector3(pos.x, 0, -pos.y);
         Game.instance.avatar.follower.transform.position = Game.instance.avatar.transform.position + new Vector3(-0.25f, 0f, 0.25f);

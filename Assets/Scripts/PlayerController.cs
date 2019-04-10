@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 direction { get; private set; }
 
+    private bool mSpellQueued;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,10 +165,10 @@ public class PlayerController : MonoBehaviour
         if (!isAlive)
             return;
 
-        // todo bdsowers - these need to be queued up for when the player movement ends
+        // Queue spells while moving / attack to be executed once those actions end.
         if (mActionSet.Spell.WasPressed)
         {
-            CastSpellIfPossible();
+            mSpellQueued = true;
         }
 
         if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)
@@ -183,6 +185,13 @@ public class PlayerController : MonoBehaviour
         ProjectileThrower thrower = GetComponentInChildren<ProjectileThrower>();
         if (thrower != null && thrower.isThrowing)
             return;
+
+        if (mSpellQueued)
+        {
+            mSpellQueued = false;
+            CastSpellIfPossible();
+            return;
+        }
 
         Vector3 followerDirection = transform.position - follower.transform.position;
         followerDirection.y = 0f;
