@@ -17,7 +17,12 @@ MonoBehaviour:
   model: Chr_Fantasy_PeasantWoman_01
   age: 25
   tagline: If I were a cat lady, would you swipe right meow?
-  bio: 
+  bio: 'Getting with me is hard. You''ll need the approval of all 12 of my cats, and
+    they''re very picky.
+
+    Still, I''m worth it.
+
+    Please don''t let me die alone.'
   levelRequirement: 1
   spell: {fileID: 6831525888497418613, guid: 095fa57504be42f4a8dcdbbbbcfe28ba, type: 3}
   quirk: {fileID: 3772071837219477573, guid: ee5867632712fb045bc183d46377cd31, type: 3}
