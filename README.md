@@ -92,16 +92,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Content Ideas
 ### Quirks
 * Boring - no effect
-* ~~Mansplain - enemies are obscured by text as the follower talks constantly~~
-* ~~Nearsighted - map reveals at a much shorter distance~~
 * Duckpic - ?? player somehow constantly receives pictures of ducks
 * Unreliable - spell sometimes fizzles
 * Ice Queen - when hit, the player has a chance of being frozen for a short period
-* Spacey - sometimes player will walk in a random direction instead of the one chosen
 * Gold Digger - follower takes half of all your money
 * Toxic - player starts each floor poisoned
-* ~~Bad at Math - all numbers & health bars display incorrectly~~
 * Ghosted - spell sometimes passes through enemies
+* ~~Mansplain - enemies are obscured by text as the follower talks constantly~~
+* ~~Nearsighted - map reveals at a much shorter distance~~
+* ~~Spacey - sometimes player will walk in a random direction instead of the one chosen~~
+* ~~Bad at Math - all numbers & health bars display incorrectly~~
 * ~~Expensive Tastes - shop prices are more expensive~~
 
 ### HUB Shops

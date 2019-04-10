@@ -68,5 +68,10 @@ public class Cheats : MonoBehaviour
             Game.instance.avatar.GetComponent<Killable>().health = 1;
             Game.instance.avatar.GetComponent<Killable>().TakeDamage(1);
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Game.instance.playerData.attractiveness = 100;
+        }
     }
 }
