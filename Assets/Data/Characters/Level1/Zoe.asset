@@ -17,8 +17,9 @@ MonoBehaviour:
   model: Chr_Fantasy_PeasantWoman_01
   age: 25
   tagline: If I were a cat lady, would you swipe right meow?
+  bio: 
   levelRequirement: 1
-  spell: {fileID: 0}
-  quirk: 0
+  spell: {fileID: 6831525888497418613, guid: 095fa57504be42f4a8dcdbbbbcfe28ba, type: 3}
+  quirk: {fileID: 0}
   statBoost: 1
   statBoostAmount: 1

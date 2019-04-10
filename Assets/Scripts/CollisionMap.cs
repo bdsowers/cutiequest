@@ -7,6 +7,22 @@ public class CollisionMap : MonoBehaviour
 {
     int[,] mMap;
 
+    public int width
+    {
+        get
+        {
+            return mMap.GetLength(0);
+        }
+    }
+
+    public int height
+    {
+        get
+        {
+            return mMap.GetLength(1);
+        }
+    }
+
     public void SetupWithSize(int width, int height)
     {
         mMap = new int[width, height];
