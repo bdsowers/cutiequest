@@ -38,6 +38,12 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private static bool mIsQuestPanelAnimating = false;
     private float mThreshold = 500f;
 
+    public List<CharacterData> availableCharacters
+    {
+        get { return mAvailableCharacters; }
+        set { mAvailableCharacters = value; }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         
@@ -48,10 +54,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     // Start is called before the first frame update
-    void OnEnable()
+    public void Setup()
     {
-        mAvailableCharacters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
-        
         mCurrentCharacter = characterOffset;
         SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }

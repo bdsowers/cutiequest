@@ -15189,6 +15189,16 @@ PrefabInstance:
       propertyPath: rigModel2
       value: 
       objectReference: {fileID: 24472765}
+    - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: panel1
+      value: 
+      objectReference: {fileID: 1734035099794861708}
+    - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: panel2
+      value: 
+      objectReference: {fileID: 1734035099794861707}
     - target: {fileID: 160589776669806470, guid: ec5c60380b0daf049bf6e746ae15fcdd,
         type: 3}
       propertyPath: cameraRig
@@ -15201,6 +15211,30 @@ PrefabInstance:
       objectReference: {fileID: 2053253717}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec5c60380b0daf049bf6e746ae15fcdd, type: 3}
+--- !u!114 &1734035099794861707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 160589776669806470, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734035099794861706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de38d6b4e2087274a9453dfddb3d0a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1734035099794861708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9091216071806945049, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734035099794861706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de38d6b4e2087274a9453dfddb3d0a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5795509674590756097
 PrefabInstance:
   m_ObjectHideFlags: 0

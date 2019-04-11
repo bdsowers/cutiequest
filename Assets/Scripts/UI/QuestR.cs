@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ArrayExtensions;
 
 public class QuestR : MonoBehaviour
 {
@@ -10,8 +11,19 @@ public class QuestR : MonoBehaviour
     public CharacterModel rigModel1;
     public CharacterModel rigModel2;
 
+    public QuestRPanel panel1;
+    public QuestRPanel panel2;
+
     private void OnEnable()
     {
+        List<CharacterData> characters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
+        characters.Shuffle();
+
+        panel1.availableCharacters = characters;
+        panel2.availableCharacters = characters;
+        panel1.Setup();
+        panel2.Setup();
+
         standardView.SetActive(true);
         matchView.SetActive(false);
     }
