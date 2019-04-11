@@ -12,7 +12,10 @@ public class CharacterModel : MonoBehaviour
 
     private void Awake()
     {
-        ChangeModel(modelName);
+        if (!string.IsNullOrEmpty(modelName))
+        {
+            ChangeModel(modelName);
+        }
     }
 
     public void ChangeModel(string newModelName, bool castShadows = true)
