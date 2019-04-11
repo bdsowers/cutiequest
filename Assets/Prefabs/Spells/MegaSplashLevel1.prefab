@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7642233172062837191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7642233172062837189}
+  - component: {fileID: 3543470525067437546}
+  - component: {fileID: 7993962521616973541}
+  m_Layer: 0
+  m_Name: MegaSplashLevel1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7642233172062837189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642233172062837191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3543470525067437546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642233172062837191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84610f668f27b6e40a2ad91dc409aede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDeviation: 0
+  targetCaster: 1
+  orientToDirection: 0
+  showTargetArea: 0
+  patternString: '3333333
+
+    3222223
+
+    3211123
+
+    3210123
+
+    3211123
+
+    3222223
+
+    3333333'
+  castSpeed: 10
+  effectName: CFX2_Big_Splash (No Collision)
+--- !u!114 &7993962521616973541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642233172062837191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b867684d97b7b945b126b27093d6b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friendlyName: Mega Splash
+  description: Drown your enemies in salty sea water.
+  cooldown: 15
+  icon: {fileID: 21300020, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  level: 1
