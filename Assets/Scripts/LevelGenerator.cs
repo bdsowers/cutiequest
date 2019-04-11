@@ -217,6 +217,7 @@ public class LevelGenerator : MonoBehaviour
 
         DungeonFloorData data = CurrentDungeonFloorData();
         int numEnemies = Random.Range(data.enemyData.minEnemies, data.enemyData.maxEnemies);
+        numEnemies = WantedQuirk.ApplyQuirkIfPresent(numEnemies);
 
         for (int i = 0; i < numEnemies; ++i)
         {
