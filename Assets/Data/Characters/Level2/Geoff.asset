@@ -17,7 +17,13 @@ MonoBehaviour:
   model: Chr_Pirates_Captain_01
   age: 55
   tagline: It's pronounced jee-off.
-  bio: 
+  bio: 'Bad teeth, no financial stability, always on the run.
+
+    But I''m good with a sword.
+
+    I''m okay with a sword.
+
+    Those are the pointy things, right?'
   levelRequirement: 2
   spell: {fileID: 7993962521616973541, guid: 277fc339582f2974cb42078c46d7ca04, type: 3}
   quirk: {fileID: 4009890156022321934, guid: dfec75544382ba145ad70706281465cb, type: 3}
