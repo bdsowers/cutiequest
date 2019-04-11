@@ -30,6 +30,10 @@ public class KillableMap : MonoBehaviour
         int x = Mathf.RoundToInt(worldPosition.x);
         int y = Mathf.RoundToInt(worldPosition.z);
         y = -y;
+
+        if (x < 0 || y < 0 || x >= mMap.GetLength(0) || y >= mMap.GetLength(1))
+            return null;
+
         return mMap[x, y];
     }
 

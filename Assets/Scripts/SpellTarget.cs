@@ -92,6 +92,12 @@ public class SpellTarget : MonoBehaviour
     {
         GameObject newEffect = GameObject.Instantiate(PrefabManager.instance.PrefabByName(effect));
         newEffect.transform.position = transform.position;
+
+        RepetitiveDamageTrap trapSpell = newEffect.GetComponent<RepetitiveDamageTrap>();
+        if (trapSpell != null)
+        {
+            trapSpell.strength = strength;
+        }
     }
 
     private void DealDamage()

@@ -29,6 +29,7 @@ public class DuckpicQuirk : Quirk
 
     void ShowDuckpic(DungeonCanvas canvas)
     {
+        GameObject.Find("CharacterImageCapture").GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model);
         canvas.duckpicUI.gameObject.SetActive(true);
     }
 }
