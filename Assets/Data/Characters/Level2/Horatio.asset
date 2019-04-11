@@ -17,9 +17,11 @@ MonoBehaviour:
   model: Chr_Fantasy_Sorcerer_01
   age: 43
   tagline: Get to know me well, you won't be disappointed.
-  bio: 
+  bio: Listen, I get it. You all think you're hilarious making the same Shakespeare
+    jokes. But I'm more than just a Hamlet gag, I'm a real man with real feelings
+    looking to find love.
   levelRequirement: 2
-  spell: {fileID: 0}
+  spell: {fileID: 206665566104830739, guid: 6c29b79edf28469458f19e24258f7be4, type: 3}
   quirk: {fileID: 5917530038829055309, guid: 09d0ddbe514130841a9a566ed07e3400, type: 3}
   statBoost: 4
   statBoostAmount: 3

@@ -15,12 +15,12 @@ public class ProjectileThrower : MonoBehaviour
         return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 5f;
     }
 
-    public void ThrowProjectile(int strength, Vector3 direction)
+    public void ThrowProjectile(int strength, Vector3 direction, Vector3? offset = null)
     {
-        StartCoroutine(ThrowProjectileCoroutine(strength, direction));
+        StartCoroutine(ThrowProjectileCoroutine(strength, direction, offset));
     }
 
-    public IEnumerator ThrowProjectileCoroutine(int strength, Vector3 direction)
+    public IEnumerator ThrowProjectileCoroutine(int strength, Vector3 direction, Vector3? offset = null)
     {
         isThrowing = true;
 
@@ -34,6 +34,11 @@ public class ProjectileThrower : MonoBehaviour
         projectile.GetComponent<ConstantTranslation>().direction = direction;
         Transform handTransform = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
         projectile.transform.position = handTransform.position;
+
+        if (offset.HasValue)
+        {
+            projectile.transform.position += offset.Value;
+        }
 
         projectile.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
         projectile.SetLayerRecursive(gameObject.layer);

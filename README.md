@@ -103,6 +103,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Bad at Math - all numbers & health bars display incorrectly~~
 * ~~Expensive Tastes - shop prices are more expensive~~
 * ~~Wanted - more enemies spawn in the dungeon~~
+* ~~Face Blind - all enemy models are changed to be random~~
 
 ### HUB Shops
 * Stylist - increases attractiveness to unlock new matches
