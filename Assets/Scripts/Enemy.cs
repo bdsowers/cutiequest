@@ -30,10 +30,10 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath(Killable entity)
     {
-        DropsItems di = GetComponent<DropsItems>();
-        if (di != null)
+        DropsItems[] di = GetComponentsInChildren<DropsItems>();
+        for (int i = 0; i < di.Length; ++i)
         {
-            di.Drop();
+            di[i].Drop();
         }
     }
 

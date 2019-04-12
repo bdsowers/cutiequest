@@ -17,6 +17,8 @@ Not everything is available here. In some cases, I'm using assets I don't have t
 
 All code here is free for you to use according to the MIT license below, but I make no guarantees as to its quality and can in some cases say it's downright terrible. ;)
 
+Crossed off items are finished, not cut.
+
 ## License
 Copyright 2019, One Method Monkey LLC
 
@@ -32,10 +34,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### MVP Beta Features
 * Intro w/basic tutorials
 * Improved map
-* Follower bios / humor info
 * Locked HUB improvement system
 * Flow from biome to biome / endgame
 * Character select on new game
+* ~~Follower bios / humor info~~
 
 ### MVP Content Requirements
 * At least 5 levels of followers
@@ -95,7 +97,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Ice Queen - when hit, the player has a chance of being frozen for a short period
 * Gold Digger - follower takes half of all your money
 * Toxic - player starts each floor poisoned
-* Ghosted - spell sometimes passes through enemies
+* Double Vision - will sometimes see enemies that aren't there
+* Party Boy/Girl - dungeon is filled with party decorations, some of which are traps
+* Explosive Personality - enemies will randomly drop bombs
+
+
 * ~~Duckpic - ?? player somehow constantly receives pictures of ducks~~
 * ~~Mansplain - enemies are obscured by text as the follower talks constantly~~
 * ~~Nearsighted - map reveals at a much shorter distance~~
@@ -106,18 +112,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Face Blind - all enemy models are changed to be random~~
 
 ### HUB Shops
-* Stylist - increases attractiveness to unlock new matches
-* Trainer - permanently increases player stats
 * Wishing Well - single-run buffs
 * Weaponsmith - adds new items/buffs to in-dungeon shops
+* ~~Stylist - increases attractiveness to unlock new matches~~
+* ~~Trainer - permanently increases player stats~~
 
 ### Biomes
 * Basic dungeon
 * Spaceship
 * ???
 
-### Spells
-* Haste
-* Fireball - straight projectile
-* Ice Blast - radial, short range blast
 

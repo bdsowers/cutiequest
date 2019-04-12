@@ -20,6 +20,6 @@ MonoBehaviour:
   bio: 
   levelRequirement: 2
   spell: {fileID: 0}
-  quirk: {fileID: 0}
+  quirk: {fileID: 7245270595135538450, guid: ea92d98f50e86db4d8518ca55384de86, type: 3}
   statBoost: 5
-  statBoostAmount: 0
+  statBoostAmount: 3

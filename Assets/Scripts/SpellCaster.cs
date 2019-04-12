@@ -75,7 +75,11 @@ public class SpellCaster : MonoBehaviour
     public IEnumerator CastSpellCoroutine(int strength)
     {
         // todo bdsowers - UGH
-        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Spell");
+        SimpleMovement root = GetComponentInParent<SimpleMovement>();
+        if (root != null)
+        {
+            root.GetComponentInChildren<Animator>().Play("Spell");
+        }
 
         isCasting = true;
 
@@ -141,7 +145,7 @@ public class SpellCaster : MonoBehaviour
                     target.SetLayerRecursive(gameObject.layer);
                     target.GetComponentInChildren<Renderer>().enabled = showTargetArea;
                     target.GetComponent<SpellTarget>().effect = effectName;
-                    Debug.Log(effectName);
+                    
                     partFound = true;
                 }
             }

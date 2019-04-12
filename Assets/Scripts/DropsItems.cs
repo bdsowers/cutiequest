@@ -8,6 +8,7 @@ public class DropsItems : MonoBehaviour
     [System.Serializable]
     public struct DropData
     {
+        public string itemName;
         public int rate;
         public int amount;
     }
@@ -15,6 +16,7 @@ public class DropsItems : MonoBehaviour
     // These should be sorted lowest to highest
     public DropData[] coinDropData;
     public DropData[] heartDropData;
+    public DropData[] arbitraryDrops;
     public bool scatter;
 
     public void Drop()
@@ -30,6 +32,15 @@ public class DropsItems : MonoBehaviour
         if (numHeartsToDrop > 0)
         {
             DropItems("CollectableHeart", numHeartsToDrop);
+        }
+
+        for (int i = 0; i < arbitraryDrops.Length; ++i)
+        {
+            int value = Random.Range(0, 100);
+            if (value < arbitraryDrops[i].rate)
+            {
+                DropItems(arbitraryDrops[i].itemName, arbitraryDrops[i].amount);
+            }
         }
     }
 
@@ -51,14 +62,26 @@ public class DropsItems : MonoBehaviour
             }
 
             newItem.transform.position = sourcePosition;
-            newItem.GetComponentInChildren<RevealWhenAvatarIsClose>().enabled = false;
-            
-            newItem.GetComponent<Collectable>().PlayDropAnimation(sourcePosition, endPosition, i != 0);
+
+            RevealWhenAvatarIsClose reveal = newItem.GetComponentInChildren<RevealWhenAvatarIsClose>();
+            if (reveal != null)
+            {
+                reveal.enabled = false;
+            }
+
+            Collectable collectable = newItem.GetComponent<Collectable>();
+            if (collectable != null)
+            {
+                collectable.PlayDropAnimation(sourcePosition, endPosition, i != 0);
+            }
         }
     }
 
     private int NumCurrencyToDrop(DropData[] dropData)
     {
+        if (dropData == null)
+            return 0;
+
         int val = Random.Range(0, 100);
         for (int i = 0; i < dropData.Length; ++i)
         {
