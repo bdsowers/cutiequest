@@ -15,7 +15,7 @@ public class IncreaseAttractivenessDialog : MonoBehaviour
 
         int level = Game.instance.playerData.attractiveness;
         int nextLevel = level + 1;
-        mCost = Mathf.RoundToInt(Mathf.Pow(3, nextLevel));
+        mCost = Mathf.RoundToInt(Mathf.Pow(4, nextLevel + 1));
         costLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(mCost).ToString();
     }
 
