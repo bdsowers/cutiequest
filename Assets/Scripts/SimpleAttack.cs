@@ -34,7 +34,7 @@ public class SimpleAttack : MonoBehaviour
         {
             if ((gameObject.layer == mPlayerLayer && results[i].collider.gameObject.layer == mEnemyLayer) ||
                 (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer) &&
-                results[i].collider.gameObject.GetComponentInParent<SimpleMovement>() != null)
+                results[i].collider.gameObject.GetComponentInParent<Killable>() != null)
             {
                 return results[i].collider.gameObject;
             }
