@@ -99,9 +99,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Toxic - player starts each floor poisoned
 * Double Vision - will sometimes see enemies that aren't there
 * Party Boy/Girl - dungeon is filled with party decorations, some of which are traps
-* Explosive Personality - enemies will randomly drop bombs
 
-
+* ~~Explosive Personality - enemies will randomly drop bombs~~
 * ~~Duckpic - ?? player somehow constantly receives pictures of ducks~~
 * ~~Mansplain - enemies are obscured by text as the follower talks constantly~~
 * ~~Nearsighted - map reveals at a much shorter distance~~

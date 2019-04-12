@@ -33,7 +33,8 @@ public class SimpleAttack : MonoBehaviour
         for (int i = 0; i < results.Length; ++i)
         {
             if ((gameObject.layer == mPlayerLayer && results[i].collider.gameObject.layer == mEnemyLayer) ||
-                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer))
+                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer) &&
+                results[i].collider.gameObject.GetComponentInParent<SimpleMovement>() != null)
             {
                 return results[i].collider.gameObject;
             }
@@ -106,6 +107,8 @@ public class SimpleAttack : MonoBehaviour
     private void DealDamage(GameObject target)
     {
         if (noDamage)
+            return;
+        if (target == null)
             return;
 
         Killable targetKillable = target.GetComponentInParent<Killable>();
