@@ -32,8 +32,8 @@ public class SimpleAttack : MonoBehaviour
         RaycastHit[] results = Physics.RaycastAll(ray, 1f);
         for (int i = 0; i < results.Length; ++i)
         {
-            if ((gameObject.layer == mPlayerLayer && results[i].collider.gameObject.layer == mEnemyLayer) ||
-                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer) &&
+            if (((gameObject.layer == mPlayerLayer && results[i].collider.gameObject.layer == mEnemyLayer) ||
+                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer)) &&
                 results[i].collider.gameObject.GetComponentInParent<Killable>() != null)
             {
                 return results[i].collider.gameObject;
