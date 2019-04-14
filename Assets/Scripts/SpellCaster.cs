@@ -64,7 +64,10 @@ public class SpellCaster : MonoBehaviour
             range = 5f;
         }
 
-        return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 5f;
+        if (ClingyQuirk.quirkEnabled)
+            range = 2f;
+
+        return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < range;
     }
 
     public void CastSpell(int strength)

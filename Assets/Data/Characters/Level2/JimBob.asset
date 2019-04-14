@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532c8a5e618bcf74d98cb12c18d9ecc4, type: 3}
+  m_Name: JimBob
+  m_EditorClassIdentifier: 
+  characterName: Jim Bob
+  characterUniqueId: 25
+  model: Chr_Samurai_Ninja_01
+  age: 18
+  tagline: Only swipe right if you're over 5'11"
+  bio: 'Seriously, no short people.
+
+    I don''t care if you''re amazing, if you volunteer at a puppy rescue shelter and
+    teach hungry children how to read. If you can''t be bothered to grow taller, I
+    can''t be bothered to get with you.'
+  levelRequirement: 2
+  spell: {fileID: 0}
+  quirk: {fileID: 1845181500823901936, guid: 14d30fcfb1daad741aab356b744c5851, type: 3}
+  statBoost: 2
+  statBoostAmount: 3

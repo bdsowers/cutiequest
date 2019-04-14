@@ -14,7 +14,11 @@ public class ProjectileThrower : MonoBehaviour
 
     public bool IsInRange()
     {
-        return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 5f;
+        float range = 5f;
+        if (ClingyQuirk.quirkEnabled)
+            range = 2f;
+
+        return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < range;
     }
 
     public void ThrowProjectile(int strength, Vector3 direction, Vector3? offset = null)
