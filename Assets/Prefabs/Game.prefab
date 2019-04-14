@@ -940,6 +940,7 @@ MonoBehaviour:
   - {fileID: 7642233172062837191, guid: 51f3242eab2c8bd4fa62abf5d4618906, type: 3}
   - {fileID: 9181373829774709663, guid: 2cfbebe96e449694bbc8dfb3eb189936, type: 3}
   - {fileID: 8135455753806573312, guid: 3ed8f513575856c4ba6047944fdc2194, type: 3}
+  - {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}

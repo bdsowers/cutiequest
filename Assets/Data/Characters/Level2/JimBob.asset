@@ -23,7 +23,7 @@ MonoBehaviour:
     teach hungry children how to read. If you can''t be bothered to grow taller, I
     can''t be bothered to get with you.'
   levelRequirement: 2
-  spell: {fileID: 0}
+  spell: {fileID: 1311362987420397462, guid: 2a61be473a6c49a4bbfcd5bcae29688f, type: 3}
   quirk: {fileID: 1845181500823901936, guid: 14d30fcfb1daad741aab356b744c5851, type: 3}
   statBoost: 2
   statBoostAmount: 3
