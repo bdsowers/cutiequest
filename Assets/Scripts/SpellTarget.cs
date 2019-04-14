@@ -14,8 +14,11 @@ public class SpellTarget : MonoBehaviour
 
     public float castTime { get; set; }
     public string effect { get; set; }
+    public Vector3 effectOffset { get; set; }
 
     public int strength { get; set; }
+
+    public bool hideEffectIfNoHit { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -79,9 +82,14 @@ public class SpellTarget : MonoBehaviour
             yield return null;
         }
 
-        PlayEffect();
+        bool damageDealt = DealDamage();
+
+        if (damageDealt || !hideEffectIfNoHit)
+        {
+            PlayEffect();
+        }
+
         yield return new WaitForSeconds(0.35f);
-        DealDamage();
 
         Destroy(gameObject);
 
@@ -91,7 +99,7 @@ public class SpellTarget : MonoBehaviour
     private void PlayEffect()
     {
         GameObject newEffect = GameObject.Instantiate(PrefabManager.instance.PrefabByName(effect));
-        newEffect.transform.position = transform.position;
+        newEffect.transform.position = transform.position + effectOffset;
 
         RepetitiveDamageTrap trapSpell = newEffect.GetComponent<RepetitiveDamageTrap>();
         if (trapSpell != null)
@@ -100,7 +108,7 @@ public class SpellTarget : MonoBehaviour
         }
     }
 
-    private void DealDamage()
+    private bool DealDamage()
     {
         // todo bdsowers - this is perhaps  a little too precise and misses some hits
 
@@ -113,6 +121,9 @@ public class SpellTarget : MonoBehaviour
             int damage = strength * 4 - defense * 2;
 
             targetKillable.TakeDamage(damage);
+            return true;
         }
+
+        return false;
     }
 }

@@ -21,6 +21,9 @@ public class SpellCaster : MonoBehaviour
     public float castSpeed = 4f;
 
     public string effectName;
+    public Vector3 effectOffset;
+
+    public bool hideEffectIfNoHit;
 
     private void Start()
     {
@@ -141,14 +144,17 @@ public class SpellCaster : MonoBehaviour
 
                 if (mPattern[x, z] == currentPart)
                 {
-                    GameObject target = GameObject.Instantiate(PrefabManager.instance.PrefabByName("SpellTarget"), spellContainer.transform);
-                    target.transform.position = new Vector3(targetX, 1f, -targetZ);
-                    target.GetComponent<SpellTarget>().castTime = 1f * (1f / castSpeed);
-                    target.GetComponent<SpellTarget>().strength = strength;
-                    target.SetLayerRecursive(gameObject.layer);
-                    target.GetComponentInChildren<Renderer>().enabled = showTargetArea;
-                    target.GetComponent<SpellTarget>().effect = effectName;
-                    
+                    GameObject targetObj = GameObject.Instantiate(PrefabManager.instance.PrefabByName("SpellTarget"), spellContainer.transform);
+                    SpellTarget target = targetObj.GetComponent<SpellTarget>();
+                    targetObj.transform.position = new Vector3(targetX, 1f, -targetZ);
+                    target.castTime = 1f * (1f / castSpeed);
+                    target.strength = strength;
+                    targetObj.SetLayerRecursive(gameObject.layer);
+                    targetObj.GetComponentInChildren<Renderer>().enabled = showTargetArea;
+                    target.effect = effectName;
+                    target.hideEffectIfNoHit = hideEffectIfNoHit;
+                    target.effectOffset = effectOffset;
+
                     partFound = true;
                 }
             }
