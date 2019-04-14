@@ -27,7 +27,7 @@ MonoBehaviour:
 
     One heart.'
   levelRequirement: 3
-  spell: {fileID: 0}
+  spell: {fileID: 6995741861493835188, guid: 26dfa5a6b83d9c2488e2f0af67f44cff, type: 3}
   quirk: {fileID: 6649373390443509683, guid: 27594f474e809d24187a01568f3b351d, type: 3}
   statBoost: 2
   statBoostAmount: 5

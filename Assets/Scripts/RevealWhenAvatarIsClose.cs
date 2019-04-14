@@ -5,6 +5,7 @@ using UnityEngine;
 public class RevealWhenAvatarIsClose : MonoBehaviour
 {
     public bool allowScaleVariation = true;
+    public bool revealDelay = true;
 
     private bool mRevealed = false;
     private bool mFullyRevealed = false;
@@ -43,6 +44,9 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
     private IEnumerator RevealAnimation()
     {
         float delay = Random.Range(0f, 0.5f);
+        if (!revealDelay)
+            delay = 0f;
+
         while (delay > 0f)
         {
             delay -= Time.deltaTime;

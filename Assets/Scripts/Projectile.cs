@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public int strength { get; set; }
     public bool destroyOnEnemyHit = true;
+    public bool destroyOnEnvironmentHit = true;
 
     private List<Killable> mEnemiesHit = new List<Killable>();
 
@@ -37,7 +38,10 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            if (destroyOnEnvironmentHit)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
