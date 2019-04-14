@@ -13,9 +13,30 @@ public class LevelExit : MonoBehaviour
 
         if (other.GetComponentInParent<PlayerController>() != null)
         {
+            if (CheckCompletionistQuirk())
+                return;
+
             mIsTransitioning = true;
             Invoke("Transition", 0.5f);
         }
+    }
+    
+    private bool CheckCompletionistQuirk()
+    {
+        if (CompletionistQuirk.quirkEnabled)
+        {
+            RevealWhenAvatarIsClose[] revealers = GameObject.FindObjectsOfType<RevealWhenAvatarIsClose>();
+            for (int i = 0; i < revealers.Length; ++i)
+            {
+                if (!revealers[i].fullyRevealed)
+                {
+                    NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position, "Not until we see everything!", NumberPopupReason.TakeDamage);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private void Transition()

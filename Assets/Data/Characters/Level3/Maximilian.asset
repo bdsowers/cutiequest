@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532c8a5e618bcf74d98cb12c18d9ecc4, type: 3}
+  m_Name: Maximilian
+  m_EditorClassIdentifier: 
+  characterName: Maximillian
+  characterUniqueId: 32
+  model: Chr_Western_TownMan_01
+  age: 51
+  tagline: Maximillian's the name and slam poetry is no game.
+  bio: 'Goblins.
+
+    How will I slay theeeeeee?
+
+    QUESTING COMPANION.
+
+    Two swords.
+
+    One heart.'
+  levelRequirement: 3
+  spell: {fileID: 0}
+  quirk: {fileID: 6649373390443509683, guid: 27594f474e809d24187a01568f3b351d, type: 3}
+  statBoost: 2
+  statBoostAmount: 5

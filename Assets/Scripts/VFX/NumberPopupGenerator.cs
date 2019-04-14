@@ -32,4 +32,11 @@ public class NumberPopupGenerator : MonoBehaviour
         newPopup.transform.position = position;
         newPopup.GetComponent<NumberPopup>().PlayPopup(amount, reason);
     }
+
+    public void GeneratePopup(Vector3 position, string text, NumberPopupReason reason)
+    {
+        GameObject newPopup = GameObject.Instantiate(PrefabManager.instance.PrefabByName("NumberPopup"));
+        newPopup.transform.position = position;
+        newPopup.GetComponent<NumberPopup>().PlayPopup(text, reason);
+    }
 }

@@ -15,7 +15,11 @@ public class NumberPopup : MonoBehaviour
 
     public void PlayPopup(int amount, NumberPopupReason reason)
     {
-        string amountStr = amount.ToString();
+        PlayPopup(amount.ToString(), reason);
+    }
+
+    public void PlayPopup(string amountStr, NumberPopupReason reason)
+    {
         if (reason == NumberPopupReason.RemoveCoins || reason == NumberPopupReason.RemoveHearts)
             amountStr = "-" + amountStr;
 
