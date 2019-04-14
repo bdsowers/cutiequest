@@ -100,6 +100,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Double Vision - will sometimes see enemies that aren't there
 * Party Boy/Girl - dungeon is filled with party decorations, some of which are traps
 
+* ~~Clingy - enemies move faster; all enemies have reduced range before shooting projectiles~~
 * ~~Explosive Personality - enemies will randomly drop bombs~~
 * ~~Duckpic - ?? player somehow constantly receives pictures of ducks~~
 * ~~Mansplain - enemies are obscured by text as the follower talks constantly~~
