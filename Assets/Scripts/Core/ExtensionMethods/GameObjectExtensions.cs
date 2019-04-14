@@ -14,5 +14,15 @@ namespace GameObjectExtensions
                 SetLayerRecursive(gameObject.transform.GetChild(i).gameObject, layer);
             }
         }
+
+        public static T AddComponentIfNecessary<T>(this GameObject gameObject) where T:Component
+        {
+            T prevComponent = gameObject.AddComponent<T>();
+            if (prevComponent != null)
+                return prevComponent;
+
+            T newComponent = gameObject.AddComponent<T>();
+            return newComponent;
+        }
     }
 }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532c8a5e618bcf74d98cb12c18d9ecc4, type: 3}
+  m_Name: Luna
+  m_EditorClassIdentifier: 
+  characterName: Luna
+  characterUniqueId: 31
+  model: Chr_Pirates_FemalePirate_01
+  age: 35
+  tagline: My ship's bigger than yours.
+  bio: 'All I really want to do is sail the high seas. Everything else is a minor
+    inconvenience on my way to steering my ship.
+
+    But, I mean, swipe right if you want man. I''m not your dad.'
+  levelRequirement: 3
+  spell: {fileID: 0}
+  quirk: {fileID: 1852803100697356626, guid: 485b11991e861304b83dcbbf4494b73b, type: 3}
+  statBoost: 1
+  statBoostAmount: 5

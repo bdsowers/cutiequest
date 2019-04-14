@@ -241,7 +241,13 @@ public class LevelGenerator : MonoBehaviour
         int numHearts = 5;
         for (int i = 0; i < numHearts; ++i)
         {
-            GameObject newHeart = GameObject.Instantiate(PrefabManager.instance.PrefabByName("CollectableHeart"));
+            string prefab = "CollectableHeart";
+            if (GoldDiggerQuirk.quirkEnabled)
+            {
+                prefab = "CollectableCoin";
+            }
+
+            GameObject newHeart = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefab));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
             Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);

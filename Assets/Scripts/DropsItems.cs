@@ -24,6 +24,13 @@ public class DropsItems : MonoBehaviour
         int numCoinsToDrop = NumCurrencyToDrop(coinDropData);
         int numHeartsToDrop = NumCurrencyToDrop(heartDropData);
         
+        if (GoldDiggerQuirk.quirkEnabled)
+        {
+            Debug.Log("Enabled");
+            numCoinsToDrop += numHeartsToDrop * 3;
+            numHeartsToDrop = 0;
+        }
+
         if (numCoinsToDrop > 0)
         {
             DropItems("CollectableCoin", numCoinsToDrop);
