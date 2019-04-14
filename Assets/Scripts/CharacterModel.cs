@@ -45,6 +45,7 @@ public class CharacterModel : MonoBehaviour
         }
 
         model.GetComponent<Animator>().runtimeAnimatorController = animatorController;
+        model.GetComponent<Animator>().applyRootMotion = false;
 
         if (!castShadows)
             model.GetComponentInChildren<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;

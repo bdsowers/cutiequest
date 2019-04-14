@@ -17,9 +17,11 @@ MonoBehaviour:
   model: Chr_Western_Cowgirl_01
   age: 19
   tagline: Have gun, will travel within a 10 mile radius.
-  bio: 
+  bio: Mostly working on myself right now, here just to have a little fun. If you
+    want to keep things light and breezy and won't get too attached after we kill
+    our first Elder Dark Wizard together, feel free to drop me a line.
   levelRequirement: 2
-  spell: {fileID: 0}
+  spell: {fileID: 647409618386169407, guid: 46849cc7b74c36a43a44b306da95b256, type: 3}
   quirk: {fileID: 7245270595135538450, guid: ea92d98f50e86db4d8518ca55384de86, type: 3}
   statBoost: 5
   statBoostAmount: 3

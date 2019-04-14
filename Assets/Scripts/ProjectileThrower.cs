@@ -8,7 +8,9 @@ public class ProjectileThrower : MonoBehaviour
     public GameObject projectilePrefab;
     public float throwSpeed = 1f;
 
-    public bool isThrowing { get; private set; }
+    public bool isThrowing { get; set; }
+
+    public bool suppressStateUpdates { get; set; }
 
     public bool IsInRange()
     {
@@ -26,7 +28,7 @@ public class ProjectileThrower : MonoBehaviour
 
         GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Throw", 0, 0f);
         GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = throwSpeed;
-
+        
         yield return new WaitForSeconds(0.75f / throwSpeed);
 
         GameObject projectile = GameObject.Instantiate(projectilePrefab);
@@ -50,8 +52,11 @@ public class ProjectileThrower : MonoBehaviour
 
         yield return new WaitForSeconds(2f / throwSpeed);
 
-        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = 1f;
-        isThrowing = false;
+        if (!suppressStateUpdates)
+        {
+            GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = 1f;
+            isThrowing = false;
+        }
 
         yield break;
     }
