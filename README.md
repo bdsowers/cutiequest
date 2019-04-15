@@ -94,12 +94,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Content Ideas
 ### Quirks
 * Unreliable - spell sometimes fizzles
-* Ice Queen - when hit, the player has a chance of being frozen for a short period
-* Toxic - player starts each floor poisoned
 * Double Vision - will sometimes see enemies that aren't there
 * Party Boy/Girl - dungeon is filled with party decorations, some of which are traps
 * Smoker - smoke particle FX obscures portion of the screen
-* Foodie - food spawns in dungeon; must periodically eat it or you take damage
 
 ### Quirks Still TBD
 * Ghosted
