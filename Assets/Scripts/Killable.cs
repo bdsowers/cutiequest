@@ -15,6 +15,10 @@ public class Killable : MonoBehaviour
 
     public int health;
     public DeathResponse deathResponse;
+    public bool showNumberPopups = true;
+
+    public string deathEffect = "CFX2_EnemyDeathSkull";
+    public float deathEffectScale = 0.75f;
 
     private bool CanTakeDamage()
     {
@@ -42,7 +46,10 @@ public class Killable : MonoBehaviour
 
         health -= damage;
 
-        NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, damage, NumberPopupReason.TakeDamage);
+        if (showNumberPopups)
+        {
+            NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, damage, NumberPopupReason.TakeDamage);
+        }
 
         if (health <= 0f)
         {
@@ -76,9 +83,9 @@ public class Killable : MonoBehaviour
 
         if (deathResponse == DeathResponse.Destroy)
         {
-            GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_EnemyDeathSkull");
+            GameObject vfx = PrefabManager.instance.InstantiatePrefabByName(deathEffect);
             vfx.transform.position = transform.position + Vector3.up * 0.5f;
-            vfx.transform.localScale = Vector3.one * 0.75f;
+            vfx.transform.localScale = Vector3.one * deathEffectScale;
             vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
 
             Destroy(gameObject);

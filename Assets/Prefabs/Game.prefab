@@ -631,6 +631,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed62310795cbf744e8004c48439d2e62, type: 2}
   - {fileID: 11400000, guid: 3619aca185fd62a4694b920279e6e503, type: 2}
   - {fileID: 11400000, guid: 74164d802c9a1384aa779d6868d786e3, type: 2}
+  - {fileID: 11400000, guid: 10c27b46fce0ad24699076261a73eca6, type: 2}
 --- !u!114 &1030396630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,3 +1046,10 @@ MonoBehaviour:
   - {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
   - {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   - {fileID: 100000, guid: 1bc4a709f24528b40984e62f32e398a0, type: 3}
+  debrisPrefabs:
+  - {fileID: 5885565107189242569, guid: dd70710d5cc22494e9b0c04c1fe348bf, type: 3}
+  - {fileID: 5885565107189242569, guid: 9b504b2bc6286ad449ddcfc0e87500af, type: 3}
+  - {fileID: 5885565107189242569, guid: ce13d26e8d053d6429724d7d0841be44, type: 3}
+  - {fileID: 5885565107189242569, guid: cabbd631933f1a34192b00509b27a47c, type: 3}
+  - {fileID: 5885565107189242569, guid: 0e0826034b976024b9dea494cb6ab91d, type: 3}
+  - {fileID: 5885565107189242569, guid: 76cbae20d910c7f48b294f92e1fabca0, type: 3}

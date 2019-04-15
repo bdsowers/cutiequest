@@ -32,7 +32,11 @@ public class SimpleMovement : MonoBehaviour
     private void Start()
     {
         mCharacterStatistics = GetComponent<CharacterStatistics>();
-        mMeshLocalPosition = mesh.transform.localPosition;
+
+        if (mesh != null)
+        {
+            mMeshLocalPosition = mesh.transform.localPosition;
+        }
 
         // todo bdsowers - there's a better way to do this...
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();

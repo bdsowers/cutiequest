@@ -25,7 +25,8 @@ public class Projectile : MonoBehaviour
         Killable targetKillable = collider.GetComponentInParent<Killable>();
         if (targetKillable != null && targetKillable.gameObject.layer != gameObject.layer && !mEnemiesHit.Contains(targetKillable))
         {
-            int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
+            CharacterStatistics stats = targetKillable.GetComponent<CharacterStatistics>();
+            int defense = stats == null ? 0 : stats.ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
             int damage = strength * 4 - defense * 2;
             mEnemiesHit.Add(targetKillable);
 

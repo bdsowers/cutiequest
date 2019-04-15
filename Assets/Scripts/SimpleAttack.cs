@@ -9,6 +9,7 @@ public class SimpleAttack : MonoBehaviour
 
     private int mPlayerLayer;
     private int mEnemyLayer;
+    private int mJunkLayer;
     private bool mIsAttacking;
 
     public GameObject subMesh;
@@ -22,6 +23,7 @@ public class SimpleAttack : MonoBehaviour
     {
         mPlayerLayer = LayerMask.NameToLayer("Player");
         mEnemyLayer = LayerMask.NameToLayer("Enemy");
+        mJunkLayer = LayerMask.NameToLayer("Junk");
 
         mSubMeshLocalPosition = subMesh.transform.localPosition;
     }
@@ -33,7 +35,8 @@ public class SimpleAttack : MonoBehaviour
         for (int i = 0; i < results.Length; ++i)
         {
             if (((gameObject.layer == mPlayerLayer && results[i].collider.gameObject.layer == mEnemyLayer) ||
-                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer)) &&
+                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer) ||
+                (results[i].collider.gameObject.layer == mJunkLayer)) &&
                 results[i].collider.gameObject.GetComponentInParent<Killable>() != null)
             {
                 return results[i].collider.gameObject;
