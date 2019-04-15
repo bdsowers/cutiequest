@@ -20,8 +20,8 @@ MonoBehaviour:
   bio: Do you want to rob a bank? Do you want to spend weeks planning an increasingly
     elaborate heist, getting to know a group of wildly different teammates who will
     all come together toward one common caper? Then have I got the date for you...
-  levelRequirement: 0
-  spell: {fileID: 0}
+  levelRequirement: 3
+  spell: {fileID: 780884528083397358, guid: 9a352a014bb1d794c83ebc03dc1b0d86, type: 3}
   quirk: {fileID: 5760766640722061988, guid: aa1ca1fbdbbfebe4da7e98ef3bc21aab, type: 3}
   statBoost: 5
   statBoostAmount: 5

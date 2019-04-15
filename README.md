@@ -98,7 +98,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Toxic - player starts each floor poisoned
 * Double Vision - will sometimes see enemies that aren't there
 * Party Boy/Girl - dungeon is filled with party decorations, some of which are traps
-* Partner in Crime - cops show up in the dungeon; dynamically scale to be strong but beatable
 * Hoarder - lots of debris/detritus spawns in the map and clutters pathways
 * Smoker - smoke particle FX obscures portion of the screen
 * Foodie - food spawns in dungeon; must periodically eat it or you take damage
@@ -110,6 +109,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 ### Finished Quirks
+* ~~Partner in Crime - cops show up in the dungeon; dynamically scale to be strong but beatable~~
 * ~~Gold Digger - all hearts replaced with coins~~
 * ~~Clingy - enemies move faster; all enemies have reduced range before shooting projectiles~~
 * ~~Explosive Personality - enemies will randomly drop bombs~~
