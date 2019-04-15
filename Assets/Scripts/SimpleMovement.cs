@@ -91,6 +91,8 @@ public class SimpleMovement : MonoBehaviour
         Vector2Int oldCoords = currentPosition.AsVector2IntUsingXZ();
         Vector2Int newCoords = targetPosition.AsVector2IntUsingXZ();
 
+        // todo bdsowers - there's a bug here if we die mid movement ...
+
         // Clear us from the old space, but only do it if we are currently registered
         // as being there. Certain overlap scenarios may make this not necessarily true.
         if (mCollisionMap.SpaceMarking(oldCoords.x, -oldCoords.y) == collisionIdentity)
