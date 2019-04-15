@@ -93,12 +93,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Content Ideas
 ### Quirks
+#### Simple Implementation
 * Unreliable - spell sometimes fizzles
-* Double Vision - will sometimes see enemies that aren't there
-* Party Boy/Girl - dungeon is filled with party decorations, some of which are traps
-* Smoker - smoke particle FX obscures portion of the screen
+* Party Boy/Girl - all enemies are dancing; dancing enemies can be missed when attacking
+* Bloodthirsty - going too long without killing an enemy deals damage
 
-### Quirks Still TBD
+#### More Complicated
+* Double Vision - will sometimes see enemies that aren't there
+* Smoker - smoke particle FX obscures portion of the screen
+* Horrible Cook - food randomly spawns in the dungeon that deals damage? Not quite sure here.
+
+#### Still TBD
 * Ghosted
 * Fish pictures
 
@@ -125,9 +130,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Stylist - increases attractiveness to unlock new matches~~
 * ~~Trainer - permanently increases player stats~~
 
-### Biomes
-* Basic dungeon
-* Spaceship
-* ???
-
-
+### In-Dungeon Interest Points
+* Shrines
+* Shop
+* Bar - provides a special selection of items not found in shops that reduce HP upon drinking
