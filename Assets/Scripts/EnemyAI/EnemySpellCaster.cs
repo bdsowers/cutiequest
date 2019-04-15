@@ -7,6 +7,14 @@ public class EnemySpellCaster : EnemyAI
     SpellCaster mSpellCaster;
     SimpleMovement mSimpleMovement;
 
+    private GameObject target
+    {
+        get
+        {
+            return Decoy.instance != null ? Decoy.instance.gameObject : Game.instance.avatar.gameObject;
+        }
+    }
+
     private void Start()
     {
         mSpellCaster = GetComponent<SpellCaster>();
@@ -15,9 +23,9 @@ public class EnemySpellCaster : EnemyAI
 
     public override void UpdateAI()
     {
-        Vector3 largeDistanceDirection = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
-        Vector3 smallDistanceDirection = OrthogonalDirection(transform, Game.instance.avatar.transform, false);
-        float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);
+        Vector3 largeDistanceDirection = OrthogonalDirection(transform, target.transform, true);
+        Vector3 smallDistanceDirection = OrthogonalDirection(transform, target.transform, false);
+        float distance = Vector3.Distance(transform.position, target.transform.position);
 
         if (mSpellCaster.IsInRange())
         {

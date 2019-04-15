@@ -8,6 +8,14 @@ public class EnemyProjectileThrower : EnemyAI
     ProjectileThrower mProjectileThrower;
     SimpleMovement mSimpleMovement;
 
+    private GameObject target
+    {
+        get
+        {
+            return Decoy.instance != null ? Decoy.instance.gameObject : Game.instance.avatar.gameObject;
+        }
+    }
+
     private void Start()
     {
         mProjectileThrower = GetComponent<ProjectileThrower>();
@@ -16,35 +24,35 @@ public class EnemyProjectileThrower : EnemyAI
 
     private void ThrowProjectile()
     {
-        SimpleMovement.OrientToDirection(GetComponent<SimpleMovement>().subMesh, AvatarDirection());
+        SimpleMovement.OrientToDirection(GetComponent<SimpleMovement>().subMesh, TargetDirection());
 
         int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
-        mProjectileThrower.ThrowProjectile(magic, AvatarDirection());
+        mProjectileThrower.ThrowProjectile(magic, TargetDirection());
     }
 
-    private Vector3 AvatarDirection()
+    private Vector3 TargetDirection()
     {
-        Vector3 avatarDirection = (Game.instance.avatar.transform.position - transform.position);
-        avatarDirection.y = 0f;
-        avatarDirection.x = Mathf.Round(avatarDirection.x);
-        avatarDirection.z = Mathf.Round(avatarDirection.z);
+        Vector3 targetDirection = (target.transform.position - transform.position);
+        targetDirection.y = 0f;
+        targetDirection.x = Mathf.Round(targetDirection.x);
+        targetDirection.z = Mathf.Round(targetDirection.z);
 
-        if (Mathf.Abs(avatarDirection.x) > Mathf.Abs(avatarDirection.z))
-            avatarDirection.z = 0f;
+        if (Mathf.Abs(targetDirection.x) > Mathf.Abs(targetDirection.z))
+            targetDirection.z = 0f;
         else
-            avatarDirection.x = 0f;
+            targetDirection.x = 0f;
 
-        avatarDirection.Normalize();
+        targetDirection.Normalize();
 
-        return avatarDirection;
+        return targetDirection;
     }
 
     public override void UpdateAI()
     {
-        Vector3 largeDistanceDirection = OrthogonalDirection(transform, Game.instance.avatar.transform, true);
-        Vector3 smallDistanceDirection = OrthogonalDirection(transform, Game.instance.avatar.transform, false);
+        Vector3 largeDistanceDirection = OrthogonalDirection(transform, target.transform, true);
+        Vector3 smallDistanceDirection = OrthogonalDirection(transform, target.transform, false);
 
-        Vector3 diff = transform.position - Game.instance.avatar.transform.position;
+        Vector3 diff = transform.position - target.transform.position;
         bool alignedOnXAxis = (Mathf.Abs(diff.x) < 0.1f);
         bool alignedOnZAxis = (Mathf.Abs(diff.z) < 0.1f);
         bool alignedOnEitherAxis = (alignedOnXAxis || alignedOnZAxis);

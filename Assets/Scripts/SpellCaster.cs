@@ -25,6 +25,14 @@ public class SpellCaster : MonoBehaviour
 
     public bool hideEffectIfNoHit;
 
+    private GameObject target
+    {
+        get
+        {
+            return Decoy.instance != null ? Decoy.instance.gameObject : Game.instance.avatar.gameObject;
+        }
+    }
+
     private void Start()
     {
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
@@ -70,7 +78,7 @@ public class SpellCaster : MonoBehaviour
         if (ClingyQuirk.quirkEnabled)
             range = 2f;
 
-        return Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < range;
+        return Vector3.Distance(transform.position, target.transform.position) < range;
     }
 
     public void CastSpell(int strength)
@@ -89,10 +97,10 @@ public class SpellCaster : MonoBehaviour
 
         isCasting = true;
 
-        Vector3 avatarPosition = Game.instance.avatar.transform.position;
+        Vector3 targetPosition = target.transform.position;
 
-        int spellX = Mathf.RoundToInt(avatarPosition.x);
-        int spellZ = Mathf.RoundToInt(avatarPosition.z);
+        int spellX = Mathf.RoundToInt(targetPosition.x);
+        int spellZ = Mathf.RoundToInt(targetPosition.z);
 
         if (targetDeviation != 0)
         {
