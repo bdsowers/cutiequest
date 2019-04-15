@@ -232,6 +232,25 @@ public class LevelGenerator : MonoBehaviour
             newEnemy.transform.position = pos;
             mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
         }
+
+        if (PartnerInCrimeQuirk.quirkEnabled)
+        {
+            // Spawn a few cops in the level
+            int numCops = Random.Range(3, 6);
+            for (int i = 0; i < numCops; ++i)
+            {
+                if (walkablePositions.Count == 0)
+                    return;
+
+                string enemy = (Random.Range(0, 2) == 0 ? "CopRanged" : "CopMelee");
+                GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
+                Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
+                walkablePositions.Remove(pos2);
+                Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+                newEnemy.transform.position = pos;
+                mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
+            }
+        }
     }
 
     private void PlaceHearts()

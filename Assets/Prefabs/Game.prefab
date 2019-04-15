@@ -630,6 +630,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ecbefebd3f1052c44a9ba0d8d880758a, type: 2}
   - {fileID: 11400000, guid: ed62310795cbf744e8004c48439d2e62, type: 2}
   - {fileID: 11400000, guid: 3619aca185fd62a4694b920279e6e503, type: 2}
+  - {fileID: 11400000, guid: 74164d802c9a1384aa779d6868d786e3, type: 2}
 --- !u!114 &1030396630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +944,8 @@ MonoBehaviour:
   - {fileID: 9181373829774709663, guid: 2cfbebe96e449694bbc8dfb3eb189936, type: 3}
   - {fileID: 8135455753806573312, guid: 3ed8f513575856c4ba6047944fdc2194, type: 3}
   - {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
+  - {fileID: 2738750450090089171, guid: 52aa46b338a85ac4eaadab17eafedf71, type: 3}
+  - {fileID: 2738750450090089171, guid: ddcabd7bc6ed96340a1228055d628dd1, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}

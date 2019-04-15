@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532c8a5e618bcf74d98cb12c18d9ecc4, type: 3}
+  m_Name: Lars
+  m_EditorClassIdentifier: 
+  characterName: Lars
+  characterUniqueId: 33
+  model: Chr_Adventure_ShopKeeper_01
+  age: 68
+  tagline: Searching for my partner in crime.
+  bio: Do you want to rob a bank? Do you want to spend weeks planning an increasingly
+    elaborate heist, getting to know a group of wildly different teammates who will
+    all come together toward one common caper? Then have I got the date for you...
+  levelRequirement: 0
+  spell: {fileID: 0}
+  quirk: {fileID: 5760766640722061988, guid: aa1ca1fbdbbfebe4da7e98ef3bc21aab, type: 3}
+  statBoost: 5
+  statBoostAmount: 5
