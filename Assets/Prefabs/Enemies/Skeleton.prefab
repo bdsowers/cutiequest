@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
+  revealDelay: 1
 --- !u!114 &5174458929260436608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathResponse: 0
+  showNumberPopups: 1
+  deathEffect: CFX2_EnemyDeathSkull
+  deathEffectScale: 0.75
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,11 +147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinDropData:
-  - rate: 50
+  - itemName: 
+    rate: 50
     amount: 1
   heartDropData:
-  - rate: 25
+  - itemName: 
+    rate: 25
     amount: 1
+  arbitraryDrops: []
   scatter: 0
 --- !u!114 &2401922656385248018
 MonoBehaviour:
@@ -274,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 95875667245612888, guid: ad5d192ff58055741beb3d8e0e2466e6,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4308745711888484, guid: ad5d192ff58055741beb3d8e0e2466e6, type: 3}
       propertyPath: m_LocalPosition.x

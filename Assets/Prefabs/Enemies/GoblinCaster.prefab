@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
+  revealDelay: 1
 --- !u!114 &5174458929260436608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   deathResponse: 0
+  showNumberPopups: 1
+  deathEffect: CFX2_EnemyDeathSkull
+  deathEffectScale: 0.75
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,15 +147,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinDropData:
-  - rate: 10
+  - itemName: 
+    rate: 10
     amount: 10
-  - rate: 50
+  - itemName: 
+    rate: 50
     amount: 5
-  - rate: 100
+  - itemName: 
+    rate: 100
     amount: 1
   heartDropData:
-  - rate: 50
+  - itemName: 
+    rate: 50
     amount: 1
+  arbitraryDrops: []
   scatter: 0
 --- !u!114 &9042846019687223288
 MonoBehaviour:
@@ -182,6 +191,8 @@ MonoBehaviour:
 '
   castSpeed: 2
   effectName: Explosion
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0
 --- !u!114 &7518466631562494547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +356,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
+    - target: {fileID: 95451665552484950, guid: 66e77aa60f5941c4fac8214300600242,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1866452527580574, guid: 66e77aa60f5941c4fac8214300600242, type: 3}
       propertyPath: m_Layer
       value: 10

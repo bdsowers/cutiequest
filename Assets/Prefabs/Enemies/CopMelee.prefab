@@ -112,6 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   deathResponse: 0
+  showNumberPopups: 1
+  deathEffect: CFX2_EnemyDeathSkull
+  deathEffectScale: 0.75
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +314,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
+    - target: {fileID: 95956917427795058, guid: 6e0eba82d6ca2e444ab251c32bdffcd2,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e0eba82d6ca2e444ab251c32bdffcd2, type: 3}
 --- !u!1 &8227387964029458522 stripped

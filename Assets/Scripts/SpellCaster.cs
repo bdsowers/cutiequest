@@ -90,7 +90,7 @@ public class SpellCaster : MonoBehaviour
     {
         // todo bdsowers - UGH
         SimpleMovement root = GetComponentInParent<SimpleMovement>();
-        if (root != null)
+        if (root != null && !DancePartyQuirk.quirkEnabled)
         {
             root.GetComponentInChildren<Animator>().Play("Spell");
         }
