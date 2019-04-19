@@ -19,7 +19,7 @@ MonoBehaviour:
   tagline: The gods ain't got nothin' on me.
   bio: 
   levelRequirement: 3
-  spell: {fileID: 0}
+  spell: {fileID: 4192815375659685342, guid: 854176b1099470a43b4f2f69345c93cf, type: 3}
   quirk: {fileID: 7995093915846376970, guid: f22239578c2bdb74fbd2c0f10448063a, type: 3}
   statBoost: 3
   statBoostAmount: 5

@@ -20,6 +20,13 @@ public class Killable : MonoBehaviour
     public string deathEffect = "CFX2_EnemyDeathSkull";
     public float deathEffectScale = 0.75f;
 
+    private Enemy mEnemy;
+
+    private void Start()
+    {
+        mEnemy = GetComponent<Enemy>();
+    }
+
     private bool CanTakeDamage()
     {
         if (Game.instance.transitionManager.isTransitioning)
@@ -45,6 +52,10 @@ public class Killable : MonoBehaviour
         }
 
         health -= damage;
+        if (mEnemy != null)
+        {
+            Game.instance.centralEvents.FireEnemyHit(mEnemy, damage);
+        }
 
         if (showNumberPopups)
         {

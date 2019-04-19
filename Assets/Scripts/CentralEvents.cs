@@ -25,4 +25,14 @@ public class CentralEvents
             onSceneChanged(newScene);
         }
     }
+
+    public delegate void EnemyHit(Enemy enemy, int damage);
+    public event EnemyHit onEnemyHit;
+    public void FireEnemyHit(Enemy enemy, int damage)
+    {
+        if (onEnemyHit != null)
+        {
+            onEnemyHit(enemy, damage);
+        }
+    }
 }

@@ -15,7 +15,7 @@ public class FloorDisplay : MonoBehaviour
         if (mPreviousDisplayValue != Game.instance.currentDungeonFloor)
         {
             mPreviousDisplayValue = Game.instance.currentDungeonFloor;
-            label.text = mPreviousDisplayValue.ToString();
+            label.text = BadAtMathQuirk.ApplyQuirkIfPresent(mPreviousDisplayValue).ToString();
             labelShadow.text = mPreviousDisplayValue.ToString();
         }
     }
