@@ -26,8 +26,9 @@ public class DancePartyQuirk : Quirk
 
     private void OnEnemyCreated(Enemy enemy)
     {
-        enemy.GetComponentInChildren<Animator>().SetBool("Dancing", true);
-        enemy.GetComponentInChildren<Animator>().SetInteger("DanceNumber", Random.Range(0, 4));
+        // note bdsowers - cut
+        //enemy.GetComponentInChildren<Animator>().SetBool("Dancing", true);
+        //enemy.GetComponentInChildren<Animator>().SetInteger("DanceNumber", Random.Range(0, 4));
     }
 
     private void OnDestroy()
