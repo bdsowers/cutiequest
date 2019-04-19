@@ -15,4 +15,14 @@ public class CentralEvents
             onEnemyCreated(enemy);
         }
     }
+
+    public delegate void SceneChanged(string newScene);
+    public event SceneChanged onSceneChanged;
+    public void FireSceneChanged(string newScene)
+    {
+        if (onSceneChanged != null)
+        {
+            onSceneChanged(newScene);
+        }
+    }
 }

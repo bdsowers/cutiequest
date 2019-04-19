@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Follower follower;
     public GameObject modelContainer;
+    public GameObject highlightLight;
 
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;

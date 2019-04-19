@@ -83,10 +83,17 @@ public class Killable : MonoBehaviour
 
         if (deathResponse == DeathResponse.Destroy)
         {
+            float destroyTime = 2f;
+            if (deathEffect == "CFX2_EnemyDeathSkull" && GothQuirk.quirkEnabled)
+            {
+                deathEffect = "CFX2_BatsCloud";
+                destroyTime = 5f;
+            }
+
             GameObject vfx = PrefabManager.instance.InstantiatePrefabByName(deathEffect);
             vfx.transform.position = transform.position + Vector3.up * 0.5f;
             vfx.transform.localScale = Vector3.one * deathEffectScale;
-            vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
+            vfx.AddComponent<DestroyAfterTimeElapsed>().time = destroyTime;
 
             Destroy(gameObject);
         }

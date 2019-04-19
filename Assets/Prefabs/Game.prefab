@@ -1048,6 +1048,7 @@ MonoBehaviour:
   - {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
   - {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   - {fileID: 100000, guid: 1bc4a709f24528b40984e62f32e398a0, type: 3}
+  - {fileID: 100000, guid: d4f5579fb5da2f646a0c2bee91bdf6b5, type: 3}
   debrisPrefabs:
   - {fileID: 5885565107189242569, guid: dd70710d5cc22494e9b0c04c1fe348bf, type: 3}
   - {fileID: 5885565107189242569, guid: 9b504b2bc6286ad449ddcfc0e87500af, type: 3}

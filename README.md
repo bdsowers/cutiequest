@@ -95,18 +95,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Quirks
 #### Simple Implementation
 * Unreliable - spell sometimes fizzles
-* Party Boy/Girl - all enemies are dancing; dancing enemies can be missed when attacking
 * Bloodthirsty - going too long without killing an enemy deals damage
 
 #### More Complicated
 * Double Vision - will sometimes see enemies that aren't there
 * Smoker - smoke particle FX obscures portion of the screen
 * Horrible Cook - food randomly spawns in the dungeon that deals damage? Not quite sure here.
+* Goth - level gets darker; enemy death = bats flying
 
 #### Still TBD
 * Ghosted
 * Fish pictures
-
+* Selfie
+* Send Noods - projectile throwers throw high-damage noodles? 
+* Caffeinated
 
 ### Finished Quirks
 * ~~Hoarder - lots of debris/detritus spawns in the map and clutters pathways~~
@@ -123,6 +125,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Expensive Tastes - shop prices are more expensive~~
 * ~~Wanted - more enemies spawn in the dungeon~~
 * ~~Face Blind - all enemy models are changed to be random~~
+
+### Cut Quirks
+* ~~Party Boy/Girl - all enemies are dancing; dancing enemies can be missed when attacking : didn't quite work~~
 
 ### HUB Shops
 * Wishing Well - single-run buffs

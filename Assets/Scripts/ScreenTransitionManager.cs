@@ -115,8 +115,8 @@ public class ScreenTransitionManager : MonoBehaviour
         isTransitioning = true;
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
-        
-        UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+
+        yield return StartCoroutine(ChangeScene(targetScene));
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
 
@@ -149,7 +149,7 @@ public class ScreenTransitionManager : MonoBehaviour
 
         deathSpeakerImage.gameObject.SetActive(false);
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HUB");
+        yield return StartCoroutine(ChangeScene("HUB"));
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
 
@@ -192,6 +192,14 @@ public class ScreenTransitionManager : MonoBehaviour
 
         deathSpeakerImage.color = targetColor;
         
+        yield break;
+    }
+
+    private IEnumerator ChangeScene(string newScene)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(newScene);
+        yield return null;
+        Game.instance.centralEvents.FireSceneChanged(newScene);
         yield break;
     }
 }
