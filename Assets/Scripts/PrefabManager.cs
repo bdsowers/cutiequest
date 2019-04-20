@@ -11,6 +11,8 @@ public class PrefabManager : MonoBehaviour
     public GameObject[] spellEffectPrefabs;
     public GameObject[] vfxPrefabs;
     public GameObject[] debrisPrefabs;
+    public GameObject[] quirkPrefabs;
+    public GameObject[] spellPrefabs;
 
     private Dictionary<string, GameObject> mPrefabMap = new Dictionary<string, GameObject>();
     private static PrefabManager sInstance = null;
@@ -40,6 +42,8 @@ public class PrefabManager : MonoBehaviour
         AddListToDictionary(spellEffectPrefabs);
         AddListToDictionary(vfxPrefabs);
         AddListToDictionary(debrisPrefabs);
+        AddListToDictionary(quirkPrefabs);
+        AddListToDictionary(spellPrefabs);
     }
 
     private void AddListToDictionary(GameObject[] list)

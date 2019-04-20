@@ -204,12 +204,16 @@ public class Game : MonoBehaviour
 
         // todo bdsowers - younger characters should be more common; this shouldn't be evenly distributed
         randomCharacter.age = Random.Range(18, 100);
-        randomCharacter.bio = LocalizedText.GetKeysInList("[MALE_BIO]").Sample();
-        randomCharacter.characterName = LocalizedText.GetKeysInList("[MALE_NAME]").Sample();
+        randomCharacter.bio = LocalizedText.GetKeysInList("[" + gender + "_BIO]").Sample();
+        randomCharacter.characterName = LocalizedText.GetKeysInList("[" + gender + "_NAME]").Sample();
         randomCharacter.levelRequirement = 1;
         randomCharacter.model = PrefabManager.instance.characterPrefabs.Sample().name;
-        randomCharacter.tagline = LocalizedText.GetKeysInList("[MALE_TAGLINE]").Sample();
+        randomCharacter.tagline = LocalizedText.GetKeysInList("[" + gender + "_TAGLINE]").Sample();
         randomCharacter.characterUniqueId = randomCharacter.characterName + ":::" + randomCharacter.bio + ":::" + randomCharacter.tagline + ":::" + randomCharacter.model;
+        randomCharacter.quirk = PrefabManager.instance.quirkPrefabs.Sample().GetComponent<Quirk>();
+        randomCharacter.spell = PrefabManager.instance.spellPrefabs.Sample().GetComponent<Spell>();
+        randomCharacter.statBoost = (CharacterStatType)Random.Range(1, 6);
+        randomCharacter.statBoostAmount = 1 + Random.Range(0, Game.instance.playerData.attractiveness);
 
         return randomCharacter;
     }
