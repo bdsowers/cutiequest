@@ -16,6 +16,16 @@ namespace ArrayExtensions
             return array[Random.Range(0, array.Length)];
         }
 
+        public static int SamplePosition<T>(this List<T> list)
+        {
+            return Random.Range(0, list.Count);
+        }
+
+        public static int SamplePosition<T>(this T[] array)
+        {
+            return Random.Range(0, array.Length);
+        }
+
         public static void Shuffle<T>(this List<T> list)
         {
             for (int i = 0; i < list.Count * 3; ++i)

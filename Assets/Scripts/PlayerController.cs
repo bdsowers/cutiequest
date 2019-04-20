@@ -47,9 +47,9 @@ public class PlayerController : MonoBehaviour
         mKillable.onDeath += OnDeath;
 
         mFollowerId = Game.instance.playerData.followerUid;
-        Game.instance.playerData.onPlayerDataChanged += OnPlayerDataChanged;
-
+        
         OnFollowerChanged();
+        Game.instance.playerData.onPlayerDataChanged += OnPlayerDataChanged;
 
         isAlive = true;
 
@@ -100,6 +100,9 @@ public class PlayerController : MonoBehaviour
 
     void OnFollowerChanged()
     {
+        if (Game.instance.followerData == null)
+            return;
+
         Follower follower = GameObject.FindObjectOfType<Follower>();
         follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model);
 

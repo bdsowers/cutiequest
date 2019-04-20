@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ArrayExtensions;
 
 public class Game : MonoBehaviour
 {
@@ -54,7 +55,19 @@ public class Game : MonoBehaviour
         {
             if (playerData.followerUid != null)
             {
-                return characterDataList.CharacterWithUID(playerData.followerUid);
+                CharacterData cd = characterDataList.CharacterWithUID(playerData.followerUid);
+                if (cd == null)
+                {
+                    playerData.suppressDirtyUpdates = true;
+                    playerData.followerUid = characterDataList.characterData[0].characterUniqueId;
+                    playerData.suppressDirtyUpdates = false;
+
+                    return characterDataList.characterData[0];
+                }
+                else
+                {
+                    return cd;
+                }
             }
 
             return null;
@@ -181,5 +194,23 @@ public class Game : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public CharacterData BuildRandomCharacter()
+    {
+        CharacterData randomCharacter = ScriptableObject.CreateInstance<CharacterData>();
+
+        string gender = Random.Range(0, 2) == 0 ? "MALE" : "FEMALE";
+
+        // todo bdsowers - younger characters should be more common; this shouldn't be evenly distributed
+        randomCharacter.age = Random.Range(18, 100);
+        randomCharacter.bio = LocalizedText.GetKeysInList("[MALE_BIO]").Sample();
+        randomCharacter.characterName = LocalizedText.GetKeysInList("[MALE_NAME]").Sample();
+        randomCharacter.levelRequirement = 1;
+        randomCharacter.model = PrefabManager.instance.characterPrefabs.Sample().name;
+        randomCharacter.tagline = LocalizedText.GetKeysInList("[MALE_TAGLINE]").Sample();
+        randomCharacter.characterUniqueId = randomCharacter.characterName + ":::" + randomCharacter.bio + ":::" + randomCharacter.tagline + ":::" + randomCharacter.model;
+
+        return randomCharacter;
     }
 }

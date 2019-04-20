@@ -13,6 +13,8 @@ public class PlayerData
     private int mHealth = 100;
     private int mAttractiveness = 1;
 
+    public bool suppressDirtyUpdates { get; set; }
+
     public string followerUid
     {
         get { return mFollowerUid; }
@@ -85,6 +87,9 @@ public class PlayerData
 
     private void MarkDirty()
     {
+        if (suppressDirtyUpdates)
+            return;
+
         if (onPlayerDataChanged != null)
         {
             onPlayerDataChanged(this);

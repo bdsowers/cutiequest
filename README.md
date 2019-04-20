@@ -31,13 +31,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Roadmap
 ### MVP Alpha Features / Improvements
 
-### MVP Beta Features
+### Vertical Slice Features
 * Intro w/basic tutorials
 * Improved map
+* Character select on new game
+* Rework character combos - no more fixed characters
+* Level 1 boss
+* 1 more enemy
+* Sound & music
+* 1 more trap
+* 3 more shrines
+* Dead-end interest increase
+* TODO scrape
+* Better controller support
+* Build test
+* Settings screen (maybe)
+* Credits to mention licenses
+* 3 more items
+* General bug fixes
+* Integrated string table so names & descriptions can be more easily added as we go
+
+### MVP Beta Features
 * Locked HUB improvement system
 * Flow from biome to biome / endgame
-* Character select on new game
-* ~~Follower bios / humor info~~
+
 
 ### MVP Content Requirements
 * At least 5 levels of followers
@@ -63,6 +80,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Gardening
 
 #### FINISHED
+* ~~Follower bios / humor info~~
 * ~~ (Production Schedule) Road to Alha - 2 weeks~~
 * ~~Screen transitions~~
 * ~~Attack VFX~~
@@ -101,7 +119,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Double Vision - will sometimes see enemies that aren't there
 * Smoker - smoke particle FX obscures portion of the screen
 * Horrible Cook - food randomly spawns in the dungeon that deals damage? Not quite sure here.
-* Goth - level gets darker; enemy death = bats flying
 
 #### Still TBD
 * Ghosted
@@ -111,6 +128,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Caffeinated
 
 ### Finished Quirks
+* ~~Goth - level gets darker; enemy death = bats flying~~
 * ~~Hoarder - lots of debris/detritus spawns in the map and clutters pathways~~
 * ~~Completionist - must reveal entire dungeon before using the exit~~
 * ~~Partner in Crime - cops show up in the dungeon; dynamically scale to be strong but beatable~~
