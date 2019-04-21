@@ -56,18 +56,7 @@ public class Game : MonoBehaviour
             if (playerData.followerUid != null)
             {
                 CharacterData cd = characterDataList.CharacterWithUID(playerData.followerUid);
-                if (cd == null)
-                {
-                    playerData.suppressDirtyUpdates = true;
-                    playerData.followerUid = characterDataList.characterData[0].characterUniqueId;
-                    playerData.suppressDirtyUpdates = false;
-
-                    return characterDataList.characterData[0];
-                }
-                else
-                {
-                    return cd;
-                }
+                return cd;
             }
 
             return null;

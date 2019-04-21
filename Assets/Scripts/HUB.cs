@@ -6,6 +6,8 @@ public class HUB : MonoBehaviour
 {
     private void Start()
     {
+        Game.instance.playerData.followerUid = null;
+
         int numCharacters = Random.Range(3, 6);
         CharacterData[] characters = new CharacterData[numCharacters];
         for (int i = 0; i < numCharacters; ++i)
