@@ -25,7 +25,10 @@ public class SimpleAttack : MonoBehaviour
         mEnemyLayer = LayerMask.NameToLayer("Enemy");
         mJunkLayer = LayerMask.NameToLayer("Junk");
 
-        mSubMeshLocalPosition = subMesh.transform.localPosition;
+        if (subMesh != null)
+        {
+            mSubMeshLocalPosition = subMesh.transform.localPosition;
+        }
     }
 
     private GameObject TargetInDirection(Vector3 direction)
