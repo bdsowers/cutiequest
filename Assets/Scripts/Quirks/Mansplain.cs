@@ -9,14 +9,6 @@ public class Mansplain : MonoBehaviour
 
     private float mChangeTextTimer = 0f;
 
-    string[] mMessages = new string[]
-    {
-        "#notallmen",
-        "Well, actually, it's about ethics in journalism.",
-        "Well, actually, the first appearance of Spider-Man was Amazing Fantasy #15.",
-        "Well, actually, the gender pay gap isn't nearly as big if you account for various factors."
-    };
-
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +17,7 @@ public class Mansplain : MonoBehaviour
         mChangeTextTimer -= Time.deltaTime;
         if (mChangeTextTimer <= 0f)
         {
-            string message = mMessages.Sample();
+            string message = LocalizedText.Get(LocalizedText.GetKeysInList("[MANSPLAIN]").Sample());
             typewriter.ShowText(message, 1f);
 
             mChangeTextTimer = Random.Range(3f, 10f);

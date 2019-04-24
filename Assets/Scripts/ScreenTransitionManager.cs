@@ -15,15 +15,6 @@ public class ScreenTransitionManager : MonoBehaviour
 
     private GameObject mCharacterImageCapture;
 
-    private string[] mDeathMessages = new string[]
-    {
-        "Maybe we should see other adventurers.",
-        "I'm sorry, I just don't think you're the hero for me.",
-        "Call me when you've got your life sorted out.",
-        "It's not you. Well, I mean, it kinda is.",
-        "I just think we're in different places in our lives, y'know?"
-    };
-
     public void TransitionToScreen(string name)
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon" &&
@@ -141,7 +132,7 @@ public class ScreenTransitionManager : MonoBehaviour
         deathSpeakerImage.gameObject.SetActive(true);
         StartCoroutine(FadeDeathSpeaker(new Color(0, 0, 0, 0), new Color(1, 1, 1, 1)));
 
-        yield return deathMessage.ShowTextCoroutine(mDeathMessages.Sample(), 1f);
+        yield return deathMessage.ShowTextCoroutine(LocalizedText.Get(LocalizedText.GetKeysInList("[BREAKUP]").Sample()), 1f);
         yield return new WaitForSeconds(1f);
 
         deathMessage.GetComponentInChildren<Text>().CrossFadeAlpha(0f, 0.5f, false);
