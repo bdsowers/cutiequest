@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterDataList : MonoBehaviour
 {
     public CharacterData[] characterData;
+    public CharacterModelData[] characterModelData;
 
     public List<CharacterData> AllCharactersWithinLevelRange(int minLevel, int maxLevel)
     {

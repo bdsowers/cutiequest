@@ -12,6 +12,8 @@ public class Spell : MonoBehaviour
 
     public Sprite icon;
 
+    public int requiredLevel = 1;
+
     public bool canActivate
     {
         get { return mCooldownTimer <= 0f; }

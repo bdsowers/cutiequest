@@ -32,10 +32,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### MVP Alpha Features / Improvements
 
 ### Vertical Slice Features
+* Rework attractiveness buff to unlock spells/quirks instead of new characters
 * Intro w/basic tutorials
 * Improved map
 * Character select on new game
-* Rework character combos - no more fixed characters
 * Level 1 boss
 * 1 more enemy
 * Sound & music
@@ -50,6 +50,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * 3 more items
 * General bug fixes
 * Integrated string table so names & descriptions can be more easily added as we go
+* ~~Rework character combos - no more fixed characters~~
 
 ### MVP Beta Features
 * Locked HUB improvement system
