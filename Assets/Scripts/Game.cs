@@ -189,14 +189,15 @@ public class Game : MonoBehaviour
     {
         CharacterData randomCharacter = ScriptableObject.CreateInstance<CharacterData>();
 
-        string gender = Random.Range(0, 2) == 0 ? "MALE" : "FEMALE";
-
+        int genderNum = Random.Range(0, 2);
+        string gender = genderNum == 0 ? "MALE" : "FEMALE";
+        
         // todo bdsowers - younger characters should be more common; this shouldn't be evenly distributed
         randomCharacter.age = Random.Range(18, 100);
         randomCharacter.bio = LocalizedText.GetKeysInList("[" + gender + "_BIO]").Sample();
         randomCharacter.characterName = LocalizedText.GetKeysInList("[" + gender + "_NAME]").Sample();
         randomCharacter.levelRequirement = 1;
-        randomCharacter.model = PrefabManager.instance.characterPrefabs.Sample().name;
+        randomCharacter.model = Game.instance.characterDataList.CharacterModelsWithGender(genderNum).Sample().model.name;
         randomCharacter.tagline = LocalizedText.GetKeysInList("[" + gender + "_TAGLINE]").Sample();
         randomCharacter.characterUniqueId = randomCharacter.characterName + ":::" + randomCharacter.bio + ":::" + randomCharacter.tagline + ":::" + randomCharacter.model;
         randomCharacter.quirk = PrefabManager.instance.quirkPrefabs.Sample().GetComponent<Quirk>();

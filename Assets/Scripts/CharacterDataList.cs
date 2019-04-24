@@ -7,6 +7,20 @@ public class CharacterDataList : MonoBehaviour
     public CharacterData[] characterData;
     public CharacterModelData[] characterModelData;
 
+    public List<CharacterModelData> CharacterModelsWithGender(int gender)
+    {
+        List<CharacterModelData> models = new List<CharacterModelData>();
+        for (int i = 0; i < characterModelData.Length; ++i)
+        {
+            if (characterModelData[i].gender == gender)
+            {
+                models.Add(characterModelData[i]);
+            }
+        }
+
+        return models;
+    }
+
     public List<CharacterData> AllCharactersWithinLevelRange(int minLevel, int maxLevel)
     {
         List<CharacterData> characters = new List<CharacterData>();
