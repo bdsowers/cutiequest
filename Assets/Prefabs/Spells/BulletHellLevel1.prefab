@@ -63,4 +63,5 @@ MonoBehaviour:
   description: Launch several bullets in a straight line.
   cooldown: 12
   icon: {fileID: 21300140, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 2
   level: 1

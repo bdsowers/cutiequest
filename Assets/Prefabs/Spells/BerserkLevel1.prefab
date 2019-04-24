@@ -48,4 +48,5 @@ MonoBehaviour:
     what-for!
   cooldown: 20
   icon: {fileID: 21300018, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 2
   level: 1

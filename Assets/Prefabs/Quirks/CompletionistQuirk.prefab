@@ -46,3 +46,4 @@ MonoBehaviour:
   friendlyName: Completionist
   description: Has a nagging need to finish everything.
   icon: {fileID: 21300092, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 2

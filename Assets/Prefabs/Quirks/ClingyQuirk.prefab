@@ -46,3 +46,4 @@ MonoBehaviour:
   friendlyName: Clingy
   description: Once they get hold, they won't let go.
   icon: {fileID: 21300264, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 3

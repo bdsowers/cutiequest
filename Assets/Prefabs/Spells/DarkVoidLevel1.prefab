@@ -48,6 +48,7 @@ MonoBehaviour:
   description: Place a trap that will hurt any enemies inside it.
   cooldown: 15
   icon: {fileID: 21300008, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 2
 --- !u!114 &3782688275299859117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,3 +72,5 @@ MonoBehaviour:
     000'
   castSpeed: 10
   effectName: DarkVoidTrap
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0

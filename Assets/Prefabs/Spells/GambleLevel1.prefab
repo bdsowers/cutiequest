@@ -48,6 +48,7 @@ MonoBehaviour:
   description: Deals a random amount of damage to all nearby enemies.
   cooldown: 25
   icon: {fileID: 21300314, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 12
   level: 1
 --- !u!114 &3184930428061427769
 MonoBehaviour:

@@ -63,6 +63,8 @@ MonoBehaviour:
     3333333'
   castSpeed: 10
   effectName: CFX2_Big_Splash (No Collision)
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0
 --- !u!114 &7993962521616973541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,4 +81,5 @@ MonoBehaviour:
   description: Drown your enemies in salty sea water.
   cooldown: 15
   icon: {fileID: 21300020, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 2
   level: 1

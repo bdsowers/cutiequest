@@ -35,6 +35,24 @@ namespace ArrayExtensions
             return list.Sample();
         }
 
+        public static int SamplePosition<T>(this List<T> list, List<int> ignoredPositions)
+        {
+            int attempts = 500;
+            while (attempts > 0)
+            {
+                int sampledPosition = Random.Range(0, list.Count);
+                if (!ignoredPositions.Contains(sampledPosition))
+                {
+                    return sampledPosition;
+                }
+
+                attempts--;
+            }
+
+            return Random.Range(0, list.Count);
+        }
+
+
         public static T Sample<T>(this T[] array)
         {
             return array[Random.Range(0, array.Length)];

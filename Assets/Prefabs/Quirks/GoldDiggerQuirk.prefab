@@ -46,3 +46,4 @@ MonoBehaviour:
   friendlyName: Gold Digger
   description: Doesn't have much of a heart, but absolutely loves dollar bills.
   icon: {fileID: 21300324, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 2

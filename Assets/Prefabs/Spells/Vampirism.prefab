@@ -47,3 +47,4 @@ MonoBehaviour:
   description: Every hit heals the player for a small amount.
   cooldown: 25
   icon: {fileID: 21300380, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 3

@@ -78,6 +78,7 @@ MonoBehaviour:
   friendlyName: Explosive Personality
   description: Say everything with a bang.
   icon: {fileID: 21300064, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 1
 --- !u!1 &856810096776967386
 GameObject:
   m_ObjectHideFlags: 0

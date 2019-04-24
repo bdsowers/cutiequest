@@ -1249,7 +1249,6 @@ MonoBehaviour:
   - {fileID: 264502382425159473, guid: 4b41fdb69e5f9924a921bf2cf96a93de, type: 3}
   - {fileID: 264502382425159473, guid: 14d30fcfb1daad741aab356b744c5851, type: 3}
   - {fileID: 264502382425159473, guid: 27594f474e809d24187a01568f3b351d, type: 3}
-  - {fileID: 264502382425159473, guid: dfec75544382ba145ad70706281465cb, type: 3}
   - {fileID: 264502382425159473, guid: a360f08410b01fe4a94428091b623243, type: 3}
   - {fileID: 264502382425159473, guid: ea92d98f50e86db4d8518ca55384de86, type: 3}
   - {fileID: 264502382425159473, guid: 09d0ddbe514130841a9a566ed07e3400, type: 3}
@@ -1261,6 +1260,7 @@ MonoBehaviour:
   - {fileID: 264502382425159473, guid: aa1ca1fbdbbfebe4da7e98ef3bc21aab, type: 3}
   - {fileID: 264502382425159473, guid: ee5867632712fb045bc183d46377cd31, type: 3}
   - {fileID: 264502382425159473, guid: 57f2dd037612c0b4d9acfecc77d346a9, type: 3}
+  - {fileID: 264502382425159473, guid: dfec75544382ba145ad70706281465cb, type: 3}
   spellPrefabs:
   - {fileID: 7642233172062837191, guid: 9a352a014bb1d794c83ebc03dc1b0d86, type: 3}
   - {fileID: 7642233172062837191, guid: 095fa57504be42f4a8dcdbbbbcfe28ba, type: 3}
