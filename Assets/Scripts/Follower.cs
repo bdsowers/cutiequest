@@ -11,8 +11,8 @@ public class Follower : MonoBehaviour
         if (string.IsNullOrEmpty(followerId))
             return;
 
-        string followerModel = Game.instance.characterDataList.CharacterWithUID(followerId).model;
-        GetComponentInChildren<CharacterModel>().ChangeModel(followerModel);
+        CharacterData followerData  = Game.instance.followerData;
+        GetComponentInChildren<CharacterModel>().ChangeModel(followerData.model, followerData.material);
     }
 
     // Update is called once per frame

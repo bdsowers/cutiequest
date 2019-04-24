@@ -170,8 +170,8 @@ public class LevelGenerator : MonoBehaviour
         string followerId = Game.instance.playerData.followerUid;
         if (string.IsNullOrEmpty(followerId))
             followerId = "1";
-        string followerModel = Game.instance.characterDataList.CharacterWithUID(followerId).model;
-        follower.GetComponentInChildren<CharacterModel>().ChangeModel(followerModel);
+        CharacterData followerData = Game.instance.followerData;
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(followerData.model, followerData.material);
 
         pos = FindEmptyNearbyPosition(pos);
         follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);

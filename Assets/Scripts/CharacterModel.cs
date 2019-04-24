@@ -18,7 +18,7 @@ public class CharacterModel : MonoBehaviour
         }
     }
 
-    public void ChangeModel(string newModelName, bool castShadows = true)
+    public void ChangeModel(string newModelName, Material material = null, bool castShadows = true)
     {
         if (string.IsNullOrEmpty(newModelName))
             return;
@@ -33,6 +33,11 @@ public class CharacterModel : MonoBehaviour
         model.transform.localPosition = Vector3.zero;
         model.transform.localScale = Vector3.one * scale;
         model.transform.localRotation = Quaternion.Euler(0f, rotation, 0f);
+
+        if (material != null)
+        {
+            model.GetComponentInChildren<Renderer>().material = material;
+        }
 
         if (GetComponentInParent<SimpleMovement>() != null)
         {

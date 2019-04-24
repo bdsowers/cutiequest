@@ -27,4 +27,6 @@ public class CharacterData : ScriptableObject
     public Quirk quirk;
     public CharacterStatType statBoost;
     public int statBoostAmount;
+
+    public Material material;
 }

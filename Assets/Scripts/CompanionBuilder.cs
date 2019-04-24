@@ -18,6 +18,8 @@ public class CompanionBuilder : MonoBehaviour
     private List<string> previouslyUsedMaleNames = new List<string>();
     private List<string> previouslyUsedFemaleNames = new List<string>();
 
+    public Material[] materials;
+
     public CharacterData BuildRandomCharacter()
     {
         CharacterData randomCharacter = ScriptableObject.CreateInstance<CharacterData>();
@@ -50,6 +52,7 @@ public class CompanionBuilder : MonoBehaviour
         randomCharacter.spell =SpellsInLevel(Game.instance.playerData.attractiveness).Sample(previouslyUsedSpells).GetComponent<Spell>();
         randomCharacter.statBoost = (CharacterStatType)Random.Range(1, 6);
         randomCharacter.statBoostAmount = 1 + Random.Range(0, Game.instance.playerData.attractiveness);
+        randomCharacter.material = materials.Sample();
 
         previouslyUsedQuirks.AddWindowed(randomCharacter.quirk, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedSpells.AddWindowed(randomCharacter.spell, GAMEPLAY_REUSE_WINDOW_SIZE);

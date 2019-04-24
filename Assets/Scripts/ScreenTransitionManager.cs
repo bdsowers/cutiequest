@@ -136,7 +136,7 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
 
         mCharacterImageCapture = GameObject.Find("CharacterImageCapture");
-        mCharacterImageCapture.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model);
+        mCharacterImageCapture.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model, Game.instance.followerData.material);
 
         deathSpeakerImage.gameObject.SetActive(true);
         StartCoroutine(FadeDeathSpeaker(new Color(0, 0, 0, 0), new Color(1, 1, 1, 1)));
