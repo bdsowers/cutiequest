@@ -11,9 +11,57 @@ namespace ArrayExtensions
             return list[Random.Range(0, list.Count)];
         }
 
+        /// <summary>
+        /// Samples from a List, but will not return anything in the ignoreList.
+        /// This is done without generating any garbage.
+        /// This is also not guaranteed - there's a chance that something in the
+        /// ignoreList will be returned if the sampling process spends too long
+        /// attempting to choose something not in the ignoreList.
+        /// </summary>
+        public static T Sample<T>(this List<T> list, List<T> ignoreList)
+        {
+            int attempts = 500;
+            while (attempts > 0)
+            {
+                T sampledItem = list[Random.Range(0, list.Count)];
+                if (!ignoreList.Contains(sampledItem))
+                {
+                    return sampledItem;
+                }
+
+                attempts--;
+            }
+
+            return list.Sample();
+        }
+
         public static T Sample<T>(this T[] array)
         {
             return array[Random.Range(0, array.Length)];
+        }
+
+        /// <summary>
+        /// Samples from an Array, but will not return anything in the ignoreList.
+        /// This is done without generating any garbage.
+        /// This is also not guaranteed - there's a chance that something in the
+        /// ignoreList will be returned if the sampling process spends too long
+        /// attempting to choose something not in the ignoreList.
+        /// </summary>
+        public static T Sample<T>(this T[] array, List<T> ignoreList)
+        {
+            int attempts = 500;
+            while (attempts > 0)
+            {
+                T sampledItem = array[Random.Range(0, array.Length)];
+                if (!ignoreList.Contains(sampledItem))
+                {
+                    return sampledItem;
+                }
+
+                attempts--;
+            }
+
+            return array.Sample();
         }
 
         public static int SamplePosition<T>(this List<T> list)
@@ -49,6 +97,16 @@ namespace ArrayExtensions
                 T temp = array[pos1];
                 array[pos1] = array[pos2];
                 array[pos2] = temp;
+            }
+        }
+
+        public static void AddWindowed<T>(this List<T> list, T item, int windowSize)
+        {
+            list.Add(item);
+
+            while (list.Count > windowSize)
+            {
+                list.RemoveAt(0);
             }
         }
     }

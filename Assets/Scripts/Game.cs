@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     private CinematicDirector mCinematicDirector;
     private CinematicDataProvider mCinematicDataProvider;
     private CharacterStatInfo mCharacterStatInfo;
+    private CompanionBuilder mCompanionBuilder;
 
     private DungeonData mCurrentDungeonData;
     private int mCurrentDungeonFloor;
@@ -104,6 +105,14 @@ public class Game : MonoBehaviour
         }
     }
 
+    public CompanionBuilder companionBuilder
+    {
+        get
+        {
+            return mCompanionBuilder;
+        }
+    }
+
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
@@ -153,6 +162,7 @@ public class Game : MonoBehaviour
         mCinematicDataProvider = GetComponentInChildren<CinematicDataProvider>();
         mCharacterStatInfo = GetComponentInChildren<CharacterStatInfo>();
         mCentralEvents = new CentralEvents();
+        mCompanionBuilder = GetComponentInChildren<CompanionBuilder>();
 
         mSaveManager.LoadGame();
 
@@ -183,28 +193,5 @@ public class Game : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public CharacterData BuildRandomCharacter()
-    {
-        CharacterData randomCharacter = ScriptableObject.CreateInstance<CharacterData>();
-
-        int genderNum = Random.Range(0, 2);
-        string gender = genderNum == 0 ? "MALE" : "FEMALE";
-        
-        // todo bdsowers - younger characters should be more common; this shouldn't be evenly distributed
-        randomCharacter.age = Random.Range(18, 100);
-        randomCharacter.bio = LocalizedText.GetKeysInList("[" + gender + "_BIO]").Sample();
-        randomCharacter.characterName = LocalizedText.GetKeysInList("[" + gender + "_NAME]").Sample();
-        randomCharacter.levelRequirement = 1;
-        randomCharacter.model = Game.instance.characterDataList.CharacterModelsWithGender(genderNum).Sample().model.name;
-        randomCharacter.tagline = LocalizedText.GetKeysInList("[" + gender + "_TAGLINE]").Sample();
-        randomCharacter.characterUniqueId = randomCharacter.characterName + ":::" + randomCharacter.bio + ":::" + randomCharacter.tagline + ":::" + randomCharacter.model;
-        randomCharacter.quirk = PrefabManager.instance.quirkPrefabs.Sample().GetComponent<Quirk>();
-        randomCharacter.spell = PrefabManager.instance.spellPrefabs.Sample().GetComponent<Spell>();
-        randomCharacter.statBoost = (CharacterStatType)Random.Range(1, 6);
-        randomCharacter.statBoostAmount = 1 + Random.Range(0, Game.instance.playerData.attractiveness);
-
-        return randomCharacter;
     }
 }

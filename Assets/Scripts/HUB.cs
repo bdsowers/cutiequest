@@ -12,7 +12,7 @@ public class HUB : MonoBehaviour
         CharacterData[] characters = new CharacterData[numCharacters];
         for (int i = 0; i < numCharacters; ++i)
         {
-            CharacterData character = Game.instance.BuildRandomCharacter();
+            CharacterData character = Game.instance.companionBuilder.BuildRandomCharacter();
             characters[i] = character;
         }
 
