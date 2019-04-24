@@ -48,7 +48,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Credits to mention licenses
 * 3 more items
 * General bug fixes
-* Integrated string table so names & descriptions can be more easily added as we go
+* ~~Integrated string table so names & descriptions can be more easily added as we go~~
 * ~~Rework attractiveness buff to unlock spells/quirks instead of new characters~~
 * ~~Rework character combos - no more fixed characters~~
 
