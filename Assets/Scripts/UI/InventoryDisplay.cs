@@ -9,6 +9,11 @@ public class InventoryDisplay : MonoBehaviour
 
     private List<GameObject> mItems = new List<GameObject>();
 
+    private void Start()
+    {
+        Refresh();
+    }
+
     private void Clear()
     {
         for (int i = 0; i < mItems.Count; ++i)
