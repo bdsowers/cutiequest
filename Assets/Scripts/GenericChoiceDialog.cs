@@ -15,6 +15,9 @@ public class GenericChoiceDialog : MonoBehaviour
     public Text label;
     public GameObject buttonTemplate;
 
+    public delegate void DialogButtonPressed(string buttonName);
+    public event DialogButtonPressed onDialogButtonPressed;
+
     private List<GameObject> mButtons = new List<GameObject>();
 
     public void Show(string text, List<DialogButton> buttons)
@@ -53,5 +56,10 @@ public class GenericChoiceDialog : MonoBehaviour
         Game.instance.cinematicDataProvider.SetData("dialog_choice", buttonName);
 
         gameObject.SetActive(false);
+
+        if (onDialogButtonPressed != null)
+        {
+            onDialogButtonPressed(buttonName);
+        }
     }
 }
