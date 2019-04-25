@@ -32,19 +32,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### MVP Alpha Features / Improvements
 
 ### Vertical Slice Features
-* Intro w/basic tutorials
-* Character select on new game
 * Level 1 boss
 * 1 more enemy
-* Sound & music
 * 1 more trap
 * 3 more shrines
+* 3 more items
+* Sound & music
+
 * Dead-end interest increase
-* TODO scrape
+* Intro w/basic tutorials
+* Character select on new game
+
 * Better controller support
+* TODO scrape
 * Settings screen (maybe)
 * Credits to mention licenses
-* 3 more items
 * General bug fixes
 
 * ~~Improved map~~
