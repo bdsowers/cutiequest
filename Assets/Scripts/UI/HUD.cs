@@ -5,6 +5,7 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     public ProgressBar healthBar;
+    public PauseDialog pauseDialog;
 
     private void Start()
     {

@@ -71,7 +71,8 @@ public class SaveManager : MonoBehaviour
                 Game.instance.playerStats.ChangeBaseStat(stat.Value, value);
             }
 
-            Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
+            // todo bdsowers - this is causing significant issues
+            //Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         }
     }
 }

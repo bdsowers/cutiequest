@@ -154,7 +154,7 @@ public class Game : MonoBehaviour
 
         mInstance = this;
         DontDestroyOnLoad(gameObject);
-
+        
         mPlayerStats = GetComponentInChildren<CharacterStatistics>();
         mSaveManager = GetComponent<SaveManager>();
         mTransitionManager = GetComponentInChildren<ScreenTransitionManager>();
@@ -192,6 +192,13 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject hud = GameObject.Find("HUD");
+            if (hud == null)
+                return;
+
+            hud.GetComponent<HUD>().pauseDialog.gameObject.SetActive(true);
+        }
     }
 }
