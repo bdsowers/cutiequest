@@ -13,6 +13,7 @@ public class PrefabManager : MonoBehaviour
     public GameObject[] debrisPrefabs;
     public GameObject[] quirkPrefabs;
     public GameObject[] spellPrefabs;
+    public GameObject[] mapPrefabs;
 
     private Dictionary<string, GameObject> mPrefabMap = new Dictionary<string, GameObject>();
     private static PrefabManager sInstance = null;
@@ -44,6 +45,7 @@ public class PrefabManager : MonoBehaviour
         AddListToDictionary(debrisPrefabs);
         AddListToDictionary(quirkPrefabs);
         AddListToDictionary(spellPrefabs);
+        AddListToDictionary(mapPrefabs);
     }
 
     private void AddListToDictionary(GameObject[] list)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8248482810137025732}
   - component: {fileID: 7061597489618428719}
   - component: {fileID: 8539554936478287321}
+  - component: {fileID: 7400815273283732110}
   m_Layer: 0
   m_Name: ShrineChallenge
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f248453082c126043a6e46b1154b3e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreList: []
 --- !u!114 &7061597489618428719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
+  revealDelay: 1
 --- !u!114 &8539554936478287321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +78,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preActivationMessage: Impress your partner with a show of strength and you will
     be rewarded.
+--- !u!114 &7400815273283732110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818454422392994760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e81a0c9f8ec0d141b2ac26a8cd4bb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayType: 7
 --- !u!1001 &1196414628851926547
 PrefabInstance:
   m_ObjectHideFlags: 0

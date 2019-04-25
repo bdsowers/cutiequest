@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &160472493920547867
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 180
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &824185936731712906
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &1020250058645121734
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &1862903052509424110
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &2717996358961719921
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &3390544932065636704
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &4140248667572887796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &4225122009547308654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 360
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &4295560004055656859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 90
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &4432946019997097250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &4724482992939634673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,6 +1406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 90
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &5117166201953604776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 90
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &5635546468549603089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 180
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &6089297722771012236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &6149664179748447062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &7123279196984386871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &7746472666124923810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,6 +1958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 180
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &7976349126235164872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,6 +2086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &9067581624821485147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,6 +2100,7 @@ GameObject:
   - component: {fileID: 7476228109175563405}
   - component: {fileID: 2428718072979766485}
   - component: {fileID: 7637256408145544759}
+  - component: {fileID: 4560253725048550879}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -2122,6 +2142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
+  revealDelay: 1
 --- !u!65 &7476228109175563405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2163,3 +2184,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4560253725048550879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067581624821485147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e81a0c9f8ec0d141b2ac26a8cd4bb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayType: 4

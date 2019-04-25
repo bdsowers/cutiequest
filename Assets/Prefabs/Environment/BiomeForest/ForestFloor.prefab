@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6241106450043950469}
   - component: {fileID: 867310460533836142}
+  - component: {fileID: 2373229809418884249}
   m_Layer: 11
   m_Name: ForestFloor
   m_TagString: Untagged
@@ -136,3 +137,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 1
+  revealDelay: 1
+--- !u!114 &2373229809418884249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791090138005552656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e81a0c9f8ec0d141b2ac26a8cd4bb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayType: 0
