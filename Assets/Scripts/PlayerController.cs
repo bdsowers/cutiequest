@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool HasFollower()
+    {
+        return Game.instance.followerData != null;
+    }
+
     private void OnPlayerDataChanged(PlayerData newData)
     {
         if (mFollowerId != newData.followerUid)
@@ -100,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     void OnFollowerChanged()
     {
-        if (Game.instance.followerData == null)
+        if (!HasFollower())
             return;
 
         Follower follower = GameObject.FindObjectOfType<Follower>();
@@ -158,10 +163,13 @@ public class PlayerController : MonoBehaviour
             spell.Activate(gameObject);
         }
 
-        spell = follower.GetComponentInChildren<Spell>();
-        if (spell != null && spell.canActivate)
+        if (HasFollower())
         {
-            spell.Activate(gameObject);
+            spell = follower.GetComponentInChildren<Spell>();
+            if (spell != null && spell.canActivate)
+            {
+                spell.Activate(gameObject);
+            }
         }
     }
 
@@ -252,7 +260,11 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
-                    SimpleMovement.OrientToDirection(follower.GetComponentInChildren<Animator>().gameObject, intendedDirection);
+
+                    if (HasFollower())
+                    {
+                        SimpleMovement.OrientToDirection(follower.GetComponentInChildren<Animator>().gameObject, intendedDirection);
+                    }
                 }
             }
         }
@@ -260,6 +272,9 @@ public class PlayerController : MonoBehaviour
 
     void MoveFollower(Vector3 direction, Vector3 playerTargetPosition)
     {
+        if (!HasFollower())
+            return;
+
         StartCoroutine(MoveFollowerCoroutine(direction, 0.1f, playerTargetPosition));
     }
 
@@ -277,6 +292,9 @@ public class PlayerController : MonoBehaviour
 
     void AttackFollower(Vector3 direction)
     {
+        if (!HasFollower())
+            return;
+
         StartCoroutine(AttackFollowerCoroutine(direction, 0.1f));
     }
 

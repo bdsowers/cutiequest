@@ -110,7 +110,7 @@ public class CharacterStatistics : MonoBehaviour
             if (Game.instance.playerData.followerUid != null)
             {
                 CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
-                if (followerData.statBoost == statType)
+                if (followerData != null && followerData.statBoost == statType)
                 {
                     value += followerData.statBoostAmount;
                 }

@@ -40,9 +40,19 @@ public class LevelGenerator : MonoBehaviour
         PlaceAvatar();
         PlaceTraps();
         PlaceEnemies();
-        PlaceHearts();
-        PlaceExit();
+
+        if (!IsPresetRoom())
+        {
+            PlaceHearts();
+            PlaceExit();
+        }
+
         QuirkSpecificSpawns();
+    }
+
+    private bool IsPresetRoom()
+    {
+        return CurrentDungeonFloorData().generationData.scopeData[0].criticalPathMaxRooms == 1;
     }
 
     private GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = -1, float yOffset = 0f)
