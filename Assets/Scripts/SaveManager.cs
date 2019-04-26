@@ -74,5 +74,10 @@ public class SaveManager : MonoBehaviour
             // todo bdsowers - this is causing significant issues
             //Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         }
+        else
+        {
+            // todo bdsowers - new game functionality
+            Game.instance.playerData.followerUid = "1";
+        }
     }
 }

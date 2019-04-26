@@ -22,6 +22,7 @@ MonoBehaviour:
     But first let''s maybe kill some goblins to get to know each other, okay?'
   levelRequirement: 1
   spell: {fileID: 2686321477596012508, guid: 878e402f38c6ea747bd39c177d44eda2, type: 3}
-  quirk: {fileID: 4843633041352599488, guid: 01ea24034e4188a418b1d0697c94fa6e, type: 3}
+  quirk: {fileID: 0}
   statBoost: 3
-  statBoostAmount: 1
+  statBoostAmount: 0
+  material: {fileID: 0}
