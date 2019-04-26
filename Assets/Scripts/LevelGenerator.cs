@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
 {
     private const int SHOP_PEDESTAL = 7;
     private const int SHOP_KEEPER = 8;
+    private const int PRESET_ENEMY = 9;
 
     RandomDungeon mDungeon;
     RandomDungeonGenerator mDungeonGenerator;
@@ -19,6 +20,7 @@ public class LevelGenerator : MonoBehaviour
     public RandomDungeon dungeon {  get { return mDungeon; } }
 
     private Vector2Int mAvatarStartPosition;
+    private int mPresetEnemyCounter = 0;
 
     private void Start()
     {
@@ -111,6 +113,11 @@ public class LevelGenerator : MonoBehaviour
                     GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
                     activationPlate.GetComponent<ActivationPlate>().cinematicEvent = "shopkeep_talk";
                 }
+                else if (dungeon.TileType(x,y) == PRESET_ENEMY)
+                {
+                    PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
+                    PlaceEnemy(CurrentDungeonFloorData(), new Vector2Int(x, y));
+                }
 
 
                 if (tileData.chest == 2)
@@ -199,6 +206,31 @@ public class LevelGenerator : MonoBehaviour
 
     private string ChooseEnemy(DungeonFloorData floorData)
     {
+        if (IsPresetRoom())
+        {
+            return ChoosePresetEnemy(floorData);
+        }
+        else
+        {
+            return ChooseRandomEnemy(floorData);
+        }
+    }
+
+    private string ChoosePresetEnemy(DungeonFloorData floorData)
+    {
+        ++mPresetEnemyCounter;
+        if (mPresetEnemyCounter == 1)
+        {
+            return floorData.enemyData.commonEnemy.name;
+        }
+        else
+        {
+            return floorData.enemyData.uncommonEnemy.name;
+        }
+    }
+
+    private string ChooseRandomEnemy(DungeonFloorData floorData)
+    {
         DungeonEnemyData enemyData = floorData.enemyData;
 
         int randomNum = Random.Range(0, 100);
@@ -236,14 +268,20 @@ public class LevelGenerator : MonoBehaviour
             if (walkablePositions.Count == 0)
                 return;
 
-            string enemy = ChooseEnemy(data);
-            GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
+            
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
-            Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
-            newEnemy.transform.position = pos;
-            mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
+            PlaceEnemy(data, pos2);
         }
+    }
+
+    private void PlaceEnemy(DungeonFloorData data, Vector2Int pos2)
+    {
+        string enemy = ChooseEnemy(data);
+        GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
+        Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+        newEnemy.transform.position = pos;
+        mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
     }
 
     private void PlaceHearts()
