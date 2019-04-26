@@ -21,7 +21,7 @@ public class DecoySpell : Spell
         GameObject decoy = PrefabManager.instance.InstantiatePrefabByName("Decoy");
         decoy.name = "Decoy";
         decoy.transform.position = new Vector3(decoyPos.x, 0.5f, -decoyPos.y);
-        decoy.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model, Game.instance.followerData.material);
+        decoy.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData);
     }
 
     private Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos, CollisionMap collisionMap)

@@ -12,7 +12,7 @@ public class Follower : MonoBehaviour
             return;
 
         CharacterData followerData  = Game.instance.followerData;
-        GetComponentInChildren<CharacterModel>().ChangeModel(followerData.model, followerData.material);
+        GetComponentInChildren<CharacterModel>().ChangeModel(followerData);
     }
 
     // Update is called once per frame

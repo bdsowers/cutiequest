@@ -162,7 +162,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         SetupLabelInfo(characterData);
 
-        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData.model, characterData.material, false);
+        cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData, false);
 
         standardView.gameObject.SetActive(true);
         standardView.GetComponent<CanvasGroup>().alpha = 1f;

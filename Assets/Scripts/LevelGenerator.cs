@@ -23,7 +23,8 @@ public class LevelGenerator : MonoBehaviour
     private void Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
-        TextAsset roomSetData = Resources.Load<TextAsset>("RoomSets/roomset6");
+        
+        TextAsset roomSetData = Resources.Load<TextAsset>("RoomSets/" + CurrentDungeonFloorData().roomSet);
         mRoomset = new RoomSet();
         mRoomset.LoadFromTextAsset(roomSetData);
 
@@ -171,7 +172,7 @@ public class LevelGenerator : MonoBehaviour
         if (string.IsNullOrEmpty(followerId))
             followerId = "1";
         CharacterData followerData = Game.instance.followerData;
-        follower.GetComponentInChildren<CharacterModel>().ChangeModel(followerData.model, followerData.material);
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(followerData);
 
         pos = FindEmptyNearbyPosition(pos);
         follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);

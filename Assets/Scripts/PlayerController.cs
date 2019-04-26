@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         Follower follower = GameObject.FindObjectOfType<Follower>();
-        follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData.model, Game.instance.followerData.material);
+        follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData);
 
         AttachFollowerComponents();
     }

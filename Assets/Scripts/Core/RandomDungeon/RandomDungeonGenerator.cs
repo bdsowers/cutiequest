@@ -273,7 +273,7 @@ namespace OMM.RDG
             {
                 RandomDungeonScopeData scope = scopes[scopeIdx];
                 int roomsPerScope = mRNG.Next(scope.criticalPathMinRooms, scope.criticalPathMaxRooms);
-
+                
                 for (int i = 0; i < roomsPerScope; ++i)
                 {
                     RoomPlacementOptions options = RoomPlacementOptions.None;

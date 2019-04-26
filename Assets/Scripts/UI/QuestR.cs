@@ -41,6 +41,6 @@ public class QuestR : MonoBehaviour
         standardView.SetActive(false);
 
         rigModel1.ChangeModel("Chr_Adventure_Warrior_01");
-        rigModel2.ChangeModel(characterData.model, characterData.material);
+        rigModel2.ChangeModel(characterData);
     }
 }

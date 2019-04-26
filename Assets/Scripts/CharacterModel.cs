@@ -18,6 +18,14 @@ public class CharacterModel : MonoBehaviour
         }
     }
 
+    public void ChangeModel(CharacterData characterData, bool castShadows = true)
+    {
+        if (characterData == null)
+            return;
+
+        ChangeModel(characterData.model, characterData.material, castShadows);
+    }
+
     public void ChangeModel(string newModelName, Material material = null, bool castShadows = true)
     {
         if (string.IsNullOrEmpty(newModelName))

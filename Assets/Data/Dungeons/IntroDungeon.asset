@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cd82f2bc392f2439799a39efad31c2, type: 3}
+  m_Name: IntroDungeon
+  m_EditorClassIdentifier: 
+  floorData:
+  - roomSet: introdungeon
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 1
+        criticalPathMaxRooms: 1
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 0
+      numExtraRoomsPlacedAfterSpecialRooms: 0
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 0
+      maxEnemies: 0
+      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+        type: 3}
+  biomeData:
+    floorPrefabs:
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
+    - ForestFloor4
+    - ForestFloor
+    - ForestFloor6
+    - ForestFloor7
+    - ForestFloor8
+    - ForestFloor
+    - ForestFloor2
+    - ForestFloor3
+    wallPrefabs:
+    - ForestWall1
+    - ForestWall2
+    shopPedestablPrefab: ShopPedestal
