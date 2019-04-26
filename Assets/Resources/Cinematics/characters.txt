@@ -48,3 +48,32 @@ animation trigger: activate_shrine
 	typewriter shrine_message
 	generic_choice text: "Take the bargain?", button1: yes, button1_text: Yes, button2: no, button2_text: No
 }
+
+
+animation trigger: intro_ready
+{
+	change_speaker Chr_Fantasy_Gypsy_01
+	typewriter text: "Isn't it a lovely day for a stroll through the forest?", keep_open: true
+	typewriter "Use your arrow keys to move."
+}
+
+animation trigger: intro_first_enemy_seen
+{
+	change_speaker Chr_Fantasy_Gypsy_01
+	typewriter text: "A skeleton! Let's rough him up. Simply walk into an enemy to attack it.", keep_open: true
+	typewriter text: "He'll probably start fighting back, but don't worry - I'll protect you."
+}
+
+animation trigger: intro_boss_seen
+{
+	change_speaker Chr_Fantasy_Gypsy_01
+	typewriter text: "That guy looks... tough. But don't worry. We can hit him at a distance with my spell!", keep_open: true
+	typewriter text: "Get within 3 squares of him and use the <Spacebar> key to activate my spell.", keep_open: true
+	typewriter text: "Don't worry if you miss. The spell will recharge after a few seconds."
+}
+
+animation trigger: intro_boss_activated
+{
+	change_speaker Chr_Fantasy_Gypsy_01
+	typewriter "Oh crap. He sees us now. This is... really bad."
+}

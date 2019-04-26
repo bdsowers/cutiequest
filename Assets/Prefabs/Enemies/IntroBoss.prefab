@@ -229,7 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f225ef49ee36dd541932a7c3a5c4fdbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAIController: {fileID: 7020149889661926042}
+  enemyMeleeController: {fileID: 7020149889661926042}
+  enemyProjectileController: {fileID: 0}
+  activationCinematicEvent: intro_boss_activated
+  closeCinematicEvent: intro_boss_seen
 --- !u!1 &7519224713004977550
 GameObject:
   m_ObjectHideFlags: 0

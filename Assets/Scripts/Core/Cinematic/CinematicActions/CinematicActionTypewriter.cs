@@ -7,6 +7,7 @@ public class CinematicActionTypewriter : CinematicAction
     private string mText;
     private string mTarget;
     private bool mWaitForInteraction;
+    private bool mKeepOpen = false;
 
     public override string actionName
     {
@@ -31,6 +32,7 @@ public class CinematicActionTypewriter : CinematicAction
         mText = dataProvider.GetStringData(mParameters, "text");
         mTarget = dataProvider.GetStringData(mParameters, "target", "typewriter");
         mWaitForInteraction = dataProvider.GetBoolData(mParameters, "wait_for_interaction", true);
+        mKeepOpen = dataProvider.GetBoolData(mParameters, "keep_open", false);
 
         shouldYield = mWaitForInteraction;
     }
@@ -67,7 +69,11 @@ public class CinematicActionTypewriter : CinematicAction
                     if (actionSet.Activate.WasPressed || actionSet.Spell.WasPressed)
                     {
                         keepWaiting = false;
-                        target.HideText();
+
+                        if (!mKeepOpen)
+                        {
+                            target.HideText();
+                        }
                     }
                 }
 

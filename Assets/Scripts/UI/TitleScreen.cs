@@ -70,6 +70,13 @@ public class TitleScreen : MonoBehaviour
 
     void MoveToNextScene()
     {
-        Game.instance.transitionManager.TransitionToScreen("HUB");
+        if (Game.instance.finishedTutorial)
+        {
+            Game.instance.transitionManager.TransitionToScreen("HUB");
+        }
+        else
+        {
+            Game.instance.transitionManager.TransitionToScreen("Dungeon");
+        }
     }
 }

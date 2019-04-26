@@ -32,7 +32,7 @@ MonoBehaviour:
       maxEnemies: 0
       commonEnemy: {fileID: 2738750450090089171, guid: d3be0780ce78af14596ec1f94cc9f59a,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+      uncommonEnemy: {fileID: 2738750450090089171, guid: c7b1612a41aa53a408d8af1cf2950355,
         type: 3}
       rareEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
         type: 3}

@@ -113,6 +113,12 @@ public class ScreenTransitionManager : MonoBehaviour
 
         fullScreenQuad.gameObject.SetActive(false);
 
+        if (!Game.instance.finishedTutorial)
+        {
+            yield return new WaitForSeconds(0.2f);
+            Game.instance.cinematicDirector.PostCinematicEvent("intro_ready");
+        }
+
         isTransitioning = false;
 
         yield break;

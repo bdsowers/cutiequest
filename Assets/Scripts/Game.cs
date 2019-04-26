@@ -144,6 +144,8 @@ public class Game : MonoBehaviour
         mCurrentDungeonFloor = 1;
     }
 
+    public bool finishedTutorial { get; set; }
+
     private void Awake()
     {
         if (mInstance != null)
