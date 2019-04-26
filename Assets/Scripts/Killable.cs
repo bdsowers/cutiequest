@@ -13,12 +13,17 @@ public class Killable : MonoBehaviour
     public delegate void Died(Killable entity);
     public event Died onDeath;
 
+    public delegate void Hit(Killable entity);
+    public event Hit onHit;
+
     public int health;
     public DeathResponse deathResponse;
     public bool showNumberPopups = true;
 
     public string deathEffect = "CFX2_EnemyDeathSkull";
     public float deathEffectScale = 0.75f;
+
+    public bool allowZeroDamage;
 
     private Enemy mEnemy;
 
@@ -41,7 +46,10 @@ public class Killable : MonoBehaviour
             return;
 
         // No attack can ever do less than 1 damage, no matter strength/defense equations
-        damage = Mathf.Max(damage, 1);
+        if (allowZeroDamage)
+            damage = Mathf.Max(damage, 0);
+        else
+            damage = Mathf.Max(damage, 1);
 
         CreateHitVFX();
 
@@ -60,6 +68,11 @@ public class Killable : MonoBehaviour
         if (showNumberPopups)
         {
             NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, damage, NumberPopupReason.TakeDamage);
+        }
+
+        if (onHit != null)
+        {
+            onHit(this);
         }
 
         if (health <= 0f)

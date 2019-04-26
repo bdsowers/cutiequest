@@ -193,6 +193,8 @@ public class LevelGenerator : MonoBehaviour
 
         pos = FindEmptyNearbyPosition(pos);
         follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
+
+        avatar.GetComponent<Killable>().allowZeroDamage = (CurrentDungeonFloorData().roomSet == "introdungeon");
     }
 
     private void PlaceExit()
