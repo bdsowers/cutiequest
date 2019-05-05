@@ -73,5 +73,12 @@ public class Cheats : MonoBehaviour
         {
             Game.instance.playerData.attractiveness = 100;
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Game.instance.currentDungeonFloor = 4;
+            LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
+            Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
+        }
     }
 }

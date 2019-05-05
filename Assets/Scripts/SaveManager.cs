@@ -47,6 +47,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt("Hearts", Game.instance.playerData.numHearts);
         PlayerPrefs.SetInt("Coins", Game.instance.playerData.numCoins);
         PlayerPrefs.SetInt("Attractiveness", Game.instance.playerData.attractiveness);
+        PlayerPrefs.SetInt("FinishedTutorial", Game.instance.finishedTutorial ? 1 : 0);
 
         foreach(KeyValuePair<string, CharacterStatType> stat in mStatKeyMap)
         {
@@ -64,6 +65,7 @@ public class SaveManager : MonoBehaviour
             Game.instance.playerData.numHearts = PlayerPrefs.GetInt("Hearts");
             Game.instance.playerData.numCoins = PlayerPrefs.GetInt("Coins");
             Game.instance.playerData.attractiveness = PlayerPrefs.GetInt("Attractiveness");
+            Game.instance.finishedTutorial = PlayerPrefs.GetInt("FinishedTutorial") == 1;
 
             foreach (KeyValuePair<string, CharacterStatType> stat in mStatKeyMap)
             {

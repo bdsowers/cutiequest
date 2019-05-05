@@ -76,7 +76,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.6}
+  m_Size: {x: 0.3, y: 0.1, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7391323906879359429
 Rigidbody:
@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d19602f4350614e8e2e339b438bfa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnEnemyHit: 1
+  destroyOnEnvironmentHit: 1
 --- !u!1001 &852140282861379758
 PrefabInstance:
   m_ObjectHideFlags: 0

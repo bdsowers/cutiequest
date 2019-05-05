@@ -52,7 +52,11 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         Game.instance.avatar.GetComponentInChildren<Animator>().Play("Falling");
-        GameObject.FindObjectOfType<Follower>().gameObject.GetComponentInChildren<Animator>().Play("Falling");
+        Follower follower = GameObject.FindObjectOfType<Follower>();
+        if (follower != null)
+        {
+            follower.gameObject.GetComponentInChildren<Animator>().Play("Falling");
+        }
 
         yield return new WaitForSeconds(0.75f);
         StartCoroutine(StandardTransition("Dungeon"));

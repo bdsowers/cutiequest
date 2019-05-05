@@ -72,6 +72,8 @@ public class Enemy : MonoBehaviour
 
     private bool CanUpdateAI()
     {
+        if (!mEnemyAI.enabled)
+            return false;
         if (mActionCooldownTimer > 0f)
             return false;
         if (mSimpleMovement.isMoving)

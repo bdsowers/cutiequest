@@ -17,5 +17,8 @@ public class HUB : MonoBehaviour
         }
 
         Game.instance.characterDataList.characterData = characters;
+
+        // todo bdsowers - show the phone intro first
+        Game.instance.finishedTutorial = true;
     }
 }
