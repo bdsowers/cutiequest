@@ -8,6 +8,7 @@ public class SpellCaster : MonoBehaviour
     public int targetDeviation = 0;
     public bool targetCaster;
     public bool orientToDirection;
+    public bool randomOrientation;
     public bool showTargetArea = true;
 
     [TextArea(8, 10)]
@@ -24,6 +25,8 @@ public class SpellCaster : MonoBehaviour
     public Vector3 effectOffset;
 
     public bool hideEffectIfNoHit;
+
+    public string tag;
 
     private GameObject target
     {
@@ -178,6 +181,38 @@ public class SpellCaster : MonoBehaviour
             spellContainer.transform.localRotation = Quaternion.Euler(spellContainer.transform.localRotation.eulerAngles.x, y, spellContainer.transform.localRotation.eulerAngles.z);
         }
 
+        if (randomOrientation)
+        {
+            spellContainer.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
+
+            // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
+            float y = Random.Range(0, 4) * 90;
+            spellContainer.transform.localRotation = Quaternion.Euler(spellContainer.transform.localRotation.eulerAngles.x, y, spellContainer.transform.localRotation.eulerAngles.z);
+        }
+
         return partFound;
+    }
+
+    // Helper functions for manipulating lists of spell casters
+    public static SpellCaster SpellCasterWithTag(SpellCaster[] casters, string tag)
+    {
+        for (int i = 0; i < casters.Length; ++i)
+        {
+            if (casters[i].tag == tag)
+                return casters[i];
+        }
+
+        return null;
+    }
+
+    public static bool AnySpellCastersCasting(SpellCaster[] casters)
+    {
+        for (int i = 0; i < casters.Length; ++i)
+        {
+            if (casters[i].isCasting)
+                return true;
+        }
+
+        return false;
     }
 }
