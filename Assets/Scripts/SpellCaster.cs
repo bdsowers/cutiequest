@@ -26,8 +26,6 @@ public class SpellCaster : MonoBehaviour
 
     public bool hideEffectIfNoHit;
 
-    public string tag;
-
     private GameObject target
     {
         get

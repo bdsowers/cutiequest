@@ -77,3 +77,8 @@ animation trigger: intro_boss_activated
 	change_speaker Chr_Fantasy_Gypsy_01
 	typewriter "Oh crap. He sees us now. This is... really bad."
 }
+
+animation trigger: boss1_intro
+{
+	camera_shake intensity: 0.35, speed: 5, seconds: 1
+}

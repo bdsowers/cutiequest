@@ -9,6 +9,8 @@ public class FollowCamera : MonoBehaviour
     public bool useCinematicOffset;
     public bool trackY = true;
 
+    public Vector3 animationOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class FollowCamera : MonoBehaviour
         if (!trackY)
             trackPosition.y = 0f;
 
-        transform.position = trackPosition + offset + cinematicOffset;
+        transform.position = trackPosition + offset + cinematicOffset + animationOffset;
         transform.LookAt(trackPosition);
     }
 }
