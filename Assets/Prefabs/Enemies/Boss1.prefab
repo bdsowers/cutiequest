@@ -20,8 +20,9 @@ GameObject:
   - component: {fileID: 6215749322139787534}
   - component: {fileID: 7053227564434089843}
   - component: {fileID: 4028724717123227437}
-  - component: {fileID: 3479227153606935044}
   - component: {fileID: 600193917531994801}
+  - component: {fileID: 500914198603011963}
+  - component: {fileID: 8830539540937372134}
   m_Layer: 10
   m_Name: Boss1
   m_TagString: Untagged
@@ -219,20 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationRange: 3
-  enemyAIController: {fileID: 3479227153606935044}
+  enemyAIController: {fileID: 500914198603011963}
   activationCinematicEvent: boss1_intro
---- !u!114 &3479227153606935044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738750450090089171}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb4d4a875450024fad41420f308a260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &600193917531994801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +252,37 @@ MonoBehaviour:
   effectName: CFX2_RockHit
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
-  tag: phase1
+--- !u!114 &500914198603011963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415139378dd14b34b8b0afb53319812e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 3
+--- !u!114 &8830539540937372134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768d2333cedd3b4428c10201189d781f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  summonedEntities:
+  - {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471, type: 3}
+  numEnemiesToSummon: 4
+  maxRadius: 5
+  minRadius: 2
+  castSpeed: 4
 --- !u!1 &7519224713004977550
 GameObject:
   m_ObjectHideFlags: 0
