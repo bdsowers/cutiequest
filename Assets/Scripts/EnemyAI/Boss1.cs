@@ -17,8 +17,13 @@ public class Boss1 : EnemyAI
     EnemyProjectileThrower mProjectileThrowerAI;
     EnemySpellCaster mSpellCasterAI;
     List<EnemyAI> mAllAIModules = new List<EnemyAI>();
+    CharacterStatistics mStatistics;
+    Killable mKillable;
+
+    public GameObject[] phaseContainers;
 
     private float mSwitchTimer = 2f;
+    private int mCurrentPhase = 0;
 
     private void Start()
     {
@@ -26,6 +31,9 @@ public class Boss1 : EnemyAI
         mSummonerAI = GetComponent<EnemySummoner>();
         mProjectileThrowerAI = GetComponent<EnemyProjectileThrower>();
         mSpellCasterAI = GetComponent<EnemySpellCaster>();
+        mStatistics = GetComponent<CharacterStatistics>();
+        mKillable = GetComponent<Killable>();
+
         mAllAIModules = new List<EnemyAI>() { mSummonerAI, mProjectileThrowerAI, mSpellCasterAI };
 
         mSummonerAI.enabled = true;
@@ -59,6 +67,21 @@ public class Boss1 : EnemyAI
     {
     }
 
+    private void SwitchPhaseIfNecessary()
+    {
+        if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) / 4)
+            mCurrentPhase = 2;
+        else if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) / 2)
+            mCurrentPhase = 1;
+        else
+            mCurrentPhase = 0;
+
+        phaseContainers[0].SetActive(false);
+        phaseContainers[1].SetActive(false);
+        phaseContainers[2].SetActive(false);
+        phaseContainers[mCurrentPhase].SetActive(true);
+    }
+
     private void Update()
     {
         mSwitchTimer -= Time.deltaTime;
@@ -66,6 +89,8 @@ public class Boss1 : EnemyAI
         {
             if (CanUpdateAI())
             {
+                SwitchPhaseIfNecessary();
+
                 mSwitchTimer = Random.Range(2f, 4f);
 
                 for (int i = 0; i < mAllAIModules.Count; ++i)
