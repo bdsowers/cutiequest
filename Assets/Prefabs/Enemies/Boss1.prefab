@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1181423092968338893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9143237131546306927}
+  - component: {fileID: 6851596403611136350}
+  m_Layer: 10
+  m_Name: Phase1Spell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9143237131546306927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181423092968338893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2738750450090089180}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6851596403611136350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181423092968338893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84610f668f27b6e40a2ad91dc409aede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDeviation: 0
+  targetCaster: 1
+  orientToDirection: 0
+  randomOrientation: 1
+  showTargetArea: 1
+  patternString: '11111
+
+    11101
+
+    11011
+
+    10111
+
+    11111'
+  castSpeed: 1
+  effectName: CFX2_RockHit
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0
 --- !u!1 &2738750450090089171
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,9 +81,10 @@ GameObject:
   - component: {fileID: 6215749322139787534}
   - component: {fileID: 7053227564434089843}
   - component: {fileID: 4028724717123227437}
-  - component: {fileID: 600193917531994801}
-  - component: {fileID: 500914198603011963}
-  - component: {fileID: 8830539540937372134}
+  - component: {fileID: 97767842010143280}
+  - component: {fileID: 47989707618362034}
+  - component: {fileID: 6722715637683954809}
+  - component: {fileID: 6644968427980534197}
   m_Layer: 10
   m_Name: Boss1
   m_TagString: Untagged
@@ -42,6 +104,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4398374791429017034}
+  - {fileID: 1054718834569990781}
+  - {fileID: 9143237131546306927}
+  - {fileID: 2811306380605467956}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,39 +285,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationRange: 3
-  enemyAIController: {fileID: 500914198603011963}
+  enemyAIController: {fileID: 97767842010143280}
   activationCinematicEvent: boss1_intro
---- !u!114 &600193917531994801
+--- !u!114 &97767842010143280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2738750450090089171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84610f668f27b6e40a2ad91dc409aede, type: 3}
+  m_Script: {fileID: 11500000, guid: feb4d4a875450024fad41420f308a260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDeviation: 0
-  targetCaster: 1
-  orientToDirection: 0
-  randomOrientation: 1
-  showTargetArea: 1
-  patternString: '01111
-
-    11101
-
-    11011
-
-    10111
-
-    11110'
-  castSpeed: 2
-  effectName: CFX2_RockHit
-  effectOffset: {x: 0, y: 0, z: 0}
-  hideEffectIfNoHit: 0
---- !u!114 &500914198603011963
+--- !u!114 &47989707618362034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,14 +311,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415139378dd14b34b8b0afb53319812e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 3
---- !u!114 &8830539540937372134
+  cooldown: 5
+--- !u!114 &6722715637683954809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6380984425c0b1a4c89e944036d44470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6644968427980534197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd9c131f95a8cb49b33424b80c078d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3839946412807097874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054718834569990781}
+  - component: {fileID: 8190657092594114189}
+  m_Layer: 10
+  m_Name: Phase1Summon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1054718834569990781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839946412807097874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2738750450090089180}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8190657092594114189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839946412807097874}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 768d2333cedd3b4428c10201189d781f, type: 3}
@@ -282,7 +384,7 @@ MonoBehaviour:
   numEnemiesToSummon: 4
   maxRadius: 5
   minRadius: 2
-  castSpeed: 4
+  castSpeed: 1
 --- !u!1 &7519224713004977550
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +447,52 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
   scale: 0.5
   rotation: 0
+--- !u!1 &8303760430469564510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2811306380605467956}
+  - component: {fileID: 6667232483616465735}
+  m_Layer: 10
+  m_Name: Phase1ProjectileThrower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2811306380605467956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303760430469564510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2738750450090089180}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6667232483616465735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303760430469564510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d162561644f9bb0439df4852bd726c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8135455753806573312, guid: 3ed8f513575856c4ba6047944fdc2194,
+    type: 3}
+  throwSpeed: 1
 --- !u!1001 &8013688125905659987
 PrefabInstance:
   m_ObjectHideFlags: 0

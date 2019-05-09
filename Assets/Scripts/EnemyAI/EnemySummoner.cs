@@ -20,8 +20,13 @@ public class EnemySummoner : EnemyAI
 
     private void Start()
     {
-        mSummoner = GetComponent<Summoner>();
+        mSummoner = GetComponentInChildren<Summoner>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+    }
+
+    public override void AIStructureChanged()
+    {
+        mSummoner = GetComponentInChildren<Summoner>();
     }
 
     public override void UpdateAI()

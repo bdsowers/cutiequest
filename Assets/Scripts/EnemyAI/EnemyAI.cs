@@ -6,6 +6,7 @@ public abstract class EnemyAI : MonoBehaviour
 {
     public abstract void UpdateAI();
     public abstract bool CanUpdateAI();
+    public abstract void AIStructureChanged();
 
     protected Vector3 OrthogonalDirection(Transform source, Transform target, bool useLargeAxis)
     {

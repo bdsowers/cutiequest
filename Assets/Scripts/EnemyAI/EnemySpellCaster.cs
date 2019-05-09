@@ -17,8 +17,13 @@ public class EnemySpellCaster : EnemyAI
 
     private void Start()
     {
-        mSpellCaster = GetComponent<SpellCaster>();
+        mSpellCaster = GetComponentInChildren<SpellCaster>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+    }
+
+    public override void AIStructureChanged()
+    {
+        mSpellCaster = GetComponentInChildren<SpellCaster>();
     }
 
     public override void UpdateAI()

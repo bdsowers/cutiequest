@@ -28,6 +28,11 @@ public class Enemy : MonoBehaviour
         Game.instance.centralEvents.FireEnemyCreated(this);
     }
 
+    public void SetEnemyAI(EnemyAI ai)
+    {
+        mEnemyAI = ai;
+    }
+
     private void OnDeath(Killable entity)
     {
         DropsItems[] di = GetComponentsInChildren<DropsItems>();
@@ -72,6 +77,9 @@ public class Enemy : MonoBehaviour
 
     private bool CanUpdateAI()
     {
+        if (mEnemyAI == null)
+            return false;
+
         if (!mEnemyAI.enabled)
             return false;
         if (mActionCooldownTimer > 0f)

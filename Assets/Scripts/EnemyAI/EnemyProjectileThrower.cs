@@ -18,8 +18,13 @@ public class EnemyProjectileThrower : EnemyAI
 
     private void Start()
     {
-        mProjectileThrower = GetComponent<ProjectileThrower>();
+        mProjectileThrower = GetComponentInChildren<ProjectileThrower>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+    }
+
+    public override void AIStructureChanged()
+    {
+        mProjectileThrower = GetComponentInChildren<ProjectileThrower>();
     }
 
     private void ThrowProjectile()

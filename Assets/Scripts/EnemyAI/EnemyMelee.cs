@@ -13,6 +13,11 @@ public class EnemyMelee : EnemyAI
         mSimpleMovement = GetComponent<SimpleMovement>();
     }
 
+    public override void AIStructureChanged()
+    {
+        throw new System.NotImplementedException();
+    }
+
     private GameObject target
     {
         get

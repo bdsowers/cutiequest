@@ -34,6 +34,12 @@ public class EnemyDynamicAI : EnemyAI
         mActiveModule.UpdateAI();
     }
 
+
+    public override void AIStructureChanged()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void ActivateAI<T>() where T:EnemyAI
     {
         for (int i = 0; i < mAIModules.Count; ++i)
