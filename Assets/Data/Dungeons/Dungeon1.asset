@@ -40,11 +40,11 @@ MonoBehaviour:
       maxEnemies: 25
       commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      uncommonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
         type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
   - roomSet: roomset6
     generationData:
