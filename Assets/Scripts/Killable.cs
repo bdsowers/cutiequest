@@ -27,6 +27,8 @@ public class Killable : MonoBehaviour
 
     private Enemy mEnemy;
 
+    public bool invulnerable { get; set; }
+
     private void Start()
     {
         mEnemy = GetComponent<Enemy>();
@@ -36,7 +38,9 @@ public class Killable : MonoBehaviour
     {
         if (Game.instance.transitionManager.isTransitioning)
             return false;
-        
+        if (invulnerable)
+            return false;
+
         return true;
     }
 

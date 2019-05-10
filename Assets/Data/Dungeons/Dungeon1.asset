@@ -110,7 +110,7 @@ MonoBehaviour:
         type: 3}
       rareEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+      scaryEnemy: {fileID: 2738750450090089171, guid: c8c02206ee4eba1468765bbdbf37ed6a,
         type: 3}
   - roomSet: roomset6
     generationData:
@@ -141,9 +141,9 @@ MonoBehaviour:
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
         type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+      rareEnemy: {fileID: 2738750450090089171, guid: c8c02206ee4eba1468765bbdbf37ed6a,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
+      scaryEnemy: {fileID: 2738750450090089171, guid: c8c02206ee4eba1468765bbdbf37ed6a,
         type: 3}
   - roomSet: boss1
     generationData:

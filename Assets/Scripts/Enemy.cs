@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
     private EnemyAI mEnemyAI;
+    private RevealWhenAvatarIsClose mReveal;
 
     private Killable mKillable;
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
         mSimpleMovement = GetComponent<SimpleMovement>();
         mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mKillable = GetComponent<Killable>();
+        mReveal = GetComponentInChildren<RevealWhenAvatarIsClose>();
 
         mTurnBasedMovement.onTurnGranted += OnTurnGranted;
 
@@ -78,6 +80,9 @@ public class Enemy : MonoBehaviour
     private bool CanUpdateAI()
     {
         if (mEnemyAI == null)
+            return false;
+
+        if (!mReveal.fullyRevealed)
             return false;
 
         if (!mEnemyAI.enabled)

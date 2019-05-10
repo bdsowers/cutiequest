@@ -38,9 +38,11 @@ public class Summoner : MonoBehaviour
 
         isSummoning = true;
 
+        List<Vector2Int> summonLocations = LockDownSummonLocations();
+
         yield return new WaitForSeconds(0.45f);
 
-        Summon();
+        Summon(summonLocations);
 
         yield return new WaitForSeconds(2f);
 
@@ -49,20 +51,39 @@ public class Summoner : MonoBehaviour
         yield break;
     }
 
-    private void Summon()
+    private List<Vector2Int> LockDownSummonLocations()
     {
         Vector2Int pos = transform.position.AsVector2IntUsingXZ();
         pos.y = -pos.y;
 
         List<Vector2Int> walkablePositions = WalkablePositionsInRange(pos.x, pos.y);
+        List<Vector2Int> summonLocations = new List<Vector2Int>();
         for (int i = 0; i < numEnemiesToSummon; ++i)
         {
             if (walkablePositions.Count == 0)
                 continue;
 
             Vector2Int randomPos = walkablePositions.Sample();
-            SummonEnemy(randomPos);
+            summonLocations.Add(randomPos);
             walkablePositions.Remove(randomPos);
+            mCollisionMap.MarkSpace(randomPos.x, randomPos.y, 4);
+
+            Vector3 summonWorldPos = new Vector3(randomPos.x, 0.5f, -randomPos.y);
+            GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX3_MagicAura_B_Runic");
+            vfx.GetComponentInChildren<ParticleSystem>().playbackSpeed = 2.5f;
+            vfx.transform.position = summonWorldPos + Vector3.up * 0.1f;
+            vfx.transform.localScale = Vector3.one * 0.5f;
+            vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
+        }
+
+        return summonLocations;
+    }
+
+    private void Summon(List<Vector2Int> locations)
+    {
+        for (int i = 0; i < locations.Count; ++i)
+        {
+            SummonEnemy(locations[i]);
         }
     }
 
@@ -74,7 +95,6 @@ public class Summoner : MonoBehaviour
         Vector2Int pos2 = mapPos;
         Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
         newEnemy.transform.position = pos;
-        mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
     }
 
     private List<Vector2Int> WalkablePositionsInRange(int originX, int originY)

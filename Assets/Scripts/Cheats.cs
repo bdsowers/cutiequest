@@ -80,5 +80,10 @@ public class Cheats : MonoBehaviour
             LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
             Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Game.instance.avatar.GetComponent<Killable>().invulnerable = true;
+        }
     }
 }
