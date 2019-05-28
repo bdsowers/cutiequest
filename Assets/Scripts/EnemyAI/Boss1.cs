@@ -19,6 +19,7 @@ public class Boss1 : EnemyAI
     List<EnemyAI> mAllAIModules = new List<EnemyAI>();
     CharacterStatistics mStatistics;
     Killable mKillable;
+    EnemyAI mCurrentActiveModule;
 
     public GameObject[] phaseContainers;
 
@@ -37,6 +38,7 @@ public class Boss1 : EnemyAI
         mAllAIModules = new List<EnemyAI>() { mSummonerAI, mProjectileThrowerAI, mSpellCasterAI };
 
         mSummonerAI.enabled = true;
+        mCurrentActiveModule = mSummonerAI;
 
         mEnemy.SetEnemyAI(this);
 
@@ -72,12 +74,17 @@ public class Boss1 : EnemyAI
 
     private void SwitchPhaseIfNecessary()
     {
-        if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) / 4)
+        int prevPhase = mCurrentPhase;
+
+        if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) * 0.33f)
             mCurrentPhase = 2;
-        else if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) / 2)
+        else if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) * 0.66f)
             mCurrentPhase = 1;
         else
             mCurrentPhase = 0;
+
+        if (prevPhase == mCurrentPhase)
+            return;
 
         phaseContainers[0].SetActive(false);
         phaseContainers[1].SetActive(false);
@@ -106,9 +113,11 @@ public class Boss1 : EnemyAI
                 for (int i = 0; i < mAllAIModules.Count; ++i)
                     mAllAIModules[i].enabled = false;
 
-                EnemyAI newActiveModule = mAllAIModules.Sample();
-                newActiveModule.enabled = true;
-                newActiveModule.AIStructureChanged();
+                List<EnemyAI> ignoreList = new List<EnemyAI>() { mCurrentActiveModule };
+
+                mCurrentActiveModule = mAllAIModules.Sample(ignoreList);
+                mCurrentActiveModule.enabled = true;
+                mCurrentActiveModule.AIStructureChanged();
             }
         }
     }
