@@ -11,7 +11,7 @@ namespace OMM.RDG
         private float mProbability;
         private int mWidth;
         private int mHeight;
-        private int[,] mTiles;
+        private char[,] mTiles;
         private List<Vector2Int> mExits = new List<Vector2Int>();
 
         public string name { get { return mName; } }
@@ -26,7 +26,7 @@ namespace OMM.RDG
             ParseRoomDataBlob(dataBlob);
         }
 
-        public int Tile(int x, int y)
+        public char Tile(int x, int y)
         {
             return mTiles[x, y];
         }
@@ -73,14 +73,14 @@ namespace OMM.RDG
             mWidth = lines[3].Trim().Length;
             mHeight = lines.Count - 3;
 
-            mTiles = new int[mWidth, mHeight];
+            mTiles = new char[mWidth, mHeight];
             for (int y = 0; y < mHeight; ++y)
             {
                 string line = lines[y + 3].Trim();
                 for (int x = 0; x < mWidth; ++x)
                 {
                     string tile = line.Substring(x, 1);
-                    mTiles[x, y] = int.Parse(tile);
+                    mTiles[x, y] = tile[0];
                 }
             }
 
@@ -108,7 +108,7 @@ namespace OMM.RDG
             {
                 for (int y = 0; y < mHeight; ++y)
                 {
-                    int temp = mTiles[x, y];
+                    char temp = mTiles[x, y];
                     mTiles[x, y] = mTiles[mWidth - x - 1, y];
                     mTiles[mWidth - x - 1, y] = temp;
                 }
@@ -122,7 +122,7 @@ namespace OMM.RDG
             {
                 for (int y = 0; y < mHeight / 2; ++y)
                 {
-                    int temp = mTiles[x, y];
+                    char temp = mTiles[x, y];
                     mTiles[x, y] = mTiles[x, mHeight - y - 1];
                     mTiles[x, mHeight - y - 1] = temp;
                 }
@@ -135,7 +135,7 @@ namespace OMM.RDG
             int targetWidth = mHeight;
             int targetHeight = mWidth;
 
-            int[,] newTileData = new int[mHeight, mWidth];
+            char[,] newTileData = new char[mHeight, mWidth];
 
             for (int sourceY = 0; sourceY < mHeight; ++sourceY)
             {

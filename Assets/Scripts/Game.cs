@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
     private CinematicDataProvider mCinematicDataProvider;
     private CharacterStatInfo mCharacterStatInfo;
     private CompanionBuilder mCompanionBuilder;
+    private HUD mHUD;
 
     private DungeonData mCurrentDungeonData;
     private int mCurrentDungeonFloor;
@@ -113,6 +114,16 @@ public class Game : MonoBehaviour
         }
     }
 
+    public HUD hud
+    {
+        get
+        {
+            if (mHUD == null)
+                mHUD = GameObject.Find("HUD").GetComponent<HUD>();
+
+            return mHUD;
+        }
+    }
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {

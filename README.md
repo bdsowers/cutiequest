@@ -33,7 +33,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Vertical Slice Features
 * Level 1 boss
-* 1 more enemy
 * 1 more trap
 * 3 more shrines
 * 3 more items
@@ -49,6 +48,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Credits to mention licenses
 * General bug fixes
 
+* ~~1 more enemy~~
 * ~~Improved map~~
 * ~~Pause menu / way to quit~~
 * ~~Build test~~

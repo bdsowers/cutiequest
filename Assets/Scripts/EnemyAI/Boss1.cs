@@ -39,6 +39,9 @@ public class Boss1 : EnemyAI
         mSummonerAI.enabled = true;
 
         mEnemy.SetEnemyAI(this);
+
+        Game.instance.hud.bossHealth.gameObject.SetActive(true);
+        Game.instance.hud.bossHealth.SetWithValues(0, mKillable.health, mKillable.health);
     }
 
     public override bool CanUpdateAI()
@@ -82,8 +85,15 @@ public class Boss1 : EnemyAI
         phaseContainers[mCurrentPhase].SetActive(true);
     }
 
+    private void OnDestroy()
+    {
+        Game.instance.hud.bossHealth.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
+        Game.instance.hud.bossHealth.SetWithValues(0, mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject), mKillable.health);
+
         mSwitchTimer -= Time.deltaTime;
         if (mSwitchTimer < 0f)
         {

@@ -7,9 +7,9 @@ using VectorExtensions;
 
 public class LevelGenerator : MonoBehaviour
 {
-    private const int SHOP_PEDESTAL = 7;
-    private const int SHOP_KEEPER = 8;
-    private const int PRESET_ENEMY = 9;
+    private const char SHOP_PEDESTAL = '7';
+    private const char SHOP_KEEPER = '8';
+    private const char PRESET_ENEMY = '9';
 
     RandomDungeon mDungeon;
     RandomDungeonGenerator mDungeonGenerator;

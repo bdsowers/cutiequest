@@ -3988,6 +3988,7 @@ MonoBehaviour:
   offset: {x: -1, y: 3, z: -5}
   useCinematicOffset: 1
   trackY: 0
+  animationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &551044804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14115,6 +14116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853410546218516488, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}

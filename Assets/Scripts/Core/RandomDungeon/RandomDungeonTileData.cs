@@ -10,7 +10,7 @@ namespace OMM.RDG
     /// </summary>
     public class RandomDungeonTileData
     {
-        public int tileType;
+        public char tileType;
         public int scope;
         public int room;
         public int distanceFromPrimaryPath = 0;
@@ -20,16 +20,16 @@ namespace OMM.RDG
         public int tileId = 0;
         public Vector2Int position;
 
-        public const int EMPTY_TILE = 0;
-        public const int WALKABLE_TILE = 1;
-        public const int WALL_TILE = 2;
-        public const int EXIT_TILE = 3;
+        public const char EMPTY_TILE = '0';
+        public const char WALKABLE_TILE = '1';
+        public const char WALL_TILE = '2';
+        public const char EXIT_TILE = '3';
 
         // These will not exist in the final map; they will be replaced with WALKABLE_TILE
         // and extra information will be tacked on the TileData
-        public const int TRAP_TILE = 4;
-        public const int POSSIBLE_CHEST_TILE = 5;
-        public const int GUARANTEED_CHEST_TILE = 6;
+        public const char TRAP_TILE = '4';
+        public const char POSSIBLE_CHEST_TILE = '5';
+        public const char GUARANTEED_CHEST_TILE = '6';
 
         public RandomDungeonTileData()
         {

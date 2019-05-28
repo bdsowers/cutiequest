@@ -447,7 +447,7 @@ namespace OMM.RDG
                     int mapX = mapExit.x - roomExit.x + x;
                     int mapY = mapExit.y - roomExit.y + y;
                     Vector2Int mapPos = new Vector2Int(mapX, mapY);
-                    int roomTile = roomData.Tile(x, y);
+                    char roomTile = roomData.Tile(x, y);
 
                     // Empty tiles shouldn't be represented in the dictionary
                     if (roomTile == RandomDungeonTileData.EMPTY_TILE)

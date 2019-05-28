@@ -37,12 +37,12 @@ namespace OMM.RDG
             }
         }
 
-        public int TileType(int x, int y)
+        public char TileType(int x, int y)
         {
             return mTiles[x, y].tileType;
         }
 
-        public int TileType(Vector2Int pos)
+        public char TileType(Vector2Int pos)
         {
             return mTiles[pos.x, pos.y].tileType;
         }
@@ -67,7 +67,7 @@ namespace OMM.RDG
             mTiles[x, y] = data;
         }
 
-        public void ChangeTileType(int x, int y, int newTileType)
+        public void ChangeTileType(int x, int y, char newTileType)
         {
             mTiles[x, y].tileType = newTileType;
         }
