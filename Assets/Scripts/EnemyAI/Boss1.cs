@@ -41,9 +41,15 @@ public class Boss1 : EnemyAI
         mCurrentActiveModule = mSummonerAI;
 
         mEnemy.SetEnemyAI(this);
+        mKillable.onHit += OnHit;
 
         Game.instance.hud.bossHealth.gameObject.SetActive(true);
         Game.instance.hud.bossHealth.SetWithValues(0, mKillable.health, mKillable.health);
+    }
+
+    private void OnHit(Killable entity)
+    {
+        SwitchPhaseIfNecessary();
     }
 
     public override bool CanUpdateAI()
@@ -86,10 +92,19 @@ public class Boss1 : EnemyAI
         if (prevPhase == mCurrentPhase)
             return;
 
+        if (mCurrentPhase == 0)
+            Game.instance.hud.bossHealth.fullImage.color = new Color(0, 1, 0);
+        else if (mCurrentPhase == 1)
+            Game.instance.hud.bossHealth.fullImage.color = new Color(1, 1, 0);
+        else
+            Game.instance.hud.bossHealth.fullImage.color = new Color(1, 0, 0);
+
         phaseContainers[0].SetActive(false);
         phaseContainers[1].SetActive(false);
         phaseContainers[2].SetActive(false);
         phaseContainers[mCurrentPhase].SetActive(true);
+
+        SwitchAIBehavior();
     }
 
     private void OnDestroy()
@@ -106,19 +121,22 @@ public class Boss1 : EnemyAI
         {
             if (CanUpdateAI())
             {
-                SwitchPhaseIfNecessary();
-
                 mSwitchTimer = Random.Range(2f, 4f);
 
-                for (int i = 0; i < mAllAIModules.Count; ++i)
-                    mAllAIModules[i].enabled = false;
-
-                List<EnemyAI> ignoreList = new List<EnemyAI>() { mCurrentActiveModule };
-
-                mCurrentActiveModule = mAllAIModules.Sample(ignoreList);
-                mCurrentActiveModule.enabled = true;
-                mCurrentActiveModule.AIStructureChanged();
+                SwitchAIBehavior();
             }
         }
+    }
+
+    void SwitchAIBehavior()
+    {
+        for (int i = 0; i < mAllAIModules.Count; ++i)
+            mAllAIModules[i].enabled = false;
+
+        List<EnemyAI> ignoreList = new List<EnemyAI>() { mCurrentActiveModule };
+
+        mCurrentActiveModule = mAllAIModules.Sample(ignoreList);
+        mCurrentActiveModule.enabled = true;
+        mCurrentActiveModule.AIStructureChanged();
     }
 }
