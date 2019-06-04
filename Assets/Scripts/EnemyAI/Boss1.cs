@@ -42,9 +42,15 @@ public class Boss1 : EnemyAI
 
         mEnemy.SetEnemyAI(this);
         mKillable.onHit += OnHit;
+        mKillable.onDeath += OnDeath;
 
         Game.instance.hud.bossHealth.gameObject.SetActive(true);
         Game.instance.hud.bossHealth.SetWithValues(0, mKillable.health, mKillable.health);
+    }
+
+    private void OnDeath(Killable entity)
+    {
+        throw new System.NotImplementedException();
     }
 
     private void OnHit(Killable entity)
@@ -121,7 +127,7 @@ public class Boss1 : EnemyAI
         {
             if (CanUpdateAI())
             {
-                mSwitchTimer = Random.Range(2f, 4f);
+                mSwitchTimer = Random.Range(2f, 2.5f);
 
                 SwitchAIBehavior();
             }

@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Goth
   description: Everything is a little bleaker.
-  icon: {fileID: 21300198, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 1d66ad2941ae32a43823b2ebaa1d074e, type: 3}
   requiredLevel: 2

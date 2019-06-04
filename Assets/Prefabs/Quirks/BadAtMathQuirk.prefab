@@ -45,4 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Bad at Math
   description: All numbers display wrong. What even is a 7 anyway?
-  icon: {fileID: 21300354, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: db85d4de3bbf7b348835abdc77d0ca34, type: 3}
+  requiredLevel: 1

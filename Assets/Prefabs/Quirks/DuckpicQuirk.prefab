@@ -45,4 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Duckpics
   description: It's a surprise. An unpleasant one.
-  icon: {fileID: 21300260, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: cd0eaa762764f9e409a0e398b361ecd9, type: 3}
+  requiredLevel: 1

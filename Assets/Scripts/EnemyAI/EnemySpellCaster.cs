@@ -6,6 +6,7 @@ public class EnemySpellCaster : EnemyAI
 {
     SpellCaster mSpellCaster;
     SimpleMovement mSimpleMovement;
+    int mCastCounter = 0;
 
     private GameObject target
     {
@@ -32,6 +33,8 @@ public class EnemySpellCaster : EnemyAI
         Vector3 smallDistanceDirection = OrthogonalDirection(transform, target.transform, false);
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
+        mCastCounter--;
+
         if (mSpellCaster.IsInRange())
         {
             // Increase the likelihood that we'll try to move away from the player the closer they get.
@@ -52,6 +55,9 @@ public class EnemySpellCaster : EnemyAI
                     run = true;
                 }
             }
+
+            if (mCastCounter > 0)
+                run = true;
 
             if (run && mSimpleMovement.CanMove(-largeDistanceDirection))
             {
@@ -83,6 +89,7 @@ public class EnemySpellCaster : EnemyAI
     {
         int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
         mSpellCaster.CastSpell(magic);
+        mCastCounter = 3;
     }
 
     public override bool CanUpdateAI()

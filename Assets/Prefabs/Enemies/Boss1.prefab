@@ -81,19 +81,23 @@ MonoBehaviour:
   orientToDirection: 0
   randomOrientation: 1
   showTargetArea: 1
-  patternString: '1111111
+  patternString: '111111111
 
-    1011101
+    101111011
 
-    1111111
+    111111111
 
-    1110111
+    111111111
 
-    1111111
+    111101111
 
-    1011101
+    111111111
 
-    1111111'
+    111111111
+
+    110110111
+
+    111111111'
   castSpeed: 1
   effectName: CFX2_RockHit
   effectOffset: {x: 0, y: 0, z: 0}
@@ -313,7 +317,7 @@ MonoBehaviour:
   _maxHealth: 1500
   _strength: 55
   _defense: 0
-  _magic: 1
+  _magic: 10
   _speed: 5
   _luck: 1
 --- !u!114 &6961990967797571961
@@ -583,7 +587,7 @@ MonoBehaviour:
   showTargetArea: 1
   patternString: '1111111
 
-    1010111
+    1011101
 
     1111111
 
@@ -591,7 +595,7 @@ MonoBehaviour:
 
     1111111
 
-    1110101
+    1011101
 
     1111111'
   castSpeed: 1

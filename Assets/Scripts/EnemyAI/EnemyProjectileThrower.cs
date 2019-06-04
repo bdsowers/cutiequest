@@ -7,6 +7,7 @@ public class EnemyProjectileThrower : EnemyAI
 {
     ProjectileThrower mProjectileThrower;
     SimpleMovement mSimpleMovement;
+    int mThrowCounter = 0;
 
     private GameObject target
     {
@@ -33,6 +34,8 @@ public class EnemyProjectileThrower : EnemyAI
 
         int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
         mProjectileThrower.ThrowProjectile(magic, TargetDirection());
+
+        mThrowCounter = 2;
     }
 
     private Vector3 TargetDirection()
@@ -62,12 +65,14 @@ public class EnemyProjectileThrower : EnemyAI
         bool alignedOnZAxis = (Mathf.Abs(diff.z) < 0.1f);
         bool alignedOnEitherAxis = (alignedOnXAxis || alignedOnZAxis);
 
+        --mThrowCounter;
+
         if (mProjectileThrower.IsInRange())
         {
             if (alignedOnEitherAxis)
             {
                 // Large chance we're going to throw but a small chance we'll move in a random direction instead
-                if (Random.Range(0, 100) > 15)
+                if (Random.Range(0, 100) > 15 && mThrowCounter <= 0)
                 {
                     ThrowProjectile();
                 }
@@ -88,7 +93,7 @@ public class EnemyProjectileThrower : EnemyAI
             {
                 // If we're not aligned on one of the axis, there's a decent chance we'll try to become aligned;
                 // otherwise, we'll just do a throw.
-                if (Random.Range(0, 100) < 20)
+                if (Random.Range(0, 100) < 20 && mThrowCounter <= 0)
                 {
                     ThrowProjectile();
                 }
