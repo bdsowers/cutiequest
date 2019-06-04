@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VectorExtensions;
 
 public class EnemySpellCaster : EnemyAI
 {
@@ -34,7 +35,7 @@ public class EnemySpellCaster : EnemyAI
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
         mCastCounter--;
-
+        
         if (mSpellCaster.IsInRange())
         {
             // Increase the likelihood that we'll try to move away from the player the closer they get.
@@ -59,6 +60,8 @@ public class EnemySpellCaster : EnemyAI
             if (mCastCounter > 0)
                 run = true;
 
+            Vector3 randomDirection = VectorHelper.RandomOrthogonalVectorXZ();
+
             if (run && mSimpleMovement.CanMove(-largeDistanceDirection))
             {
                 mSimpleMovement.Move(-largeDistanceDirection);
@@ -66,6 +69,10 @@ public class EnemySpellCaster : EnemyAI
             else if (run && mSimpleMovement.CanMove(-smallDistanceDirection))
             {
                 mSimpleMovement.Move(-smallDistanceDirection);
+            }
+            else if (run && mSimpleMovement.CanMove(randomDirection))
+            {
+                mSimpleMovement.Move(randomDirection);
             }
             else
             {
