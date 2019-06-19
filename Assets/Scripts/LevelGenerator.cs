@@ -127,7 +127,7 @@ public class LevelGenerator : MonoBehaviour
                 }
                 else if (tileData.chest == 1)
                 {
-                    bool generateShrine = (Random.Range(0, 100) < 25);
+                    bool generateShrine = (Random.Range(0, 100) < 50);
                     if (generateShrine)
                     {
                         Debug.Log("A special room has spawned including a shrine.");
