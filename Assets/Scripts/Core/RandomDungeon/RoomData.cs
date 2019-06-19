@@ -13,13 +13,14 @@ namespace OMM.RDG
         private int mHeight;
         private char[,] mTiles;
         private List<Vector2Int> mExits = new List<Vector2Int>();
-
+        
         public string name { get { return mName; } }
         public string[] categories { get { return mCategories; } }
         public float probability { get { return mProbability; } set { mProbability = value; } }
         public int width { get { return mWidth; } }
         public int height { get { return mHeight; } }
         public List<Vector2Int> exits { get { return mExits; } }
+        public int placeCount = 0;
 
         public RoomData(string dataBlob)
         {

@@ -439,6 +439,7 @@ namespace OMM.RDG
         private void PlaceRoom(RoomData roomData, Vector2Int mapExit, Vector2Int roomExit, int scope, bool primaryPath)
         {
             int maxDistance = 0;
+            roomData.placeCount++;
 
             for (int x = 0; x < roomData.width; ++x)
             {

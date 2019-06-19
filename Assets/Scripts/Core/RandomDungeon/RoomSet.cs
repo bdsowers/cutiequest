@@ -118,6 +118,8 @@ namespace OMM.RDG
             if (excludeRoom != null)
                 availableRooms.Remove(excludeRoom);
 
+            availableRooms.RemoveAll(i => (i.HasCategory("limit_1") && i.placeCount > 0));
+
             if (availableRooms.Count == 0)
                 return null;
 
