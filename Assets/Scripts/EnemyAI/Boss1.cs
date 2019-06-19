@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ArrayExtensions;
+using DG.Tweening;
 
 public class Boss1 : EnemyAI
 {
@@ -46,6 +47,9 @@ public class Boss1 : EnemyAI
 
         Game.instance.hud.bossHealth.gameObject.SetActive(true);
         Game.instance.hud.bossHealth.SetWithValues(0, mKillable.health, mKillable.health);
+
+        Game.instance.hud.bossHealth.transform.localScale = Vector3.zero;
+        Game.instance.hud.bossHealth.transform.DOScale(1f, 0.5f);
     }
 
     private void OnDeath(Killable entity)
@@ -99,7 +103,7 @@ public class Boss1 : EnemyAI
             return;
 
         if (mCurrentPhase == 0)
-            Game.instance.hud.bossHealth.fullImage.color = new Color(0, 1, 0);
+            Game.instance.hud.bossHealth.fullImage.color = new Color(121/255.0f, 100/255.0f, 64/255.0f);
         else if (mCurrentPhase == 1)
             Game.instance.hud.bossHealth.fullImage.color = new Color(1, 1, 0);
         else
