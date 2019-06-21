@@ -43,7 +43,7 @@ public class DropsItems : MonoBehaviour
 
         for (int i = 0; i < arbitraryDrops.Length; ++i)
         {
-            int value = Random.Range(0, 100);
+            int value = Random.Range(0, 100) + Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
             if (value < arbitraryDrops[i].rate)
             {
                 DropItems(arbitraryDrops[i].itemName, arbitraryDrops[i].amount);
@@ -89,7 +89,7 @@ public class DropsItems : MonoBehaviour
         if (dropData == null)
             return 0;
 
-        int val = Random.Range(0, 100);
+        int val = Random.Range(0, 100) + Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject); ;
         for (int i = 0; i < dropData.Length; ++i)
         {
             if (val <= dropData[i].rate)

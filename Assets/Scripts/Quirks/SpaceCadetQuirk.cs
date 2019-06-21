@@ -41,7 +41,7 @@ public class SpaceCadetQuirk : Quirk
                 }
                 else
                 {
-                    if (Random.Range(0, 100) < 3)
+                    if (Random.Range(0, 100) < 2)
                     {
                         mRandomDirection = VectorHelper.RandomOrthogonalVectorXZ();
                         Debug.Log(mRandomDirection);

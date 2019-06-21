@@ -37,6 +37,11 @@ public class Item : MonoBehaviour
             // Plus there's always some variability.
             progressSpecificCost = Game.instance.currentDungeonFloor * 15 + Random.Range(-15, 50);
 
+            // Shop prices decrease when luck is high.
+            int luck = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+            progressSpecificCost -= Random.Range(0, luck / 2);
+            progressSpecificCost = Mathf.Max(0, progressSpecificCost);
+
             if (ExpensiveTastesQuirk.isQuirkPresent)
             {
                 progressSpecificCost += ExpensiveTastesQuirk.CostModification();
