@@ -6,17 +6,47 @@ public class EnemyDirector : MonoBehaviour
 {
     List<Enemy> mEnemies = new List<Enemy>();
 
-    private bool isMyTurn = false;
+    private bool mUpdatingEnemies = false;
 
     private void Awake()
     {
-        
+        mUpdatingEnemies = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Game.instance.realTime)
+        {
+            RealTimeUpdate();
+        }
+        else
+        {
+            TurnBasedUpdate();
+        }
+    }
+
+    void RealTimeUpdate()
+    {
         UpdateEnemies();
+    }
+
+    void TurnBasedUpdate()
+    {
+        if (Game.instance.whoseTurn == 0)
+            return;
+
+        if (!mUpdatingEnemies)
+        {
+            mUpdatingEnemies = true;
+            UpdateEnemies();
+        }
+
+        if (mUpdatingEnemies && AllEnemiesReady())
+        {
+            mUpdatingEnemies = false;
+            Game.instance.whoseTurn = 0;
+        }
     }
 
     void UpdateEnemies()
@@ -25,6 +55,19 @@ public class EnemyDirector : MonoBehaviour
         {
             mEnemies[i].UpdateEnemy();
         }
+    }
+
+    bool AllEnemiesReady()
+    {
+        for (int i = 0; i < mEnemies.Count; ++i)
+        {
+            if (!mEnemies[i].ReadyForTurn())
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public void RegisterEnemy(Enemy enemy)

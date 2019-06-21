@@ -30,10 +30,14 @@ public class ProjectileThrower : MonoBehaviour
     {
         isThrowing = true;
 
+        float actualThrowSpeed = throwSpeed;
+        if (!Game.instance.realTime)
+            actualThrowSpeed = 5f;
+
         GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Throw", 0, 0f);
-        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = throwSpeed;
+        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = actualThrowSpeed;
         
-        yield return new WaitForSeconds(0.75f / throwSpeed);
+        yield return new WaitForSeconds(0.75f / actualThrowSpeed);
 
         GameObject projectile = GameObject.Instantiate(projectilePrefab);
         projectile.GetComponent<Projectile>().strength = strength;
@@ -54,7 +58,7 @@ public class ProjectileThrower : MonoBehaviour
         y = Mathf.Round(y / 90) * 90.0f;
         projectile.transform.localRotation = Quaternion.Euler(projectile.transform.localRotation.eulerAngles.x, y, projectile.transform.localRotation.eulerAngles.z);
 
-        yield return new WaitForSeconds(2f / throwSpeed);
+        yield return new WaitForSeconds(2f / actualThrowSpeed);
 
         if (!suppressStateUpdates)
         {

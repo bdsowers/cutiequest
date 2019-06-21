@@ -136,7 +136,7 @@ public class Game : MonoBehaviour
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
-        get { return true; }
+        get { return false; }
     }
 
     public DungeonData currentDungeonData
@@ -166,6 +166,8 @@ public class Game : MonoBehaviour
 
     public bool finishedTutorial { get; set; }
 
+    public int whoseTurn { get; set; }
+
     private void Awake()
     {
         if (mInstance != null)
@@ -186,7 +188,7 @@ public class Game : MonoBehaviour
         mCentralEvents = new CentralEvents();
         mCompanionBuilder = GetComponentInChildren<CompanionBuilder>();
         mEnemyDirector = GetComponentInChildren<EnemyDirector>();
-
+        
         mSaveManager.LoadGame();
 
         playerData.onPlayerDataChanged += OnPlayerDataChanged;

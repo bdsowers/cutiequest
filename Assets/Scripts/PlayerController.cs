@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<Animator>().SetBool("Dancing", true);
             GetComponentInChildren<Animator>().SetInteger("DanceNumber", Random.Range(0, 4));
         }
+
+        Game.instance.whoseTurn = 0;
     }
 
     private bool HasFollower()
@@ -144,10 +146,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnAttackFinished(GameObject attacker, GameObject target)
     {
+        Game.instance.whoseTurn = 1;
     }
 
     private void OnMoveFinished()
     {
+        Game.instance.whoseTurn = 1;
     }
 
     private void CastSpellIfPossible()
@@ -201,6 +205,9 @@ public class PlayerController : MonoBehaviour
             CastSpellIfPossible();
             return;
         }
+
+        if (!Game.instance.realTime && Game.instance.whoseTurn != 0)
+            return;
 
         Vector3 followerDirection = transform.position - follower.transform.position;
         followerDirection.y = 0f;

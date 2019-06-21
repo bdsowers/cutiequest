@@ -65,18 +65,15 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if (Game.instance.realTime)
+        if (mActivated)
         {
-            if (mActivated)
-            {
-                if (mActionCooldownTimer >= 0f)
-                    mActionCooldownTimer -= Time.deltaTime;
+            if (mActionCooldownTimer >= 0f)
+                mActionCooldownTimer -= Time.deltaTime;
 
-                if (CanUpdateAI())
-                {   
-                    UpdateAI();
-                    mActionCooldownTimer = actionCooldown;
-                }
+            if (CanUpdateAI())
+            {   
+                UpdateAI();
+                mActionCooldownTimer = actionCooldown;
             }
         }
     }
@@ -91,7 +88,7 @@ public class Enemy : MonoBehaviour
 
         if (!mEnemyAI.enabled)
             return false;
-        if (mActionCooldownTimer > 0f)
+        if (Game.instance.realTime && mActionCooldownTimer > 0f)
             return false;
         if (mSimpleMovement.isMoving)
             return false;
@@ -112,5 +109,11 @@ public class Enemy : MonoBehaviour
             return;
 
         mEnemyAI.UpdateAI();
+    }
+
+    // Turn-based support only
+    public bool ReadyForTurn()
+    {
+        return mEnemyAI.CanUpdateAI() && !mSimpleMovement.isMoving;
     }
 }
