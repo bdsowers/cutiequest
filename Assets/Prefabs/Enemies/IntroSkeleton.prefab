@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 224883672}
   - component: {fileID: 7670395356955178461}
   - component: {fileID: 4841260898688364236}
-  - component: {fileID: 5174458929260436608}
   - component: {fileID: 2738750450090089172}
   - component: {fileID: 8268176248063259198}
   - component: {fileID: 2827330309182959903}
@@ -86,21 +85,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
   revealDelay: 1
---- !u!114 &5174458929260436608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738750450090089171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33be90d1c4e25a540b1b09a0a47ffcd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  turnOrderRepresentation: {fileID: 21300000, guid: 9c2ff7070ffb54e4aa76837a3e7ba112,
-    type: 3}
 --- !u!114 &2738750450090089172
 MonoBehaviour:
   m_ObjectHideFlags: 0

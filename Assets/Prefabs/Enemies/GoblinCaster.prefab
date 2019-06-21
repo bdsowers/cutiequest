@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 224883672}
   - component: {fileID: 7670395356955178461}
   - component: {fileID: 4841260898688364236}
-  - component: {fileID: 5174458929260436608}
   - component: {fileID: 2738750450090089172}
   - component: {fileID: 8268176248063259198}
   - component: {fileID: 6961990967797571961}
@@ -85,21 +84,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
   revealDelay: 1
---- !u!114 &5174458929260436608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738750450090089171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33be90d1c4e25a540b1b09a0a47ffcd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  turnOrderRepresentation: {fileID: 21300000, guid: 9c2ff7070ffb54e4aa76837a3e7ba112,
-    type: 3}
 --- !u!114 &2738750450090089172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +101,7 @@ MonoBehaviour:
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
+  allowZeroDamage: 0
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +163,7 @@ MonoBehaviour:
   targetDeviation: 0
   targetCaster: 0
   orientToDirection: 0
+  randomOrientation: 0
   showTargetArea: 1
   patternString: '00300
 
@@ -623,6 +609,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 137527758212091400, guid: 66e77aa60f5941c4fac8214300600242,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e754fc27989b55644b3671f714122224, type: 2}
     - target: {fileID: 1249029852035342, guid: 66e77aa60f5941c4fac8214300600242, type: 3}
       propertyPath: m_Layer
       value: 10

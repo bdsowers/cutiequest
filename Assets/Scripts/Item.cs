@@ -48,7 +48,7 @@ public class Item : MonoBehaviour
             }
         }
 
-        return baseCost + progressSpecificCost;
+        return Mathf.Max(1, baseCost + progressSpecificCost);
     }
 
     public void Equip()
