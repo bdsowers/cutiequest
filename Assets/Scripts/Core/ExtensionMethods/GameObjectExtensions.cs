@@ -24,5 +24,13 @@ namespace GameObjectExtensions
             T newComponent = gameObject.AddComponent<T>();
             return newComponent;
         }
+
+        public static void RemoveAllChildren(this GameObject gameObject)
+        {
+            for (int i = 0; i < gameObject.transform.childCount; ++i)
+            {
+                GameObject.Destroy(gameObject.transform.GetChild(i));
+            }
+        }
     }
 }

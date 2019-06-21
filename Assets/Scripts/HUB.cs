@@ -19,6 +19,7 @@ public class HUB : MonoBehaviour
         Game.instance.characterDataList.characterData = characters;
 
         Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
+        Game.instance.playerData.numCoins = 0;
 
         // todo bdsowers - show the phone intro first
         Game.instance.finishedTutorial = true;
