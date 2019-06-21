@@ -29,7 +29,7 @@ namespace GameObjectExtensions
         {
             for (int i = 0; i < gameObject.transform.childCount; ++i)
             {
-                GameObject.Destroy(gameObject.transform.GetChild(i));
+                GameObject.Destroy(gameObject.transform.GetChild(i).gameObject);
             }
         }
     }

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameObjectExtensions;
 
 public class HUB : MonoBehaviour
 {
-    private void Start()
+    private IEnumerator Start()
     {
         Game.instance.playerData.followerUid = null;
 
@@ -20,6 +21,9 @@ public class HUB : MonoBehaviour
 
         Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         Game.instance.playerData.numCoins = 0;
+        Game.instance.playerStats.gameObject.RemoveAllChildren();
+        yield return null;
+        GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
 
         // todo bdsowers - show the phone intro first
         Game.instance.finishedTutorial = true;
