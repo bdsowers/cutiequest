@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
     private EnemyAI mEnemyAI;
     private RevealWhenAvatarIsClose mReveal;
@@ -13,21 +12,26 @@ public class Enemy : MonoBehaviour
 
     public float actionCooldown;
     private float mActionCooldownTimer = -1;
+    private bool mActivated = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Game.instance.enemyDirector.RegisterEnemy(this);
+
         mEnemyAI = GetComponent<EnemyAI>();
         mSimpleMovement = GetComponent<SimpleMovement>();
-        mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mKillable = GetComponent<Killable>();
         mReveal = GetComponentInChildren<RevealWhenAvatarIsClose>();
-
-        mTurnBasedMovement.onTurnGranted += OnTurnGranted;
 
         mKillable.onDeath += OnDeath;
 
         Game.instance.centralEvents.FireEnemyCreated(this);
+    }
+
+    private void OnDestroy()
+    {
+        Game.instance.enemyDirector.UnregisterEnemy(this);    
     }
 
     public void SetEnemyAI(EnemyAI ai)
@@ -50,20 +54,20 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateEnemy()
     {
-        if (!mTurnBasedMovement.canTakeTurns)
+        if (!mActivated)
         {
             float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);
             if (distance < 7f)
             {
-                mTurnBasedMovement.ActivateTurnMovement();
+                mActivated = true;
             }
         }
 
         if (Game.instance.realTime)
         {
-            if (mTurnBasedMovement.canTakeTurns)
+            if (mActivated)
             {
                 if (mActionCooldownTimer >= 0f)
                     mActionCooldownTimer -= Time.deltaTime;
@@ -77,7 +81,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private bool CanUpdateAI()
+    public bool CanUpdateAI()
     {
         if (mEnemyAI == null)
             return false;

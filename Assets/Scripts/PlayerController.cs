@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public GameObject modelContainer;
     public GameObject highlightLight;
 
-    private TurnBasedMovement mTurnBasedMovement;
     private SimpleMovement mSimpleMovement;
     private SimpleAttack mSimpleAttack;
     private ExternalCharacterStatistics mCharacterStats;
@@ -35,12 +34,10 @@ public class PlayerController : MonoBehaviour
         mCharacterStats.externalReference = Game.instance.playerStats;
         follower.GetComponent<ExternalCharacterStatistics>().externalReference = Game.instance.playerStats;
 
-        mTurnBasedMovement = GetComponent<TurnBasedMovement>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
         mKillable = GetComponent<Killable>();
 
-        mTurnBasedMovement.ActivateTurnMovement();
         mSimpleMovement.onMoveFinished += OnMoveFinished;
         mSimpleAttack.onAttackFinished += OnAttackFinished;
 
@@ -147,12 +144,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnAttackFinished(GameObject attacker, GameObject target)
     {
-        mTurnBasedMovement.TurnFinished();
     }
 
     private void OnMoveFinished()
     {
-        mTurnBasedMovement.TurnFinished();
     }
 
     private void CastSpellIfPossible()
@@ -190,10 +185,6 @@ public class PlayerController : MonoBehaviour
         }
 
         if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)
-            return;
-
-        // Disable for real-time play
-        if (!mTurnBasedMovement.isMyTurn && !Game.instance.realTime)
             return;
 
         SpellCaster caster = GetComponentInChildren<SpellCaster>();

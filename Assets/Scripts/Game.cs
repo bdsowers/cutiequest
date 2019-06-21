@@ -21,6 +21,7 @@ public class Game : MonoBehaviour
     private DungeonData mCurrentDungeonData;
     private int mCurrentDungeonFloor;
     private CentralEvents mCentralEvents;
+    private EnemyDirector mEnemyDirector;
 
     // Used only for dev purposes so we can start on the Dungeon scene.
     public DungeonData defaultDungeonData;
@@ -114,6 +115,14 @@ public class Game : MonoBehaviour
         }
     }
 
+    public EnemyDirector enemyDirector
+    {
+        get
+        {
+            return mEnemyDirector;
+        }
+    }
+
     public HUD hud
     {
         get
@@ -176,6 +185,7 @@ public class Game : MonoBehaviour
         mCharacterStatInfo = GetComponentInChildren<CharacterStatInfo>();
         mCentralEvents = new CentralEvents();
         mCompanionBuilder = GetComponentInChildren<CompanionBuilder>();
+        mEnemyDirector = GetComponentInChildren<EnemyDirector>();
 
         mSaveManager.LoadGame();
 
