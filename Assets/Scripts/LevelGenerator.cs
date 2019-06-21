@@ -340,13 +340,23 @@ public class LevelGenerator : MonoBehaviour
             if (Random.Range(0, 100) > 15)
                 continue;
 
+            int spikeNum = 0;
+            bool uniform = (Random.Range(0, 2) == 0);
+            float direction = (Random.Range(0, 2) == 0 ? 1 : -1);
+
             // Generate the trap, making sure we're not generating out of turn
             for (int posIdx = 0; posIdx < pair.Value.Count; ++posIdx)
             {
                 Vector2Int pos = pair.Value[posIdx];
                 if (mDungeon.TileType(pos) == RandomDungeonTileData.WALKABLE_TILE || mDungeon.TileType(pos) == RandomDungeonTileData.EXIT_TILE)
                 {
-                    PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
+                    GameObject trapObj = PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
+                    SpikeTrap spikes = trapObj.GetComponent<SpikeTrap>();
+
+                    if (!uniform)
+                        spikes.timeOffset = 0.25f * spikeNum * direction;
+
+                    ++spikeNum;
                 }
             }
         }

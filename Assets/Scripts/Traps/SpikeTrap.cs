@@ -10,12 +10,19 @@ public class SpikeTrap : MonoBehaviour
     private bool mExtended = false;
     private bool mAnimationPlaying = false;
 
+    public float timeOffset = 0f;
+
+    private void Start()
+    {
+        mTimer += timeOffset;
+    }
+
     private void Update()
     {
         mTimer -= Time.deltaTime;
         if (mTimer < 0f)
         {
-            mTimer = 2f;
+            mTimer = 2f + timeOffset;
             StartCoroutine(MoveSpikes());
         }
     }
