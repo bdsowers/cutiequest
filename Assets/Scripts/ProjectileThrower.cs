@@ -43,7 +43,9 @@ public class ProjectileThrower : MonoBehaviour
         projectile.GetComponent<Projectile>().strength = strength;
         projectile.GetComponent<ConstantTranslation>().direction = direction;
         Transform handTransform = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
-        projectile.transform.position = handTransform.position;
+
+        //projectile.transform.position = handTransform.position;
+        projectile.transform.position = transform.position + Vector3.up * 0.5f;
 
         if (offset.HasValue)
         {

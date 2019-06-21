@@ -22,7 +22,7 @@ public class SpikeTrap : MonoBehaviour
         mTimer -= Time.deltaTime;
         if (mTimer < 0f)
         {
-            mTimer = 2f + timeOffset;
+            mTimer = 2f;
             StartCoroutine(MoveSpikes());
         }
     }
