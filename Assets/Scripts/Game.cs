@@ -136,7 +136,7 @@ public class Game : MonoBehaviour
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
-        get { return false; }
+        get { return true; }
     }
 
     public DungeonData currentDungeonData
