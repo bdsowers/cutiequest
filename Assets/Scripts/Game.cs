@@ -133,6 +133,12 @@ public class Game : MonoBehaviour
             return mHUD;
         }
     }
+
+    public SaveManager saveManager
+    {
+        get { return mSaveManager; }
+    }
+    
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {

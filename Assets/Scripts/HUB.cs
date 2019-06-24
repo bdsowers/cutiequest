@@ -27,5 +27,7 @@ public class HUB : MonoBehaviour
 
         // todo bdsowers - show the phone intro first
         Game.instance.finishedTutorial = true;
+
+        Game.instance.saveManager.TriggerSave();
     }
 }
