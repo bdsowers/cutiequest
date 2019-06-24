@@ -46,11 +46,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Polish up choosing a character
 * Update string table & bring in new version
 * Add "New matches" notification
+* Show button prompts for things that can be activated
 
 ### Known Vertical Slice Bugs
 * Invisible path block
 * Several items seem broken (heart, max health potion)
 * Remove harp item
+* Enemy projectiles collide with things they shouldn't (coins, hearts, chests)
+* Chests & characters can only be activated from the front
 
 ### MVP Beta Features
 * Locked HUB improvement system
