@@ -7,6 +7,7 @@ public class HUD : MonoBehaviour
     public ProgressBar healthBar;
     public PauseDialog pauseDialog;
     public ProgressBar bossHealth;
+    public UnlockDialog unlockDialog;
 
     private void Start()
     {
