@@ -7,6 +7,9 @@ public class PlayerData
     public delegate void PlayerDataChanged(PlayerData newData);
     public event PlayerDataChanged onPlayerDataChanged;
 
+    private string mModel;
+    private string mMaterial;
+
     private string mFollowerUid = "1";
     private int mNumHearts = 0;
     private int mNumCoins = 0;
@@ -79,6 +82,34 @@ public class PlayerData
             if (mAttractiveness != value)
             {
                 mAttractiveness = value;
+
+                MarkDirty();
+            }
+        }
+    }
+
+    public string model
+    {
+        get { return mModel; }
+        set
+        {
+            if (mModel != value)
+            {
+                mModel = value;
+
+                MarkDirty();
+            }
+        }
+    }
+
+    public string material
+    {
+        get { return mMaterial; }
+        set
+        {
+            if (mMaterial != value)
+            {
+                mMaterial = value;
 
                 MarkDirty();
             }

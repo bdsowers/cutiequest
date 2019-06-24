@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CharacterData characterData = new CharacterData();
+        characterData.model = Game.instance.playerData.model;
+        characterData.material = Game.instance.companionBuilder.MaterialByName(Game.instance.playerData.material);
+        GetComponentInChildren<CharacterModel>().ChangeModel(characterData);
+
         mCharacterStats = GetComponent<ExternalCharacterStatistics>();
         mCharacterStats.externalReference = Game.instance.playerStats;
         follower.GetComponent<ExternalCharacterStatistics>().externalReference = Game.instance.playerStats;

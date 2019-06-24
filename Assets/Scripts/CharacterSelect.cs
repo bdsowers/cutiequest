@@ -67,7 +67,12 @@ public class CharacterSelect : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Game.instance.playerData.model = selectableCharacters[mCurrentSelection].name;
+            string materialName = selectableCharacters[mCurrentSelection].GetComponentInChildren<Renderer>().material.name;
+            materialName = materialName.Replace(" (Instance)", "");
 
+            Game.instance.playerData.material = materialName;
+            Game.instance.transitionManager.TransitionToScreen("HUB");
         }
     }
 }

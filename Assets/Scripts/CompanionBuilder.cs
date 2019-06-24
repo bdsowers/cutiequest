@@ -110,4 +110,15 @@ public class CompanionBuilder : MonoBehaviour
         }
         return spells;
     }
+
+    public Material MaterialByName(string name)
+    {
+        for (int i = 0; i < materials.Length; ++i)
+        {
+            if (materials[i].name == name)
+                return materials[i];
+        }
+
+        return null;
+    }
 }

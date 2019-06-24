@@ -72,13 +72,11 @@ public class TitleScreen : MonoBehaviour
     {
         if (Game.instance.finishedTutorial)
         {
-            // QQQ Game.instance.transitionManager.TransitionToScreen("HUB");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelect");
+            Game.instance.transitionManager.TransitionToScreen("HUB");
         }
         else
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelect");
-            //Game.instance.transitionManager.TransitionToScreen("CharacterSelect");
         }
     }
 }
