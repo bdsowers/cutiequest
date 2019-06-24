@@ -52,9 +52,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Invisible path block
 * Several items seem broken (heart, max health potion)
 * Remove harp item
-* Enemy projectiles collide with things they shouldn't (coins, hearts, chests)
 * Chests & characters can only be activated from the front
 * Shouldn't generate the same model as the player character
+* ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
 
 ### MVP Beta Features
 * Locked HUB improvement system
