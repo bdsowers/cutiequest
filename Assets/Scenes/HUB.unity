@@ -1928,7 +1928,7 @@ RectTransform:
   - {fileID: 154032054}
   - {fileID: 1305478536}
   m_Father: {fileID: 1133164971966629912}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4039,7 +4039,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12087
+    m_Bits: 896823
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -14771,9 +14771,9 @@ RectTransform:
   - {fileID: 1133164972529907434}
   - {fileID: 669673352}
   - {fileID: 1133164971434403881}
+  - {fileID: 185905447}
   - {fileID: 1133164971069246214}
   - {fileID: 2135044085}
-  - {fileID: 185905447}
   - {fileID: 1993456198}
   m_Father: {fileID: 0}
   m_RootOrder: 17

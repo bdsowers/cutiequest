@@ -53,7 +53,13 @@ public class ProjectileThrower : MonoBehaviour
         }
 
         projectile.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
-        projectile.SetLayerRecursive(gameObject.layer);
+
+        //projectile.SetLayerRecursive(gameObject.layer);
+        // todo bdsowers - yuck
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+            projectile.SetLayerRecursive(LayerMask.NameToLayer("PlayerProjectile"));
+        else
+            projectile.SetLayerRecursive(LayerMask.NameToLayer("EnemyProjectile"));
 
         // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
         float y = projectile.transform.localRotation.eulerAngles.y;

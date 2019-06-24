@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1498767462656867167}
   - component: {fileID: 1485465932031768776}
   - component: {fileID: 7301084044528581611}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ MonoBehaviour:
   targetDeviation: 0
   targetCaster: 1
   orientToDirection: 0
+  randomOrientation: 0
   showTargetArea: 1
   patternString: '00100
 
@@ -62,6 +63,8 @@ MonoBehaviour:
     00100'
   castSpeed: 1
   effectName: CFX2_RockHit
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0
 --- !u!114 &1498767462656867167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +113,10 @@ PrefabInstance:
     - target: {fileID: 1471751460203380, guid: b19e5108015761b4ea472f6d4fcd098b, type: 3}
       propertyPath: m_Name
       value: Prop_Bomb_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471751460203380, guid: b19e5108015761b4ea472f6d4fcd098b, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4998875105364762, guid: b19e5108015761b4ea472f6d4fcd098b, type: 3}
       propertyPath: m_LocalPosition.x

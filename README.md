@@ -54,6 +54,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Remove harp item
 * Enemy projectiles collide with things they shouldn't (coins, hearts, chests)
 * Chests & characters can only be activated from the front
+* Shouldn't generate the same model as the player character
 
 ### MVP Beta Features
 * Locked HUB improvement system

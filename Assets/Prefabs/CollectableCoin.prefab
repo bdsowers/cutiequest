@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2179649186905901526}
   - component: {fileID: 2179649186905901527}
   - component: {fileID: 6131779016971289014}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CollectableCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 0
+  revealDelay: 1
 --- !u!1 &2179649188308277638
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2179649188308277633}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ModelContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +146,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4f4ba7b3062d02241bd7b19c5b2dbfe4, type: 3}
       propertyPath: m_Name
       value: coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4f4ba7b3062d02241bd7b19c5b2dbfe4, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 4f4ba7b3062d02241bd7b19c5b2dbfe4, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f4ba7b3062d02241bd7b19c5b2dbfe4, type: 3}
       propertyPath: m_LocalPosition.x

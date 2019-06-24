@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 3945348281242529877}
   - component: {fileID: 703541170022330087}
   - component: {fileID: 7083224858756965124}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SpikeTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 1
+  revealDelay: 1
 --- !u!114 &703541170022330087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikes: {fileID: 9100220968727263052}
+  timeOffset: 0
 --- !u!1 &9100220968727263052
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5690353116859683009}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138606, guid: f2bac0c9e640ce84e9b21a5f5f5dba0a, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 420426, guid: f2bac0c9e640ce84e9b21a5f5f5dba0a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -226,6 +228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.204
@@ -300,6 +306,10 @@ PrefabInstance:
     - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Rapier_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -376,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.022
@@ -450,6 +464,10 @@ PrefabInstance:
     - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -526,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.022
@@ -600,6 +622,10 @@ PrefabInstance:
     - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -676,6 +702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.204
@@ -750,6 +780,10 @@ PrefabInstance:
     - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -826,6 +860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.022
@@ -900,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -976,6 +1018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.022
@@ -1050,6 +1096,10 @@ PrefabInstance:
     - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Rapier_01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129084, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436332, guid: 47acc5b26852c45438ce84bf1364dea1, type: 3}
       propertyPath: m_LocalPosition.x

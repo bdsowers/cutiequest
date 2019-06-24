@@ -21,11 +21,11 @@ TagManager:
   - MapOnly
   - Junk
   - 
+  - Collectible
+  - GroundItem
   - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - EnemyProjectile
   - 
   - 
   - 
