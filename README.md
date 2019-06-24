@@ -39,11 +39,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Finish intro sequence
 * 3 more items
 * 4 shrines
+* Rewrite attractiveness hub item to reshuffle matches instead
 
 ### Vertical Slice Polish
 * Revisit controller support
 * Polish up choosing a character
 * Update string table & bring in new version
+* Add "New matches" notification
 
 ### Known Vertical Slice Bugs
 * Invisible path block

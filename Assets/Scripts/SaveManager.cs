@@ -44,6 +44,8 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetString("FollowerID", Game.instance.playerData.followerUid);
         }
 
+        PlayerPrefs.SetString("PlayerModel", Game.instance.playerData.model);
+        PlayerPrefs.SetString("PlayerMaterial", Game.instance.playerData.material);
         PlayerPrefs.SetInt("Hearts", Game.instance.playerData.numHearts);
         PlayerPrefs.SetInt("Coins", Game.instance.playerData.numCoins);
         PlayerPrefs.SetInt("Attractiveness", Game.instance.playerData.attractiveness);
@@ -61,6 +63,8 @@ public class SaveManager : MonoBehaviour
         
         if (saveVersion == 1)
         {
+            Game.instance.playerData.model = PlayerPrefs.GetString("PlayerModel", null);
+            Game.instance.playerData.material = PlayerPrefs.GetString("PlayerMaterial", null);
             Game.instance.playerData.followerUid = PlayerPrefs.GetString("FollowerID", null);
             Game.instance.playerData.numHearts = PlayerPrefs.GetInt("Hearts");
             Game.instance.playerData.numCoins = PlayerPrefs.GetInt("Coins");

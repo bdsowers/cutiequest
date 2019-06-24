@@ -70,7 +70,7 @@ public class TitleScreen : MonoBehaviour
 
     void MoveToNextScene()
     {
-        if (Game.instance.finishedTutorial)
+        if (Game.instance.finishedTutorial && Game.instance.playerData.model != null)
         {
             Game.instance.transitionManager.TransitionToScreen("HUB");
         }

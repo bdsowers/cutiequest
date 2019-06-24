@@ -72,7 +72,7 @@ public class CharacterSelect : MonoBehaviour
             materialName = materialName.Replace(" (Instance)", "");
 
             Game.instance.playerData.material = materialName;
-            Game.instance.transitionManager.TransitionToScreen("HUB");
+            Game.instance.transitionManager.TransitionToScreen("Dungeon");
         }
     }
 }
