@@ -66,8 +66,7 @@ public class Summoner : MonoBehaviour
             Vector2Int randomPos = walkablePositions.Sample();
             summonLocations.Add(randomPos);
             walkablePositions.Remove(randomPos);
-            mCollisionMap.MarkSpace(randomPos.x, randomPos.y, 4);
-
+            
             Vector3 summonWorldPos = new Vector3(randomPos.x, 0.5f, -randomPos.y);
             GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX3_MagicAura_B_Runic");
             vfx.GetComponentInChildren<ParticleSystem>().playbackSpeed = 2.5f;
@@ -89,6 +88,10 @@ public class Summoner : MonoBehaviour
 
     private void SummonEnemy(Vector2Int mapPos)
     {
+        // Only summon here if this position is still empty
+        if (mCollisionMap.SpaceMarking(mapPos.x, mapPos.y) != 0)
+            return;
+
         string enemy = summonedEntities.Sample().name;
 
         GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
