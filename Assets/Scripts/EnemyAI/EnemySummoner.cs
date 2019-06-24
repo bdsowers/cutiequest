@@ -22,6 +22,7 @@ public class EnemySummoner : EnemyAI
     {
         mSummoner = GetComponentInChildren<Summoner>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+        mSummonCooldownTimer = Random.Range(1f, cooldown);
     }
 
     public override void AIStructureChanged()
