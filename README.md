@@ -32,29 +32,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### MVP Alpha Features / Improvements
 
 ### Vertical Slice Features
-* Level 1 boss
-* 1 more trap
-* 3 more shrines
-* 3 more items
 * Sound & music
+* Boss 1 death event
+* Dead end interest increase - more implemented shrines, "Big" chest, free-able characters
+* Change quirk & spell unlocks to happen after every dungeon run
+* Finish intro sequence
+* 3 more items
+* 4 shrines
 
-* Dead-end interest increase
-* Intro w/basic tutorials
-* Character select on new game
+### Vertical Slice Polish
+* Revisit controller support
+* Polish up choosing a character
+* Update string table & bring in new version
 
-* Better controller support
-* TODO scrape
-* Settings screen (maybe)
-* Credits to mention licenses
-* General bug fixes
-
-* ~~1 more enemy~~
-* ~~Improved map~~
-* ~~Pause menu / way to quit~~
-* ~~Build test~~
-* ~~Integrated string table so names & descriptions can be more easily added as we go~~
-* ~~Rework attractiveness buff to unlock spells/quirks instead of new characters~~
-* ~~Rework character combos - no more fixed characters~~
+### Known Vertical Slice Bugs
+* Invisible path block
+* Several items seem broken (heart, max health potion)
+* Remove harp item
 
 ### MVP Beta Features
 * Locked HUB improvement system
