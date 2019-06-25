@@ -32,7 +32,7 @@ public class UnlockDialog : MonoBehaviour
         gameObject.SetActive(true);
 
         transform.localScale = Vector3.zero;
-        transform.DOScale(1f, 0.5f);
+        transform.DOScale(1f, 0.25f);
     }
 
     public void ShowWithQuirk(Quirk quirk)
@@ -44,7 +44,7 @@ public class UnlockDialog : MonoBehaviour
         gameObject.SetActive(true);
 
         transform.localScale = Vector3.zero;
-        transform.DOScale(1f, 0.5f);
+        transform.DOScale(1f, 0.25f);
     }
 
     public void OnConfirmButtonPressed()
