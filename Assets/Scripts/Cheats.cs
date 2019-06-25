@@ -85,5 +85,10 @@ public class Cheats : MonoBehaviour
         {
             Game.instance.avatar.GetComponent<Killable>().invulnerable = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Game.instance.playerData.attractiveness = 1;
+        }
     }
 }

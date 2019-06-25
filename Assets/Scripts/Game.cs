@@ -20,6 +20,7 @@ public class Game : MonoBehaviour
 
     private DungeonData mCurrentDungeonData;
     private int mCurrentDungeonFloor;
+    private int mAttractivenessWhenDungeonEntered;
     private CentralEvents mCentralEvents;
     private EnemyDirector mEnemyDirector;
 
@@ -156,6 +157,12 @@ public class Game : MonoBehaviour
         set { mCurrentDungeonFloor = value; }
     }
 
+    public int attractivenessWhenDungeonEntered
+    {
+        get { return mAttractivenessWhenDungeonEntered; }
+        set { mAttractivenessWhenDungeonEntered = value; }
+    }
+
     public CentralEvents centralEvents
     {
         get { return mCentralEvents; }
@@ -168,6 +175,7 @@ public class Game : MonoBehaviour
 
         mCurrentDungeonData = dungeonData;
         mCurrentDungeonFloor = 1;
+        mAttractivenessWhenDungeonEntered = playerData.attractiveness;
     }
 
     public bool finishedTutorial { get; set; }

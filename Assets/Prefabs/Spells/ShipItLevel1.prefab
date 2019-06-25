@@ -63,5 +63,5 @@ MonoBehaviour:
   description: It's a boat. Just... don't overthink it.
   cooldown: 20
   icon: {fileID: 21300304, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
-  requiredLevel: 3
+  requiredLevel: 11
   level: 1

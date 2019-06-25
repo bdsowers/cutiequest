@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Hoarder
   description: There's just junk... everywhere.
   icon: {fileID: 21300000, guid: 888bcbf43f3f8dd46a1ae0f7b0d41b44, type: 3}
-  requiredLevel: 2
+  requiredLevel: 1

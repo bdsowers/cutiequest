@@ -150,6 +150,8 @@ public class ScreenTransitionManager : MonoBehaviour
 
         deathSpeakerImage.gameObject.SetActive(false);
 
+        yield return StartCoroutine(ShowUnlocks());
+
         yield return StartCoroutine(ChangeScene("HUB"));
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
@@ -201,6 +203,34 @@ public class ScreenTransitionManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(newScene);
         yield return null;
         Game.instance.centralEvents.FireSceneChanged(newScene);
+        yield break;
+    }
+
+    private IEnumerator ShowUnlocks()
+    {
+        // Gather all the spells and quirks that are unlocked by this run and show the appropriate dialog for them.
+        if (Game.instance.attractivenessWhenDungeonEntered == Game.instance.playerData.attractiveness)
+            yield break;
+
+        List<Quirk> unlockedQuirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness, Game.instance.playerData.attractiveness);
+        List<Spell> unlockedSpells = Game.instance.companionBuilder.SpellsInLevel(Game.instance.playerData.attractiveness, Game.instance.playerData.attractiveness);
+
+        for (int i = 0; i < unlockedQuirks.Count; ++i)
+        {
+            Game.instance.hud.unlockDialog.ShowWithQuirk(unlockedQuirks[i]);
+
+            while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
+                yield return null;
+        }
+
+        for (int i = 0; i < unlockedSpells.Count; ++i)
+        {
+            Game.instance.hud.unlockDialog.ShowWithSpell(unlockedSpells[i]);
+
+            while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
+                yield return null;
+        }
+
         yield break;
     }
 }

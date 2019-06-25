@@ -83,13 +83,13 @@ public class CompanionBuilder : MonoBehaviour
         }
     }
 
-    private List<Quirk> QuirksInLevel(int maxLevel)
+    public List<Quirk> QuirksInLevel(int maxLevel, int minLevel = -1)
     {
         List<Quirk> quirks = new List<Quirk>();
         for (int i = 0; i < PrefabManager.instance.quirkPrefabs.Length; ++i)
         {
             Quirk quirk = PrefabManager.instance.quirkPrefabs[i].GetComponent<Quirk>();
-            if (quirk.requiredLevel <= maxLevel)
+            if (quirk.requiredLevel <= maxLevel && quirk.requiredLevel >= minLevel)
             {
                 quirks.Add(quirk);
             }
@@ -97,13 +97,13 @@ public class CompanionBuilder : MonoBehaviour
         return quirks;
     }
 
-    private List<Spell> SpellsInLevel(int maxLevel)
+    public List<Spell> SpellsInLevel(int maxLevel, int minLevel = -1)
     {
         List<Spell> spells = new List<Spell>();
         for (int i = 0; i < PrefabManager.instance.spellPrefabs.Length; ++i)
         {
             Spell spell = PrefabManager.instance.spellPrefabs[i].GetComponent<Spell>();
-            if (spell.requiredLevel <= maxLevel)
+            if (spell.requiredLevel <= maxLevel && spell.requiredLevel >= minLevel)
             {
                 spells.Add(spell);
             }

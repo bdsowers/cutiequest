@@ -78,7 +78,7 @@ MonoBehaviour:
   friendlyName: Face Blind
   description: Nobody looks familiar.
   icon: {fileID: 21300000, guid: 4168337852bc1474e86e14b9e4bb8406, type: 3}
-  requiredLevel: 1
+  requiredLevel: 5
 --- !u!1 &856810096776967386
 GameObject:
   m_ObjectHideFlags: 0

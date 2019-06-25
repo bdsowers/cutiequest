@@ -47,4 +47,4 @@ MonoBehaviour:
   description: You'll sometimes walk in a random direction. That's not annoying at
     all.
   icon: {fileID: 21300000, guid: 495a2246bfa845d4d9b6528d401b109f, type: 3}
-  requiredLevel: 2
+  requiredLevel: 9

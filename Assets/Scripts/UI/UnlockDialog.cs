@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UnlockDialog : MonoBehaviour
 {
@@ -22,8 +23,32 @@ public class UnlockDialog : MonoBehaviour
         
     }
 
+    public void ShowWithSpell(Spell spell)
+    {
+        unlockTitleText.text = "You unlocked a new spell!";
+        unlockNameText.text = LocalizedText.Get(spell.friendlyName);
+        unlockDescText.text = LocalizedText.Get(spell.description);
+        unlockImage.sprite = spell.icon;
+        gameObject.SetActive(true);
+
+        transform.localScale = Vector3.zero;
+        transform.DOScale(1f, 0.5f);
+    }
+
+    public void ShowWithQuirk(Quirk quirk)
+    {
+        unlockTitleText.text = "You unlocked a new quirk!";
+        unlockNameText.text = LocalizedText.Get(quirk.friendlyName);
+        unlockDescText.text = LocalizedText.Get(quirk.description);
+        unlockImage.sprite = quirk.icon;
+        gameObject.SetActive(true);
+
+        transform.localScale = Vector3.zero;
+        transform.DOScale(1f, 0.5f);
+    }
+
     public void OnConfirmButtonPressed()
     {
-
+        gameObject.SetActive(false);
     }
 }

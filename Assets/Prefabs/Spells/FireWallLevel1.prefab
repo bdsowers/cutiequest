@@ -47,6 +47,7 @@ MonoBehaviour:
   targetDeviation: 0
   targetCaster: 1
   orientToDirection: 1
+  randomOrientation: 0
   showTargetArea: 0
   patternString: '03330
 
@@ -63,6 +64,8 @@ MonoBehaviour:
     00000'
   castSpeed: 10
   effectName: CFX4 Fire
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0
 --- !u!114 &2686321477596012508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,4 +82,5 @@ MonoBehaviour:
   description: Creates an enormous blaze that is definitely not safe anywhere.
   cooldown: 12
   icon: {fileID: 21300082, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 1
   level: 1

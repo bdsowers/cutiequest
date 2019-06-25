@@ -48,6 +48,7 @@ MonoBehaviour:
   description: Zap. Bzzzt. It's lightning, you know what it does.
   cooldown: 8
   icon: {fileID: 21300010, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  requiredLevel: 1
   level: 1
 --- !u!114 &3543470525067437546
 MonoBehaviour:
@@ -64,6 +65,7 @@ MonoBehaviour:
   targetDeviation: 0
   targetCaster: 1
   orientToDirection: 0
+  randomOrientation: 0
   showTargetArea: 0
   patternString: '00200
 
@@ -76,3 +78,5 @@ MonoBehaviour:
     00200'
   castSpeed: 10
   effectName: CFX3_Hit_Electric_A_Ground
+  effectOffset: {x: 0, y: 0, z: 0}
+  hideEffectIfNoHit: 0

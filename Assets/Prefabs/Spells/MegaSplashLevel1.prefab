@@ -47,6 +47,7 @@ MonoBehaviour:
   targetDeviation: 0
   targetCaster: 1
   orientToDirection: 0
+  randomOrientation: 0
   showTargetArea: 0
   patternString: '3333333
 
@@ -81,5 +82,5 @@ MonoBehaviour:
   description: Drown your enemies in salty sea water.
   cooldown: 15
   icon: {fileID: 21300020, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
-  requiredLevel: 2
+  requiredLevel: 10
   level: 1

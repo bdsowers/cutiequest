@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Partner in Crime
   description: The heat is on.
   icon: {fileID: 21300000, guid: 45b7ca16534658041af838a880f4a24c, type: 3}
-  requiredLevel: 3
+  requiredLevel: 8

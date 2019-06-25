@@ -2034,6 +2034,8 @@ GameObject:
   - component: {fileID: 6388245178633041584}
   - component: {fileID: 4259730657449209231}
   - component: {fileID: 1604914416838904973}
+  - component: {fileID: 10114983611856286}
+  - component: {fileID: 1842219110630479215}
   m_Layer: 5
   m_Name: UnlockDialog
   m_TagString: Untagged
@@ -2114,6 +2116,44 @@ MonoBehaviour:
   unlockTitleText: {fileID: 4156268491290417337}
   unlockNameText: {fileID: 1748043564671818067}
   unlockDescText: {fileID: 465675234207148469}
+--- !u!223 &10114983611856286
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10114983611856285}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 200
+  m_TargetDisplay: 0
+--- !u!114 &1842219110630479215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10114983611856285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &431338290164418781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4785,8 +4825,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnQuitPressed
+      - m_Target: {fileID: 1604914416838904973}
+        m_MethodName: OnConfirmButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

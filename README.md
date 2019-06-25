@@ -47,6 +47,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Update string table & bring in new version
 * Add "New matches" notification
 * Show button prompts for things that can be activated
+* Lock boss room when boss battle starts
 
 ### Known Vertical Slice Bugs
 * Invisible path block

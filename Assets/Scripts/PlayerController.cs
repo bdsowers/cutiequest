@@ -94,6 +94,9 @@ public class PlayerController : MonoBehaviour
 
         isAlive = false;
 
+        if (Game.instance.currentDungeonFloor > 1)
+            Game.instance.playerData.attractiveness++;
+
         GetComponentInChildren<Animator>().Play("Death");
 
         Invoke("TransitionAfterDelay", 2.5f);
