@@ -13,9 +13,7 @@ public class IncreaseAttractivenessDialog : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        int level = Game.instance.playerData.attractiveness;
-        int nextLevel = level + 1;
-        mCost = Mathf.RoundToInt(Mathf.Pow(3, nextLevel + 1));
+        mCost = 3;
         costLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(mCost).ToString();
     }
 
@@ -23,10 +21,15 @@ public class IncreaseAttractivenessDialog : MonoBehaviour
     {
         if (Game.instance.playerData.numHearts >= mCost)
         {
-            Game.instance.playerData.attractiveness += 1;
             Game.instance.playerData.numHearts -= mCost;
 
             NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, mCost, NumberPopupReason.RemoveHearts);
+
+            Follower currentFollower = GameObject.FindObjectOfType<Follower>();
+            if (currentFollower != null)
+                currentFollower.GetComponentInChildren<CharacterModel>().RemoveModel();
+
+            Game.instance.companionBuilder.BuildCompanionSet();
 
             Game.instance.cinematicDirector.PostCinematicEvent("stylist_success");
         }

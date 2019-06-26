@@ -68,6 +68,21 @@ public class CompanionBuilder : MonoBehaviour
         return randomCharacter;
     }
 
+    public void BuildCompanionSet()
+    {
+        Game.instance.playerData.followerUid = null;
+
+        int numCharacters = Random.Range(3, 6);
+        CharacterData[] characters = new CharacterData[numCharacters];
+        for (int i = 0; i < numCharacters; ++i)
+        {
+            CharacterData character = Game.instance.companionBuilder.BuildRandomCharacter();
+            characters[i] = character;
+        }
+
+        Game.instance.characterDataList.characterData = characters;
+    }
+
     private int GenerateCharacterAge()
     {
         // Younger characters, 18 - 35 range, are more common.

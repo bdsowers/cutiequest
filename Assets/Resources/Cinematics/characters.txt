@@ -14,7 +14,8 @@ animation trigger: trainer_talk
 animation trigger: stylist_talk
 {
 	change_speaker Chr_Fantasy_Bard_01
-	typewriter "Hey handsome! Want to be more... handsome?\nMy unique, patent-pending Cutie Styling Services will have you swooning new 'adventuring partners' in no time!"
+	typewriter text: "Not happy with your QuestR matches? For a few hearts, I can shuffle them around for you.", keep_open: true
+	typewriter text: "Fair warning, if you currently have a companion they'll probably ditch you."
 	increase_attraction
 }
 

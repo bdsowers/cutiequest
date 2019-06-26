@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameObjectExtensions;
 
 public class CharacterModel : MonoBehaviour
 {
@@ -18,6 +19,21 @@ public class CharacterModel : MonoBehaviour
         }
     }
 
+    public void RemoveModel()
+    {
+        transform.gameObject.RemoveAllChildren();
+
+        if (GetComponentInParent<SimpleMovement>() != null)
+        {
+            GetComponentInParent<SimpleMovement>().subMesh = null;
+        }
+
+        if (GetComponentInParent<SimpleAttack>() != null)
+        {
+            GetComponentInParent<SimpleAttack>().subMesh = null;
+        }
+    }
+
     public void ChangeModel(CharacterData characterData, bool castShadows = true)
     {
         if (characterData == null)
@@ -31,8 +47,7 @@ public class CharacterModel : MonoBehaviour
         if (string.IsNullOrEmpty(newModelName))
             return;
 
-        for (int i = 0; i < transform.childCount; ++i)
-            Destroy(transform.GetChild(i).gameObject);
+        transform.gameObject.RemoveAllChildren();
 
         modelName = newModelName;
 

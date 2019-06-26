@@ -38,8 +38,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * 3 more items
 * 4 shrines
 * Rewrite attractiveness hub item to reshuffle matches instead
-* 
-~~Change quirk & spell unlocks to happen after every dungeon run~~
+
+* ~~Change quirk & spell unlocks to happen after every dungeon run~~
 * ~~Boss 1 death event~~
 
 ### Vertical Slice Polish
