@@ -34,7 +34,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Vertical Slice Features
 * Sound & music
 * Dead end interest increase - more implemented shrines, "Big" chest, free-able characters
-* Finish intro sequence
+* Finish intro sequence; force a clear breakup message when it's over.
 * 3 more items
 * 4 shrines
 
@@ -54,11 +54,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Integrate new art
 * Prefer showing new spells/quirks
 * Show positive messaging when the first boss is complete
+* Change idle animation with something better
 
 ### Known Vertical Slice Bugs
 * Invisible path block
 * Several items seem broken (heart, max health potion)
-* Remove harp item
+* Remove harp item, completionist quirk
 * Chests & characters can only be activated from the front
 * Shouldn't generate the same model as the player character
 * Spells shouldn't extend off the map
