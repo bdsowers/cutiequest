@@ -47,6 +47,11 @@ namespace OMM.RDG
             return mTiles[pos.x, pos.y].tileType;
         }
 
+        public bool IsPositionInBounds(Vector2Int pos)
+        {
+            return pos.x >= 0 && pos.y >= 0 && pos.x < width && pos.y < height;
+        }
+
         public int Scope(int x, int y)
         {
             return mTiles[x, y].scope;

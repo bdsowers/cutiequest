@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
     private int mAttractivenessWhenDungeonEntered;
     private CentralEvents mCentralEvents;
     private EnemyDirector mEnemyDirector;
+    private LevelGenerator mLevelGenerator;
 
     // Used only for dev purposes so we can start on the Dungeon scene.
     public DungeonData defaultDungeonData;
@@ -166,6 +167,21 @@ public class Game : MonoBehaviour
     public CentralEvents centralEvents
     {
         get { return mCentralEvents; }
+    }
+
+    // todo bdsowers - not super crazy about this
+    public LevelGenerator levelGenerator
+    {
+        get
+        {
+            if (mLevelGenerator == null)
+            {
+                mLevelGenerator = GameObject.FindObjectOfType<LevelGenerator>();
+            }
+
+            return mLevelGenerator;
+        }
+
     }
 
     public void EnterDungeon(DungeonData dungeonData)

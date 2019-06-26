@@ -18,6 +18,7 @@ public class LevelGenerator : MonoBehaviour
     KillableMap mKillableMap;
 
     public RandomDungeon dungeon {  get { return mDungeon; } }
+    public CollisionMap collisionMap {  get { return mCollisionMap; } }
 
     private Vector2Int mAvatarStartPosition;
     private int mPresetEnemyCounter = 0;
