@@ -33,13 +33,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Vertical Slice Features
 * Sound & music
-* Boss 1 death event
 * Dead end interest increase - more implemented shrines, "Big" chest, free-able characters
 * Finish intro sequence
 * 3 more items
 * 4 shrines
 * Rewrite attractiveness hub item to reshuffle matches instead
-* ~~Change quirk & spell unlocks to happen after every dungeon run~~
+* 
+~~Change quirk & spell unlocks to happen after every dungeon run~~
+* ~~Boss 1 death event~~
 
 ### Vertical Slice Polish
 * Revisit controller support
@@ -52,6 +53,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Remove harp item
 * Integrate new art
 * Prefer showing new spells/quirks
+* Show positive messaging when the first boss is complete
 
 ### Known Vertical Slice Bugs
 * Invisible path block
