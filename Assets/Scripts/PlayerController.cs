@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CharacterData characterData = new CharacterData();
+        CharacterData characterData = ScriptableObject.CreateInstance<CharacterData>();
         characterData.model = Game.instance.playerData.model;
         characterData.material = Game.instance.companionBuilder.MaterialByName(Game.instance.playerData.material);
         GetComponentInChildren<CharacterModel>().ChangeModel(characterData);
