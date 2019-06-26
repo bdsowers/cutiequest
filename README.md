@@ -50,7 +50,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Show button prompts for things that can be activated
 * Lock boss room when boss battle starts
 * Boss drops unique stuff instead of just hearts (ie: exclusive quirks/spells)
-* Remove harp item
 * Integrate new art
 * Prefer showing new spells/quirks
 * Show positive messaging when the first boss is complete
