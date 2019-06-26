@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         isAlive = false;
 
-        if (Game.instance.currentDungeonFloor > 1)
+        if (Game.instance.currentDungeonFloor > 1 && Game.instance.finishedTutorial)
             Game.instance.playerData.attractiveness++;
 
         GetComponentInChildren<Animator>().Play("Death");
