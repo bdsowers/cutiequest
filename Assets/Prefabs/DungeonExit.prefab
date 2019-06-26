@@ -2100,9 +2100,9 @@ GameObject:
   - component: {fileID: 7476228109175563405}
   - component: {fileID: 7637256408145544759}
   - component: {fileID: 4560253725048550879}
-  - component: {fileID: 665192063139839298}
+  - component: {fileID: 951624041079197592}
   m_Layer: 16
-  m_Name: Exit
+  m_Name: DungeonExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 4
---- !u!114 &665192063139839298
+--- !u!114 &951624041079197592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2194,6 +2194,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9067581624821485147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0451b538b3336cd4d96189521d0bb363, type: 3}
+  m_Script: {fileID: 11500000, guid: ae0f9587a709b8a46aebe84d7f1b5b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

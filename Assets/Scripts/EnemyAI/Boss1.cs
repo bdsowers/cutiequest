@@ -54,7 +54,33 @@ public class Boss1 : EnemyAI
 
     private void OnDeath(Killable entity)
     {
-        throw new System.NotImplementedException();
+        // Kill all the enemies, make the player invulnerable
+        Game.instance.avatar.GetComponent<Killable>().invulnerable = true;
+
+        Enemy[] allEnemies = GameObject.FindObjectsOfType<Enemy>();
+        for (int i = 0; i < allEnemies.Length; ++i)
+        {
+            allEnemies[i].GetComponent<Killable>().showNumberPopups = false;
+            allEnemies[i].GetComponent<Killable>().TakeDamage(10000);
+        }
+
+        Game.instance.cinematicDirector.PostCinematicEvent("boss1_death");
+
+        Invoke("SpawnTeleporter", 3f);
+    }
+
+    private void SpawnTeleporter()
+    {
+        // Try to spawn in the center of the boss room, but make sure we spawn a healthy
+        // distance away from the player so they can't accidentally leave prematurely.
+        LevelGenerator generator = GameObject.FindObjectOfType<LevelGenerator>();
+        Vector2Int mapPos = generator.dungeon.PositionForSpecificTile('9');
+        mapPos = generator.FindEmptyNearbyPosition(mapPos);
+        Vector3 worldPos = new Vector3(mapPos.x, 0.4f, -mapPos.y);
+
+        GameObject exit = PrefabManager.instance.InstantiatePrefabByName("DungeonExit");
+        exit.transform.position = worldPos;
+        exit.GetComponent<RevealWhenAvatarIsClose>().Reveal();
     }
 
     private void OnHit(Killable entity)

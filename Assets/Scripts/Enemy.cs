@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private float mActionCooldownTimer = -1;
     private bool mActivated = false;
 
+    public bool isBoss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,8 @@ public class Enemy : MonoBehaviour
         if (!mReveal.fullyRevealed)
             return false;
 
+        if (mKillable.isDead)
+            return false;
         if (!mEnemyAI.enabled)
             return false;
         if (Game.instance.realTime && mActionCooldownTimer > 0f)

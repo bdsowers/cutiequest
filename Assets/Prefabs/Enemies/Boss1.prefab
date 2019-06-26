@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionCooldown: 0.3
+  isBoss: 1
 --- !u!114 &4841260898688364236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1400
-  deathResponse: 0
+  deathResponse: 1
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
@@ -316,22 +317,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a190e20f0ebc641b81ae106ec8b060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinDropData:
-  - itemName: 
-    rate: 10
-    amount: 10
-  - itemName: 
-    rate: 50
-    amount: 5
-  - itemName: 
-    rate: 100
-    amount: 1
+  coinDropData: []
   heartDropData:
   - itemName: 
-    rate: 50
-    amount: 1
+    rate: 10000
+    amount: 64
   arbitraryDrops: []
-  scatter: 0
+  ignoreGoldDigger: 1
+  scatter: 1
+  delay: 2
 --- !u!114 &6215749322139787534
 MonoBehaviour:
   m_ObjectHideFlags: 0

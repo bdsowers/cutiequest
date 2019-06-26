@@ -173,5 +173,21 @@ namespace OMM.RDG
             }
             return neighbors;
         }
+
+        public Vector2Int PositionForSpecificTile(char tileType)
+        {
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    if (mTiles[x,y].tileType == tileType)
+                    {
+                        return new Vector2Int(x, y);
+                    }
+                }
+            }
+
+            return new Vector2Int(-1, -1);
+        }
     }
 }

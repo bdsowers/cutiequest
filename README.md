@@ -35,11 +35,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Sound & music
 * Boss 1 death event
 * Dead end interest increase - more implemented shrines, "Big" chest, free-able characters
-* Change quirk & spell unlocks to happen after every dungeon run
 * Finish intro sequence
 * 3 more items
 * 4 shrines
 * Rewrite attractiveness hub item to reshuffle matches instead
+* ~~Change quirk & spell unlocks to happen after every dungeon run~~
 
 ### Vertical Slice Polish
 * Revisit controller support
@@ -48,6 +48,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Add "New matches" notification
 * Show button prompts for things that can be activated
 * Lock boss room when boss battle starts
+* Boss drops unique stuff instead of just hearts (ie: exclusive quirks/spells)
+* Remove harp item
+* Integrate new art
+* Prefer showing new spells/quirks
 
 ### Known Vertical Slice Bugs
 * Invisible path block
@@ -55,6 +59,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Remove harp item
 * Chests & characters can only be activated from the front
 * Shouldn't generate the same model as the player character
+* Spells shouldn't extend off the map
+* Can walk through HUB parts
+* Make sure new companion starts on same space as player
+* Scattered dropped items can be thrown off map
 * ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
 
 ### MVP Beta Features

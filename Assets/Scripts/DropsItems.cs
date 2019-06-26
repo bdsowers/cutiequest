@@ -17,16 +17,25 @@ public class DropsItems : MonoBehaviour
     public DropData[] coinDropData;
     public DropData[] heartDropData;
     public DropData[] arbitraryDrops;
+    public bool ignoreGoldDigger;
     public bool scatter;
+    public float delay;
 
     public void Drop()
+    {
+        if (delay < 0.01f)
+            DropInternal();
+        else
+            Invoke("DropInternal", delay);
+    }
+
+    public void DropInternal()
     {
         int numCoinsToDrop = NumCurrencyToDrop(coinDropData);
         int numHeartsToDrop = NumCurrencyToDrop(heartDropData);
         
-        if (GoldDiggerQuirk.quirkEnabled)
+        if (GoldDiggerQuirk.quirkEnabled && !ignoreGoldDigger)
         {
-            Debug.Log("Enabled");
             numCoinsToDrop += numHeartsToDrop * 3;
             numHeartsToDrop = 0;
         }
@@ -89,7 +98,8 @@ public class DropsItems : MonoBehaviour
         if (dropData == null)
             return 0;
 
-        int val = Random.Range(0, 100) + Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject); ;
+        // note bdsowers - do a subtraction here based on luck, the rates go lowest to highest
+        int val = Random.Range(0, 100) - Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject); ;
         for (int i = 0; i < dropData.Length; ++i)
         {
             if (val <= dropData[i].rate)

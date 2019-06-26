@@ -150,7 +150,7 @@ public class LevelGenerator : MonoBehaviour
         return PrefabManager.instance.itemPrefabs.Sample().name;
     }
 
-    private Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)
+    public Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)
     {
         if (mDungeon.TileType(sourcePos) != RandomDungeonTileData.WALKABLE_TILE ||
             mCollisionMap.SpaceMarking(sourcePos.x, sourcePos.y) != 0)

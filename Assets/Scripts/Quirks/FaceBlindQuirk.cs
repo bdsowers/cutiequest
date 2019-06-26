@@ -12,6 +12,9 @@ public class FaceBlindQuirk : Quirk
 
     private void OnEnemyCreated(Enemy enemy)
     {
+        if (enemy.isBoss)
+            return;
+
         enemy.GetComponentInChildren<CharacterModel>().ChangeModel(PrefabManager.instance.characterPrefabs.Sample().name);
     }
 

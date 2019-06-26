@@ -28,7 +28,8 @@ public class Killable : MonoBehaviour
     private Enemy mEnemy;
 
     public bool invulnerable { get; set; }
-
+    public bool isDead { get; private set; }
+    
     private void Start()
     {
         mEnemy = GetComponent<Enemy>();
@@ -39,6 +40,8 @@ public class Killable : MonoBehaviour
         if (Game.instance.transitionManager.isTransitioning)
             return false;
         if (invulnerable)
+            return false;
+        if (isDead)
             return false;
 
         return true;
@@ -104,6 +107,8 @@ public class Killable : MonoBehaviour
 
     private void HandleDeath()
     {
+        isDead = true;
+
         if (onDeath != null)
         {
             onDeath(this);
@@ -129,6 +134,12 @@ public class Killable : MonoBehaviour
         {
             GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_BrokenHeart");
             vfx.transform.position = transform.position + Vector3.up * 0.5f;
+
+            Enemy enemy = GetComponent<Enemy>();
+            if (enemy)
+            {
+                GetComponentInChildren<Animator>().Play("Death");
+            }
 
             // gameObject.SetActive(false);
         }
