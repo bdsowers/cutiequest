@@ -65,6 +65,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Can walk through HUB parts
 * Make sure new companion starts on same space as player
 * Scattered dropped items can be thrown off map
+
 * ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
 
 ### MVP Beta Features
