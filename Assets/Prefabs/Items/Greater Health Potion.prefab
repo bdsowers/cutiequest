@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932687729038033099}
   - component: {fileID: 690712235}
+  - component: {fileID: 8898893971233637225}
   m_Layer: 0
   m_Name: Greater Health Potion
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   friendlyName: Greater Health Potion
   description: Heals You Fully
   baseCost: 25
+--- !u!114 &8898893971233637225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932687729038033101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0e7070362669c42bfa8236f5026d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 99999
 --- !u!1 &932687729658016426
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mStatType: 4
-  mRelativeModification: 2
+  mRelativeModification: 3
   mAbsoluteModification: -1
 --- !u!114 &690712235
 MonoBehaviour:
