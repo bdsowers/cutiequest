@@ -62,10 +62,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Chests & characters can only be activated from the front
 * Shouldn't generate the same model as the player character
 * Spells shouldn't extend off the map
-* Can walk through HUB parts
 * Make sure new companion starts on same space as player
 * Scattered dropped items can be thrown off map
 
+* ~~Can walk through HUB parts~~
 * ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
 
 ### MVP Beta Features
