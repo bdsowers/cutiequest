@@ -54,6 +54,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Prefer showing new spells/quirks
 * Show positive messaging when the first boss is complete
 * Change idle animation with something better
+* Keep 'More Info' option enabled when browsing QuestR
 
 ### Known Vertical Slice Bugs
 * Invisible path block
@@ -69,8 +70,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Can walk through HUB parts~~
 * ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
 
-### Vertical Slice Wishlist
+### Vertical Slice Showcasing
+* Turn off cheats
+* Reset game each time a player quits instead of actually quitting
+* Potentially auto-reset when the game has been sitting idly for too long
+* If the game crashes, auto-restart it somehow
 * Playback / attract mode
+* Show feedback survey & e-mail signup after some event (3 runs?)
 
 
 ### MVP Beta Features
