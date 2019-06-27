@@ -81,6 +81,12 @@ public class CompanionBuilder : MonoBehaviour
         }
 
         Game.instance.characterDataList.characterData = characters;
+
+        Follower currentFollower = GameObject.FindObjectOfType<Follower>();
+        if (currentFollower != null)
+        {
+            currentFollower.GetComponentInChildren<CharacterModel>().RemoveModel();
+        }
     }
 
     private int GenerateCharacterAge()

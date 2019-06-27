@@ -12,6 +12,7 @@ public class HUB : MonoBehaviour
 
         Game.instance.playerData.numCoins = 0;
         Game.instance.playerStats.gameObject.RemoveAllChildren();
+        yield return null;
         Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         yield return null;
         GameObject.FindObjectOfType<InventoryDisplay>().Refresh();

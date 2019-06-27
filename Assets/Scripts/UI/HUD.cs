@@ -23,6 +23,10 @@ public class HUD : MonoBehaviour
 
     private void OnPlayerDataChanged(PlayerData newData)
     {
+        // null reference guard when order of operations isn't clear
+        if (Game.instance.avatar.GetComponent<ExternalCharacterStatistics>().externalReference == null)
+            return;
+
         int maxHealth = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         healthBar.SetWithValues(0, maxHealth, newData.health);
     }

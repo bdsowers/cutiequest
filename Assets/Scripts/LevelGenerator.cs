@@ -148,7 +148,7 @@ public class LevelGenerator : MonoBehaviour
 
     private string RandomItem()
     {
-        return "Charm Ring";
+        return "Heart";
         // QQQ return PrefabManager.instance.itemPrefabs.Sample().name;
     }
 

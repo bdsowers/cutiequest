@@ -25,10 +25,6 @@ public class IncreaseAttractivenessDialog : MonoBehaviour
 
             NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, mCost, NumberPopupReason.RemoveHearts);
 
-            Follower currentFollower = GameObject.FindObjectOfType<Follower>();
-            if (currentFollower != null)
-                currentFollower.GetComponentInChildren<CharacterModel>().RemoveModel();
-
             Game.instance.companionBuilder.BuildCompanionSet();
 
             Game.instance.cinematicDirector.PostCinematicEvent("stylist_success");
