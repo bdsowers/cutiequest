@@ -45,7 +45,7 @@ public class PartnerInCrimeQuirk : Quirk
             GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
-            Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+            Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
             newEnemy.transform.position = pos;
             collisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
         }

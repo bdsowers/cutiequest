@@ -53,9 +53,8 @@ public class Summoner : MonoBehaviour
 
     private List<Vector2Int> LockDownSummonLocations()
     {
-        Vector2Int pos = transform.position.AsVector2IntUsingXZ();
-        pos.y = -pos.y;
-
+        Vector2Int pos = MapCoordinateHelper.WorldToMapCoords(transform.position);
+        
         List<Vector2Int> walkablePositions = WalkablePositionsInRange(pos.x, pos.y);
         List<Vector2Int> summonLocations = new List<Vector2Int>();
         for (int i = 0; i < numEnemiesToSummon; ++i)
@@ -66,8 +65,8 @@ public class Summoner : MonoBehaviour
             Vector2Int randomPos = walkablePositions.Sample();
             summonLocations.Add(randomPos);
             walkablePositions.Remove(randomPos);
-            
-            Vector3 summonWorldPos = new Vector3(randomPos.x, 0.5f, -randomPos.y);
+
+            Vector3 summonWorldPos = MapCoordinateHelper.MapToWorldCoords(randomPos);
             GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX3_MagicAura_B_Runic");
             vfx.GetComponentInChildren<ParticleSystem>().playbackSpeed = 2.5f;
             vfx.transform.position = summonWorldPos + Vector3.up * 0.1f;
@@ -96,7 +95,7 @@ public class Summoner : MonoBehaviour
 
         GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
         Vector2Int pos2 = mapPos;
-        Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+        Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;
     }
 

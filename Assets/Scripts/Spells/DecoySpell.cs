@@ -14,13 +14,12 @@ public class DecoySpell : Spell
         if (map == null)
             return;
 
-        Vector2Int playerPos = Game.instance.avatar.transform.position.AsVector2IntUsingXZ();
-        playerPos.y = -playerPos.y;
+        Vector2Int playerPos = MapCoordinateHelper.WorldToMapCoords(Game.instance.avatar.transform.position);
         Vector2Int decoyPos = FindEmptyNearbyPosition(playerPos, map);
 
         GameObject decoy = PrefabManager.instance.InstantiatePrefabByName("Decoy");
         decoy.name = "Decoy";
-        decoy.transform.position = new Vector3(decoyPos.x, 0.5f, -decoyPos.y);
+        decoy.transform.position = MapCoordinateHelper.MapToWorldCoords(decoyPos);
         decoy.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData);
     }
 

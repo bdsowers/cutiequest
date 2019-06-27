@@ -84,7 +84,7 @@ public class LevelGenerator : MonoBehaviour
 
                 if (dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
                 {
-                    mCollisionMap.MarkSpace(x, y, 1);
+                    mCollisionMap.MarkSpace(x, y, -1);
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALL_TILE)
                 {
@@ -182,7 +182,7 @@ public class LevelGenerator : MonoBehaviour
         mAvatarStartPosition = pos;
 
         mCollisionMap.MarkSpace(pos.x, pos.y, avatar.GetComponent<SimpleMovement>().collisionIdentity);
-        avatar.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
+        avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(pos);
 
         // Also place any followers/pets adjacent to the player
         Follower follower = avatar.GetComponent<PlayerController>().follower;
@@ -193,7 +193,7 @@ public class LevelGenerator : MonoBehaviour
         follower.GetComponentInChildren<CharacterModel>().ChangeModel(followerData);
 
         pos = FindEmptyNearbyPosition(pos);
-        follower.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
+        follower.transform.position = MapCoordinateHelper.MapToWorldCoords(pos);
 
         avatar.GetComponent<Killable>().allowZeroDamage = (CurrentDungeonFloorData().roomSet == "introdungeon");
     }
@@ -204,7 +204,7 @@ public class LevelGenerator : MonoBehaviour
         pos = FindEmptyNearbyPosition(pos);
 
         GameObject exit = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Exit"));
-        exit.transform.position = new Vector3(pos.x, 0.4f, -pos.y);
+        exit.transform.position = MapCoordinateHelper.MapToWorldCoords(pos, 0.4f);
     }
 
     private string ChooseEnemy(DungeonFloorData floorData)
@@ -282,7 +282,7 @@ public class LevelGenerator : MonoBehaviour
     {
         string enemy = ChooseEnemy(data);
         GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
-        Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+        Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;
         mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
     }
@@ -303,7 +303,7 @@ public class LevelGenerator : MonoBehaviour
             GameObject newHeart = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefab));
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
-            Vector3 pos = new Vector3(pos2.x, 0.5f, -pos2.y);
+            Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
             newHeart.transform.position = pos;
             
             // Don't mark these on the collision map - entities can walk through them freely

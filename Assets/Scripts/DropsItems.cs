@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VectorExtensions;
+using ArrayExtensions;
 
 public class DropsItems : MonoBehaviour
 {
@@ -62,19 +63,28 @@ public class DropsItems : MonoBehaviour
 
     private void DropItems(string prefabName, int num)
     {
+        List<Vector2Int> emptySurroundingPositions = null;
+
         for (int i = 0; i < num; ++i)
         {
             GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
             Vector3 sourcePosition = transform.position;
-            Vector3 endPosition = transform.position + VectorHelper.RandomNormalizedXZVector3() * 0.3f;
-
+            Vector3 endPosition = transform.position + VectorHelper.RandomNormalizedXZVector3() * Random.Range(0.1f, 0.3f);
+            
             if (scatter)
             {
-                int randX = Random.Range(-1, 2);
-                int randZ = Random.Range(-1, 2);
-                if (randX == 0 && randZ == 0) randX = 1;
+                if (emptySurroundingPositions == null)
+                {
+                    Vector2Int mapCoords = MapCoordinateHelper.WorldToMapCoords(sourcePosition);
+                    emptySurroundingPositions = Game.instance.levelGenerator.collisionMap.EmptyOffsetsNearPosition(mapCoords, 1);
+                }
 
-                endPosition += new Vector3(randX, 0f, randZ);
+                Vector2Int offsetMapPos = new Vector2Int(0, 0);
+                if (emptySurroundingPositions.Count > 0)
+                    offsetMapPos = emptySurroundingPositions.Sample();
+
+                Vector3 offsetWorldPos = MapCoordinateHelper.MapToWorldCoords(offsetMapPos, 0f);
+                endPosition += offsetWorldPos;
             }
 
             newItem.transform.position = sourcePosition;

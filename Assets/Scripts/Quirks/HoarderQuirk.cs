@@ -22,7 +22,7 @@ public class HoarderQuirk : Quirk
 
             // todo bdsowers - ensure that this position is valid
             GameObject newDebris = PrefabManager.instance.InstantiatePrefabByName(PrefabManager.instance.debrisPrefabs.Sample().name);
-            newDebris.transform.position = new Vector3(pos.x, 0.5f, -pos.y);
+            newDebris.transform.position = MapCoordinateHelper.MapToWorldCoords(pos);
             collisionMap.MarkSpace(pos.x, pos.y, 1);
             positions.Remove(pos);
         }

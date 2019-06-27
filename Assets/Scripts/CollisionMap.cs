@@ -36,10 +36,13 @@ public class CollisionMap : MonoBehaviour
         {
             for (int y = 0; y < dungeon.height; ++y)
             {
-                if (dungeon.TileType(x,y) == RandomDungeonTileData.WALL_TILE ||
-                    dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
+                if (dungeon.TileType(x,y) == RandomDungeonTileData.WALL_TILE)
                 {
                     mMap[x, y] = 1;
+                }
+                else if (dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
+                {
+                    mMap[x, y] = -1;
                 }
                 else
                 {
@@ -72,6 +75,48 @@ public class CollisionMap : MonoBehaviour
                 }
             }
         }
+        return positions;
+    }
+
+    public List<Vector2Int> EmptyPositionsNearPosition(Vector2Int sourcePosition, int range)
+    {
+        List<Vector2Int> positions = new List<Vector2Int>();
+
+        for (int xOffset = -range; xOffset <= range; ++xOffset)
+        {
+            for (int yOffset = -range; yOffset <= range; ++yOffset)
+            {
+                int x = sourcePosition.x + xOffset;
+                int y = sourcePosition.y + yOffset;
+
+                if (x >= 0 && y >= 0 && x < width && y < height && mMap[x,y] == 0)
+                {
+                    positions.Add(new Vector2Int(x, y));
+                }
+            }
+        }
+
+        return positions;
+    }
+
+    public List<Vector2Int> EmptyOffsetsNearPosition(Vector2Int sourcePosition, int range)
+    {
+        List<Vector2Int> positions = new List<Vector2Int>();
+
+        for (int xOffset = -range; xOffset <= range; ++xOffset)
+        {
+            for (int yOffset = -range; yOffset <= range; ++yOffset)
+            {
+                int x = sourcePosition.x + xOffset;
+                int y = sourcePosition.y + yOffset;
+
+                if (x >= 0 && y >= 0 && x < width && y < height && mMap[x, y] == 0)
+                {
+                    positions.Add(new Vector2Int(xOffset, yOffset));
+                }
+            }
+        }
+
         return positions;
     }
 }

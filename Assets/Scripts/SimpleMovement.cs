@@ -67,8 +67,8 @@ public class SimpleMovement : MonoBehaviour
         else
         {
             Vector3 targetPos = transform.position + direction;
-            Vector2Int coords = targetPos.AsVector2IntUsingXZ();
-            int marking = mCollisionMap.SpaceMarking(coords.x, -coords.y);
+            Vector2Int coords = MapCoordinateHelper.WorldToMapCoords(targetPos);
+            int marking = mCollisionMap.SpaceMarking(coords.x, coords.y);
 
             return marking == 0 || collisionIgnoreList.Contains(marking);
         }
@@ -76,10 +76,10 @@ public class SimpleMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        Vector2Int oldCoords = transform.position.AsVector2IntUsingXZ();
-        if (mCollisionMap != null && mCollisionMap.SpaceMarking(oldCoords.x, -oldCoords.y) == collisionIdentity)
+        Vector2Int oldCoords = MapCoordinateHelper.WorldToMapCoords(transform.position);
+        if (mCollisionMap != null && mCollisionMap.SpaceMarking(oldCoords.x, oldCoords.y) == collisionIdentity)
         {
-            mCollisionMap.MarkSpace(oldCoords.x, -oldCoords.y, 0);
+            mCollisionMap.MarkSpace(oldCoords.x, oldCoords.y, 0);
         }
     }
 
@@ -88,19 +88,19 @@ public class SimpleMovement : MonoBehaviour
         if (collisionIdentity < 0)
             return;
 
-        Vector2Int oldCoords = currentPosition.AsVector2IntUsingXZ();
-        Vector2Int newCoords = targetPosition.AsVector2IntUsingXZ();
+        Vector2Int oldCoords = MapCoordinateHelper.WorldToMapCoords(currentPosition);
+        Vector2Int newCoords = MapCoordinateHelper.WorldToMapCoords(targetPosition);
 
         // todo bdsowers - there's a bug here if we die mid movement ...
 
         // Clear us from the old space, but only do it if we are currently registered
         // as being there. Certain overlap scenarios may make this not necessarily true.
-        if (mCollisionMap.SpaceMarking(oldCoords.x, -oldCoords.y) == collisionIdentity)
+        if (mCollisionMap.SpaceMarking(oldCoords.x, oldCoords.y) == collisionIdentity)
         {
-            mCollisionMap.MarkSpace(oldCoords.x, -oldCoords.y, 0);
+            mCollisionMap.MarkSpace(oldCoords.x, oldCoords.y, 0);
         }
 
-        mCollisionMap.MarkSpace(newCoords.x, -newCoords.y, collisionIdentity);
+        mCollisionMap.MarkSpace(newCoords.x, newCoords.y, collisionIdentity);
     }
 
     public static void OrientToDirection(GameObject subMesh, Vector3 direction)

@@ -76,7 +76,7 @@ public class Boss1 : EnemyAI
         LevelGenerator generator = GameObject.FindObjectOfType<LevelGenerator>();
         Vector2Int mapPos = generator.dungeon.PositionForSpecificTile('9');
         mapPos = generator.FindEmptyNearbyPosition(mapPos);
-        Vector3 worldPos = new Vector3(mapPos.x, 0.4f, -mapPos.y);
+        Vector3 worldPos = MapCoordinateHelper.MapToWorldCoords(mapPos, 0.4f);
 
         GameObject exit = PrefabManager.instance.InstantiatePrefabByName("DungeonExit");
         exit.transform.position = worldPos;
