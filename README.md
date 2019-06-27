@@ -62,8 +62,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Shouldn't generate the same model as the player character
 * Spells shouldn't extend off the map
 * Make sure new companion starts on same space as player
-* Scattered dropped items can be thrown off map
 
+* ~~Scattered dropped items can be thrown off map~~
 * ~~Remove harp item, completionist quirk~~
 * ~~Can walk through HUB parts~~
 * ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
