@@ -196,6 +196,8 @@ public class LevelGenerator : MonoBehaviour
         follower.transform.position = MapCoordinateHelper.MapToWorldCoords(pos);
 
         avatar.GetComponent<Killable>().allowZeroDamage = (CurrentDungeonFloorData().roomSet == "introdungeon");
+
+        avatar.GetComponent<PlayerController>().PlaceFollowerInCorrectPosition();
     }
 
     private void PlaceExit()

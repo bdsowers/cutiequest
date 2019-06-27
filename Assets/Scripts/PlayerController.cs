@@ -116,6 +116,12 @@ public class PlayerController : MonoBehaviour
         follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData);
 
         AttachFollowerComponents();
+        PlaceFollowerInCorrectPosition();
+    }
+
+    public void PlaceFollowerInCorrectPosition()
+    {
+        follower.transform.position = transform.position + new Vector3(-0.25f, 0f, 0.25f);
     }
 
     private void AttachFollowerComponents()

@@ -94,6 +94,12 @@ public class EnemySpellCaster : EnemyAI
 
     private void CastSpell()
     {
+        Vector3 playerPosition = Game.instance.avatar.transform.position;
+        Vector3 direction = playerPosition - transform.position;
+        direction.y = 0f;
+        direction.Normalize();
+        SimpleMovement.OrientToDirection(mSimpleMovement.subMesh, direction);
+
         int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
         mSpellCaster.CastSpell(magic);
         mCastCounter = 3;

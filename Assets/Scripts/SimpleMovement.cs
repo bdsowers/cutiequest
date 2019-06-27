@@ -103,30 +103,30 @@ public class SimpleMovement : MonoBehaviour
         mCollisionMap.MarkSpace(newCoords.x, newCoords.y, collisionIdentity);
     }
 
-    public static void OrientToDirection(GameObject subMesh, Vector3 direction)
+    public static void OrientToDirection(GameObject subMeshToOrient, Vector3 direction)
     {
-        if (subMesh != null)
+        if (subMeshToOrient != null)
         {
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
             {
                 if (direction.x < -0.1f)
                 {
-                    subMesh.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
+                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
                 }
                 else if (direction.x > 0.1f)
                 {
-                    subMesh.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
                 }
             }
             else
             {
                 if (direction.z < -0.1f)
                 {
-                    subMesh.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
                 }
                 else if (direction.z > 0.1f)
                 {
-                    subMesh.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
                 }
             }
         }
