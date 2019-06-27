@@ -44,7 +44,11 @@ public class CompanionBuilder : MonoBehaviour
         randomCharacter.bio = bios[bioAndTaglinePosition];
         randomCharacter.characterName = LocalizedText.GetKeysInList("[" + gender + "_NAME]").Sample((genderNum == 0 ? previouslyUsedMaleNames : previouslyUsedFemaleNames));
         randomCharacter.levelRequirement = 1;
-        CharacterModelData modelData = Game.instance.characterDataList.CharacterModelsWithGender(genderNum).Sample(previouslyUsedModels);
+
+        List<CharacterModelData> unusableModels = new List<CharacterModelData>(previouslyUsedModels);
+        unusableModels.Add(PlayerModel());
+
+        CharacterModelData modelData = Game.instance.characterDataList.CharacterModelsWithGender(genderNum).Sample(unusableModels);
         randomCharacter.model = modelData.model.name;
         randomCharacter.tagline = taglines[bioAndTaglinePosition];
         randomCharacter.characterUniqueId = randomCharacter.characterName + ":::" + randomCharacter.bio + ":::" + randomCharacter.tagline + ":::" + randomCharacter.model;
@@ -66,6 +70,11 @@ public class CompanionBuilder : MonoBehaviour
             previouslyUsedFemaleNames.AddWindowed(randomCharacter.characterName, TEXT_REUSE_WINDOW_SIZE);
 
         return randomCharacter;
+    }
+
+    private CharacterModelData PlayerModel()
+    {
+        return Game.instance.characterDataList.CharacterModelWithName(Game.instance.playerData.model);
     }
 
     public void BuildCompanionSet()

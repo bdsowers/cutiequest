@@ -46,6 +46,18 @@ public class CharacterDataList : MonoBehaviour
         return null;
     }
 
+    public CharacterModelData CharacterModelWithName(string name)
+    {
+        for (int i = 0; i < characterModelData.Length; ++i)
+        {
+            if (characterModelData[i].model.name == name)
+            {
+                return characterModelData[i];
+            }
+        }
+        return characterModelData[0];
+    }
+
     public CharacterData CharacterWithUID(string uid)
     {
         for (int i = 0; i < characterData.Length; ++i)
