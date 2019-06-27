@@ -57,10 +57,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Known Vertical Slice Bugs
 * Invisible path block
-* Several items seem broken (heart, max health potion)
 * Chests & characters can only be activated from the front
 * Shouldn't generate the same model as the player character
 
+* ~~Several items seem broken (heart, max health potion)~~
 * ~~Make sure new companion starts on same space as player~~
 * ~~Spells shouldn't extend off the map~~
 * ~~Scattered dropped items can be thrown off map~~
