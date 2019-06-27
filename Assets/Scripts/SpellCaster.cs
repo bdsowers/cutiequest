@@ -189,24 +189,20 @@ public class SpellCaster : MonoBehaviour
             spellContainer.transform.localRotation = Quaternion.Euler(spellContainer.transform.localRotation.eulerAngles.x, y, spellContainer.transform.localRotation.eulerAngles.z);
         }
 
-        // Destroy targets that are off the map... not currently working.
-        /*
         for (int i = 0; i < spellContainer.transform.childCount; ++i)
         {
             Transform target = spellContainer.transform.GetChild(i);
 
             // convert the target position to map coordinates
-            Vector2Int mapCoords = target.position.AsVector2IntUsingXZ();
-            mapCoords.y = -mapCoords.y;
-
+            Vector2Int mapCoords = MapCoordinateHelper.WorldToMapCoords(target.position);
+            
             if (!Game.instance.levelGenerator.dungeon.IsPositionInBounds(mapCoords) ||
-                Game.instance.levelGenerator.dungeon.TileType(mapCoords) == 0)
+                Game.instance.levelGenerator.dungeon.TileType(mapCoords) == OMM.RDG.RandomDungeonTileData.EMPTY_TILE)
             {
                 Destroy(target.gameObject);
             }
         }
-        */
-
+        
         return partFound;
     }
 
