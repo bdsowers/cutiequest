@@ -111,8 +111,7 @@ public class LevelGenerator : MonoBehaviour
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
                     PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
 
-                    GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
-                    activationPlate.GetComponent<ActivationPlate>().cinematicEvent = "shopkeep_talk";
+                    PlaceSurroundingActivationPlates(x, y, "shopkeep_talk");
                 }
                 else if (dungeon.TileType(x,y) == PRESET_ENEMY)
                 {
@@ -124,7 +123,7 @@ public class LevelGenerator : MonoBehaviour
                 if (tileData.chest == 2)
                 {
                     GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
-                    PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = chest.GetComponent<Shrine>();
+                    PlaceSurroundingActivationPlates(x, y, null, chest.GetComponent<Shrine>());
                 }
                 else if (tileData.chest == 1)
                 {
@@ -133,23 +132,37 @@ public class LevelGenerator : MonoBehaviour
                     {
                         Debug.Log("A special room has spawned including a shrine.");
                         GameObject shrine = PlaceMapPrefab(PrefabManager.instance.shrinePrefabs.Sample().name, x, y, 1);
-                        PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = shrine.GetComponent<Shrine>();
+                        PlaceSurroundingActivationPlates(x, y, null, shrine.GetComponent<Shrine>());
                     }
                     else
                     {
                         Debug.Log("A special room has spawned including a chest.");
                         GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
-                        PlaceMapPrefab("ActivationPlate", x, y + 1).GetComponent<ActivationPlate>().shrine = chest.GetComponent<Shrine>();
+                        PlaceSurroundingActivationPlates(x, y, null, chest.GetComponent<Shrine>());
                     }
                 }
             }
         }
     }
 
+    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null)
+    {
+        int[] offsets = new int[] { 0, 1, 0, -1, 1, 0, -1, 0 };
+        for (int i = 0; i < offsets.Length; i += 2)
+        {
+            int offsetX = offsets[i];
+            int offsetY = offsets[i + 1];
+
+            GameObject plateObj = PlaceMapPrefab("ActivationPlate", x + offsetX, y + offsetY);
+            ActivationPlate plate = plateObj.GetComponent<ActivationPlate>();
+            plate.cinematicEvent = cinematicEvent;
+            plate.shrine = shrine;
+        }
+    }
+
     private string RandomItem()
     {
-        return "Heart";
-        // QQQ return PrefabManager.instance.itemPrefabs.Sample().name;
+        return PrefabManager.instance.itemPrefabs.Sample().name;
     }
 
     public Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)

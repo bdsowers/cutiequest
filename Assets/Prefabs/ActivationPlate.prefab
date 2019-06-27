@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4063654585253782074}
   - component: {fileID: 5495564824363116647}
   - component: {fileID: 7176982101957820039}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ActivationPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bff9495a458e541bace7b6c9c5e131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinematicEvent: 
+  item: {fileID: 0}
+  shrine: {fileID: 0}
 --- !u!54 &7176982101957820039
 Rigidbody:
   m_ObjectHideFlags: 0
