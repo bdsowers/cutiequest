@@ -38,7 +38,7 @@ public class Item : MonoBehaviour
             progressSpecificCost = Game.instance.currentDungeonFloor * 15 + Random.Range(-15, 50);
 
             // Shop prices decrease when luck is high.
-            int luck = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+            int luck = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
             progressSpecificCost -= Random.Range(0, luck / 2);
             progressSpecificCost = Mathf.Max(0, progressSpecificCost);
 

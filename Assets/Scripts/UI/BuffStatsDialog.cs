@@ -49,7 +49,7 @@ public class BuffStatsDialog : MonoBehaviour
             if (statSelected == CharacterStatType.MaxHealth)
             {
                 Game.instance.playerStats.ChangeBaseStat(statSelected, currentLevel + 10);
-                Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
+                Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
             }
             else
             {

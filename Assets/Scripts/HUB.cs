@@ -7,11 +7,12 @@ public class HUB : MonoBehaviour
 {
     private IEnumerator Start()
     {
+        yield return null;
         Game.instance.companionBuilder.BuildCompanionSet();
 
-        Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         Game.instance.playerData.numCoins = 0;
         Game.instance.playerStats.gameObject.RemoveAllChildren();
+        Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         yield return null;
         GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
 

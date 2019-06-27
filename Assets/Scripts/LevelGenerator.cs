@@ -148,7 +148,8 @@ public class LevelGenerator : MonoBehaviour
 
     private string RandomItem()
     {
-        return PrefabManager.instance.itemPrefabs.Sample().name;
+        return "Charm Ring";
+        // QQQ return PrefabManager.instance.itemPrefabs.Sample().name;
     }
 
     public Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)

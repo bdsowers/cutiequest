@@ -53,7 +53,8 @@ public class DropsItems : MonoBehaviour
 
         for (int i = 0; i < arbitraryDrops.Length; ++i)
         {
-            int value = Random.Range(0, 100) + Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+            int luck = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+            int value = Random.Range(0, 100) + luck;
             if (value < arbitraryDrops[i].rate)
             {
                 DropItems(arbitraryDrops[i].itemName, arbitraryDrops[i].amount);
@@ -109,7 +110,9 @@ public class DropsItems : MonoBehaviour
             return 0;
 
         // note bdsowers - do a subtraction here based on luck, the rates go lowest to highest
-        int val = Random.Range(0, 100) - Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject); ;
+        int luck = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+        int val = Random.Range(0, 100) -  luck;
+
         for (int i = 0; i < dropData.Length; ++i)
         {
             if (val <= dropData[i].rate)

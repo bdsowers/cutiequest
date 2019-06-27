@@ -26,7 +26,7 @@ public class Spell : MonoBehaviour
 
     public virtual void Activate(GameObject caster)
     {
-        int magic = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.Magic, Game.instance.avatar.gameObject);
+        int magic = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, Game.instance.avatar.gameObject);
         float actualCooldown = cooldown - (magic / 4f);
         actualCooldown = Mathf.Max(1f, actualCooldown);
 
