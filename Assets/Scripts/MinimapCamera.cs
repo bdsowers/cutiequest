@@ -19,6 +19,8 @@ public class MinimapCamera : MonoBehaviour
 
     public bool showingWholeMap {  get { return mShowingWholeMap; } }
 
+    private List<MapDisplay> mInterestingDisplays;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,12 +70,14 @@ public class MinimapCamera : MonoBehaviour
 
             mCamera.orthographicSize = Mathf.Max(generator.dungeon.width, generator.dungeon.height) / 2f + 15f;
 
+            mInterestingDisplays = InterestingMapDisplays();
             SelectClosestMapDisplay();
         }
         else
         {
             mCamera.orthographicSize = mOriginalOrthoSize;
 
+            mInterestingDisplays.Clear();
             DeselectAllMapDisplays();
         }
 
@@ -105,14 +109,13 @@ public class MinimapCamera : MonoBehaviour
     {
         DeselectAllMapDisplays();
 
-        List<MapDisplay> interestingDisplays = InterestingMapDisplays();
-        if (interestingDisplays.Count == 0)
+        if (mInterestingDisplays.Count == 0)
             return;
 
         float minDistance = float.MaxValue;
-        for (int i = 0; i < interestingDisplays.Count; ++i)
+        for (int i = 0; i < mInterestingDisplays.Count; ++i)
         {
-            MapDisplay display = interestingDisplays[i];
+            MapDisplay display = mInterestingDisplays[i];
             float distance = Vector3.Distance(display.transform.position, Game.instance.avatar.transform.position);
             if (distance < minDistance)
             {
@@ -121,26 +124,25 @@ public class MinimapCamera : MonoBehaviour
             }
         }
 
-        interestingDisplays[mSelectedDisplay].isSelected = true;
+        mInterestingDisplays[mSelectedDisplay].isSelected = true;
     }
 
     void SelectMapDisplay(Vector3 direction)
     {
-        List<MapDisplay> interestingDispalys = InterestingMapDisplays();
-        if (interestingDispalys.Count <= 1)
+        if (mInterestingDisplays.Count <= 1)
             return;
 
         int previousSelection = mSelectedDisplay;
         
-        MapDisplay currentDisplay = interestingDispalys[mSelectedDisplay];
+        MapDisplay currentDisplay = mInterestingDisplays[mSelectedDisplay];
         float minDistance = float.MaxValue;
         Debug.Log("-----");
-        for (int i = 0; i < interestingDispalys.Count; ++i)
+        for (int i = 0; i < mInterestingDisplays.Count; ++i)
         {
             if (i == mSelectedDisplay)
                 continue;
 
-            MapDisplay testDisplay = interestingDispalys[i];
+            MapDisplay testDisplay = mInterestingDisplays[i];
             
             // Find the one with the minimum distance that isn't in the other 
             Vector3 testDirection = testDisplay.transform.position.WithZeroY() - currentDisplay.transform.position.WithZeroY();
@@ -159,8 +161,8 @@ public class MinimapCamera : MonoBehaviour
         
         if (previousSelection != mSelectedDisplay)
         {
-            interestingDispalys[previousSelection].isSelected = false;
-            interestingDispalys[mSelectedDisplay].isSelected = true;
+            mInterestingDisplays[previousSelection].isSelected = false;
+            mInterestingDisplays[mSelectedDisplay].isSelected = true;
         }
     }
 
@@ -183,5 +185,16 @@ public class MinimapCamera : MonoBehaviour
         Vector3 pos = target.transform.position;
         pos.y = transform.position.y;
         transform.position = pos;
+    }
+
+    // todo - disable and say something when enemies are close
+    private bool CanTeleport()
+    {
+        return true;
+    }
+
+    private void Teleport()
+    {
+
     }
 }
