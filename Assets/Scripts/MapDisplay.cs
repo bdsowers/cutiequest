@@ -17,6 +17,33 @@ public enum MapDisplayType
 public class MapDisplay : MonoBehaviour
 {
     public MapDisplayType displayType;
+    public bool isSelected
+    {
+        get { return mIsSelected; }
+        set
+        {
+            if (mIsSelected != value)
+            {
+                mIsSelected = value;
+
+                if (mIsSelected)
+                {
+                    mTeleportIndicator = PrefabManager.instance.InstantiatePrefabByName("MapTeleportIndicator", transform);
+                }
+                else
+                {
+                    if (mTeleportIndicator != null)
+                    {
+                        Destroy(mTeleportIndicator);
+                        mTeleportIndicator = null;
+                    }
+                }
+            }
+        }
+    }
+
+    private bool mIsSelected;
+    private GameObject mTeleportIndicator;
 
     private Dictionary<MapDisplayType, string> mPrefabMap = new Dictionary<MapDisplayType, string>()
     {
@@ -38,5 +65,10 @@ public class MapDisplay : MonoBehaviour
         {
             PrefabManager.instance.InstantiatePrefabByName(prefabName, transform);
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }
