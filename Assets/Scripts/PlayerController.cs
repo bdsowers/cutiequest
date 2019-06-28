@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     private bool mSpellQueued;
 
+    private bool mTeleportQueued;
+    private Vector2Int mTeleportTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -192,6 +195,7 @@ public class PlayerController : MonoBehaviour
             return;
         if (!isAlive)
             return;
+
         MinimapCamera minimapCamera = GameObject.FindObjectOfType<MinimapCamera>();
         if (minimapCamera.showingWholeMap)
             return;
@@ -217,6 +221,13 @@ public class PlayerController : MonoBehaviour
         {
             mSpellQueued = false;
             CastSpellIfPossible();
+            return;
+        }
+
+        if (mTeleportQueued)
+        {
+            mTeleportQueued = false;
+            TeleportIfPossible();
             return;
         }
 
@@ -280,6 +291,41 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void QueueTeleportation(Vector2Int target)
+    {
+        mTeleportQueued = true;
+        mTeleportTarget = target;
+    }
+
+    private void TeleportIfPossible()
+    {
+        CollisionMap collisionMap = Game.instance.levelGenerator.collisionMap;
+        List<Vector2Int> viablePositions = collisionMap.EmptyPositionsNearPosition(mTeleportTarget, 1);
+
+        // todo bdsowers - what to do here? error message?
+        if (viablePositions.Count == 0)
+            return;
+
+        Vector2Int newTarget = viablePositions.Find(i => (i.x == mTeleportTarget.x && i.y == mTeleportTarget.y + 1));
+
+        if (newTarget.x != 0 || newTarget.y != 0)
+            mTeleportTarget = newTarget;
+        else
+            mTeleportTarget = viablePositions[0];
+
+        Vector2Int currentPos = MapCoordinateHelper.WorldToMapCoords(transform.position);
+
+        collisionMap.MarkSpace(currentPos.x, currentPos.y, 0);
+        collisionMap.MarkSpace(mTeleportTarget.x, mTeleportTarget.y, mSimpleMovement.collisionIdentity);
+
+        Game.instance.avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(mTeleportTarget);
+        Game.instance.avatar.follower.transform.position = Game.instance.avatar.transform.position + new Vector3(-0.25f, 0f, 0.25f);
+
+        GameObject effect = PrefabManager.instance.InstantiatePrefabByName("CFX2_WWExplosion_C");
+        effect.transform.position = Game.instance.avatar.transform.position;
+        effect.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
     }
 
     void MoveFollower(Vector3 direction, Vector3 playerTargetPosition)

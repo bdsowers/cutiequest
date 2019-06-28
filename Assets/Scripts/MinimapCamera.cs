@@ -21,6 +21,8 @@ public class MinimapCamera : MonoBehaviour
 
     private List<MapDisplay> mInterestingDisplays;
 
+    public GameObject teleportWarning;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,12 +56,18 @@ public class MinimapCamera : MonoBehaviour
             {
                 SelectMapDisplay(Vector3.back);
             }
+            else if (Input.GetKeyDown(KeyCode.Space) && CanTeleport())
+            {
+                Teleport();
+                ToggleFullMap(false);
+            }
         }
     }
 
     private void ToggleFullMap(bool newShowingWholeMap)
     {
         mShowingWholeMap = newShowingWholeMap;
+        teleportWarning.SetActive(false);
 
         if (mShowingWholeMap)
         {
@@ -72,6 +80,11 @@ public class MinimapCamera : MonoBehaviour
 
             mInterestingDisplays = InterestingMapDisplays();
             SelectClosestMapDisplay();
+
+            if (!CanTeleport())
+            {
+                teleportWarning.SetActive(true);
+            }
         }
         else
         {
@@ -187,14 +200,26 @@ public class MinimapCamera : MonoBehaviour
         transform.position = pos;
     }
 
-    // todo - disable and say something when enemies are close
     private bool CanTeleport()
     {
+        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+        for (int i = 0; i < enemies.Length; ++i)
+        {
+            float distance = Vector3.Distance(Game.instance.avatar.transform.position, enemies[i].transform.position);
+
+            if (distance < 7f)
+                return false;
+        }
         return true;
     }
 
     private void Teleport()
     {
+        if (mInterestingDisplays.Count <= 1 || mSelectedDisplay == -1)
+            return;
 
+        MapDisplay targetDisplay = mInterestingDisplays[mSelectedDisplay];
+        Vector2Int target = MapCoordinateHelper.WorldToMapCoords(targetDisplay.transform.position);
+        Game.instance.avatar.QueueTeleportation(target);
     }
 }

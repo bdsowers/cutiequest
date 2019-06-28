@@ -55,7 +55,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Show positive messaging when the first boss is complete
 * Change idle animation with something better
 * Keep 'More Info' option enabled when browsing QuestR
-* Allow map-based teleportation & turn off controls while in map
+
+* ~~Allow map-based teleportation & turn off controls while in map~~
 
 ### Known Vertical Slice Bugs
 * Invisible path block
