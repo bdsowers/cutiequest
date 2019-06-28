@@ -30,6 +30,11 @@ namespace VectorExtensions
         {
             return new Vector3(vec.x, vec.y, 0f);
         }
+
+        public static Vector3 WithZeroY(this Vector3 vec)
+        {
+            return new Vector3(vec.x, 0f, vec.z);
+        }
     }
 
     public class VectorHelper

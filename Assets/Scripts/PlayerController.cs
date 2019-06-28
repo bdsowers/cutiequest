@@ -192,6 +192,9 @@ public class PlayerController : MonoBehaviour
             return;
         if (!isAlive)
             return;
+        MinimapCamera minimapCamera = GameObject.FindObjectOfType<MinimapCamera>();
+        if (minimapCamera.showingWholeMap)
+            return;
 
         // Queue spells while moving / attack to be executed once those actions end.
         if (mActionSet.Spell.WasPressed)

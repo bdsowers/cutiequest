@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VectorExtensions;
 
 public class MinimapCamera : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class MinimapCamera : MonoBehaviour
     private bool mShowingWholeMap = false;
 
     private int mSelectedDisplay = -1;
+
+    public bool showingWholeMap {  get { return mShowingWholeMap; } }
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +38,19 @@ public class MinimapCamera : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                SelectMapDisplay(mSelectedDisplay + 1);
+                SelectMapDisplay(Vector3.left);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                SelectMapDisplay(mSelectedDisplay - 1);
+                SelectMapDisplay(Vector3.right);
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-
+                SelectMapDisplay(Vector3.forward);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                SelectMapDisplay(Vector3.back);
             }
         }
     }
@@ -61,7 +68,7 @@ public class MinimapCamera : MonoBehaviour
 
             mCamera.orthographicSize = Mathf.Max(generator.dungeon.width, generator.dungeon.height) / 2f + 15f;
 
-            SelectMapDisplay(0);
+            SelectClosestMapDisplay();
         }
         else
         {
@@ -94,22 +101,67 @@ public class MinimapCamera : MonoBehaviour
         return interesting;
     }
 
-    void SelectMapDisplay(int displayIndex)
+    void SelectClosestMapDisplay()
     {
         DeselectAllMapDisplays();
 
-        List<MapDisplay> potentials = InterestingMapDisplays();
-        if (potentials.Count == 0)
+        List<MapDisplay> interestingDisplays = InterestingMapDisplays();
+        if (interestingDisplays.Count == 0)
             return;
 
-        mSelectedDisplay = displayIndex;
-        if (mSelectedDisplay < 0)
-            mSelectedDisplay = potentials.Count - 1;
-        if (mSelectedDisplay >= potentials.Count)
-            mSelectedDisplay = 0;
+        float minDistance = float.MaxValue;
+        for (int i = 0; i < interestingDisplays.Count; ++i)
+        {
+            MapDisplay display = interestingDisplays[i];
+            float distance = Vector3.Distance(display.transform.position, Game.instance.avatar.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                mSelectedDisplay = i;
+            }
+        }
 
-        MapDisplay display = potentials[mSelectedDisplay];
-        display.isSelected = true;
+        interestingDisplays[mSelectedDisplay].isSelected = true;
+    }
+
+    void SelectMapDisplay(Vector3 direction)
+    {
+        List<MapDisplay> interestingDispalys = InterestingMapDisplays();
+        if (interestingDispalys.Count <= 1)
+            return;
+
+        int previousSelection = mSelectedDisplay;
+        
+        MapDisplay currentDisplay = interestingDispalys[mSelectedDisplay];
+        float minDistance = float.MaxValue;
+        Debug.Log("-----");
+        for (int i = 0; i < interestingDispalys.Count; ++i)
+        {
+            if (i == mSelectedDisplay)
+                continue;
+
+            MapDisplay testDisplay = interestingDispalys[i];
+            
+            // Find the one with the minimum distance that isn't in the other 
+            Vector3 testDirection = testDisplay.transform.position.WithZeroY() - currentDisplay.transform.position.WithZeroY();
+            float distance = VectorHelper.OrthogonalDistance(testDisplay.transform.position.WithZeroY(), currentDisplay.transform.position.WithZeroY());
+            testDirection.Normalize();
+            float dot = Vector3.Dot(testDirection, direction);
+
+            Debug.Log(testDisplay.gameObject.name + "   " + distance);
+            if (dot > 0.01f && distance < minDistance)
+            {
+                minDistance = distance;
+                mSelectedDisplay = i;
+            }
+        }
+
+        
+        if (previousSelection != mSelectedDisplay)
+        {
+            interestingDispalys[previousSelection].isSelected = false;
+            interestingDispalys[mSelectedDisplay].isSelected = true;
+        }
     }
 
     void DeselectAllMapDisplays()
