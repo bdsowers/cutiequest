@@ -61,6 +61,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Known Vertical Slice Bugs
 * Invisible path block
 * Can talk to shopkeep from behind & buy item at the same time (possibly make activation plates direction-based)
+* Passive perks are based on attractiveness, which increases every run now
 
 * ~~Chests & characters can only be activated from the front~~
 * ~~Shouldn't generate the same model as the player character~~

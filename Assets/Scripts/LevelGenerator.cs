@@ -41,16 +41,55 @@ public class LevelGenerator : MonoBehaviour
         GenerateEnvironmentFromDungeon(mDungeon);
 
         PlaceAvatar();
+
         PlaceTraps();
         PlaceEnemies();
-
+        
         if (!IsPresetRoom())
         {
+            PlaceDeadEndInterests();
             PlaceHearts();
             PlaceExit();
         }
 
         QuirkSpecificSpawns();
+    }
+
+    private void PlaceDeadEndInterests()
+    {
+        RandomDungeonNetwork network = new RandomDungeonNetwork();
+        network.EvaluateDungeon(dungeon);
+        List<RandomDungeonNetwork.RandomDungeonNetworkNode> deadEnds = network.DeadEnds();
+        deadEnds.Sort((i1, i2) => i2.distanceFromPrimaryPath.CompareTo(i1.distanceFromPrimaryPath));
+
+        // Remove dead ends that are too close to each other from consideration (based off room Id, which isn't a perfect metric but is OK)
+        int position = 1;
+        while (position < deadEnds.Count)
+        {
+            if (Vector2.Distance(mAvatarStartPosition, deadEnds[position].emptyPositions.Sample()) < 8)
+            {
+                deadEnds.RemoveAt(position);
+            }
+            else if (Mathf.Abs(deadEnds[position].roomId - deadEnds[position-1].roomId) < 2)
+            {
+                deadEnds.RemoveAt(position);
+            }
+            else
+            {
+                ++position;
+            }
+        }
+
+        int max = Mathf.Min(Random.Range(2,4), deadEnds.Count);
+
+        for (int i = 0; i < max; ++i)
+        {
+            RandomDungeonNetwork.RandomDungeonNetworkNode deadEnd = deadEnds.Sample();
+            Vector2Int pos = deadEnd.emptyPositions.Sample();
+            PlaceMapPrefab("Chest", pos.x, pos.y, 1);
+
+            deadEnds.Remove(deadEnd);
+        }
     }
 
     private bool IsPresetRoom()

@@ -52,6 +52,11 @@ namespace OMM.RDG
             return pos.x >= 0 && pos.y >= 0 && pos.x < width && pos.y < height;
         }
 
+        public bool IsPositionInBounds(int x, int y)
+        {
+            return x >= 0 && y >= 0 && x < width && y < height;
+        }
+
         public int Scope(int x, int y)
         {
             return mTiles[x, y].scope;
