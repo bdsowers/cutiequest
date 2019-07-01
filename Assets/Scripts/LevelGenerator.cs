@@ -66,7 +66,11 @@ public class LevelGenerator : MonoBehaviour
         int position = 1;
         while (position < deadEnds.Count)
         {
-            if (Vector2.Distance(mAvatarStartPosition, deadEnds[position].emptyPositions.Sample()) < 8)
+            if (deadEnds[position].emptyPositions.Count == 0)
+            {
+                deadEnds.RemoveAt(position);
+            }
+            else if (Vector2.Distance(mAvatarStartPosition, deadEnds[position].emptyPositions.Sample()) < 8)
             {
                 deadEnds.RemoveAt(position);
             }
@@ -86,7 +90,9 @@ public class LevelGenerator : MonoBehaviour
         {
             RandomDungeonNetwork.RandomDungeonNetworkNode deadEnd = deadEnds.Sample();
             Vector2Int pos = deadEnd.emptyPositions.Sample();
-            PlaceMapPrefab("Chest", pos.x, pos.y, 1);
+
+            GameObject chest = PlaceMapPrefab("Chest", pos.x, pos.y, 1);
+            PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>());
 
             deadEnds.Remove(deadEnd);
         }
@@ -150,7 +156,7 @@ public class LevelGenerator : MonoBehaviour
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
                     PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
 
-                    PlaceSurroundingActivationPlates(x, y, "shopkeep_talk");
+                    PlaceSurroundingActivationPlates(x, y, "shopkeep_talk", null, false);
                 }
                 else if (dungeon.TileType(x,y) == PRESET_ENEMY)
                 {
@@ -184,10 +190,15 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null)
+    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null, bool includeBehind = true)
     {
-        int[] offsets = new int[] { 0, 1, 0, -1, 1, 0, -1, 0 };
-        for (int i = 0; i < offsets.Length; i += 2)
+        int[] offsets = new int[] { 0, 1, 1, 0, -1, 0, 0, -1 };
+
+        int offsetsToUse = offsets.Length;
+        if (!includeBehind)
+            offsetsToUse-=2;
+
+        for (int i = 0; i < offsetsToUse; i += 2)
         {
             int offsetX = offsets[i];
             int offsetY = offsets[i + 1];

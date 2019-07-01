@@ -81,8 +81,7 @@ namespace OMM.RDG
                     // Distance from primary path should be the closest tile that we can get into for this room.
                     node.distanceFromPrimaryPath = Mathf.Min(data.distanceFromPrimaryPath, node.distanceFromPrimaryPath);
 
-                    // Keep track of all walkable tiles in this room so we know where we can spawn stuff.
-                    node.RegisterEmptyPosition(x, y);
+                    bool hasUnwalkableNeighbor = false;
 
                     // Evaluate connections (orthogonally, only considering walkable / exit tiles)
                     for (int i = 0; i < orthogonalOffsets.Length; i += 2)
@@ -94,11 +93,26 @@ namespace OMM.RDG
                         {
                             RandomDungeonTileData neighborData = dungeon.Data(neighborX, neighborY);
                             bool isWalkable = (neighborData.tileType == RandomDungeonTileData.WALKABLE_TILE || neighborData.tileType == RandomDungeonTileData.EXIT_TILE);
+
+                            if (!isWalkable)
+                            {
+                                hasUnwalkableNeighbor = true;    
+                            }
+
                             if (isWalkable && neighborData.room != node.roomId && !node.ConnectionExists(neighborData.room))
                             {
                                 node.AddConnection(neighborData.room);
                             }
                         }
+                    }
+
+                    if (!hasUnwalkableNeighbor)
+                    {
+                        // Keep track of all walkable tiles in this room so we know where we can spawn stuff.
+                        // todo bdsowers - change the name of this
+                        // By design it only keeps track of tiles that aren't next to a wall, but that
+                        // isn't conveyed in the name.
+                        node.RegisterEmptyPosition(x, y);
                     }
                 }
             }
