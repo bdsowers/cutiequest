@@ -28,12 +28,12 @@ public class NumberPopupGenerator : MonoBehaviour
     {
         amount = BadAtMathQuirk.ApplyQuirkIfPresent(amount);
 
-        StartCoroutine(GeneratePopupEnumerator(position, amount.ToString(), reason, delay));
+        StartCoroutine(mInstance.GeneratePopupEnumerator(position, amount.ToString(), reason, delay));
     }
 
     public void GeneratePopup(Vector3 position, string text, NumberPopupReason reason, float delay = 0f)
     {
-        StartCoroutine(GeneratePopupEnumerator(position, text, reason, delay));
+        StartCoroutine(mInstance.GeneratePopupEnumerator(position, text, reason, delay));
     }
 
     private IEnumerator GeneratePopupEnumerator(Vector3 position, string text, NumberPopupReason reason, float delay)

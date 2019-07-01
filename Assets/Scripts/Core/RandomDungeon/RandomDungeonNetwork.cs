@@ -9,7 +9,7 @@ namespace OMM.RDG
     /// for after-the-fact addition of details (ie: adding things to dead ends).
     /// It's not a particularly fast algorithm atm...
     /// </summary>
-    public class RandomDungeonNetwork : MonoBehaviour
+    public class RandomDungeonNetwork
     {
         public class RandomDungeonNetworkNode
         {
