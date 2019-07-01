@@ -13,5 +13,7 @@ public class ShrineBanner : Shrine
             Game.instance.currentDungeonFloor = 5;
             Game.instance.transitionManager.TransitionToScreen("Dungeon");
         }
+
+        yield break;
     }
 }

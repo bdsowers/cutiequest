@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8248482810137025732}
   - component: {fileID: 4419759059331087834}
   - component: {fileID: 6938314540481360093}
+  - component: {fileID: 3270181308134773267}
   m_Layer: 0
   m_Name: ShrineSupplyCart
   m_TagString: Untagged
@@ -74,6 +75,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 7
+--- !u!114 &3270181308134773267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818454422392994760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d9e2e8cec640a46a9ae226dccffb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preActivationMessage: A simple cart with a sign reading "Coins in, happiness out."
 --- !u!1001 &7293866412806640550
 PrefabInstance:
   m_ObjectHideFlags: 0

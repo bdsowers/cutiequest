@@ -22,5 +22,7 @@ public class ShrineGlassCannon : Shrine
 
             Game.instance.playerData.MarkDirty();
         }
+
+        yield break;
     }
 }
