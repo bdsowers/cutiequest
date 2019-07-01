@@ -21,7 +21,8 @@ public class NumberPopupGenerator : MonoBehaviour
 
     private void Awake()
     {
-        mInstance = this;
+        if (mInstance == null)
+            mInstance = this;
     }
 
     public void GeneratePopup(Vector3 position, int amount, NumberPopupReason reason, float delay = 0f)

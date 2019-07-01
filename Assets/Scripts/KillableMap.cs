@@ -17,7 +17,8 @@ public class KillableMap : MonoBehaviour
 
     private void Awake()
     {
-        mInstance = this;    
+        if (mInstance == null)
+            mInstance = this;    
     }
 
     public void SetupWithDungeon(RandomDungeon dungeon)
