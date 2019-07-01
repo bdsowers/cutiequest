@@ -24,6 +24,8 @@ public class LevelGenerator : MonoBehaviour
     private int mPresetEnemyCounter = 0;
 
     private bool mBombChestPlaced = false;
+    private bool mNPCPlaced = false;
+    private bool mShrinePlaced = false;
 
     private void Start()
     {
@@ -44,12 +46,17 @@ public class LevelGenerator : MonoBehaviour
 
         PlaceAvatar();
 
+        if (!IsPresetRoom())
+        {
+            PlaceDeadEndInterests();
+        }
+
         PlaceTraps();
         PlaceEnemies();
         
         if (!IsPresetRoom())
         {
-            PlaceDeadEndInterests();
+            
             PlaceHearts();
             PlaceExit();
         }
@@ -92,10 +99,51 @@ public class LevelGenerator : MonoBehaviour
         {
             RandomDungeonNetwork.RandomDungeonNetworkNode deadEnd = deadEnds.Sample();
             Vector2Int pos = deadEnd.emptyPositions.Sample();
-            PlaceChest(pos);
+
+            PlacePointOfInterest(pos);
 
             deadEnds.Remove(deadEnd);
         }
+    }
+
+    private void PlacePointOfInterest(Vector2Int pos)
+    {
+        int value = Random.Range(0, 100);
+        if (value < 33 && (!mShrinePlaced || !mNPCPlaced))
+        {
+            // Shrine or NPC
+            value = Random.Range(0, 100);
+            if (value < 50 && !mShrinePlaced)
+            {
+                PlaceShrine(pos);
+            }
+            else
+            {
+                PlaceNPC(pos);
+            }
+        }
+        else
+        {
+            PlaceChest(pos);
+        }
+    }
+
+    private void PlaceNPC(Vector2Int pos)
+    {
+        mNPCPlaced = true;
+
+        string[] npcs = new string[] { "Beats", "HotDogMan", "PunkyPeter" };
+
+        GameObject shrine = PlaceMapPrefab(npcs.Sample(), pos.x, pos.y, 1);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, "null", null, false);
+    }
+
+    private void PlaceShrine(Vector2Int pos)
+    {
+        mShrinePlaced = true;
+
+        GameObject shrine = PlaceMapPrefab(PrefabManager.instance.shrinePrefabs.Sample().name, pos.x, pos.y, 1);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>());
     }
 
     private void PlaceChest(Vector2Int pos)
@@ -203,8 +251,7 @@ public class LevelGenerator : MonoBehaviour
                     if (generateShrine)
                     {
                         Debug.Log("A special room has spawned including a shrine.");
-                        GameObject shrine = PlaceMapPrefab(PrefabManager.instance.shrinePrefabs.Sample().name, x, y, 1);
-                        PlaceSurroundingActivationPlates(x, y, null, shrine.GetComponent<Shrine>());
+                        PlaceShrine(new Vector2Int(x, y));
                     }
                     else
                     {
