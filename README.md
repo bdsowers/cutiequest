@@ -36,8 +36,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Dead end interest increase - more implemented shrines, "Big" chest, free-able characters
 * Finish intro sequence; force a clear breakup message when it's over.
 * 3 more items
-* 4 shrines
 
+* ~~4 shrines~~
 * ~~Rewrite attractiveness hub item to reshuffle matches instead~~
 * ~~Change quirk & spell unlocks to happen after every dungeon run~~
 * ~~Boss 1 death event~~
