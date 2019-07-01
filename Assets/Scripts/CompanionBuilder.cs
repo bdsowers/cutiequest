@@ -55,13 +55,12 @@ public class CompanionBuilder : MonoBehaviour
         randomCharacter.quirk = QuirksInLevel(Game.instance.playerData.attractiveness).Sample(previouslyUsedQuirks).GetComponent<Quirk>();
         randomCharacter.spell =SpellsInLevel(Game.instance.playerData.attractiveness).Sample(previouslyUsedSpells).GetComponent<Spell>();
         randomCharacter.statBoost = (CharacterStatType)Random.Range(1, 6);
-        randomCharacter.statBoostAmount = 1 + Random.Range(0, Game.instance.playerData.attractiveness);
+        randomCharacter.statBoostAmount = 1 + Random.Range(0, MaximumPassiveStatBoost(randomCharacter.statBoost) + 1);
         randomCharacter.material = materials.Sample();
 
         previouslyUsedQuirks.AddWindowed(randomCharacter.quirk, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedSpells.AddWindowed(randomCharacter.spell, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedModels.AddWindowed(modelData, GAMEPLAY_REUSE_WINDOW_SIZE);
-
         
         previouslyUsedBios.AddWindowed(bioAndTaglinePosition, TEXT_REUSE_WINDOW_SIZE);
         if (genderNum == 0)
@@ -70,6 +69,14 @@ public class CompanionBuilder : MonoBehaviour
             previouslyUsedFemaleNames.AddWindowed(randomCharacter.characterName, TEXT_REUSE_WINDOW_SIZE);
 
         return randomCharacter;
+    }
+
+    private int MaximumPassiveStatBoost(CharacterStatType statType)
+    {
+        // Look at the player's current level in that area
+        int baseLevel = Game.instance.avatar.GetComponent<CharacterStatistics>().BaseStatValue(statType);
+        
+        return baseLevel / 2;
     }
 
     private CharacterModelData PlayerModel()
