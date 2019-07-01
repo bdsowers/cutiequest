@@ -13962,6 +13962,7 @@ MonoBehaviour:
   target: {fileID: 1099098403}
   miniMap: {fileID: 0}
   fullMap: {fileID: 0}
+  teleportWarning: {fileID: 0}
 --- !u!81 &2055356389
 AudioListener:
   m_ObjectHideFlags: 0
