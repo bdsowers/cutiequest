@@ -11,6 +11,6 @@ public class Potion : SingleUseItem
         Game.instance.playerData.health += amount;
         Game.instance.playerData.health = Mathf.Min(Game.instance.playerData.health, Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject));
 
-        NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, amount, NumberPopupReason.Heal);
+        NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 1f, amount, NumberPopupReason.Heal);
     }
 }

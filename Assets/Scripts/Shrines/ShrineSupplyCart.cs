@@ -16,6 +16,8 @@ public class ShrineSupplyCart : Shrine
             int maxHealth = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
             Game.instance.playerData.health = maxHealth;
             Game.instance.avatar.GetComponent<Killable>().health = maxHealth;
+
+            NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.one, maxHealth, NumberPopupReason.Heal, 0.4f);
         }
 
         yield break;
