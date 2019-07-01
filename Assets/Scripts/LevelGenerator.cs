@@ -490,7 +490,8 @@ public class LevelGenerator : MonoBehaviour
             for (int posIdx = 0; posIdx < pair.Value.Count; ++posIdx)
             {
                 Vector2Int pos = pair.Value[posIdx];
-                if (mDungeon.TileType(pos) == RandomDungeonTileData.WALKABLE_TILE || mDungeon.TileType(pos) == RandomDungeonTileData.EXIT_TILE)
+
+                if (mCollisionMap.SpaceMarking(pos.x, pos.y) == 0)
                 {
                     GameObject trapObj = PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
                     SpikeTrap spikes = trapObj.GetComponent<SpikeTrap>();
