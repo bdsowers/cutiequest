@@ -54,6 +54,8 @@ public class DropsItems : MonoBehaviour
         for (int i = 0; i < arbitraryDrops.Length; ++i)
         {
             int luck = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+
+            // todo bdsowers - this assumes all arbitrary drops are bad ...
             int value = Random.Range(0, 100) + luck;
             if (value < arbitraryDrops[i].rate)
             {

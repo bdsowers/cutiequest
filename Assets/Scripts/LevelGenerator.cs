@@ -23,6 +23,8 @@ public class LevelGenerator : MonoBehaviour
     private Vector2Int mAvatarStartPosition;
     private int mPresetEnemyCounter = 0;
 
+    private bool mBombChestPlaced = false;
+
     private void Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
@@ -90,12 +92,38 @@ public class LevelGenerator : MonoBehaviour
         {
             RandomDungeonNetwork.RandomDungeonNetworkNode deadEnd = deadEnds.Sample();
             Vector2Int pos = deadEnd.emptyPositions.Sample();
-
-            GameObject chest = PlaceMapPrefab("Chest", pos.x, pos.y, 1);
-            PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>());
+            PlaceChest(pos);
 
             deadEnds.Remove(deadEnd);
         }
+    }
+
+    private void PlaceChest(Vector2Int pos)
+    {
+        int luck = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
+        int val = Random.Range(0, 100) + luck;
+
+        string chestType = "Chest";
+        if (val < 15 && !mBombChestPlaced)
+        {
+            mBombChestPlaced = true;
+            chestType = "BombChest";
+        }
+        else if (val < 75)
+        {
+            chestType = "Chest";
+        }
+        else if (val < 90)
+        {
+            chestType = "SuperChest";
+        }
+        else
+        {
+            chestType = "MegaChest";
+        }
+
+        GameObject chest = PlaceMapPrefab(chestType, pos.x, pos.y, 1);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>());
     }
 
     private bool IsPresetRoom()
@@ -167,8 +195,7 @@ public class LevelGenerator : MonoBehaviour
 
                 if (tileData.chest == 2)
                 {
-                    GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
-                    PlaceSurroundingActivationPlates(x, y, null, chest.GetComponent<Shrine>());
+                    PlaceChest(new Vector2Int(x, y));
                 }
                 else if (tileData.chest == 1)
                 {
@@ -182,8 +209,7 @@ public class LevelGenerator : MonoBehaviour
                     else
                     {
                         Debug.Log("A special room has spawned including a chest.");
-                        GameObject chest = PlaceMapPrefab("Chest", x, y, 1);
-                        PlaceSurroundingActivationPlates(x, y, null, chest.GetComponent<Shrine>());
+                        PlaceChest(new Vector2Int(x, y));
                     }
                 }
             }

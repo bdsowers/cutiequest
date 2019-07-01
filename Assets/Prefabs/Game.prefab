@@ -1196,6 +1196,9 @@ MonoBehaviour:
   - {fileID: 5073518052470053920, guid: 54a10d19f108351488f1f78a957edb1f, type: 3}
   - {fileID: 5073518052470053920, guid: 811ed113e4413664f93f8fe7129c0067, type: 3}
   - {fileID: 5073518052470053920, guid: cac8b0536f680924fb9af2126ce2ba46, type: 3}
+  - {fileID: 7818454422392994760, guid: b6b7902342963f840aa841c6496d19f3, type: 3}
+  - {fileID: 7818454422392994760, guid: b51c43654cffe2d43b6ec0c523e64202, type: 3}
+  - {fileID: 7818454422392994760, guid: 97dc3c2e34da0c54bbdf0e8d62888cd9, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}
