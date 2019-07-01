@@ -116,7 +116,7 @@ public class PlayerData
         }
     }
 
-    private void MarkDirty()
+    public void MarkDirty()
     {
         if (suppressDirtyUpdates)
             return;
