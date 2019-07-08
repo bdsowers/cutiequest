@@ -29,49 +29,25 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Roadmap
-### MVP Alpha Features / Improvements
-
-### Vertical Slice Features
+### Vertical Slice TODO
 * Sound & music
-* Dead end interest increase - more implemented shrines, "Big" chest, free-able characters
-* Finish intro sequence; force a clear breakup message when it's over.
-* 3 more items
-
-* ~~4 shrines~~
-* ~~Rewrite attractiveness hub item to reshuffle matches instead~~
-* ~~Change quirk & spell unlocks to happen after every dungeon run~~
-* ~~Boss 1 death event~~
-
-### Vertical Slice Polish
-* Revisit controller support
-* Polish up choosing a character
-* Update string table & bring in new version
-* Add "New matches" notification
-* Show button prompts for things that can be activated
-* Lock boss room when boss battle starts
-* Boss drops unique stuff instead of just hearts (ie: exclusive quirks/spells)
-* Integrate new art
+* Implement in-dungeon characters (Hot Dog man, etc)
+* Finish intro sequence
+* Revisit Controller Support
+* Button prompts for things that can be activated
+* Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing
+* Polish character selection
+* Add lots more string table entries
+* Add 'new matches' notification
+* Make boss drop unique stuff
 * Prefer showing new spells/quirks
-* Show positive messaging when the first boss is complete
-* Change idle animation with something better
-* Keep 'More Info' option enabled when browsing QuestR
-
-* ~~Allow map-based teleportation & turn off controls while in map~~
+* Show positive messaging when boss is killed
+* Change first dungeon death messaging to be clearer
+* Swap out idle animation
+* Tweak 'More Info' button behavior while browsing QuestR
 
 ### Known Vertical Slice Bugs
 * Invisible path block
-
-* ~~Can talk to shopkeep from behind & buy item at the same time (possibly make activation plates direction-based)~~
-* ~~Passive perks are based on attractiveness, which increases every run now
-* ~~Chests & characters can only be activated from the front~~
-* ~~Shouldn't generate the same model as the player character~~
-* ~~Several items seem broken (heart, max health potion)~~
-* ~~Make sure new companion starts on same space as player~~
-* ~~Spells shouldn't extend off the map~~
-* ~~Scattered dropped items can be thrown off map~~
-* ~~Remove harp item, completionist quirk~~
-* ~~Can walk through HUB parts~~
-* ~~Enemy projectiles collide with things they shouldn't (coins, hearts, chests)~~
 
 ### Vertical Slice Showcasing
 * Turn off cheats
@@ -81,6 +57,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Playback / attract mode
 * Show feedback survey & e-mail signup after some event (3 runs?)
 
+### VERTICAL SLICE TARGET DATE: July 24
 
 ### MVP Beta Features
 * Locked HUB improvement system
