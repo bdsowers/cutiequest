@@ -59,10 +59,6 @@ public class SpellCaster : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            CastSpell(2);
-        }
     }
 
     public bool IsInRange()

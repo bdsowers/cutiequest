@@ -20,6 +20,9 @@ public class BasicActionSet : PlayerActionSet
     public PlayerAction Activate;
     public PlayerAction Spell;
 
+    public PlayerAction Pause;
+    public PlayerAction ToggleMap;
+    
     public BasicActionSet()
     {
         MoveLeft = CreatePlayerAction("Move Left");
@@ -31,6 +34,10 @@ public class BasicActionSet : PlayerActionSet
         HoldPosition = CreatePlayerAction("Hold Position");
         Activate = CreatePlayerAction("Activate");
         Spell = CreatePlayerAction("Cast Spell");
+
+        Pause = CreatePlayerAction("Pause");
+
+        ToggleMap = CreatePlayerAction("Activate Map");
     }
 
     public void DetectController()
@@ -61,6 +68,10 @@ public class BasicActionSet : PlayerActionSet
             Activate.AddDefaultBinding(Key.E);
             Spell.AddDefaultBinding(Key.Space);
 
+            Pause.AddDefaultBinding(Key.Escape);
+
+            ToggleMap.AddDefaultBinding(Key.M);
+            
             this.Device = null;
         }
         else
@@ -74,6 +85,10 @@ public class BasicActionSet : PlayerActionSet
             Activate.AddDefaultBinding(InputControlType.Action2);
             Spell.AddDefaultBinding(InputControlType.Action1);
 
+            Pause.AddDefaultBinding(InputControlType.Command);
+
+            ToggleMap.AddDefaultBinding(InputControlType.Action4);
+            
             this.Device = boundDevice;
         }
     }

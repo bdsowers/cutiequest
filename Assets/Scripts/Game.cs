@@ -255,7 +255,7 @@ public class Game : MonoBehaviour
     {
         mActionSet.DetectController();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Game.instance.actionSet.Pause.WasPressed)
         {
             GameObject hud = GameObject.Find("HUD");
             if (hud == null)

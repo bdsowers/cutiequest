@@ -33,30 +33,30 @@ public class MinimapCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Game.instance.actionSet.ToggleMap.WasPressed || (mShowingWholeMap && Game.instance.actionSet.Pause.WasPressed))
         {
             ToggleFullMap(!mShowingWholeMap);
         }
 
         if (mShowingWholeMap)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Game.instance.actionSet.MoveLeft.WasPressed)
             {
                 SelectMapDisplay(Vector3.left);
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Game.instance.actionSet.MoveRight.WasPressed)
             {
                 SelectMapDisplay(Vector3.right);
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Game.instance.actionSet.MoveUp.WasPressed)
             {
                 SelectMapDisplay(Vector3.forward);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Game.instance.actionSet.MoveDown.WasPressed)
             {
                 SelectMapDisplay(Vector3.back);
             }
-            else if (Input.GetKeyDown(KeyCode.Space) && CanTeleport())
+            else if (Game.instance.actionSet.Spell.WasPressed && CanTeleport())
             {
                 Teleport();
                 ToggleFullMap(false);

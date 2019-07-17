@@ -51,13 +51,13 @@ public class CharacterSelect : MonoBehaviour
             return;
         }
         
-        if (Input.GetKey(KeyCode.LeftArrow) && mCurrentSelection > 0)
+        if (Game.instance.actionSet.MoveLeft.WasPressed && mCurrentSelection > 0)
         {
             transform.DOMoveX(transform.position.x + 4f, 0.5f);
             ChangeCharacterSelection(mCurrentSelection - 1);
             mControlTimer = 0.55f;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && mCurrentSelection < 4)
+        else if (Game.instance.actionSet.MoveRight.WasPressed && mCurrentSelection < 4)
         {
             transform.DOMoveX(transform.position.x - 4f, 0.5f);
             ChangeCharacterSelection(mCurrentSelection + 1);
@@ -65,7 +65,7 @@ public class CharacterSelect : MonoBehaviour
         }
 
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Game.instance.actionSet.Spell.WasPressed)
         {
             Game.instance.playerData.model = selectableCharacters[mCurrentSelection].name;
             string materialName = selectableCharacters[mCurrentSelection].GetComponentInChildren<Renderer>().material.name;
