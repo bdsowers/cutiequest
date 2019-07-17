@@ -13,13 +13,8 @@ public class PlayerController : MonoBehaviour
     private SimpleAttack mSimpleAttack;
     private ExternalCharacterStatistics mCharacterStats;
     private Killable mKillable;
-    private BasicActionSet mActionSet;
-
+    
     public bool isAlive { get; set; }
-
-    // todo bdsowers - this probably shouldn't be part of the PlayerController so the same
-    // controls can be universal to the game itself.
-    public BasicActionSet actionSet {  get { return mActionSet; } }
 
     private string mFollowerId;
 
@@ -57,8 +52,6 @@ public class PlayerController : MonoBehaviour
         Game.instance.playerData.onPlayerDataChanged += OnPlayerDataChanged;
 
         isAlive = true;
-
-        mActionSet = new BasicActionSet();
 
         GetComponent<Killable>().health = Game.instance.playerData.health;
 
@@ -189,8 +182,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mActionSet.DetectController();
-
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
         if (!isAlive)
@@ -201,7 +192,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         // Queue spells while moving / attack to be executed once those actions end.
-        if (mActionSet.Spell.WasPressed)
+        if (Game.instance.actionSet.Spell.WasPressed)
         {
             mSpellQueued = true;
         }
@@ -241,19 +232,19 @@ public class PlayerController : MonoBehaviour
         Vector3 intendedDirection = Vector3.zero;
 
         float moveThreshold = 0.5f;
-        if (mActionSet.Move.Y > moveThreshold)
+        if (Game.instance.actionSet.Move.Y > moveThreshold)
         {
             intendedDirection = new Vector3(0f, 0f, 1f);
         }
-        else if (mActionSet.Move.Y < -moveThreshold)
+        else if (Game.instance.actionSet.Move.Y < -moveThreshold)
         {
             intendedDirection = new Vector3(0f, 0f, -1f);
         }
-        else if (mActionSet.Move.X < -moveThreshold)
+        else if (Game.instance.actionSet.Move.X < -moveThreshold)
         {
             intendedDirection = new Vector3(-1f, 0f, 0f);
         }
-        else if (mActionSet.Move.X > moveThreshold)
+        else if (Game.instance.actionSet.Move.X > moveThreshold)
         {
             intendedDirection = new Vector3(1f, 0f, 0f);
         }
@@ -264,7 +255,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = intendedDirection;
 
-            if (mActionSet.HoldPosition.IsPressed)
+            if (Game.instance.actionSet.HoldPosition.IsPressed)
             {
                 SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
             }

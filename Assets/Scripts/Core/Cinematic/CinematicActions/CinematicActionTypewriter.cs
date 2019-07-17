@@ -53,7 +53,7 @@ public class CinematicActionTypewriter : CinematicAction
             yield return new WaitForSeconds(0.25f);
 
             bool keepWaiting = true;
-            BasicActionSet actionSet = Game.instance.avatar.actionSet; // todo bdsowers - this is not ideal
+            BasicActionSet actionSet = Game.instance.actionSet;
             while (keepWaiting)
             {
                 if (target.isAnimating)

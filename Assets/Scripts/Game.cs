@@ -25,6 +25,8 @@ public class Game : MonoBehaviour
     private EnemyDirector mEnemyDirector;
     private LevelGenerator mLevelGenerator;
 
+    private BasicActionSet mActionSet;
+
     // Used only for dev purposes so we can start on the Dungeon scene.
     public DungeonData defaultDungeonData;
 
@@ -184,6 +186,8 @@ public class Game : MonoBehaviour
 
     }
 
+    public BasicActionSet actionSet { get { return mActionSet; } }
+
     public void EnterDungeon(DungeonData dungeonData)
     {
         Game.instance.playerData.numHearts = 0;
@@ -242,11 +246,15 @@ public class Game : MonoBehaviour
         mCurrentDungeonFloor = 1;
 
         cinematicDirector.LoadCinematicFromResource("Cinematics/characters");
+
+        mActionSet = new BasicActionSet();
     }
 
     // Update is called once per frame
     void Update()
     {
+        mActionSet.DetectController();
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GameObject hud = GameObject.Find("HUD");
