@@ -29,6 +29,7 @@ public class MapDisplay : MonoBehaviour
                 if (mIsSelected)
                 {
                     mTeleportIndicator = PrefabManager.instance.InstantiatePrefabByName("MapTeleportIndicator", transform);
+                    mTeleportIndicator.transform.position = mTeleportIndicator.transform.position + Vector3.down * 0.01f;
                 }
                 else
                 {
