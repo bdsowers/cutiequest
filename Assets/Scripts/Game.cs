@@ -264,7 +264,7 @@ public class Game : MonoBehaviour
         {
             // In some control schemes, pause & close are the same button (Escape)
             // Make sure these don't overlap
-            if (Dialog.AnyDialogsOpen())
+            if (DialogManager.AnyDialogsOpen())
                 return;
 
             GameObject hud = GameObject.Find("HUD");

@@ -33,7 +33,7 @@ public class QuestR : Dialog
 
     private void DisableButtonNavigation()
     {
-        Button[] buttons = GetComponentsInChildren<Button>();
+        Button[] buttons = GetComponentsInChildren<Button>(true);
         for (int i = 0; i < buttons.Length; ++i)
         {
             Navigation nav = new Navigation();

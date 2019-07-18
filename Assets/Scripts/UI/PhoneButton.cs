@@ -15,7 +15,7 @@ public class PhoneButton : MonoBehaviour
     {
         if (Game.instance.actionSet.ToggleMap.WasPressed)
         {
-            if (!Dialog.AnyDialogsOpen())
+            if (!DialogManager.AnyDialogsOpen())
             {
                 OnPressed();
             }

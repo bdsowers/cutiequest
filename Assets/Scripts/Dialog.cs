@@ -26,10 +26,4 @@ public class Dialog : MonoBehaviour
         gameObject.SetActive(false);
         yield break;
     }
-
-    public static bool AnyDialogsOpen()
-    {
-        Dialog dialog = GameObject.FindObjectOfType<Dialog>();
-        return dialog != null;
-    }
 }
