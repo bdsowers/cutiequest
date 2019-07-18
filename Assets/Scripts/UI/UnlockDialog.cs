@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UnlockDialog : MonoBehaviour
+public class UnlockDialog : Dialog
 {
     public Image unlockImage;
     public Text unlockTitleText;

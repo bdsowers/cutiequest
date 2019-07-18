@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IncreaseAttractivenessDialog : MonoBehaviour
+public class IncreaseAttractivenessDialog : Dialog
 {
     public Text costLabel;
 
@@ -34,11 +34,11 @@ public class IncreaseAttractivenessDialog : MonoBehaviour
             Game.instance.cinematicDirector.PostCinematicEvent("stylist_fail");
         }
 
-        gameObject.SetActive(false);
+        Close();
     }
 
     public void OnNoPressed()
     {
-        gameObject.SetActive(false);
+        Close();
     }
 }

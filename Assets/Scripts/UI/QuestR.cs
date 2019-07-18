@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ArrayExtensions;
 
-public class QuestR : MonoBehaviour
+public class QuestR : Dialog
 {
     public GameObject standardView;
     public GameObject matchView;
@@ -30,7 +30,11 @@ public class QuestR : MonoBehaviour
 
     public void OnClosePressed()
     {
-        gameObject.SetActive(false);
+        Close();
+    }
+
+    private void Update()
+    {
     }
 
     public void AcceptCharacter(CharacterData characterData)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuffStatsDialog : MonoBehaviour
+public class BuffStatsDialog : Dialog
 {
     public Text maxHealthCostLabel;
     public Text strengthCostLabel;
@@ -63,11 +63,11 @@ public class BuffStatsDialog : MonoBehaviour
             Game.instance.cinematicDirector.PostCinematicEvent("trainer_fail");
         }
 
-        gameObject.SetActive(false);
+        Close();
     }
 
     public void OnCancelPressed()
     {
-        gameObject.SetActive(false);
+        Close();
     }
 }

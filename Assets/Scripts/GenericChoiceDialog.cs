@@ -10,7 +10,7 @@ public struct DialogButton
     public Sprite icon;
 }
 
-public class GenericChoiceDialog : MonoBehaviour
+public class GenericChoiceDialog : Dialog
 {
     public Text label;
     public GameObject buttonTemplate;

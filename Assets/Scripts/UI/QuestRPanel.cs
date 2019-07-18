@@ -82,6 +82,18 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 mIsMouseOver = false;
             }
         }
+
+        if (Game.instance.actionSet.Like.WasPressed)
+        {
+            OnLikePressed();
+        }
+
+        if (Game.instance.actionSet.Dislike.WasPressed)
+        {
+            OnPassPressed();
+        }
+
+        
     }
 
     IEnumerator FlyToPosition(Vector3 endPosition, bool swapAfter, bool accepted)

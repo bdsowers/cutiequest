@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseDialog : MonoBehaviour
+public class PauseDialog : Dialog
 {
     public GameObject leaveDungeonButton;
     public GenericChoiceDialog genericChoiceDialog;

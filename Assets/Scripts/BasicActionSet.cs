@@ -22,7 +22,12 @@ public class BasicActionSet : PlayerActionSet
 
     public PlayerAction Pause;
     public PlayerAction ToggleMap;
-    
+
+    public PlayerAction Like;
+    public PlayerAction Dislike;
+
+    public PlayerAction CloseMenu;
+
     public BasicActionSet()
     {
         MoveLeft = CreatePlayerAction("Move Left");
@@ -38,6 +43,11 @@ public class BasicActionSet : PlayerActionSet
         Pause = CreatePlayerAction("Pause");
 
         ToggleMap = CreatePlayerAction("Activate Map");
+
+        Like = CreatePlayerAction("Like");
+        Dislike = CreatePlayerAction("Dislike");
+
+        CloseMenu = CreatePlayerAction("Close Menu");
     }
 
     public void DetectController()
@@ -71,7 +81,12 @@ public class BasicActionSet : PlayerActionSet
             Pause.AddDefaultBinding(Key.Escape);
 
             ToggleMap.AddDefaultBinding(Key.M);
-            
+
+            Like.AddDefaultBinding(Key.RightArrow);
+            Dislike.AddDefaultBinding(Key.LeftArrow);
+
+            CloseMenu.AddDefaultBinding(Key.Escape);
+
             this.Device = null;
         }
         else
@@ -88,7 +103,15 @@ public class BasicActionSet : PlayerActionSet
             Pause.AddDefaultBinding(InputControlType.Command);
 
             ToggleMap.AddDefaultBinding(InputControlType.Action4);
-            
+
+            Like.AddDefaultBinding(InputControlType.RightTrigger);
+            Like.AddDefaultBinding(InputControlType.RightBumper);
+
+            Dislike.AddDefaultBinding(InputControlType.LeftTrigger);
+            Dislike.AddDefaultBinding(InputControlType.LeftBumper);
+
+            CloseMenu.AddDefaultBinding(InputControlType.Action2);
+
             this.Device = boundDevice;
         }
     }
