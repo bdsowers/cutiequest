@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ArrayExtensions;
+using UnityEngine.UI;
 
 public class QuestR : Dialog
 {
@@ -26,6 +27,19 @@ public class QuestR : Dialog
 
         standardView.SetActive(true);
         matchView.SetActive(false);
+
+        DisableButtonNavigation();
+    }
+
+    private void DisableButtonNavigation()
+    {
+        Button[] buttons = GetComponentsInChildren<Button>();
+        for (int i = 0; i < buttons.Length; ++i)
+        {
+            Navigation nav = new Navigation();
+            nav.mode = Navigation.Mode.None;
+            buttons[i].navigation = nav;
+        }
     }
 
     public void OnClosePressed()

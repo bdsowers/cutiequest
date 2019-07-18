@@ -39,7 +39,26 @@ public class GenericChoiceDialog : Dialog
             mButtons.Add(newButton);
         }
 
+        // Hook up controller navigation
+        for (int i = 0; i < buttons.Count; ++i)
+        {
+            Navigation buttonNav = new Navigation();
+            buttonNav.mode = Navigation.Mode.Explicit;
+            buttonNav.selectOnLeft = (i == 0 ? null : mButtons[i - 1].GetComponent<Button>());
+            buttonNav.selectOnRight = (i == buttons.Count - 1 ? null : mButtons[i + 1].GetComponent<Button>());
+            mButtons[i].GetComponent<Button>().navigation = buttonNav;
+        }
+
         gameObject.SetActive(true);
+
+        StartCoroutine(SelectButton());
+    }
+
+    private IEnumerator SelectButton()
+    {
+        yield return null;
+        mButtons[0].GetComponent<Button>().Select();
+        yield break;
     }
 
     private void Clear()

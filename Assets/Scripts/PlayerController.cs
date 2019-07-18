@@ -194,6 +194,9 @@ public class PlayerController : MonoBehaviour
         if (minimapCamera.showingWholeMap)
             return;
 
+        if (Dialog.AnyDialogsOpen())
+            return;
+
         // Queue spells while moving / attack to be executed once those actions end.
         if (Game.instance.actionSet.Spell.WasPressed)
         {

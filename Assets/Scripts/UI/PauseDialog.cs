@@ -5,12 +5,19 @@ using UnityEngine.UI;
 
 public class PauseDialog : Dialog
 {
-    public GameObject leaveDungeonButton;
+    public Button returnToGameButton;
+    public Button leaveDungeonButton;
+    public Button settingsButton;
     public GenericChoiceDialog genericChoiceDialog;
 
     private void Start()
     {
-        leaveDungeonButton.GetComponent<Button>().interactable = (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon");
+        leaveDungeonButton.interactable = Game.instance.InDungeon();
+
+        Navigation nav = new Navigation();
+        nav.mode = Navigation.Mode.Explicit;
+        nav.selectOnDown = (leaveDungeonButton.interactable ? leaveDungeonButton : settingsButton);
+        returnToGameButton.navigation = nav;
     }
 
     public void OnReturnToGamePressed()
@@ -49,6 +56,10 @@ public class PauseDialog : Dialog
         if (buttonName == "button_yes")
         {
             Application.Quit();
+        }
+        else
+        {
+            returnToGameButton.Select();
         }
     }
 
