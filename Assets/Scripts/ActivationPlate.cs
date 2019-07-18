@@ -18,7 +18,9 @@ public class ActivationPlate : MonoBehaviour
             return;
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
-
+        if (Dialog.AnyDialogsOpen())
+            return;
+        
         if (Game.instance.actionSet.Activate.WasPressed)
         {
             if (mIsPlayerInside)

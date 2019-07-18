@@ -15,7 +15,16 @@ public class Dialog : MonoBehaviour
 
     public virtual void Close()
     {
+        StartCoroutine(CloseCoroutine());
+    }
+
+    IEnumerator CloseCoroutine()
+    {
+        yield return null;
+        yield return null;
+
         gameObject.SetActive(false);
+        yield break;
     }
 
     public static bool AnyDialogsOpen()
