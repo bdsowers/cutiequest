@@ -33,7 +33,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Sound & music
 * Implement in-dungeon characters (Hot Dog man, etc)
 * Finish intro sequence
-* Revisit Controller Support
 * Button prompts for things that can be activated
 * Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing
 * Polish character selection
@@ -45,6 +44,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Change first dungeon death messaging to be clearer
 * Swap out idle animation
 * Tweak 'More Info' button behavior while browsing QuestR
+
+* ~~Revisit Controller Support~~
 
 ### Known Vertical Slice Bugs
 * Invisible path block
