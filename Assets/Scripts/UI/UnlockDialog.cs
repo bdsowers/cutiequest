@@ -19,7 +19,7 @@ public class UnlockDialog : Dialog
 
     public override void Update()
     {
-        if (Game.instance.actionSet.CloseMenu.WasPressed || Game.instance.actionSet.Spell.WasPressed)
+        if (Game.instance.actionSet.CloseMenu.WasPressed || Game.instance.actionSet.Activate.WasPressed)
         {
             Close();
         }

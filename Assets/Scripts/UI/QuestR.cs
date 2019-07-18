@@ -33,6 +33,19 @@ public class QuestR : Dialog
         Close();
     }
 
+    public override void Update()
+    {
+        if (Game.instance.actionSet.CloseMenu.WasPressed)
+        {
+            Close();
+        }
+
+        if (matchView.activeSelf && Game.instance.actionSet.Activate.WasPressed)
+        {
+            Close();
+        }
+    }
+
     public void AcceptCharacter(CharacterData characterData)
     {
         Game.instance.playerData.followerUid = characterData.characterUniqueId;

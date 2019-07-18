@@ -65,7 +65,7 @@ public class CharacterSelect : MonoBehaviour
         }
 
         
-        if (Game.instance.actionSet.Spell.WasPressed)
+        if (Game.instance.actionSet.Activate.WasPressed)
         {
             Game.instance.playerData.model = selectableCharacters[mCurrentSelection].name;
             string materialName = selectableCharacters[mCurrentSelection].GetComponentInChildren<Renderer>().material.name;

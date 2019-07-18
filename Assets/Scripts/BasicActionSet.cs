@@ -107,9 +107,14 @@ public class BasicActionSet : PlayerActionSet
             MoveUp.AddDefaultBinding(InputControlType.LeftStickUp);
             MoveDown.AddDefaultBinding(InputControlType.LeftStickDown);
 
+            MoveLeft.AddDefaultBinding(InputControlType.DPadLeft);
+            MoveRight.AddDefaultBinding(InputControlType.DPadRight);
+            MoveUp.AddDefaultBinding(InputControlType.DPadUp);
+            MoveDown.AddDefaultBinding(InputControlType.DPadDown);
+
             HoldPosition.AddDefaultBinding(InputControlType.RightTrigger);
-            Activate.AddDefaultBinding(InputControlType.Action2);
-            Spell.AddDefaultBinding(InputControlType.Action1);
+            Activate.AddDefaultBinding(InputControlType.Action1);
+            Spell.AddDefaultBinding(InputControlType.Action3);
 
             Pause.AddDefaultBinding(InputControlType.Command);
 
