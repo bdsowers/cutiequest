@@ -17,10 +17,12 @@ public class UnlockDialog : Dialog
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+        if (Game.instance.actionSet.CloseMenu.WasPressed || Game.instance.actionSet.Spell.WasPressed)
+        {
+            Close();
+        }
     }
 
     public void ShowWithSpell(Spell spell)

@@ -93,7 +93,13 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             OnPassPressed();
         }
 
-        
+        if (Game.instance.actionSet.ToggleMap.WasPressed)
+        {
+            if (moreInfoView.gameObject.activeSelf)
+                OnLessInfoPressed();
+            else
+                OnMoreInfoPressed();
+        }
     }
 
     IEnumerator FlyToPosition(Vector3 endPosition, bool swapAfter, bool accepted)

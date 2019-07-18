@@ -33,6 +33,9 @@ public class MinimapCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (fullMap == null)
+            return;
+
         if (Game.instance.actionSet.ToggleMap.WasPressed || (mShowingWholeMap && Game.instance.actionSet.Pause.WasPressed))
         {
             ToggleFullMap(!mShowingWholeMap);

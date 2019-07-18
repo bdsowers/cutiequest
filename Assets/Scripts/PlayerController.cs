@@ -163,6 +163,9 @@ public class PlayerController : MonoBehaviour
 
     private void CastSpellIfPossible()
     {
+        if (!Game.instance.InDungeon())
+            return;
+
         Spell spell = GetComponentInChildren<Spell>();
         if (spell != null && spell.canActivate)
         {
@@ -230,7 +233,7 @@ public class PlayerController : MonoBehaviour
         followerDirection.Normalize();
 
         Vector3 intendedDirection = Vector3.zero;
-
+        
         float moveThreshold = 0.5f;
         if (Game.instance.actionSet.Move.Y > moveThreshold)
         {

@@ -198,6 +198,11 @@ public class Game : MonoBehaviour
         mAttractivenessWhenDungeonEntered = playerData.attractiveness;
     }
 
+    public bool InDungeon()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon";
+    }
+
     public bool finishedTutorial { get; set; }
 
     public int whoseTurn { get; set; }
@@ -259,8 +264,7 @@ public class Game : MonoBehaviour
         {
             // In some control schemes, pause & close are the same button (Escape)
             // Make sure these don't overlap
-            Dialog openDialog = GameObject.FindObjectOfType<Dialog>();
-            if (openDialog != null)
+            if (Dialog.AnyDialogsOpen())
                 return;
 
             GameObject hud = GameObject.Find("HUD");

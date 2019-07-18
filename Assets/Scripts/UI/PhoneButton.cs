@@ -10,4 +10,15 @@ public class PhoneButton : MonoBehaviour
     {
         phoneInterface.gameObject.SetActive(true);
     }
+
+    private void Update()
+    {
+        if (Game.instance.actionSet.ToggleMap.WasPressed)
+        {
+            if (!Dialog.AnyDialogsOpen())
+            {
+                OnPressed();
+            }
+        }
+    }
 }

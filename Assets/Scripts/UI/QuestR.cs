@@ -33,10 +33,6 @@ public class QuestR : Dialog
         Close();
     }
 
-    private void Update()
-    {
-    }
-
     public void AcceptCharacter(CharacterData characterData)
     {
         Game.instance.playerData.followerUid = characterData.characterUniqueId;

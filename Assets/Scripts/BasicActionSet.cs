@@ -52,6 +52,12 @@ public class BasicActionSet : PlayerActionSet
 
     public void DetectController()
     {
+        if (InputManager.ActiveDevice != mBoundDevice)
+        {
+            BindToDevice(InputManager.ActiveDevice);
+        }
+
+        /*
         if (InputManager.AnyKeyIsPressed)
         {
             BindToDevice(null);
@@ -60,7 +66,7 @@ public class BasicActionSet : PlayerActionSet
         if (InputManager.CommandWasPressed)
         {
             BindToDevice(InputManager.ActiveDevice);
-        }
+        }*/
     }
 
     public void BindToDevice(InputDevice device)
@@ -95,6 +101,11 @@ public class BasicActionSet : PlayerActionSet
             MoveRight.AddDefaultBinding(InputControlType.RightStickRight);
             MoveUp.AddDefaultBinding(InputControlType.RightStickUp);
             MoveDown.AddDefaultBinding(InputControlType.RightStickDown);
+
+            MoveLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
+            MoveRight.AddDefaultBinding(InputControlType.LeftStickRight);
+            MoveUp.AddDefaultBinding(InputControlType.LeftStickUp);
+            MoveDown.AddDefaultBinding(InputControlType.LeftStickDown);
 
             HoldPosition.AddDefaultBinding(InputControlType.RightTrigger);
             Activate.AddDefaultBinding(InputControlType.Action2);

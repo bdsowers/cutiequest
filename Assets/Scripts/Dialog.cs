@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (Game.instance.actionSet.CloseMenu.WasPressed)
         {
@@ -22,5 +16,11 @@ public class Dialog : MonoBehaviour
     public virtual void Close()
     {
         gameObject.SetActive(false);
+    }
+
+    public static bool AnyDialogsOpen()
+    {
+        Dialog dialog = GameObject.FindObjectOfType<Dialog>();
+        return dialog != null;
     }
 }
