@@ -11,7 +11,7 @@ public class TitleScreen : MonoBehaviour
     private bool mLeaving = false;
     private float mLeaveTimer = 0f;
 
-    private float mStartupDelay = 1f;
+    private float mStartupDelay = 0.5f;
 
     // Start is called before the first frame update
     void Start()

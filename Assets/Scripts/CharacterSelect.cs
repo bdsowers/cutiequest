@@ -50,18 +50,20 @@ public class CharacterSelect : MonoBehaviour
             mControlTimer -= Time.deltaTime;
             return;
         }
-        
+
+        float rotateTime = 0.2f;
+
         if (Game.instance.actionSet.MoveLeft.WasPressed && mCurrentSelection > 0)
         {
-            transform.DOMoveX(transform.position.x + 4f, 0.5f);
+            transform.DOMoveX(transform.position.x + 4f, rotateTime);
             ChangeCharacterSelection(mCurrentSelection - 1);
-            mControlTimer = 0.55f;
+            mControlTimer = rotateTime + 0.05f;
         }
         else if (Game.instance.actionSet.MoveRight.WasPressed && mCurrentSelection < 4)
         {
-            transform.DOMoveX(transform.position.x - 4f, 0.5f);
+            transform.DOMoveX(transform.position.x - 4f, rotateTime);
             ChangeCharacterSelection(mCurrentSelection + 1);
-            mControlTimer = 0.55f;
+            mControlTimer = rotateTime + 0.05f;
         }
 
         

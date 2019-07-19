@@ -23,6 +23,8 @@ public class MinimapCamera : MonoBehaviour
 
     public GameObject teleportWarning;
 
+    private float mReselectDelay = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,9 @@ public class MinimapCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mReselectDelay > 0f)
+            mReselectDelay -= Time.deltaTime;
+
         if (fullMap == null)
             return;
 
@@ -43,19 +48,19 @@ public class MinimapCamera : MonoBehaviour
 
         if (mShowingWholeMap)
         {
-            if (Game.instance.actionSet.MoveLeft.WasPressed)
+            if (Game.instance.actionSet.MoveLeft.WasPressed && mReselectDelay <= 0f)
             {
                 SelectMapDisplay(Vector3.left);
             }
-            else if (Game.instance.actionSet.MoveRight.WasPressed)
+            else if (Game.instance.actionSet.MoveRight.WasPressed && mReselectDelay <= 0f)
             {
                 SelectMapDisplay(Vector3.right);
             }
-            else if (Game.instance.actionSet.MoveUp.WasPressed)
+            else if (Game.instance.actionSet.MoveUp.WasPressed && mReselectDelay <= 0f)
             {
                 SelectMapDisplay(Vector3.forward);
             }
-            else if (Game.instance.actionSet.MoveDown.WasPressed)
+            else if (Game.instance.actionSet.MoveDown.WasPressed && mReselectDelay <= 0f)
             {
                 SelectMapDisplay(Vector3.back);
             }
@@ -180,6 +185,8 @@ public class MinimapCamera : MonoBehaviour
             mInterestingDisplays[previousSelection].isSelected = false;
             mInterestingDisplays[mSelectedDisplay].isSelected = true;
         }
+
+        mReselectDelay = 0.25f;
     }
 
     void DeselectAllMapDisplays()
