@@ -40,7 +40,7 @@ public class CharacterSelect : MonoBehaviour
         mCurrentSelection = newSelection;
         selectableCharacters[mCurrentSelection].transform.DOScale(1.4f, 0.5f);
 
-        //selectableCharacters[mCurrentSelection].GetComponentInChildren<Animator>().speed = 1f;
+        selectableCharacters[mCurrentSelection].GetComponentInChildren<Animator>().speed = 1f;
     }
 
     void Update()
@@ -67,7 +67,7 @@ public class CharacterSelect : MonoBehaviour
         }
 
         
-        if (Game.instance.actionSet.Activate.WasPressed)
+        if (Game.instance.actionSet.Activate.WasPressed || Game.instance.actionSet.Spell.WasPressed)
         {
             Game.instance.playerData.model = selectableCharacters[mCurrentSelection].name;
             string materialName = selectableCharacters[mCurrentSelection].GetComponentInChildren<Renderer>().material.name;

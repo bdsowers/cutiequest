@@ -35,7 +35,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Finish intro sequence
 
 * Button prompts for things that can be activated
-* Polish character selection
 * Add lots more string table entries
 * Add 'new matches' notification
 * Make boss drop unique stuff
@@ -44,6 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
 
+* ~~Polish character selection~~
 * ~~Change first dungeon death messaging to be clearer~~
 * ~~Tweak 'More Info' button behavior while browsing QuestR~~
 * ~~Swap out idle animation~~
