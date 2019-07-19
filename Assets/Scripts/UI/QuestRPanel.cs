@@ -38,6 +38,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private static bool mIsQuestPanelAnimating = false;
     private float mThreshold = 500f;
 
+    private QuestR mParent;
+
     public List<CharacterData> availableCharacters
     {
         get { return mAvailableCharacters; }
@@ -56,6 +58,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Start is called before the first frame update
     public void Setup()
     {
+        mParent = GetComponentInParent<QuestR>();
+        mParent.moreInfoMode = false;
         mCurrentCharacter = characterOffset;
         SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }
@@ -126,7 +130,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (accepted)
         {
-            GetComponentInParent<QuestR>().AcceptCharacter(mAvailableCharacters[character]);
+            mParent.AcceptCharacter(mAvailableCharacters[character]);
         }
         
         mIsQuestPanelAnimating = false;
@@ -182,9 +186,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         cameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(characterData, false);
 
-        standardView.gameObject.SetActive(true);
+        standardView.gameObject.SetActive(!mParent.moreInfoMode);
         standardView.GetComponent<CanvasGroup>().alpha = 1f;
-        moreInfoView.gameObject.SetActive(false);
+        moreInfoView.gameObject.SetActive(mParent.moreInfoMode);
     }
 
     private void SetupLabelInfo(CharacterData characterData)
@@ -222,6 +226,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnMoreInfoPressed()
     {
         moreInfoView.gameObject.SetActive(true);
+        mParent.moreInfoMode = true;
 
         StartCoroutine(FadeCanvasGroup(standardView.GetComponent<CanvasGroup>(), 1f, 0f));
         StartCoroutine(FadeCanvasGroup(moreInfoView.GetComponent<CanvasGroup>(), 0f, 1f));
@@ -230,6 +235,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnLessInfoPressed()
     {
         standardView.gameObject.SetActive(true);
+        mParent.moreInfoMode = false;
 
         StartCoroutine(FadeCanvasGroup(standardView.GetComponent<CanvasGroup>(), 0f, 1f));
         StartCoroutine(FadeCanvasGroup(moreInfoView.GetComponent<CanvasGroup>(), 1f, 0f));

@@ -15,6 +15,8 @@ public class QuestR : Dialog
     public QuestRPanel panel1;
     public QuestRPanel panel2;
 
+    public bool moreInfoMode { get; set; }
+
     private void OnEnable()
     {
         List<CharacterData> characters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
