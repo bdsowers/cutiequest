@@ -25,6 +25,19 @@ public class DuckpicUI : MonoBehaviour
 
     public void OnClosePressed()
     {
+        Close();
+    }
+
+    private void Update()
+    {
+        if (Game.instance.actionSet.CloseMenu.WasPressed)
+        {
+            Close();
+        }
+    }
+
+    private void Close()
+    {
         gameObject.SetActive(false);
     }
 }
