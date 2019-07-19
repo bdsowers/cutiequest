@@ -6,6 +6,7 @@ using InControl;
 public class BasicActionSet : PlayerActionSet
 {
     private InputDevice mBoundDevice;
+    private bool mBound;
 
     public InputDevice boundDevice {  get { return mBoundDevice; } }
 
@@ -52,21 +53,13 @@ public class BasicActionSet : PlayerActionSet
 
     public void DetectController()
     {
-        if (InputManager.ActiveDevice != mBoundDevice)
-        {
-            BindToDevice(InputManager.ActiveDevice);
-        }
+        InputDevice device = (InputManager.ActiveDevice.Name == "None" ? null : InputManager.ActiveDevice);
 
-        /*
-        if (InputManager.AnyKeyIsPressed)
+        if (device != mBoundDevice || !mBound)
         {
-            BindToDevice(null);
+            mBound = true;
+            BindToDevice(device);
         }
-
-        if (InputManager.CommandWasPressed)
-        {
-            BindToDevice(InputManager.ActiveDevice);
-        }*/
     }
 
     public void BindToDevice(InputDevice device)
