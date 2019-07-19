@@ -33,12 +33,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Sound & music
 * Implement in-dungeon characters (Hot Dog man, etc)
 * Finish intro sequence
+
 * Button prompts for things that can be activated
-* Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing
 * Polish character selection
 * Add lots more string table entries
 * Add 'new matches' notification
 * Make boss drop unique stuff
+
+* Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
 * Change first dungeon death messaging to be clearer
@@ -49,6 +51,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Known Vertical Slice Bugs
 * Invisible path block
+* Characters can appear multiple times on same floor
 
 ### Vertical Slice Showcasing
 * Turn off cheats
