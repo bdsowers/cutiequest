@@ -5,6 +5,13 @@ using UnityEngine;
 public class PhoneButton : MonoBehaviour
 {
     public GameObject phoneInterface;
+    public GameObject newMatchesIndicator;
+    public Wiggle mWiggle;
+
+    private void Start()
+    {
+        mWiggle = GetComponentInParent<Wiggle>();
+    }
 
     public void OnPressed()
     {
@@ -13,6 +20,9 @@ public class PhoneButton : MonoBehaviour
 
     private void Update()
     {
+        mWiggle.enabled = !QuestR.seenMatches;
+        newMatchesIndicator.SetActive(!QuestR.seenMatches);
+
         if (Game.instance.actionSet.ToggleMap.WasPressed)
         {
             if (!DialogManager.AnyDialogsOpen())

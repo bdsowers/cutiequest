@@ -26,6 +26,7 @@ public class IncreaseAttractivenessDialog : Dialog
             NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, mCost, NumberPopupReason.RemoveHearts);
 
             Game.instance.companionBuilder.BuildCompanionSet();
+            QuestR.seenMatches = false;
 
             Game.instance.cinematicDirector.PostCinematicEvent("stylist_success");
         }

@@ -17,6 +17,8 @@ public class QuestR : Dialog
 
     public bool moreInfoMode { get; set; }
 
+    public static bool seenMatches { get; set; }
+
     private void OnEnable()
     {
         List<CharacterData> characters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
@@ -31,6 +33,8 @@ public class QuestR : Dialog
         matchView.SetActive(false);
 
         DisableButtonNavigation();
+
+        seenMatches = true;
     }
 
     private void DisableButtonNavigation()

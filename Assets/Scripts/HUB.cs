@@ -9,6 +9,7 @@ public class HUB : MonoBehaviour
     {
         yield return null;
         Game.instance.companionBuilder.BuildCompanionSet();
+        QuestR.seenMatches = false;
 
         Game.instance.playerData.numCoins = 0;
         Game.instance.playerStats.gameObject.RemoveAllChildren();

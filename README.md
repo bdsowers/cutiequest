@@ -33,15 +33,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Sound & music
 * Implement in-dungeon characters (Hot Dog man, etc)
 * Finish intro sequence
+* Add lots more string table entries
 
 * Button prompts for things that can be activated
-* Add lots more string table entries
-* Add 'new matches' notification
+
 * Make boss drop unique stuff
 
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
 
+* ~~Add 'new matches' notification~~
 * ~~Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing~~
 * ~~Polish character selection~~
 * ~~Change first dungeon death messaging to be clearer~~
