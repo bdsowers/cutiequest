@@ -142,7 +142,12 @@ public class ScreenTransitionManager : MonoBehaviour
         deathSpeakerImage.gameObject.SetActive(true);
         StartCoroutine(FadeDeathSpeaker(new Color(0, 0, 0, 0), new Color(1, 1, 1, 1)));
 
-        yield return deathMessage.ShowTextCoroutine(LocalizedText.Get(LocalizedText.GetKeysInList("[BREAKUP]").Sample()), 1f);
+        string msg = LocalizedText.Get(LocalizedText.GetKeysInList("[BREAKUP]").Sample());
+        if (!Game.instance.finishedTutorial)
+        {
+            msg = LocalizedText.Get("[BREAKUP_1]");
+        }
+        yield return deathMessage.ShowTextCoroutine(msg, 1f);
         yield return new WaitForSeconds(1f);
 
         deathMessage.GetComponentInChildren<Text>().CrossFadeAlpha(0f, 0.5f, false);

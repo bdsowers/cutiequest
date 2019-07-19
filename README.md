@@ -43,8 +43,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
-* Change first dungeon death messaging to be clearer
 
+* ~~Change first dungeon death messaging to be clearer~~
 * ~~Tweak 'More Info' button behavior while browsing QuestR~~
 * ~~Swap out idle animation~~
 * ~~Revisit Controller Support~~
