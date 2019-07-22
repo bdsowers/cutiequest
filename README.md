@@ -51,9 +51,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ~~Revisit Controller Support~~
 
 ### Known Vertical Slice Bugs
-* Invisible path block
+* ~~Invisible path block~~
 * Characters can appear multiple times on same floor
 * QuestR organization seems off
+* Minimap teleporting doesn't always work
 
 ### Vertical Slice Showcasing
 * Turn off cheats

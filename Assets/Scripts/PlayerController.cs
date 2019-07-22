@@ -314,7 +314,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2Int currentPos = MapCoordinateHelper.WorldToMapCoords(transform.position);
 
-        collisionMap.MarkSpace(currentPos.x, currentPos.y, 0);
+        collisionMap.RemoveMarking(mSimpleMovement.uniqueCollisionIdentity);
         collisionMap.MarkSpace(mTeleportTarget.x, mTeleportTarget.y, mSimpleMovement.uniqueCollisionIdentity);
 
         Game.instance.avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(mTeleportTarget);

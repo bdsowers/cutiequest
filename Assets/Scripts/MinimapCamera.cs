@@ -64,7 +64,7 @@ public class MinimapCamera : MonoBehaviour
             {
                 SelectMapDisplay(Vector3.back);
             }
-            else if (Game.instance.actionSet.Activate.WasPressed && CanTeleport())
+            else if ((Game.instance.actionSet.Activate.WasPressed || Game.instance.actionSet.Spell.WasPressed) && CanTeleport())
             {
                 Teleport();
                 ToggleFullMap(false);
