@@ -320,7 +320,7 @@ public class LevelGenerator : MonoBehaviour
         pos = FindEmptyNearbyPosition(pos);
         mAvatarStartPosition = pos;
 
-        mCollisionMap.MarkSpace(pos.x, pos.y, avatar.GetComponent<SimpleMovement>().collisionIdentity);
+        mCollisionMap.MarkSpace(pos.x, pos.y, avatar.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
         avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(pos);
 
         // Also place any followers/pets adjacent to the player
@@ -375,6 +375,7 @@ public class LevelGenerator : MonoBehaviour
 
     private string ChooseRandomEnemy(DungeonFloorData floorData)
     {
+        
         DungeonEnemyData enemyData = floorData.enemyData;
 
         int randomNum = Random.Range(0, 100);
@@ -425,7 +426,7 @@ public class LevelGenerator : MonoBehaviour
         GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
         Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;
-        mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
+        mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
     }
 
     private void PlaceHearts()

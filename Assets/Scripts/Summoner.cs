@@ -97,6 +97,7 @@ public class Summoner : MonoBehaviour
         Vector2Int pos2 = mapPos;
         Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;
+        mCollisionMap.MarkSpace(mapPos.x, mapPos.y, newEnemy.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
     }
 
     private List<Vector2Int> WalkablePositionsInRange(int originX, int originY)

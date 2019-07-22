@@ -47,7 +47,7 @@ public class PartnerInCrimeQuirk : Quirk
             walkablePositions.Remove(pos2);
             Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
             newEnemy.transform.position = pos;
-            collisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().collisionIdentity);
+            collisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
         }
     }
 }

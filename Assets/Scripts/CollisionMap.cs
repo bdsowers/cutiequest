@@ -7,6 +7,8 @@ public class CollisionMap : MonoBehaviour
 {
     int[,] mMap;
 
+    private Dictionary<int, Vector2Int> mPlacement = new Dictionary<int, Vector2Int>();
+
     public int width
     {
         get
@@ -54,7 +56,38 @@ public class CollisionMap : MonoBehaviour
 
     public void MarkSpace(int x, int y, int value)
     {
+        if (mMap[x, y] != 0)
+            Debug.LogError("Trying to mark a space that's already marked");
+
         mMap[x, y] = value;
+
+        if (mPlacement.ContainsKey(value))
+        {
+            mPlacement[value] = new Vector2Int(x, y);
+        }
+        else
+        {
+            mPlacement.Add(value, new Vector2Int(x, y));
+        }
+    }
+
+    public void RemoveMarking(int value)
+    {
+        Vector2Int position;
+        if (mPlacement.TryGetValue(value, out position))
+        {
+            if (mMap[position.x, position.y] != value)
+            {
+                Debug.LogError("Collision map has gotten out of whack");
+            }
+
+            mMap[position.x, position.y] = 0;
+            mPlacement.Remove(value);
+        }
+        else
+        {
+            Debug.LogError("Trying to remove a marking that doesn't exist in the map: " + value);
+        }
     }
 
     public int SpaceMarking(int x, int y)

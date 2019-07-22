@@ -53,6 +53,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Known Vertical Slice Bugs
 * Invisible path block
 * Characters can appear multiple times on same floor
+* QuestR organization seems off
 
 ### Vertical Slice Showcasing
 * Turn off cheats

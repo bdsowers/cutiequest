@@ -12,12 +12,36 @@ public class SimpleMovement : MonoBehaviour
     public GameObject subMesh;
     public List<int> collisionIgnoreList;
     public int collisionIdentity;
-
+    
     private bool mIsMoving = false;
 
     private Vector3 mMeshLocalPosition;
     private CollisionMap mCollisionMap;
     private CharacterStatistics mCharacterStatistics;
+
+    private int mUniqueCollisionIdentity = -1;
+    private static int mUniqueCollisionIdentityCounter = 100;
+
+    // Anything given a collisionIdentity > 1 is also given a completely
+    // unique collision identity.
+    public int uniqueCollisionIdentity
+    {
+        get
+        {
+            if (collisionIdentity > 1)
+            {
+                if (mUniqueCollisionIdentity < 0)
+                {
+                    mUniqueCollisionIdentity = mUniqueCollisionIdentityCounter;
+                    mUniqueCollisionIdentityCounter++;
+                }
+
+                return mUniqueCollisionIdentity;
+            }
+
+            return collisionIdentity;
+        }
+    }
 
     public bool isMoving
     {
@@ -45,11 +69,17 @@ public class SimpleMovement : MonoBehaviour
 
     public void Move(Vector3 direction, Vector3? absolutePosition = null)
     {
+        if (direction.sqrMagnitude < 0.01f)
+            return;
+
         StartCoroutine(MoveCoroutine(direction, absolutePosition));
     }
 
     public bool CanMove(Vector3 direction)
     {
+        if (direction.sqrMagnitude < 0.01f)
+            return false;
+
         if (!useCollisionMap)
         {
             Ray ray = new Ray(transform.position + new Vector3(0f, 0.2f, 0f),direction);
@@ -76,31 +106,28 @@ public class SimpleMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        Vector2Int oldCoords = MapCoordinateHelper.WorldToMapCoords(transform.position);
-        if (mCollisionMap != null && mCollisionMap.SpaceMarking(oldCoords.x, oldCoords.y) == collisionIdentity)
-        {
-            mCollisionMap.MarkSpace(oldCoords.x, oldCoords.y, 0);
-        }
+        if (mCollisionMap == null)
+            return;
+
+        if (!useCollisionMap)
+            return;
+
+        mCollisionMap.RemoveMarking(uniqueCollisionIdentity);
     }
 
     private void UpdateCollisionMapForMove(Vector3 currentPosition, Vector3 targetPosition)
     {
+        if (!useCollisionMap)
+            return;
+
         if (collisionIdentity < 0)
             return;
 
         Vector2Int oldCoords = MapCoordinateHelper.WorldToMapCoords(currentPosition);
         Vector2Int newCoords = MapCoordinateHelper.WorldToMapCoords(targetPosition);
 
-        // todo bdsowers - there's a bug here if we die mid movement ...
-
-        // Clear us from the old space, but only do it if we are currently registered
-        // as being there. Certain overlap scenarios may make this not necessarily true.
-        if (mCollisionMap.SpaceMarking(oldCoords.x, oldCoords.y) == collisionIdentity)
-        {
-            mCollisionMap.MarkSpace(oldCoords.x, oldCoords.y, 0);
-        }
-
-        mCollisionMap.MarkSpace(newCoords.x, newCoords.y, collisionIdentity);
+        mCollisionMap.RemoveMarking(uniqueCollisionIdentity);
+        mCollisionMap.MarkSpace(newCoords.x, newCoords.y, uniqueCollisionIdentity);
     }
 
     public static void OrientToDirection(GameObject subMeshToOrient, Vector3 direction)
@@ -134,6 +161,9 @@ public class SimpleMovement : MonoBehaviour
 
     private IEnumerator MoveCoroutine(Vector3 direction, Vector3? absoluteTargetPosition = null)
     {
+        if (mIsMoving && collisionIdentity > 0)
+            Debug.LogError("Double movement detected");
+
         mIsMoving = true;
 
         Vector3 position = transform.position;
