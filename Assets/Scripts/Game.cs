@@ -24,6 +24,7 @@ public class Game : MonoBehaviour
     private CentralEvents mCentralEvents;
     private EnemyDirector mEnemyDirector;
     private LevelGenerator mLevelGenerator;
+    private SoundManager mSoundManager;
 
     private BasicActionSet mActionSet;
 
@@ -50,6 +51,11 @@ public class Game : MonoBehaviour
 
             return mAvatar;
         }
+    }
+
+    public SoundManager soundManager
+    {
+        get { return mSoundManager; }
     }
 
     public PlayerData playerData { get { return mPlayerData; } }
@@ -227,7 +233,8 @@ public class Game : MonoBehaviour
         mCentralEvents = new CentralEvents();
         mCompanionBuilder = GetComponentInChildren<CompanionBuilder>();
         mEnemyDirector = GetComponentInChildren<EnemyDirector>();
-        
+        mSoundManager = GetComponentInChildren<SoundManager>();
+
         mSaveManager.LoadGame();
 
         playerData.onPlayerDataChanged += OnPlayerDataChanged;
