@@ -22,5 +22,7 @@ public class HUB : MonoBehaviour
         Game.instance.finishedTutorial = true;
 
         Game.instance.saveManager.TriggerSave();
+
+        Game.instance.soundManager.PlayRandomMusicInCategory("TownMusic");
     }
 }

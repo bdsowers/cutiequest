@@ -62,6 +62,8 @@ public class LevelGenerator : MonoBehaviour
         }
 
         QuirkSpecificSpawns();
+
+        Game.instance.soundManager.PlayRandomMusicInCategory("DungeonMusic");
     }
 
     private void PlaceDeadEndInterests()

@@ -73,6 +73,8 @@ public class SimpleMovement : MonoBehaviour
             return;
 
         StartCoroutine(MoveCoroutine(direction, absolutePosition));
+
+        Game.instance.soundManager.PlaySound("boing");
     }
 
     public bool CanMove(Vector3 direction)
