@@ -75,5 +75,7 @@ public class QuestR : Dialog
 
         rigModel1.ChangeModel("Chr_Adventure_Warrior_01");
         rigModel2.ChangeModel(characterData);
+
+        Game.instance.soundManager.PlaySound("confirm_special");
     }
 }

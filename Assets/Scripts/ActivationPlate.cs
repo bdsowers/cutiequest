@@ -39,6 +39,8 @@ public class ActivationPlate : MonoBehaviour
                         NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, item.Cost(), NumberPopupReason.RemoveCoins);
 
                         item.Equip();
+
+                        Game.instance.soundManager.PlaySound("confirm_special");
                     }
                 }
                 else if (shrine != null)

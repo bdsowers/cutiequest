@@ -62,6 +62,8 @@ public class Collectable : MonoBehaviour
             yield return null;
         }
 
+        Game.instance.soundManager.PlaySound("collect");
+
         mIsAnimating = false;
 
         if (currencyType == CurrencyType.Hearts)

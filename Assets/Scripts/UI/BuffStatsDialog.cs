@@ -57,6 +57,8 @@ public class BuffStatsDialog : Dialog
             }
 
             Game.instance.cinematicDirector.PostCinematicEvent("trainer_success");
+
+            Game.instance.soundManager.PlaySound("confirm_special");
         }
         else
         {

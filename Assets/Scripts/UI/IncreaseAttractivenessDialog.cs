@@ -29,6 +29,8 @@ public class IncreaseAttractivenessDialog : Dialog
             QuestR.seenMatches = false;
 
             Game.instance.cinematicDirector.PostCinematicEvent("stylist_success");
+
+            Game.instance.soundManager.PlaySound("confirm_special");
         }
         else
         {
