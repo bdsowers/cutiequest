@@ -94,6 +94,7 @@ MonoBehaviour:
   showNumberPopups: 0
   deathEffect: CFX2_RockHit
   deathEffectScale: 0.45
+  allowZeroDamage: 0
 --- !u!114 &7668331350616606249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ MonoBehaviour:
   mesh: {fileID: 0}
   subMesh: {fileID: 0}
   collisionIgnoreList: 
-  collisionIdentity: 1
+  collisionIdentity: 5
 --- !u!114 &5969348252685403527
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class DecoySpell : Spell
         decoy.name = "Decoy";
         decoy.transform.position = MapCoordinateHelper.MapToWorldCoords(decoyPos);
         decoy.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData);
+        map.MarkSpace(decoyPos.x, decoyPos.y, decoy.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
     }
 
     private Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos, CollisionMap collisionMap)
