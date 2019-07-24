@@ -9,6 +9,7 @@ public class MinimapCamera : MonoBehaviour
 
     public GameObject miniMap;
     public GameObject fullMap;
+    public GameObject toggleButtonDisplay;
 
     private float mOriginalOrthoSize;
     private Camera mCamera;
@@ -41,7 +42,7 @@ public class MinimapCamera : MonoBehaviour
         if (fullMap == null)
             return;
 
-        if (Game.instance.actionSet.ToggleMap.WasPressed || (mShowingWholeMap && Game.instance.actionSet.Pause.WasPressed))
+        if (Game.instance.actionSet.ToggleMap.WasPressed || (mShowingWholeMap && Game.instance.actionSet.Pause.WasPressed) || (mShowingWholeMap && Game.instance.actionSet.CloseMenu.WasPressed))
         {
             ToggleFullMap(!mShowingWholeMap);
         }
@@ -104,6 +105,7 @@ public class MinimapCamera : MonoBehaviour
 
         fullMap.SetActive(mShowingWholeMap);
         miniMap.SetActive(!mShowingWholeMap);
+        toggleButtonDisplay.SetActive(!mShowingWholeMap);
     }
     
     List<MapDisplay> InterestingMapDisplays()
