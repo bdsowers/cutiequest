@@ -11,6 +11,10 @@ public class ActivationPlate : MonoBehaviour
 
     private bool mIsPlayerInside;
 
+    // todo bdsowers - gets the job done but is a pretty ugly hack
+    private static bool mPlayerInsideAny = false;
+    private static bool mLateUpdateProcessed = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +24,9 @@ public class ActivationPlate : MonoBehaviour
             return;
         if (DialogManager.AnyDialogsOpen())
             return;
+
+        mLateUpdateProcessed = false;
+        mPlayerInsideAny = (mIsPlayerInside || mPlayerInsideAny);
         
         if (Game.instance.actionSet.Activate.WasPressed)
         {
@@ -54,6 +61,16 @@ public class ActivationPlate : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (mLateUpdateProcessed)
+            return;
+
+        mLateUpdateProcessed = true;
+        Game.instance.avatar.buttonPromptCanvas.SetActive(mPlayerInsideAny);
+        mPlayerInsideAny = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // todo bdsowers - I've never thought this method of detecting if we're inside a trigger was safe...
@@ -67,7 +84,7 @@ public class ActivationPlate : MonoBehaviour
     {
         if (other.GetComponentInParent<PlayerController>() != null)
         {
-            mIsPlayerInside = false;
+            mIsPlayerInside = false; 
         }
     }
 }

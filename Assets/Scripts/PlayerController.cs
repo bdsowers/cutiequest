@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool mTeleportQueued;
     private Vector2Int mTeleportTarget;
 
+    public GameObject buttonPromptCanvas;
+
     // Start is called before the first frame update
     void Start()
     {

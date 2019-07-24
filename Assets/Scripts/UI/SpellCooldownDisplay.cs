@@ -23,23 +23,27 @@ public class SpellCooldownDisplay : MonoBehaviour
     void Update()
     {
         Spell spell = Game.instance.avatar.GetComponentInChildren<Spell>();
-        if (spell == null)
-            return;
 
-        icon.sprite = spell.icon;
+        bool canActivate = (spell != null && spell.canActivate && Game.instance.InDungeon());
 
-        inactiveBackground.SetActive(!spell.canActivate);
-        activeBackground.SetActive(spell.canActivate);
-        cooldownOverlay.gameObject.SetActive(!spell.canActivate);
-        cooldownSecondsLabel.gameObject.SetActive(!spell.canActivate);
+        if (spell != null)
+            icon.sprite = spell.icon;
 
-        int secondsRemaining = Mathf.CeilToInt(spell.cooldownTimer);
+        inactiveBackground.SetActive(!canActivate);
+        activeBackground.SetActive(canActivate);
+        cooldownOverlay.gameObject.SetActive(!canActivate);
+        cooldownSecondsLabel.gameObject.SetActive(!canActivate);
+
+        int secondsRemaining = (spell == null ? 0 : Mathf.CeilToInt(spell.cooldownTimer));
         if (mPreviousDisplaySeconds != secondsRemaining)
         {
             mPreviousDisplaySeconds = secondsRemaining;
             cooldownSecondsLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(secondsRemaining).ToString();
         }
 
-        cooldownOverlay.fillAmount = (spell.cooldownTimer / spell.cooldown);
+        if (spell == null || !Game.instance.InDungeon())
+            cooldownOverlay.fillAmount = 1f;
+        else
+            cooldownOverlay.fillAmount = (spell.cooldownTimer / spell.cooldown);
     }
 }
