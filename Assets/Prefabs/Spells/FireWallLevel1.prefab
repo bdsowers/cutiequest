@@ -81,6 +81,6 @@ MonoBehaviour:
   friendlyName: Fire Wall
   description: Creates an enormous blaze that is definitely not safe anywhere.
   cooldown: 12
-  icon: {fileID: 21300082, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: ddffb94b5b8a2f747ad3d4d0d4abf3f1, type: 3}
   requiredLevel: 1
   level: 1

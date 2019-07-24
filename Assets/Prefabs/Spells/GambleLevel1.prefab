@@ -47,7 +47,7 @@ MonoBehaviour:
   friendlyName: Gamble
   description: Deals a random amount of damage to all nearby enemies.
   cooldown: 25
-  icon: {fileID: 21300314, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 4435f58d5b20eef438f27d40a33aa8b9, type: 3}
   requiredLevel: 12
   level: 1
 --- !u!114 &3184930428061427769
@@ -65,6 +65,7 @@ MonoBehaviour:
   targetDeviation: 0
   targetCaster: 1
   orientToDirection: 0
+  randomOrientation: 0
   showTargetArea: 0
   patternString: '111111111
 

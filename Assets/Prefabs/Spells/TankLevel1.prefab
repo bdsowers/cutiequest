@@ -46,4 +46,5 @@ MonoBehaviour:
   friendlyName: Tank
   description: Dramatically increases defense for a short period.
   cooldown: 20
-  icon: {fileID: 21300162, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 70f130634f74a35439cf9d0074ef31e2, type: 3}
+  requiredLevel: 1

@@ -62,6 +62,6 @@ MonoBehaviour:
   friendlyName: Ship It
   description: It's a boat. Just... don't overthink it.
   cooldown: 20
-  icon: {fileID: 21300304, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: f0e67249cd440ae43919e5d2c2491e1f, type: 3}
   requiredLevel: 11
   level: 1

@@ -62,6 +62,6 @@ MonoBehaviour:
   friendlyName: Sword Barrage
   description: Launch a bunch of swords at your foes.
   cooldown: 10
-  icon: {fileID: 21300106, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: df7b7991b896a934b979d4f4f4e26693, type: 3}
   requiredLevel: 13
   level: 1

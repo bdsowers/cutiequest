@@ -62,6 +62,6 @@ MonoBehaviour:
   friendlyName: Bullet Hell
   description: Launch several bullets in a straight line.
   cooldown: 12
-  icon: {fileID: 21300140, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: b9e8aa1fe93f51949bab9555c61cbb5a, type: 3}
   requiredLevel: 7
   level: 1

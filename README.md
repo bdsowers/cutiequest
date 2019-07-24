@@ -35,7 +35,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Finish intro sequence
 * Add lots more string table entries
 
-* Button prompts for things that can be activated
+* ~~Button prompts for things that can be activated~~
 
 * Make boss drop unique stuff
 
