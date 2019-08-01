@@ -99,4 +99,6 @@ animation trigger: Character_HotDogMan
 
 animation trigger: Character_PunkyPeter
 {
+	typewriter text: "Hey heyyy, I'm Punky Peter! I'm gonna bail from this goblin fest.", keep_open: true
+	typewriter text: "Come find me in town. I'll hook you up right!"
 }
