@@ -137,9 +137,10 @@ public class LevelGenerator : MonoBehaviour
         mNPCPlaced = true;
 
         string[] npcs = new string[] { "Beats", "HotDogMan", "PunkyPeter" };
+        string npc = npcs.Sample();
 
-        GameObject shrine = PlaceMapPrefab(npcs.Sample(), pos.x, pos.y, 1);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, "null", null, false);
+        GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, 1);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false);
     }
 
     private void PlaceShrine(Vector2Int pos)

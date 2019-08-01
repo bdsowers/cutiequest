@@ -88,3 +88,15 @@ animation trigger: boss1_death
 {
 	camera_shake intensity: 0.4, speed: 5, seconds: 2
 }
+
+animation trigger: Character_Beats
+{
+}
+
+animation trigger: Character_HotDogMan
+{
+}
+
+animation trigger: Character_PunkyPeter
+{
+}

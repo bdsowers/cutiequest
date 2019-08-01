@@ -46,5 +46,5 @@ MonoBehaviour:
   friendlyName: Decoy
   description: Leave a very convincing decoy of you that enemies can beat up.
   cooldown: 25
-  icon: {fileID: 21300060, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 28beaceb48920ee4ea254ac8624ea8f4, type: 3}
   requiredLevel: 1

@@ -33,25 +33,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Sound & music
 * Implement in-dungeon characters (Hot Dog man, etc)
 * Finish intro sequence
+
 * Add lots more string table entries
-
-* ~~Button prompts for things that can be activated~~
-
 * Make boss drop unique stuff
-
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
 
-* ~~Add 'new matches' notification~~
-* ~~Show '2p' over dungeon entrance to indicate it requires a companion + add animation to entrance opening/closing~~
-* ~~Polish character selection~~
-* ~~Change first dungeon death messaging to be clearer~~
-* ~~Tweak 'More Info' button behavior while browsing QuestR~~
-* ~~Swap out idle animation~~
-* ~~Revisit Controller Support~~
+* Emphasize equipped spells & perks more so players don't forget them
+* Revise title screen
+* Remove 'Hoarder' as a tier-1 quirk
 
 ### Known Vertical Slice Bugs
-* ~~Invisible path block~~
 * Characters can appear multiple times on same floor
 * QuestR organization seems off
 * Minimap teleporting doesn't always work
@@ -63,8 +55,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * If the game crashes, auto-restart it somehow
 * Playback / attract mode
 * Show feedback survey & e-mail signup after some event (3 runs?)
-
-### VERTICAL SLICE TARGET DATE: July 24
 
 ### MVP Beta Features
 * Locked HUB improvement system
