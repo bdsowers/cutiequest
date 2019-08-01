@@ -230,7 +230,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 RandomDungeonTileData tileData = dungeon.Data(x, y);
 
-                if (dungeon.TileType(x,y) > 'A' && dungeon.TileType(x,y) < 'Z')
+                if (dungeon.TileType(x,y) >= 'A' && dungeon.TileType(x,y) <= 'Z')
                 {
                     HandleCheatTile(tileData, x, y, biomeData);
                 }
