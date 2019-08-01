@@ -7,6 +7,9 @@ public class Cheats : MonoBehaviour
 {
     private int mCurrentActivationPlate = 0;
 
+    private int mCheatCharacter = 0;
+    private int mCheatShrine = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +92,12 @@ public class Cheats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             Game.instance.playerData.attractiveness = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Slash))
+        {
+            Game.instance.EnterDungeon(Game.instance.debugDungeonData);
+            Game.instance.transitionManager.TransitionToScreen("Dungeon");
         }
     }
 }

@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
 
     // Used only for dev purposes so we can start on the Dungeon scene.
     public DungeonData defaultDungeonData;
+    public DungeonData debugDungeonData;
 
     public static Game instance
     {

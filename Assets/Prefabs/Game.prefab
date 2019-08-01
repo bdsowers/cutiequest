@@ -2745,6 +2745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultDungeonData: {fileID: 11400000, guid: a93980b167ba99644b633dd5d73e1adc, type: 2}
+  debugDungeonData: {fileID: 11400000, guid: 8d3b19322ceccd84d90a323fd729533a, type: 2}
 --- !u!114 &737141391
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -132,22 +132,28 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void PlaceNPC(Vector2Int pos)
+    private void PlaceNPC(Vector2Int pos, int cheatOverride = -1)
     {
         mNPCPlaced = true;
 
         string[] npcs = new string[] { "Beats", "HotDogMan", "PunkyPeter" };
         string npc = npcs.Sample();
+        if (cheatOverride != -1)
+            npc = npcs[cheatOverride];
 
         GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, 1);
         PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false);
     }
 
-    private void PlaceShrine(Vector2Int pos)
+    private void PlaceShrine(Vector2Int pos, int cheatOverride = -1)
     {
         mShrinePlaced = true;
 
-        GameObject shrine = PlaceMapPrefab(PrefabManager.instance.shrinePrefabs.Sample().name, pos.x, pos.y, 1);
+        string shrineName = PrefabManager.instance.shrinePrefabs.Sample().name;
+        if (cheatOverride != -1)
+            shrineName = PrefabManager.instance.shrinePrefabs[cheatOverride].name;
+
+        GameObject shrine = PlaceMapPrefab(shrineName, pos.x, pos.y, 1);
         PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>());
     }
 
@@ -198,6 +204,22 @@ public class LevelGenerator : MonoBehaviour
         return newItem;
     }
 
+    private void HandleCheatTile(RandomDungeonTileData tileData, int x, int y, DungeonBiomeData biomeData)
+    {
+        PlaceMapPrefab(biomeData.floorPrefabs.Sample(), x, y);
+
+        // todo bdsowers - this code is a crime against god and deserves hellfire.
+        int itemNum = tileData.tileType - 'A';
+        if (itemNum < PrefabManager.instance.shrinePrefabs.Length)
+        {
+            PlaceShrine(new Vector2Int(x, y), itemNum);
+        }
+        else if (itemNum < PrefabManager.instance.shrinePrefabs.Length + 3)
+        {
+            PlaceNPC(new Vector2Int(x, y), itemNum - PrefabManager.instance.shrinePrefabs.Length);
+        }
+    }
+
     private void GenerateEnvironmentFromDungeon(RandomDungeon dungeon)
     {
         DungeonBiomeData biomeData = Game.instance.currentDungeonData.biomeData;
@@ -208,7 +230,11 @@ public class LevelGenerator : MonoBehaviour
             {
                 RandomDungeonTileData tileData = dungeon.Data(x, y);
 
-                if (dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
+                if (dungeon.TileType(x,y) > 'A' && dungeon.TileType(x,y) < 'Z')
+                {
+                    HandleCheatTile(tileData, x, y, biomeData);
+                }
+                else if (dungeon.TileType(x,y) == RandomDungeonTileData.EMPTY_TILE)
                 {
                     mCollisionMap.MarkSpace(x, y, -1);
                 }
