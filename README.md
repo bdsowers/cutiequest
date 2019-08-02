@@ -39,8 +39,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
 
-* Better cheat scaffolding to test all the bells & whistles the game currently has
-
 * Emphasize equipped spells & perks more so players don't forget them
 * Revise title screen
 * Remove 'Hoarder' as a tier-1 quirk
