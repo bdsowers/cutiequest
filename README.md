@@ -30,18 +30,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Roadmap
 ### Vertical Slice TODO
+FRIDAY
 * Sound & music
 * Implement in-dungeon characters (Hot Dog man, etc)
 * Finish intro sequence
 
-* Add lots more string table entries
+SATURDAY
 * Make boss drop unique stuff
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
-
 * Emphasize equipped spells & perks more so players don't forget them
+
 * Revise title screen
 * Remove 'Hoarder' as a tier-1 quirk
+
+* Add lots more string table entries
 
 ### Known Vertical Slice Bugs
 * Characters can appear multiple times on same floor
