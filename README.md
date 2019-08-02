@@ -40,6 +40,7 @@ SATURDAY
 * Prefer showing new spells/quirks
 * Show positive messaging when boss is killed
 * Emphasize equipped spells & perks more so players don't forget them
+* Add quick descriptions for purchased items
 
 * Revise title screen
 * Remove 'Hoarder' as a tier-1 quirk
