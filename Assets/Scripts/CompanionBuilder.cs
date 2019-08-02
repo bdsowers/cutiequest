@@ -20,7 +20,7 @@ public class CompanionBuilder : MonoBehaviour
 
     public Material[] materials;
 
-    public CharacterData BuildRandomCharacter()
+    public CharacterData BuildRandomCharacter(Quirk quirkOverride = null, Spell spellOverride = null)
     {
         CharacterData randomCharacter = ScriptableObject.CreateInstance<CharacterData>();
 
@@ -58,6 +58,16 @@ public class CompanionBuilder : MonoBehaviour
         randomCharacter.statBoostAmount = 1 + Random.Range(0, MaximumPassiveStatBoost(randomCharacter.statBoost) + 1);
         randomCharacter.material = materials.Sample();
 
+        if (quirkOverride != null)
+        {
+            randomCharacter.quirk = quirkOverride;
+        }
+
+        if (spellOverride != null)
+        {
+            randomCharacter.spell = spellOverride;
+        }
+
         previouslyUsedQuirks.AddWindowed(randomCharacter.quirk, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedSpells.AddWindowed(randomCharacter.spell, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedModels.AddWindowed(modelData, GAMEPLAY_REUSE_WINDOW_SIZE);
@@ -93,6 +103,34 @@ public class CompanionBuilder : MonoBehaviour
         for (int i = 0; i < numCharacters; ++i)
         {
             CharacterData character = Game.instance.companionBuilder.BuildRandomCharacter();
+            characters[i] = character;
+        }
+
+        Game.instance.characterDataList.characterData = characters;
+
+        Follower currentFollower = GameObject.FindObjectOfType<Follower>();
+        if (currentFollower != null)
+        {
+            currentFollower.GetComponentInChildren<CharacterModel>().RemoveModel();
+        }
+    }
+
+    public void BuildCheatCompanionSet()
+    {
+        Game.instance.playerData.followerUid = null;
+
+        List<Quirk> quirks = QuirksInLevel(90);
+        List<Spell> spells = SpellsInLevel(90);
+
+        int numCharacters = Mathf.Max(quirks.Count, spells.Count);
+
+        CharacterData[] characters = new CharacterData[numCharacters];
+        for (int i = 0; i < numCharacters; ++i)
+        {
+            Spell spell = spells[i % spells.Count];
+            Quirk quirk = quirks[i % quirks.Count];
+
+            CharacterData character = Game.instance.companionBuilder.BuildRandomCharacter(quirk, spell);
             characters[i] = character;
         }
 

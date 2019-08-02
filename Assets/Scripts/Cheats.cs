@@ -99,5 +99,11 @@ public class Cheats : MonoBehaviour
             Game.instance.EnterDungeon(Game.instance.debugDungeonData);
             Game.instance.transitionManager.TransitionToScreen("Dungeon");
         }
+
+        if (Input.GetKeyDown(KeyCode.Backslash))
+        {
+            Game.instance.companionBuilder.BuildCheatCompanionSet();
+            QuestR.seenMatches = false;
+        }
     }
 }

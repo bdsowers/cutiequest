@@ -52,6 +52,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Glass Canon bug doesn't turn off, might be a bigger issue
 * Correct character doesn't show in QuestR, only the default
 * Remove button prompts for activated shrines/characters/chests
+* Increase Attractiveness Dialog is flawed
 
 ### Vertical Slice Showcasing
 * Turn off cheats
