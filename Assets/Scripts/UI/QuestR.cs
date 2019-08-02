@@ -73,7 +73,7 @@ public class QuestR : Dialog
         matchView.SetActive(true);
         standardView.SetActive(false);
 
-        rigModel1.ChangeModel("Chr_Adventure_Warrior_01");
+        rigModel1.ChangeModel(Game.instance.playerData.model);
         rigModel2.ChangeModel(characterData);
 
         Game.instance.soundManager.PlaySound("confirm_special");

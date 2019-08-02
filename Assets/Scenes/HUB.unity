@@ -10810,8 +10810,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Increase your attractiveness? You'll be able to recruit new adventuring
-    partners in QuestR.
+  m_Text: Shuffle your QuestR matches? Your current companion will leave you. :(
 --- !u!222 &1447657542
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15149,6 +15148,7 @@ MonoBehaviour:
   target: {fileID: 1099098403}
   miniMap: {fileID: 0}
   fullMap: {fileID: 0}
+  toggleButtonDisplay: {fileID: 0}
   teleportWarning: {fileID: 0}
 --- !u!20 &2055356390
 Camera:

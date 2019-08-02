@@ -51,9 +51,7 @@ SATURDAY
 * QuestR organization seems off
 * Minimap teleporting doesn't always work
 * Glass Canon bug doesn't turn off, might be a bigger issue
-* Correct character doesn't show in QuestR, only the default
 * Remove button prompts for activated shrines/characters/chests
-* Increase Attractiveness Dialog is flawed
 
 ### Vertical Slice Showcasing
 * Turn off cheats
