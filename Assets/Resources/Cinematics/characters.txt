@@ -91,10 +91,14 @@ animation trigger: boss1_death
 
 animation trigger: Character_Beats
 {
+	change_speaker MiniCharacter_GamerGirl_01
 }
 
 animation trigger: Character_HotDogMan
 {
+	change_speaker MiniCharacter_HotdogMan_01
+	typewriter text: "I know what you're thinking. How could I, the world's most handsome man, be found in a place like this?"
+	typewriter text: "The answer may shock you."
 }
 
 animation trigger: Character_PunkyPeter
