@@ -50,6 +50,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt("Coins", Game.instance.playerData.numCoins);
         PlayerPrefs.SetInt("Attractiveness", Game.instance.playerData.attractiveness);
         PlayerPrefs.SetInt("FinishedTutorial", Game.instance.finishedTutorial ? 1 : 0);
+        PlayerPrefs.SetString("Flags", string.Join(" ", Game.instance.playerData.flags));
 
         foreach(KeyValuePair<string, CharacterStatType> stat in mStatKeyMap)
         {
@@ -70,6 +71,10 @@ public class SaveManager : MonoBehaviour
             Game.instance.playerData.numCoins = PlayerPrefs.GetInt("Coins");
             Game.instance.playerData.attractiveness = PlayerPrefs.GetInt("Attractiveness");
             Game.instance.finishedTutorial = PlayerPrefs.GetInt("FinishedTutorial") == 1;
+
+            string flagsStr = PlayerPrefs.GetString("Flags", "");
+            string[] flags = flagsStr.Split(new char[] { ' ' }, System.StringSplitOptions.RemoveEmptyEntries);
+            Game.instance.playerData.flags = new List<string>(flags);
 
             foreach (KeyValuePair<string, CharacterStatType> stat in mStatKeyMap)
             {

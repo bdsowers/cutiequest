@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5073518052470053922}
   - component: {fileID: 9182205973773178468}
   - component: {fileID: 16126872339708905}
+  - component: {fileID: 8264324762661856266}
   m_Layer: 0
   m_Name: Beats
   m_TagString: Untagged
@@ -74,6 +75,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 7
+--- !u!114 &8264324762661856266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741465f27a1f744ab6b001db34e2881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinematicId: beats
 --- !u!1 &5073518053295189686
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class PlayerData
     private int mHealth = 100;
     private int mAttractiveness = 1;
 
+    private List<string> mFlags = new List<string>();
+
     public bool suppressDirtyUpdates { get; set; }
 
     public string followerUid
@@ -114,6 +116,35 @@ public class PlayerData
                 MarkDirty();
             }
         }
+    }
+
+    public List<string> flags
+    {
+        get { return mFlags; }
+        set
+        {
+            if (flags != mFlags)
+            {
+                mFlags = flags;
+
+                MarkDirty();
+            }
+        }
+    }
+
+    public void SetFlag(string flag)
+    {
+        if (!mFlags.Contains(flag))
+        {
+            mFlags.Add(flag);
+
+            MarkDirty();
+        }
+    }
+
+    public bool IsFlagSet(string flag)
+    {
+        return mFlags.Contains(flag);
     }
 
     public void MarkDirty()

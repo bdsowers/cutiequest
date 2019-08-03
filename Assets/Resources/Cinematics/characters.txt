@@ -92,13 +92,20 @@ animation trigger: boss1_death
 animation trigger: Character_Beats
 {
 	change_speaker MiniCharacter_GamerGirl_01
+	typewriter text: "Like my headphones? Yea, they're pretty rad.", keep_open: true
+	typewriter text: "Come see me in town and we can chat music!"
+	set_saved_flag beats
+	remove_npc beats
 }
 
 animation trigger: Character_HotDogMan
 {
 	change_speaker MiniCharacter_HotdogMan_01
-	typewriter text: "I know what you're thinking. How could I, the world's most handsome man, be found in a place like this?"
-	typewriter text: "The answer may shock you."
+	typewriter text: "I know what you're thinking. How could I, the world's most handsome man, be found in a place like this?", keep_open: true
+	typewriter text: "The answer may shock you.", keep_open: true
+	typewriter text: "Come see me in town and I'll tell you the whole story."
+	set_saved_flag hotdogman
+	remove_npc hotdogman
 }
 
 animation trigger: Character_PunkyPeter
@@ -106,4 +113,13 @@ animation trigger: Character_PunkyPeter
 	change_speaker MiniCharacter_PunkGuy_01
 	typewriter text: "Hey heyyy, I'm Punky Peter! I'm gonna bail from this goblin fest.", keep_open: true
 	typewriter text: "Come find me in town. I'll hook you up right!"
+	set_saved_flag punkypeter
+	remove_npc punkypeter
+}
+
+animation trigger: Hub_PunkyPeter
+{
+	change_speaker MiniCharacter_PunkGuy_01
+	typewriter text: "If you've got some hearts to spare, I can grab an item from this well for you to take into the dungeon.", keep_open: true
+	typewriter text: "Can't promise it will be good, but it will be... an item."
 }
