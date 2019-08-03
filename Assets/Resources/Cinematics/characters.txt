@@ -123,3 +123,15 @@ animation trigger: Hub_PunkyPeter
 	typewriter text: "If you've got some hearts to spare, I can grab an item from this well for you to take into the dungeon.", keep_open: true
 	typewriter text: "Can't promise it will be good, but it will be... an item."
 }
+
+animation trigger: Hub_HotDogMan
+{
+	change_speaker MiniCharacter_HotdogMan_01
+	typewriter text: "Hey there!"
+}
+
+animation trigger: Hub_Beats
+{
+	change_speaker MiniCharacter_GamerGirl_01
+	typewriter text: "Wuddup? Want to listen to some different music?"
+}
