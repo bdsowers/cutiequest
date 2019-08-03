@@ -48,11 +48,9 @@ SATURDAY
 * Add lots more string table entries
 
 ### Known Vertical Slice Bugs
-* Characters can appear multiple times on same floor
 * QuestR organization seems off
 * Minimap teleporting doesn't always work
 * Glass Canon bug doesn't turn off, might be a bigger issue
-* Remove button prompts for activated shrines/characters/chests
 
 ### Vertical Slice Showcasing
 * Turn off cheats

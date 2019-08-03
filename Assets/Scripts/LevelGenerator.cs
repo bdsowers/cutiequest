@@ -121,7 +121,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 PlaceShrine(pos);
             }
-            else
+            else if (!mNPCPlaced && AvailableNPCS().Count > 0)
             {
                 PlaceNPC(pos);
             }
@@ -132,17 +132,41 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    private List<string> AvailableNPCS()
+    {
+        // todo bdsowers - this needs to be way more robust
+
+        List<string> npcs = new List<string>();
+        if (!Game.instance.playerData.IsFlagSet("beats"))
+        {
+            npcs.Add("Beats");
+        }
+
+        if (!Game.instance.playerData.IsFlagSet("hotdogman"))
+        {
+            npcs.Add("HotDogMan");
+        }
+
+        if (!Game.instance.playerData.IsFlagSet("punkypeter"))
+        {
+            npcs.Add("PunkyPeter");
+        }
+
+        return npcs;
+    }
+
     private void PlaceNPC(Vector2Int pos, int cheatOverride = -1)
     {
         mNPCPlaced = true;
 
-        string[] npcs = new string[] { "Beats", "HotDogMan", "PunkyPeter" };
+        List<string> npcs = AvailableNPCS();
+
         string npc = npcs.Sample();
         if (cheatOverride != -1)
             npc = npcs[cheatOverride];
 
         GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, 1);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false, shrine);
     }
 
     private void PlaceShrine(Vector2Int pos, int cheatOverride = -1)
@@ -154,7 +178,7 @@ public class LevelGenerator : MonoBehaviour
             shrineName = PrefabManager.instance.shrinePrefabs[cheatOverride].name;
 
         GameObject shrine = PlaceMapPrefab(shrineName, pos.x, pos.y, 1);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>());
+        PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>(), true, shrine);
     }
 
     private void PlaceChest(Vector2Int pos)
@@ -182,7 +206,7 @@ public class LevelGenerator : MonoBehaviour
         }
 
         GameObject chest = PlaceMapPrefab(chestType, pos.x, pos.y, 1);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>());
+        PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>(), true, chest);
     }
 
     private bool IsPresetRoom()
@@ -294,7 +318,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null, bool includeBehind = true)
+    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null, bool includeBehind = true, GameObject link = null)
     {
         int[] offsets = new int[] { 0, 1, 1, 0, -1, 0, 0, -1 };
 
@@ -311,6 +335,9 @@ public class LevelGenerator : MonoBehaviour
             ActivationPlate plate = plateObj.GetComponent<ActivationPlate>();
             plate.cinematicEvent = cinematicEvent;
             plate.shrine = shrine;
+
+            if (link != null)
+                plate.LinkToEntity(link);
         }
     }
 

@@ -65,6 +65,11 @@ public class Cheats : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Game.instance.playerData.flags = new List<string>();
+        }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             Game.instance.playerData.health = 1;

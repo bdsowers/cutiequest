@@ -2398,7 +2398,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7208613044072731668, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
 --- !u!1 &1691103717 stripped
 GameObject:
@@ -2929,7 +2930,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2055356391}
   - component: {fileID: 2055356390}
-  - component: {fileID: 2055356389}
   - component: {fileID: 2055356388}
   m_Layer: 0
   m_Name: MinimapCamera
@@ -2955,14 +2955,6 @@ MonoBehaviour:
   fullMap: {fileID: 1974024714}
   toggleButtonDisplay: {fileID: 682686670}
   teleportWarning: {fileID: 790129386}
---- !u!81 &2055356389
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055356387}
-  m_Enabled: 1
 --- !u!20 &2055356390
 Camera:
   m_ObjectHideFlags: 0

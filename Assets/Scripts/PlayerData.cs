@@ -123,9 +123,9 @@ public class PlayerData
         get { return mFlags; }
         set
         {
-            if (flags != mFlags)
+            if (value != mFlags)
             {
-                mFlags = flags;
+                mFlags = value;
 
                 MarkDirty();
             }

@@ -14,6 +14,8 @@ public class Item : MonoBehaviour
     public int baseCost;
     private int progressSpecificCost = -1;
 
+    public bool equipped { get; private set; }
+
     private void Start()
     {
         // todo bdsowers - ew
@@ -53,6 +55,11 @@ public class Item : MonoBehaviour
 
     public void Equip()
     {
+        if (equipped)
+            return;
+
+        equipped = true;
+
         // Add this to the persistent object so it survives between dungeon levels
         transform.SetParent(Game.instance.playerStats.transform);
 

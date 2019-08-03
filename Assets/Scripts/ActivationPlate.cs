@@ -15,6 +15,11 @@ public class ActivationPlate : MonoBehaviour
     private static bool mPlayerInsideAny = false;
     private static bool mLateUpdateProcessed = false;
 
+    private GameObject mLink = null;
+    private bool mHasLink = false;
+
+    private Shrine mLinkedShrine;
+    
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +29,25 @@ public class ActivationPlate : MonoBehaviour
             return;
         if (DialogManager.AnyDialogsOpen())
             return;
+
+        if (mHasLink)
+        {
+            if (mLink == null)
+            {
+                gameObject.SetActive(false);
+            }
+            else if (mLinkedShrine != null && mLinkedShrine.activated)
+            {
+                gameObject.SetActive(false);
+            }
+            else if (item != null && item.equipped)
+            {
+                gameObject.SetActive(false);
+            }
+
+            if (!gameObject.activeSelf)
+                return;
+        }
 
         mLateUpdateProcessed = false;
         mPlayerInsideAny = (mIsPlayerInside || mPlayerInsideAny);
@@ -86,5 +110,13 @@ public class ActivationPlate : MonoBehaviour
         {
             mIsPlayerInside = false; 
         }
+    }
+
+    public void LinkToEntity(GameObject link)
+    {
+        mLink = link;
+        mHasLink = true;
+
+        mLinkedShrine = link.GetComponent<Shrine>();
     }
 }
