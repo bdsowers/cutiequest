@@ -19,7 +19,7 @@ public class CinematicActionSetVariable : CinematicAction
     {
         base.InterpretParameters(dataProvider);
 
-        mKey = dataProvider.GetStringData(mParameters, "key");
+        mKey = mParameters["key"]; // Use the raw value to ensure it doesn't get converted...
         mValue = dataProvider.GetStringData(mParameters, "value");
     }
 

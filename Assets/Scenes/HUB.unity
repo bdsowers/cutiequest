@@ -1819,6 +1819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8044dc81df0ca94d8aca704ea10fb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageLabel: {fileID: 1447657541}
   costLabel: {fileID: 1498726614}
 --- !u!114 &185905449
 MonoBehaviour:
@@ -5706,8 +5707,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1501846, y: 3, z: 3.420264}
-  m_Center: {x: -0.4249079, y: 0, z: -0.67692447}
+  m_Size: {x: 2.1501846, y: 3, z: 3.115996}
+  m_Center: {x: -0.42490795, y: 0, z: -0.82905865}
 --- !u!1001 &889626917
 PrefabInstance:
   m_ObjectHideFlags: 0

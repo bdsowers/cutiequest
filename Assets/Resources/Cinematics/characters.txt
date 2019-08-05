@@ -16,7 +16,7 @@ animation trigger: stylist_talk
 	change_speaker Chr_Fantasy_Bard_01
 	typewriter text: "Not happy with your QuestR matches? For a few hearts, I can shuffle them around for you.", keep_open: true
 	typewriter text: "Fair warning, if you currently have a companion they'll probably ditch you."
-	increase_attraction
+	increase_attraction message: "Shuffle your QuestR matches? Your current companion will leave you. :(", cost: 3, success: stylist_success, fail: stylist_fail, effect: shuffle_matches
 }
 
 animation trigger: stylist_success
@@ -117,11 +117,39 @@ animation trigger: Character_PunkyPeter
 	remove_npc punkypeter
 }
 
+animation trigger: Hub_Reload
+{
+	set key: item_purchased, value: false
+}
+
 animation trigger: Hub_PunkyPeter
 {
 	change_speaker MiniCharacter_PunkGuy_01
-	typewriter text: "If you've got some hearts to spare, I can grab an item from this well for you to take into the dungeon.", keep_open: true
-	typewriter text: "Can't promise it will be good, but it will be... an item."
+
+	flag_set item_purchased
+	{
+		typewriter text: "You've already got an item from me, I ain't your personal shopper. Get outta here! Go on, git!"
+	}
+
+	flag_unset item_purchased
+	{
+		typewriter text: "If you've got some hearts to spare, I can grab an item from this well for you to take into the dungeon.", keep_open: true
+		typewriter text: "Can't promise it will be good, but it will be... an item."
+		cost_dialog message: "Purchase a random item for your next dungeon adventure?", cost: 10, success: punkypeter_success, fail: punkypeter_fail, effect: random_item
+	}
+}
+
+animation trigger: punkypeter_success
+{
+	set key: item_purchased, value: true
+
+	change_speaker MiniCharacter_PunkGuy_01
+}
+
+animation trigger: punkypeter_fail
+{
+	change_speaker MiniCharacter_PunkGuy_01
+	typewriter "Ahem, I think you'll need a few more hearts plz thx."
 }
 
 animation trigger: Hub_HotDogMan

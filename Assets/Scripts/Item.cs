@@ -70,8 +70,13 @@ public class Item : MonoBehaviour
             renderers[i].enabled = false;
         }
 
-        GetComponentInChildren<Canvas>().gameObject.SetActive(false);
-
+        // Disable price canvas if one is showing
+        Canvas canvas = GetComponentInChildren<Canvas>();
+        if (canvas != null)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+        
         // Add this guy's sprite to the inventory UI
         GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
 

@@ -9,11 +9,14 @@ public class ButtonSet : MonoBehaviour
 
     private void OnEnable()
     {
-        Reset();
+        StartCoroutine(Reset());
     }
 
-    public void Reset()
+    public IEnumerator Reset()
     {
+        // Waiting a single frame is more reliable...
+        yield return null;
+
         // note bdsowers - this is a bit of a hack
         // Reselecting the same button does nothing, even if that button was disabled/enabled.
         // To work around this, select a different and re-select the first button.
@@ -21,11 +24,13 @@ public class ButtonSet : MonoBehaviour
         {
             buttons[1].Select();
         }
-
+        
         if (buttons.Count > 0)
         {
             buttons[0].Select();
         }
+
+        yield break;
     }
 
     private IEnumerator SelectButtonAfterTick()

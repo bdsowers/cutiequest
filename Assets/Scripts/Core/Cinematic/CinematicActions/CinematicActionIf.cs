@@ -42,7 +42,7 @@ public class CinematicActionIf : CinematicAction
 
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
-        if ((mConditionIsTrue && alias == "if") || (!mConditionIsTrue && alias == "unless"))
+        if ((mConditionIsTrue && alias == "flag_set") || (!mConditionIsTrue && alias == "flag_unset"))
         {
             yield return PlayChildActions(player);
         }

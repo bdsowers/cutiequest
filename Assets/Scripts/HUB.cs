@@ -23,6 +23,8 @@ public class HUB : MonoBehaviour
 
         Game.instance.saveManager.TriggerSave();
 
+        Game.instance.cinematicDirector.PostCinematicEvent("Hub_Reload");
+
         Game.instance.soundManager.PlayRandomMusicInCategory("TownMusic");
     }
 }
