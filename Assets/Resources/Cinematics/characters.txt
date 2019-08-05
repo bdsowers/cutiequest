@@ -157,7 +157,7 @@ animation trigger: Hub_HotDogMan
 {
 	change_speaker MiniCharacter_HotdogMan_01
 	typewriter text: "For a fee, I'll tell you one of my worldclass jokes.", keep_open: true
-	typewriter text: "It doesn't have any practical purpose, but it'll put a smile on your face!", keep_open: true
+	typewriter text: "It doesn't have any practical purpose, but it'll put a smile on your face!"
 	cost_dialog message: "Hear a joke?", cost: 1, success: hotdogman_success, fail: hotdogman_fail, effect: random_joke
 }
 
