@@ -128,7 +128,7 @@ animation trigger: Hub_PunkyPeter
 
 	flag_set item_purchased
 	{
-		typewriter text: "You've already got an item from me, I ain't your personal shopper. Get outta here! Go on, git!"
+		typewriter text: "You've already got an item from me, I ain't your personal shopper."
 	}
 
 	flag_unset item_purchased
@@ -144,6 +144,7 @@ animation trigger: punkypeter_success
 	set key: item_purchased, value: true
 
 	change_speaker MiniCharacter_PunkGuy_01
+	typewriter "Now go, ye, unto that dungeon, and be excellent!"
 }
 
 animation trigger: punkypeter_fail
@@ -155,7 +156,21 @@ animation trigger: punkypeter_fail
 animation trigger: Hub_HotDogMan
 {
 	change_speaker MiniCharacter_HotdogMan_01
-	typewriter text: "Hey there!"
+	typewriter text: "For a fee, I'll tell you one of my worldclass jokes.", keep_open: true
+	typewriter text: "It doesn't have any practical purpose, but it'll put a smile on your face!", keep_open: true
+	cost_dialog message: "Hear a joke?", cost: 1, success: hotdogman_success, fail: hotdogman_fail, effect: random_joke
+}
+
+animation trigger: hotdogman_success
+{
+	change_speaker MiniCharacter_HotdogMan_01
+	random_joke
+}
+
+animation trigger: hotdogman_fail
+{
+	change_speaker MiniCharacter_HotdogMan_01
+	typewriter text: "Seriously? Get out of here. GO ON! GIT!!!"
 }
 
 animation trigger: Hub_Beats
