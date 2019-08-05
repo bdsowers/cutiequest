@@ -20,6 +20,13 @@ public class ShrineGlassCannon : Shrine
             CharacterStatModifier maxHealthModifier = Game.instance.playerStats.gameObject.AddComponent<CharacterStatModifier>();
             maxHealthModifier.SetRelativeModification(CharacterStatType.MaxHealth, -(currentMaxHealth/2));
 
+            currentMaxHealth = currentMaxHealth / 2;
+            if (Game.instance.playerData.health > currentMaxHealth)
+            {
+                Game.instance.playerData.health = currentMaxHealth;
+                Game.instance.avatar.GetComponent<Killable>().health = Game.instance.playerData.health;
+            }
+
             Game.instance.playerData.MarkDirty();
         }
 

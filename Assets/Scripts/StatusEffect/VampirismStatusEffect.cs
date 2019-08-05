@@ -25,6 +25,7 @@ public class VampirismStatusEffect : StatusEffect
 
         Game.instance.playerData.health += amount;
         Game.instance.playerData.health = Mathf.Min(Game.instance.playerData.health, Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject));
+        Game.instance.avatar.GetComponent<Killable>().health = Game.instance.playerData.health;
 
         NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 1f, amount, NumberPopupReason.Heal);
     }

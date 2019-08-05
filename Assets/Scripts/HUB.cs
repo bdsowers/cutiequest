@@ -11,8 +11,8 @@ public class HUB : MonoBehaviour
         Game.instance.companionBuilder.BuildCompanionSet();
         QuestR.seenMatches = false;
 
-        Game.instance.playerData.numCoins = 0;
-        Game.instance.playerStats.gameObject.RemoveAllChildren();
+        ResetCharacter();
+
         yield return null;
         Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         yield return null;
@@ -26,5 +26,17 @@ public class HUB : MonoBehaviour
         Game.instance.cinematicDirector.PostCinematicEvent("Hub_Reload");
 
         Game.instance.soundManager.PlayRandomMusicInCategory("TownMusic");
+    }
+
+    private void ResetCharacter()
+    {
+        Game.instance.playerData.numCoins = 0;
+        Game.instance.playerStats.gameObject.RemoveAllChildren();
+
+        CharacterStatModifier[] modifiers = Game.instance.playerStats.GetComponentsInChildren<CharacterStatModifier>();
+        for (int i = 0; i < modifiers.Length; ++i)
+        {
+            Destroy(modifiers[i]);
+        }
     }
 }

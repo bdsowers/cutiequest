@@ -238,7 +238,7 @@ public class LevelGenerator : MonoBehaviour
         {
             PlaceShrine(new Vector2Int(x, y), itemNum);
         }
-        else if (itemNum < PrefabManager.instance.shrinePrefabs.Length + 3)
+        else if (itemNum < PrefabManager.instance.shrinePrefabs.Length + AvailableNPCS().Count)
         {
             PlaceNPC(new Vector2Int(x, y), itemNum - PrefabManager.instance.shrinePrefabs.Length);
         }

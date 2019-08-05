@@ -50,7 +50,6 @@ SATURDAY
 ### Known Vertical Slice Bugs
 * QuestR organization seems off
 * Minimap teleporting doesn't always work
-* Glass Canon bug doesn't turn off, might be a bigger issue
 
 ### Vertical Slice Showcasing
 * Turn off cheats
