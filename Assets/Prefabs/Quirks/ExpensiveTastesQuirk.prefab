@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Expensive Tastes
   description: Shop prices are increased.
   icon: {fileID: 21300000, guid: 4acd5557bdb9ea34f9c4a228c7711636, type: 3}
-  requiredLevel: 4
+  requiredLevel: 1

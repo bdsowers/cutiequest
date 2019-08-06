@@ -31,7 +31,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Roadmap
 ### Vertical Slice TODO
 * Sound & music
-* Implement in-dungeon characters (Hot Dog man, etc)
 * Finish intro sequence
 
 * Show positive messaging when boss is killed
