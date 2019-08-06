@@ -38,7 +38,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Add quick descriptions for purchased items
 
 * Revise title screen
-* Remove 'Hoarder' as a tier-1 quirk
 
 * Add lots more string table entries
 
