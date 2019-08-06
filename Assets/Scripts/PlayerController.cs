@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 direction { get; private set; }
 
     private bool mSpellQueued;
+    private bool mDanceQueued;
 
     private bool mTeleportQueued;
     private Vector2Int mTeleportTarget;
@@ -205,6 +206,11 @@ public class PlayerController : MonoBehaviour
             mSpellQueued = true;
         }
 
+        if (Game.instance.actionSet.CloseMenu.WasPressed)
+        {
+            mDanceQueued = true;
+        }
+
         if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)
             return;
 
@@ -227,6 +233,13 @@ public class PlayerController : MonoBehaviour
         {
             mTeleportQueued = false;
             TeleportIfPossible();
+            return;
+        }
+
+        if (mDanceQueued)
+        {
+            mDanceQueued = false;
+            PlayRandomDance();
             return;
         }
 
@@ -290,6 +303,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void PlayRandomDance()
+    {
+        int dance = Random.Range(1, 5);
+        GetComponentInChildren<Animator>().Play("Dance" + dance);
     }
 
     public void QueueTeleportation(Vector2Int target)

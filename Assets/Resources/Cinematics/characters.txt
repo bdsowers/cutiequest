@@ -156,7 +156,7 @@ animation trigger: punkypeter_fail
 animation trigger: Hub_HotDogMan
 {
 	change_speaker MiniCharacter_HotdogMan_01
-	typewriter text: "For a fee, I'll tell you one of my worldclass jokes.", keep_open: true
+	typewriter text: "Want me to tell you one of my worldclass jokes? Yea you do.", keep_open: true
 	typewriter text: "It doesn't have any practical purpose, but it'll put a smile on your face!"
 	cost_dialog message: "Hear a joke?", cost: 1, success: hotdogman_success, fail: hotdogman_fail, effect: random_joke
 }
@@ -176,5 +176,29 @@ animation trigger: hotdogman_fail
 animation trigger: Hub_Beats
 {
 	change_speaker MiniCharacter_GamerGirl_01
-	typewriter text: "Wuddup? Want to listen to some different music?"
+	flag_unset dance_purchased
+	{
+		typewriter text: "Sometimes, no matter how bad the world gets, the only thing to do is dance. Y'know?", keep_open: true
+		typewriter text: "For a modest fee that is not at all unreasonable (I promise), I can teach you one of my dances.", keep_open: true
+		typewriter text: "I wonder if it could be useful in the dungeon?"
+		cost_dialog message: "Learn a new groove?", cost: 32, success: beats_success, fail: beats_fail, effect: learn_dance
+	}
+
+	flag_set dance_purchased
+	{
+		typewriter text: "DANCE WITH ME, YOU FOOL!"
+	}
+}
+
+animation trigger: beats_success
+{
+	change_speaker MiniCharacter_GamerGirl_01
+	typewriter text: "Righteous! Press B at any time to start dancing."
+	set_saved_flag dance_purchased
+}
+
+animation trigger: beats_fail
+{
+	change_speaker MiniCharacter_GamerGirl_01
+	typewriter text: "If you wanna learn these moves, I gotta get paid."
 }

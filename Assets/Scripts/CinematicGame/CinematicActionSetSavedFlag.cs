@@ -32,6 +32,7 @@ public class CinematicActionSetSavedFlag : CinematicAction
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
         Game.instance.playerData.SetFlag(mFlag);
+        player.dataProvider.SetData(mFlag, "true");
 
         yield break;
     }

@@ -79,6 +79,11 @@ public class SaveManager : MonoBehaviour
             string[] flags = flagsStr.Split(new char[] { ' ' }, System.StringSplitOptions.RemoveEmptyEntries);
             Game.instance.playerData.flags = new List<string>(flags);
             
+            foreach(string flag in flags)
+            {
+                Game.instance.cinematicDataProvider.SetData(flag, "true");
+            }
+
             foreach (KeyValuePair<string, CharacterStatType> stat in mStatKeyMap)
             {
                 int value = PlayerPrefs.GetInt(stat.Key);
