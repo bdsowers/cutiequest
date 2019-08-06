@@ -32,13 +32,13 @@ public class QuestR : Dialog
         {
             contentsContainer.transform.localPosition = Vector3.up * 120f;
             backgroundShadow.enabled = false;
-            mTutorialMode = false;
+            mTutorialMode = true;
         }
         else
         {
             contentsContainer.transform.localPosition = Vector3.zero;
             backgroundShadow.enabled = true;
-            mTutorialMode = true;
+            mTutorialMode = false;
         }
     }
 

@@ -163,6 +163,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (mParent.tutorialMode)
+            return;
+
         if (mIsQuestPanelAnimating)
             return;
 
@@ -175,6 +178,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (mParent.tutorialMode)
+            return;
+
         mIsMouseOver = false;
 
         if (isFrontPanel && Mathf.Abs(transform.localPosition.x) < mThreshold)
@@ -226,7 +232,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     }
 
-    public void OnMoreInfoPressed()
+    public void MoreInfo()
     {
         moreInfoView.gameObject.SetActive(true);
         mParent.moreInfoMode = true;
@@ -235,7 +241,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         StartCoroutine(FadeCanvasGroup(moreInfoView.GetComponent<CanvasGroup>(), 0f, 1f));
     }
 
-    public void OnLessInfoPressed()
+    public void LessInfo()
     {
         standardView.gameObject.SetActive(true);
         mParent.moreInfoMode = false;
@@ -244,8 +250,27 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         StartCoroutine(FadeCanvasGroup(moreInfoView.GetComponent<CanvasGroup>(), 1f, 0f));
     }
 
+    public void OnMoreInfoPressed()
+    {
+        if (mParent.tutorialMode)
+            return;
+
+        MoreInfo();
+    }
+
+    public void OnLessInfoPressed()
+    {
+        if (mParent.tutorialMode)
+            return;
+
+        LessInfo();
+    }
+
     public void OnLikePressed()
     {
+        if (mParent.tutorialMode)
+            return;
+
         if (!isFrontPanel)
             return;
 
@@ -254,6 +279,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPassPressed()
     {
+        if (mParent.tutorialMode)
+            return;
+
         if (!isFrontPanel)
             return;
 

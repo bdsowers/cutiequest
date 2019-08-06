@@ -214,10 +214,11 @@ animation trigger: hub_tutorial
 	questr_tutorial true
 	enable questr
 	typewriter text: "It's simple! Swipe left on matches that are grody, and swipe right on someone you want to tag along.", keep_open: true
-	questr_moreinfo
+	questr_moreinfo true
 	typewriter text: "Every match has a Spell, Passive Boost, and Quirk that they bring to the party.", keep_open: true
-	typewriter text: "The Quirks can really change the whole dungeon dynamic, so watch out for them!"
+	typewriter text: "The Quirks can really change the whole dungeon dynamic, so watch out for them!", keep_open: true
+	questr_moreinfo false
+	typewriter text: "When you're ready, go ahead and find the match that's right for your next dungeon exploration!"
 	questr_tutorial false
-	disable questr
 	disable tutorial_overlay
 }
