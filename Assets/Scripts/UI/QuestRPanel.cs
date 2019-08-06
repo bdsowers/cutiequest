@@ -67,6 +67,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Update is called once per frame
     void Update()
     {
+        if (mParent.tutorialMode)
+            return;
+
         if (mIsQuestPanelAnimating)
             return;
 

@@ -26,6 +26,6 @@ public class Wiggle : MonoBehaviour
 
     void PlayWiggle()
     {
-        transform.DOShakeRotation(0.5f, 30f);
+        transform.DOShakeRotation(0.5f, new Vector3(0f, 0f, 30f));
     }
 }

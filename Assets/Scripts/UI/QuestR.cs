@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class QuestR : Dialog
 {
+    public GameObject contentsContainer;
+    public Image backgroundShadow;
+
     public GameObject standardView;
     public GameObject matchView;
 
@@ -18,6 +21,26 @@ public class QuestR : Dialog
     public bool moreInfoMode { get; set; }
 
     public static bool seenMatches { get; set; }
+
+    private bool mTutorialMode;
+
+    public bool tutorialMode {  get { return mTutorialMode; } }
+
+    public void SetTutorialMode(bool tutorialMode)
+    {
+        if (tutorialMode)
+        {
+            contentsContainer.transform.localPosition = Vector3.up * 120f;
+            backgroundShadow.enabled = false;
+            mTutorialMode = false;
+        }
+        else
+        {
+            contentsContainer.transform.localPosition = Vector3.zero;
+            backgroundShadow.enabled = true;
+            mTutorialMode = true;
+        }
+    }
 
     private void OnEnable()
     {

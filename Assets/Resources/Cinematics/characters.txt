@@ -202,3 +202,22 @@ animation trigger: beats_fail
 	change_speaker MiniCharacter_GamerGirl_01
 	typewriter text: "If you wanna learn these moves, I gotta get paid."
 }
+
+animation trigger: hub_tutorial
+{
+	change_speaker none
+	enable tutorial_overlay
+	typewriter text: "Did you lose your adventuring partner to a roaming pack of skeletons? Have I got the answer for you!", keep_open: true
+	enable questr_display
+	typewriter text: "Introducing QUESTR!!! The hot new mobile app for finding dungeon diving companions.", keep_open: true
+	disable questr_display
+	questr_tutorial true
+	enable questr
+	typewriter text: "It's simple! Swipe left on matches that are grody, and swipe right on someone you want to tag along.", keep_open: true
+	questr_moreinfo
+	typewriter text: "Every match has a Spell, Passive Boost, and Quirk that they bring to the party.", keep_open: true
+	typewriter text: "The Quirks can really change the whole dungeon dynamic, so watch out for them!"
+	questr_tutorial false
+	disable questr
+	disable tutorial_overlay
+}
