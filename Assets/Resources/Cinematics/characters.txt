@@ -205,6 +205,7 @@ animation trigger: beats_fail
 
 animation trigger: hub_tutorial
 {
+	wait_seconds 1
 	change_speaker none
 	enable tutorial_overlay
 	typewriter text: "Did you lose your adventuring partner to a roaming pack of skeletons? Have I got the answer for you!", keep_open: true

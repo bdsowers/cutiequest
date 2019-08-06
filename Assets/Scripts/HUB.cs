@@ -18,9 +18,6 @@ public class HUB : MonoBehaviour
         yield return null;
         GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
 
-        // QQQ
-        Game.instance.finishedTutorial = false;
-
         if (!Game.instance.finishedTutorial)
         {
             Game.instance.cinematicDirector.PostCinematicEvent("hub_tutorial");
