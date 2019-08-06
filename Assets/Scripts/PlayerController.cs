@@ -388,4 +388,11 @@ public class PlayerController : MonoBehaviour
 
         yield break;
     }
+
+    public bool IsDancing()
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsName("Dance1") || stateInfo.IsName("Dance2") || stateInfo.IsName("Dance3") || stateInfo.IsName("Dance4");
+    }
 }

@@ -61,8 +61,15 @@ public class Killable : MonoBehaviour
         CreateHitVFX();
 
         // If we're talking about the player, use their info that's stashed away in a saveable place
-        if (GetComponent<PlayerController>())
+        // Also if they're dancing, they take less damage
+        PlayerController playerController = GetComponent<PlayerController>();
+        if (playerController != null)
         {
+            if (playerController.IsDancing())
+            {
+                damage /= 2;
+            }
+
             Game.instance.playerData.health -= damage;
         }
 
