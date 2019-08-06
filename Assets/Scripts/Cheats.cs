@@ -82,7 +82,7 @@ public class Cheats : MonoBehaviour
             Game.instance.playerData.attractiveness = 100;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             Game.instance.currentDungeonFloor = 4;
             LevelExit exit = GameObject.FindObjectOfType<LevelExit>();

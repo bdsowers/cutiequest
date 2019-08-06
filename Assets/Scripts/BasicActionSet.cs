@@ -28,6 +28,7 @@ public class BasicActionSet : PlayerActionSet
     public PlayerAction Dislike;
 
     public PlayerAction CloseMenu;
+    public PlayerAction Dance;
 
     public BasicActionSet()
     {
@@ -49,6 +50,7 @@ public class BasicActionSet : PlayerActionSet
         Dislike = CreatePlayerAction("Dislike");
 
         CloseMenu = CreatePlayerAction("Close Menu");
+        Dance = CreatePlayerAction("Dance");
     }
 
     public void DetectController()
@@ -85,6 +87,7 @@ public class BasicActionSet : PlayerActionSet
             Dislike.AddDefaultBinding(Key.LeftArrow);
 
             CloseMenu.AddDefaultBinding(Key.Escape);
+            Dance.AddDefaultBinding(Key.D);
 
             this.Device = null;
         }
@@ -120,6 +123,7 @@ public class BasicActionSet : PlayerActionSet
             Dislike.AddDefaultBinding(InputControlType.LeftBumper);
 
             CloseMenu.AddDefaultBinding(InputControlType.Action2);
+            Dance.AddDefaultBinding(InputControlType.Action2);
 
             this.Device = boundDevice;
         }

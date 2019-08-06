@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
             mSpellQueued = true;
         }
 
-        if (Game.instance.actionSet.CloseMenu.WasPressed)
+        if (Game.instance.actionSet.Dance.WasPressed && Game.instance.playerData.IsFlagSet("dance_purchased"))
         {
             mDanceQueued = true;
         }
@@ -290,6 +290,7 @@ public class PlayerController : MonoBehaviour
                 else if (mSimpleMovement.CanMove(intendedDirection))
                 {
                     mSimpleMovement.Move(intendedDirection);
+                    GetComponentInChildren<Animator>().Play("Idle");
                     MoveFollower(intendedDirection, transform.position + intendedDirection);
                 }
                 else
@@ -307,6 +308,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayRandomDance()
     {
+        SimpleMovement.OrientToDirection(mSimpleMovement.subMesh, Vector3.back);
         int dance = Random.Range(1, 5);
         GetComponentInChildren<Animator>().Play("Dance" + dance);
     }
