@@ -31,6 +31,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Roadmap
 ### Vertical Slice TODO
 * Sound & music
+* Integrate latest art (+ proper control prompts in text)
 
 * Show positive messaging when boss is killed
 * Emphasize equipped spells & perks more so players don't forget them
