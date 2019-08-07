@@ -550,27 +550,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - stat: 0
-    icon: {fileID: 21300012, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    icon: {fileID: 21300000, guid: 54a99189b7767ca4f8f7022abe64c702, type: 3}
     name: Max Health
     description: How much damage you can take before you're kaput.
   - stat: 1
-    icon: {fileID: 21300030, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    icon: {fileID: 21300000, guid: ea6ccaad5d9cb6141b1a5b2f5d21a266, type: 3}
     name: Strength
     description: Melee damage you deal with every blow.
   - stat: 2
-    icon: {fileID: 21300128, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    icon: {fileID: 21300000, guid: 3d9a8df270017754f831e79329c434ac, type: 3}
     name: Defense
     description: Resistance to all attacks.
   - stat: 3
-    icon: {fileID: 21300144, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    icon: {fileID: 21300000, guid: e5077223ff4e0694fa5b24776a33e6e7, type: 3}
     name: Magic
     description: Magic attack strength and how long spells  take to recharge.
   - stat: 4
-    icon: {fileID: 21300188, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    icon: {fileID: 21300000, guid: b006e56494d71ad49a8f373c84863776, type: 3}
     name: Speed
     description: General movement speed.
   - stat: 5
-    icon: {fileID: 21300322, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+    icon: {fileID: 21300000, guid: a0d08fd16029c2943959bde9c216c527, type: 3}
     name: Luck
     description: Likelihood of good things happening.
 --- !u!1 &1611373404
