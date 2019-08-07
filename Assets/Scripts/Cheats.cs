@@ -10,6 +10,8 @@ public class Cheats : MonoBehaviour
     private int mCheatCharacter = 0;
     private int mCheatShrine = 0;
 
+    private int mScreenshotNum = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +81,11 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Game.instance.playerData.attractiveness = 100;
+            mScreenshotNum = PlayerPrefs.GetInt("screenshotnum", 1);
+            ScreenCapture.CaptureScreenshot("C:\\Users\\bdsow\\Desktop\\QuestRScreenshots\\screen" + mScreenshotNum + ".png");
+
+            ++mScreenshotNum;
+            PlayerPrefs.SetInt("screenshotnum", mScreenshotNum);
         }
 
         if (Input.GetKeyDown(KeyCode.H))
