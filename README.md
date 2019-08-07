@@ -48,6 +48,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Known Vertical Slice Bugs
 * QuestR organization seems off
 * Minimap teleporting doesn't always work
+* Talking to NPC locks game
 
 ### Vertical Slice Showcasing
 * Turn off cheats

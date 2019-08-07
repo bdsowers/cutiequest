@@ -16,7 +16,8 @@ public class SpellCooldownDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!Game.instance.InDungeon())
+            gameObject.SetActive(false);
     }
 
     // Update is called once per frame
