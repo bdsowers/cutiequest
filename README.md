@@ -49,6 +49,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * QuestR organization seems off
 * Minimap teleporting doesn't always work
 * Talking to NPC locks game
+* Goth Quirk is broken in builds only
+* 'Wanted' quirk - enemies don't attack
+* Spell targets for boss aren't always properly visible
 
 ### Vertical Slice Showcasing
 * Turn off cheats
