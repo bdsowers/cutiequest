@@ -1055,6 +1055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444286798}
   - component: {fileID: 444286799}
+  - component: {fileID: 444286800}
   m_Layer: 5
   m_Name: FloorDisplay
   m_TagString: Untagged
@@ -1098,6 +1099,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: {fileID: 1151242825}
   labelShadow: {fileID: 1737549991}
+--- !u!114 &444286800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444286797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b532e152d8939b49b93010cf8fb19c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450658045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879555554}
+  - component: {fileID: 879555555}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
@@ -1650,6 +1664,18 @@ RectTransform:
   m_AnchoredPosition: {x: 185.7998, y: 149.8999}
   m_SizeDelta: {x: 354, y: 322}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &879555555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879555553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b532e152d8939b49b93010cf8fb19c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914993445
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,6 +4053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 1395845474, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5303312171234136626, guid: c61028de0690a04489e563a5c9c1627d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4131,10 +4161,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1395845474, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}

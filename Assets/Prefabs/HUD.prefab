@@ -4854,6 +4854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5303312171234136626}
   - component: {fileID: 5303312171234136627}
+  - component: {fileID: 399985808}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -4907,6 +4908,18 @@ MonoBehaviour:
   pauseDialog: {fileID: 1773968195}
   bossHealth: {fileID: 2757815799865470747}
   unlockDialog: {fileID: 1604914416838904973}
+--- !u!114 &399985808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303312171234136625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b532e152d8939b49b93010cf8fb19c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5303312171370259798
 GameObject:
   m_ObjectHideFlags: 0
