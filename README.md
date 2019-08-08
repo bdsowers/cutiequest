@@ -47,7 +47,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Spell targets for boss aren't always properly visible
 
 ### Vertical Slice Showcasing
-* Turn off cheats
 * Reset game each time a player quits instead of actually quitting
 * Potentially auto-reset when the game has been sitting idly for too long
 * If the game crashes, auto-restart it somehow

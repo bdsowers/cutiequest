@@ -21,6 +21,10 @@ public class Cheats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if DEMO || RELEASE
+        return;
+#endif
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Game.instance.transitionManager.TransitionToScreen("Dungeon");

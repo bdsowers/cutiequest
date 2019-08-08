@@ -55,12 +55,23 @@ public class PauseDialog : Dialog
     {
         if (buttonName == "button_yes")
         {
-            Application.Quit();
+            CloseGame();
         }
         else
         {
             returnToGameButton.Select();
         }
+    }
+
+    private void CloseGame()
+    {
+#if DEMO
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Game.instance.transitionManager.TransitionToScreen("Title");  
+#else
+        Application.Quit();
+#endif
     }
 
     private void OnEnable()
