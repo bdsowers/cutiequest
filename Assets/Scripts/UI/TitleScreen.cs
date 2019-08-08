@@ -30,6 +30,17 @@ public class TitleScreen : MonoBehaviour
                 newHeart.transform.position = pos;
             }
         }
+
+        ResetDemoGame();
+    }
+
+    void ResetDemoGame()
+    {
+#if DEMO
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Game.instance.saveManager.LoadGame();
+#endif
     }
 
     // Update is called once per frame
@@ -41,7 +52,7 @@ public class TitleScreen : MonoBehaviour
             return;
         }
 
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && !Game.instance.transitionManager.isTransitioning)
             Leave();
 
         if (mLeaving)

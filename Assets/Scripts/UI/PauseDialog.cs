@@ -73,17 +73,12 @@ public class PauseDialog : Dialog
     private void CloseGame()
     {
 #if DEMO
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-
         Game.instance.cinematicDirector.EndAllCinematics();
 
         Time.timeScale = 1f;
         Invoke("DisableScreen", 0.01f);
 
-        Game.instance.saveManager.LoadGame();
-
-        Game.instance.transitionManager.RestartDemo(); 
+        Game.instance.transitionManager.TransitionToScreen("Title");
 #else
         Application.Quit();
 #endif

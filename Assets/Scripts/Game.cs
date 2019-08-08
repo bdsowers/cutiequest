@@ -33,6 +33,9 @@ public class Game : MonoBehaviour
     public DungeonData defaultDungeonData;
     public DungeonData debugDungeonData;
 
+    private const float mPreviewDelay = 2.5f * 60f;
+    private float mLastInputTime = -1f;
+
     public static Game instance
     {
         get { return mInstance; }
@@ -211,6 +214,11 @@ public class Game : MonoBehaviour
         return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon";
     }
 
+    public bool InPreview()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Preview";
+    }
+
     public bool finishedTutorial { get; set; }
 
     public int whoseTurn { get; set; }
@@ -264,6 +272,31 @@ public class Game : MonoBehaviour
         mActionSet = new BasicActionSet();
     }
 
+    void CheckPreviewMode()
+    {
+        if (mLastInputTime < 0f)
+        {
+            mLastInputTime = Time.time;
+        }
+
+        if (InControl.InputManager.ActiveDevice.AnyButtonIsPressed ||
+            InControl.InputManager.ActiveDevice.AnyButtonWasPressed ||
+            InControl.InputManager.AnyKeyIsPressed || 
+            Input.anyKeyDown ||
+            InControl.InputManager.ActiveDevice.LeftStick.HasChanged ||
+            InControl.InputManager.ActiveDevice.RightStick.HasChanged ||
+            InControl.InputManager.ActiveDevice.DPad.HasChanged)
+        {
+            mLastInputTime = Time.time;
+        }
+
+        if (Time.time - mLastInputTime > mPreviewDelay && !transitionManager.isTransitioning &&
+            !InPreview())
+        {
+            transitionManager.TransitionToScreen("Preview");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -282,11 +315,24 @@ public class Game : MonoBehaviour
 
             hud.GetComponent<HUD>().pauseDialog.gameObject.SetActive(true);
         }
+
+        CheckPreviewMode();
     }
 
     public void NewGame()
     {
+        mPlayerData = new PlayerData();
+
+        cinematicDataProvider.Reset();
+
         // todo bdsowers - there's a lot of work here to do...
+        playerStats.ChangeBaseStat(CharacterStatType.MaxHealth, 100);
+        playerStats.ChangeBaseStat(CharacterStatType.Defense, 2);
+        playerStats.ChangeBaseStat(CharacterStatType.Luck, 2);
+        playerStats.ChangeBaseStat(CharacterStatType.Magic, 2);
+        playerStats.ChangeBaseStat(CharacterStatType.Speed, 2);
+        playerStats.ChangeBaseStat(CharacterStatType.Strength, 2);
+        
         mPlayerData.followerUid = "1";
     }
 }
