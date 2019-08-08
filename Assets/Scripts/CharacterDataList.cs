@@ -6,6 +6,7 @@ public class CharacterDataList : MonoBehaviour
 {
     public CharacterData[] characterData;
     public CharacterModelData[] characterModelData;
+    public CharacterData tutorialCharacter;
 
     public List<CharacterModelData> CharacterModelsWithGender(int gender)
     {

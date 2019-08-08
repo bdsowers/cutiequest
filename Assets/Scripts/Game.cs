@@ -71,6 +71,13 @@ public class Game : MonoBehaviour
     {
         get
         {
+            // The tutorial character is encoded using a number, all others
+            // have their traits baked into the followerUid.
+            if (playerData.followerUid == "1")
+            {
+                return characterDataList.tutorialCharacter;
+            }
+
             if (playerData.followerUid != null)
             {
                 CharacterData cd = characterDataList.CharacterWithUID(playerData.followerUid);

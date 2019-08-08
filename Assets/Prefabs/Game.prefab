@@ -2919,6 +2919,7 @@ MonoBehaviour:
   - model: {fileID: 1146603637487928, guid: a86b461c3ea79154d868211bb895e1dd, type: 3}
     gender: 1
     requiredLevel: 0
+  tutorialCharacter: {fileID: 11400000, guid: 9bb9d1f4a74cccb4c8d6c684c5b8d8d0, type: 2}
 --- !u!114 &1030396630
 MonoBehaviour:
   m_ObjectHideFlags: 0
