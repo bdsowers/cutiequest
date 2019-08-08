@@ -61,6 +61,9 @@ public class CharacterDataList : MonoBehaviour
 
     public CharacterData CharacterWithUID(string uid)
     {
+        if (uid == "1")
+            return tutorialCharacter;
+
         for (int i = 0; i < characterData.Length; ++i)
         {
             if (characterData[i].characterUniqueId == uid)
