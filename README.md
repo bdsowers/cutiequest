@@ -31,24 +31,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Roadmap
 ### Vertical Slice TODO
 * Sound & music
-* Integrate latest art (+ proper control prompts in text)
-
-* Show positive messaging when boss is killed
-* Emphasize equipped spells & perks more so players don't forget them
 * Add quick descriptions for purchased items
-
 * Revise title screen
-
 * Add lots more string table entries
 
 ### Vertical Slice nice-to-have
+* Show positive messaging when boss is killed
+* Emphasize equipped spells & perks more so players don't forget them
 * Make boss drop unique stuff
 * Prefer showing new spells/quirks
 
 ### Known Vertical Slice Bugs
 * Minimap teleporting doesn't always work
 * Goth Quirk is broken in builds only
-* 'Wanted' quirk - enemies don't attack
 * Spell targets for boss aren't always properly visible
 
 ### Vertical Slice Showcasing
