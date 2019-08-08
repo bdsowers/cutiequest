@@ -15352,6 +15352,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1704973330486617485, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.65882355
+      objectReference: {fileID: 0}
     - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
         type: 3}
       propertyPath: rigModel1

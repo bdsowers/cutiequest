@@ -117,7 +117,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         float time = 0f;
         while (time < 1f)
         {
-            time += Time.deltaTime * 10f;
+            time += Time.deltaTime * 4f; 
             transform.localPosition = Vector3.Lerp(startPosition, endPosition, time);
             yield return null;
         }

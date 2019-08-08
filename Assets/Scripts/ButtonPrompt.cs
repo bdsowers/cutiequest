@@ -7,8 +7,9 @@ public class ButtonPrompt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // todo bdsowers - remove this after taking screenshots
+#if PROMO_BUILD
         gameObject.SetActive(false);
+#endif
     }
 
     // Update is called once per frame

@@ -32,11 +32,13 @@ public class CinematicActionRemoveNPC : CinematicAction
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
         GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX3_Hit_SmokePuff");
-        
+
         GameObject character = CinematicId.FindObjectWithId(mNPCName);
+        if (character == null)
+            Debug.LogError("Couldn't find character: " + mNPCName);
 
         vfx.transform.position = character.transform.position;
-
+       
         GameObject.Destroy(character.gameObject);
 
         yield break;

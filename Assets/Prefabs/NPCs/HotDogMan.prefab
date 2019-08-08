@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8741465f27a1f744ab6b001db34e2881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinematicId: hotdogman
+  cinematicId: char_hotdogman
 --- !u!1 &5073518053295189686
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class DisableForPromo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+#if PROMO_BUILD
         Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
         foreach(Renderer renderer in renderers)
         {
@@ -31,6 +32,7 @@ public class DisableForPromo : MonoBehaviour
         {
             image.enabled = false;
         }
+#endif
     }
 
     // Update is called once per frame
