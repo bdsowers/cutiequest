@@ -140,7 +140,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         yield break;
     }
 
-    void Swap()
+    public void Swap()
     {
         transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
         transform.localPosition = Vector3.zero;
