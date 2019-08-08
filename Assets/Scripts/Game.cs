@@ -341,5 +341,7 @@ public class Game : MonoBehaviour
         playerStats.ChangeBaseStat(CharacterStatType.Strength, 2);
         
         mPlayerData.followerUid = "1";
+
+        finishedTutorial = false;
     }
 }
