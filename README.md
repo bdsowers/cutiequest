@@ -43,11 +43,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Known Vertical Slice Bugs
 * Minimap teleporting doesn't always work
-* Goth Quirk is broken in builds only
-* Spell targets for boss aren't always properly visible
 
 ### Vertical Slice Showcasing
-* Reset game each time a player quits instead of actually quitting
 * Potentially auto-reset when the game has been sitting idly for too long
 * If the game crashes, auto-restart it somehow
 * Playback / attract mode
