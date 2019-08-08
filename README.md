@@ -34,6 +34,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Add quick descriptions for purchased items
 * Revise title screen
 * Add lots more string table entries
+* Add visual feedback for non-combat spells
 
 ### Vertical Slice nice-to-have
 * Show positive messaging when boss is killed
