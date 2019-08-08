@@ -45,7 +45,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Minimap teleporting doesn't always work
 
 ### Vertical Slice Showcasing
-* Playback / attract mode
 * Show feedback survey & e-mail signup after some event (3 runs?)
 
 ### MVP Beta Features

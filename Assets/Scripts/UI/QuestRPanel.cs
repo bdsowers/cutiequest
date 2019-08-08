@@ -40,6 +40,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private QuestR mParent;
 
+    private bool mJoystickNeedsReset;
+
     public List<CharacterData> availableCharacters
     {
         get { return mAvailableCharacters; }
@@ -100,12 +102,44 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             OnPassPressed();
         }
 
+        if (Game.instance.actionSet.boundDevice != null)
+        {
+            UpdateJoystick();
+        }
+
         if (Game.instance.actionSet.ToggleMap.WasPressed)
         {
             if (moreInfoView.gameObject.activeSelf)
                 OnLessInfoPressed();
             else
                 OnMoreInfoPressed();
+        }
+    }
+
+    private void UpdateJoystick()
+    {
+        if (!isFrontPanel)
+            return;
+
+        Vector2 moveValue = Game.instance.actionSet.Move.Value;
+
+        if (mParent.joystickNeedsReset)
+        {
+            if (Mathf.Abs(moveValue.x) < 0.1f)
+            {
+                mParent.joystickNeedsReset = false;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        transform.localPosition = Vector3.right * moveValue.x * 500;
+        if (Mathf.Abs(moveValue.x) > 0.7f)
+        {
+            StartCoroutine(FlyToPosition(Mathf.Sign(transform.localPosition.x) * 1500f * Vector3.right, true, transform.localPosition.x > 0f));
+            mParent.joystickNeedsReset = true;
         }
     }
 

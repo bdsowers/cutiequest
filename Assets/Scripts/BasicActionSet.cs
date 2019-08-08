@@ -57,6 +57,13 @@ public class BasicActionSet : PlayerActionSet
     {
         InputDevice device = (InputManager.ActiveDevice.Name == "None" ? null : InputManager.ActiveDevice);
 
+        // InControl won't 'switch back' to keyboard as the primary device wants it detects something
+        // else is running the show.
+        if (Input.anyKeyDown)
+        {
+            device = null;
+        }
+
         if (device != mBoundDevice || !mBound)
         {
             mBound = true;

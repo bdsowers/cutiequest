@@ -26,6 +26,8 @@ public class QuestR : Dialog
 
     public bool tutorialMode {  get { return mTutorialMode; } }
 
+    public bool joystickNeedsReset { get; set; }
+
     public void SetTutorialMode(bool tutorialMode)
     {
         if (tutorialMode)
