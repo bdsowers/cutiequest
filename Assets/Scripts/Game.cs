@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ArrayExtensions;
+using GameObjectExtensions;
 
 public class Game : MonoBehaviour
 {
@@ -281,5 +282,11 @@ public class Game : MonoBehaviour
 
             hud.GetComponent<HUD>().pauseDialog.gameObject.SetActive(true);
         }
+    }
+
+    public void NewGame()
+    {
+        // todo bdsowers - there's a lot of work here to do...
+        mPlayerData.followerUid = "1";
     }
 }

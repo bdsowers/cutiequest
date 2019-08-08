@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ColorExtensions;
 using ArrayExtensions;
+using System.Diagnostics;
 
 public class ScreenTransitionManager : MonoBehaviour
 {
@@ -117,7 +118,7 @@ public class ScreenTransitionManager : MonoBehaviour
 
         fullScreenQuad.gameObject.SetActive(false);
 
-        if (!Game.instance.finishedTutorial)
+        if (!Game.instance.finishedTutorial && Game.instance.InDungeon())
         {
             yield return new WaitForSeconds(0.2f);
             Game.instance.cinematicDirector.PostCinematicEvent("intro_ready");
@@ -238,5 +239,30 @@ public class ScreenTransitionManager : MonoBehaviour
         }
 
         yield break;
+    }
+
+    public void RestartDemo()
+    {
+        StartCoroutine(RestartDemoCoroutine());
+    }
+
+    private IEnumerator RestartDemoCoroutine()
+    {
+        yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
+
+        RestartGame();
+
+        yield break;
+    }
+
+    private void RestartGame()
+    {
+        ProcessStartInfo Info = new ProcessStartInfo();
+        Info.Arguments = "/C ping 127.0.0.1 -n 2 && \"" + Process.GetCurrentProcess().MainModule.FileName + "\"";
+        Info.WindowStyle = ProcessWindowStyle.Hidden;
+        Info.CreateNoWindow = true;
+        Info.FileName = "cmd.exe";
+        Process.Start(Info);
+        Application.Quit();
     }
 }

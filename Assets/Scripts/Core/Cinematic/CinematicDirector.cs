@@ -113,4 +113,9 @@ public class CinematicDirector : MonoBehaviour
 
         return false;
     }
+
+    public void EndAllCinematics()
+    {
+        StopAllCoroutines();
+    }
 }

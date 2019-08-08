@@ -15,6 +15,7 @@ public class SaveManager : MonoBehaviour
     };
 
     private bool mSaveTriggered = false;
+    private bool mSaveDisabled = false;
 
     private void Update()
     {
@@ -27,11 +28,17 @@ public class SaveManager : MonoBehaviour
 
     public void TriggerSave()
     {
+        if (mSaveDisabled)
+            return;
+
         mSaveTriggered = true;
     }
 
     public void SaveGame()
     {
+        if (mSaveDisabled)
+            return;
+
         Debug.Log("Saving game...");
 
         // todo bdsowers - shoving this all in PlayerPrefs is def bad practice
@@ -62,13 +69,14 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGame()
     {
+        mSaveDisabled = true;
+
         int saveVersion = PlayerPrefs.GetInt("SaveVersion", 0);
         
         if (saveVersion == 1)
         {
             Game.instance.playerData.model = PlayerPrefs.GetString("PlayerModel", null);
             Game.instance.playerData.material = PlayerPrefs.GetString("PlayerMaterial", null);
-            Game.instance.playerData.followerUid = PlayerPrefs.GetString("FollowerID", null);
             Game.instance.playerData.numHearts = PlayerPrefs.GetInt("Hearts");
             Game.instance.playerData.numCoins = PlayerPrefs.GetInt("Coins");
             Game.instance.playerData.attractiveness = PlayerPrefs.GetInt("Attractiveness");
@@ -89,14 +97,12 @@ public class SaveManager : MonoBehaviour
                 int value = PlayerPrefs.GetInt(stat.Key);
                 Game.instance.playerStats.ChangeBaseStat(stat.Value, value);
             }
-
-            // todo bdsowers - this is causing significant issues
-            //Game.instance.playerData.health = Game.instance.playerStats.ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         }
         else
         {
-            // todo bdsowers - new game functionality
-            Game.instance.playerData.followerUid = "1";
+            Game.instance.NewGame();
         }
+
+        mSaveDisabled = false;
     }
 }

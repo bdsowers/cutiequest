@@ -14,6 +14,11 @@ public class CinematicDataProvider : MonoBehaviour
     // but that isn't setup right now.
     static Dictionary<string, string> mVariables = new Dictionary<string, string>();
 
+    public void Reset()
+    {
+        mVariables.Clear();
+    }
+
     public void SetData(string key, object value)
     {
         if (mVariables.ContainsKey(key))

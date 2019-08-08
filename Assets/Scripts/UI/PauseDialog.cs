@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
+// todo bdsowers - this whole damn file is a hack in preparation for a con
+// the Time.timeScale stuff is wonky, as well as the way DisableScreen is called.
+// It was all rooted in trying to get inputs that manipulate the dialog to not also
+// trigger spells.
 public class PauseDialog : Dialog
 {
     public Button returnToGameButton;
@@ -12,7 +17,7 @@ public class PauseDialog : Dialog
 
     private void Start()
     {
-        leaveDungeonButton.interactable = Game.instance.InDungeon();
+        leaveDungeonButton.interactable = Game.instance.InDungeon() && Game.instance.finishedTutorial;
 
         Navigation nav = new Navigation();
         nav.mode = Navigation.Mode.Explicit;
@@ -22,12 +27,14 @@ public class PauseDialog : Dialog
 
     public void OnReturnToGamePressed()
     {
-        gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        Invoke("DisableScreen", 0.01f);
     }
 
     public void OnLeaveDungeonPressed()
     {
-        gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        Invoke("DisableScreen", 0.01f);
         Game.instance.avatar.GetComponent<Killable>().TakeDamage(Game.instance.playerData.health);
     }
 
@@ -68,10 +75,23 @@ public class PauseDialog : Dialog
 #if DEMO
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
-        Game.instance.transitionManager.TransitionToScreen("Title");  
+
+        Game.instance.cinematicDirector.EndAllCinematics();
+
+        Time.timeScale = 1f;
+        Invoke("DisableScreen", 0.01f);
+
+        Game.instance.saveManager.LoadGame();
+
+        Game.instance.transitionManager.RestartDemo(); 
 #else
         Application.Quit();
 #endif
+    }
+
+    private void DisableScreen()
+    {
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
