@@ -37,6 +37,9 @@ public class TitleHeart : MonoBehaviour
         else
         {
             mAnimationTimer += Time.deltaTime;
+
+            return;
+
             if (mAnimationTimer > 1f)
             {
                 mAnimationTimer = 1f;
@@ -49,7 +52,7 @@ public class TitleHeart : MonoBehaviour
             if (mAnimationTimer > 0.5f)
                 scale = (1f - mAnimationTimer) * 2f;
 
-            transform.localScale = Vector3.one * (3f + scale * 0.6f);
+            //transform.localScale = Vector3.one * (3f + scale * 0.6f);
         }
         
     }

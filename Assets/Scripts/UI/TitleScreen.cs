@@ -16,18 +16,21 @@ public class TitleScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int x = -5; x <= 5; ++x)
+        for (float x = -6; x <= 6; x += 0.5f)
         {
-            for (int y = -5; y <= 5; ++y)
+            for (float y = -6; y <= 6; y += 0.5f)
             {
                 float offset = 0f;
 
-                if (y <= 0)
-                    offset = -1f;
+                if (y >= -1.25f && y <= 1.5f) continue;
 
-                Vector3 pos = new Vector3(x * 3.75f, offset + y * 4f, 0f);
+                float sepX = 3.75f * 0.5f;
+                float sepY = 4f * 0.5f;
+
+                Vector3 pos = new Vector3(x * sepX, offset + y * sepY, 0f);
                 GameObject newHeart = GameObject.Instantiate(heartPrefab);
                 newHeart.transform.position = pos;
+                newHeart.transform.localScale = Vector3.one * 0.85f;
             }
         }
 

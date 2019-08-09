@@ -32,7 +32,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Vertical Slice TODO
 * Sound & music
 * Add quick descriptions for purchased items
-* Revise title screen
 * Add lots more string table entries
 * Add visual feedback for non-combat spells
 
