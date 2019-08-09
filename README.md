@@ -29,10 +29,14 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Roadmap
-### Vertical Slice TODO
+### CRAMMING
 * Sound & music
 * Add lots more string table entries
 * Add visual feedback for non-combat spells
+* Minimap teleporting doesn't always work
+* Glass Cannon gets wonky
+* Aphrodite spelled wrong
+* Push mansplain out a bit
 
 ### Vertical Slice nice-to-have
 * Show positive messaging when boss is killed
@@ -40,14 +44,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Make boss drop unique stuff
 * Prefer showing new spells/quirks
 
-### Known Vertical Slice Bugs
-* Minimap teleporting doesn't always work
-
-### Vertical Slice Showcasing
-* Show feedback survey & e-mail signup after some event (3 runs?)
-
 ### MVP Beta Features
-* Locked HUB improvement system
 * Flow from biome to biome / endgame
 
 
