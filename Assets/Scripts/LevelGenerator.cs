@@ -345,7 +345,7 @@ public class LevelGenerator : MonoBehaviour
 
     private string RandomItem()
     {
-        GameObject item = PrefabManager.instance.itemPrefabs.Sample();
+        GameObject item = PrefabManager.instance.itemPrefabs.Sample(mPreviouslyUsedItems);
         mPreviouslyUsedItems.Add(item);
         return item.name;
     }
