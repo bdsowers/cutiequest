@@ -34,7 +34,7 @@ public class TitleScreen : MonoBehaviour
             }
         }
 
-        // QQQ ResetDemoGame();
+        ResetDemoGame();
     }
 
     void ResetDemoGame()
