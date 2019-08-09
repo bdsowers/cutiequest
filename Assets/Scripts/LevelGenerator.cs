@@ -27,6 +27,8 @@ public class LevelGenerator : MonoBehaviour
     private bool mNPCPlaced = false;
     private bool mShrinePlaced = false;
 
+    private List<GameObject> mPreviouslyUsedItems = new List<GameObject>();
+
     private void Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
@@ -343,7 +345,9 @@ public class LevelGenerator : MonoBehaviour
 
     private string RandomItem()
     {
-        return PrefabManager.instance.itemPrefabs.Sample().name;
+        GameObject item = PrefabManager.instance.itemPrefabs.Sample();
+        mPreviouslyUsedItems.Add(item);
+        return item.name;
     }
 
     public Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)

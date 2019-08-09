@@ -31,7 +31,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Roadmap
 ### Vertical Slice TODO
 * Sound & music
-* Add quick descriptions for purchased items
+* Add quick descriptions for purchased items - they're already in string table, just show that
 * Add lots more string table entries
 * Add visual feedback for non-combat spells
 
