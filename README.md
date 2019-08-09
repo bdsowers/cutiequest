@@ -36,7 +36,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Minimap teleporting doesn't always work
 ** Glass Cannon gets wonky
 ** Aphrodite spelled wrong
-** Push mansplain out a bit
 
 ### Vertical Slice nice-to-have
 * Show positive messaging when boss is killed
