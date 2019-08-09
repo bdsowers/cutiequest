@@ -80,9 +80,18 @@ public class Item : MonoBehaviour
         // Add this guy's sprite to the inventory UI
         GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
 
+        ShowEquipMessage();
+
         if (onEquip != null)
         {
             onEquip(this);
         }
+    }
+
+    private void ShowEquipMessage()
+    {
+        string message = LocalizedText.Get(description);
+
+        NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, message, NumberPopupReason.Heal, 0.25f);
     }
 }
