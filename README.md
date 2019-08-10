@@ -35,7 +35,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ** Add visual feedback for non-combat spells
 * Minimap teleporting doesn't always work
 ** Glass Cannon gets wonky
-** Aphrodite spelled wrong
 
 ### Vertical Slice nice-to-have
 * Show positive messaging when boss is killed

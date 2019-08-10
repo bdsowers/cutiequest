@@ -11,5 +11,7 @@ public class BerserkSpell : Spell
         base.Activate(caster);
 
         caster.AddComponent<BerserkStatusEffect>().level = level;
+
+        PlayBoilerplateVFX();
     }
 }

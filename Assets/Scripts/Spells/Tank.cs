@@ -10,8 +10,6 @@ public class Tank : Spell
 
         caster.AddComponent<TankStatusEffect>();
 
-        GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_PickupDiamond2");
-        vfx.transform.position = transform.position;
-        vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
+        PlayBoilerplateVFX();
     }
 }

@@ -9,7 +9,6 @@ public class DarkVoid : Spell
         base.Activate(caster);
 
         int strength = caster.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, caster);
-        strength -= 2;
         strength = Mathf.Max(strength, 1);
 
         caster.GetComponentInChildren<SpellCaster>().CastSpell(strength);

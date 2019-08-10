@@ -40,4 +40,11 @@ public class Spell : MonoBehaviour
             mCooldownTimer -= Time.deltaTime;
         }
     }
+
+    protected void PlayBoilerplateVFX()
+    {
+        GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_PickupDiamond2");
+        vfx.transform.position = Game.instance.avatar.transform.position + Vector3.up * 0.5f;
+        vfx.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
+    }
 }

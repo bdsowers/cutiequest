@@ -12,5 +12,7 @@ public class HasteSpell : Spell
         base.Activate(caster);
 
         caster.AddComponent<HasteStatusEffect>();
+
+        PlayBoilerplateVFX();
     }
 }

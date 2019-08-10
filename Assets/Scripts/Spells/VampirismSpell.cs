@@ -11,5 +11,7 @@ public class VampirismSpell : Spell
         int strength = caster.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, caster);
 
         caster.AddComponent<VampirismStatusEffect>().strength = strength;
+
+        PlayBoilerplateVFX();
     }
 }
