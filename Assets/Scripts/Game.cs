@@ -343,5 +343,7 @@ public class Game : MonoBehaviour
         mPlayerData.followerUid = "1";
 
         finishedTutorial = false;
+
+        mCurrentDungeonData = defaultDungeonData;
     }
 }
