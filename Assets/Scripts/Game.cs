@@ -345,5 +345,6 @@ public class Game : MonoBehaviour
         finishedTutorial = false;
 
         mCurrentDungeonData = defaultDungeonData;
+        mCurrentDungeonFloor = 1;
     }
 }
