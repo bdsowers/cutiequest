@@ -36,7 +36,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Vertical Slice nice-to-have
 * Show positive messaging when boss is killed
-* Emphasize equipped spells & perks more so players don't forget them
 * Make boss drop unique stuff
 * Prefer showing new spells/quirks
 
