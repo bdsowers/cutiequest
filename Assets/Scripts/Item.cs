@@ -82,6 +82,16 @@ public class Item : MonoBehaviour
 
         ShowEquipMessage();
 
+        // Find any activation plates tied to this item and disable them
+        ActivationPlate[] plates = GameObject.FindObjectsOfType<ActivationPlate>();
+        for (int i = 0; i < plates.Length; ++i)
+        {
+            if (plates[i].item == this)
+            {
+                plates[i].gameObject.SetActive(false);
+            }
+        }
+
         if (onEquip != null)
         {
             onEquip(this);
