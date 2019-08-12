@@ -108,6 +108,15 @@ public class PlayerController : MonoBehaviour
 
     void OnFollowerChanged()
     {
+        // Remove any spells & quirks currently attached
+        Spell spell = GetComponentInChildren<Spell>();
+        if (spell != null)
+            Destroy(spell.gameObject);
+
+        Quirk quirk = GetComponentInChildren<Quirk>();
+        if (quirk != null)
+            Destroy(quirk.gameObject);
+
         if (!HasFollower())
             return;
 
