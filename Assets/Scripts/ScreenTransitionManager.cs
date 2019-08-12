@@ -158,6 +158,7 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return StartCoroutine(ShowUnlocks());
 
         yield return StartCoroutine(ChangeScene("HUB"));
+        yield return new WaitForSeconds(0.1f);
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
 
