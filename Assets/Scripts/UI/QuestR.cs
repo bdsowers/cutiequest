@@ -86,7 +86,7 @@ public class QuestR : Dialog
                 string quirkName = LocalizedText.Get(Game.instance.followerData.quirk.friendlyName);
 
                 NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Spell: " + spellName, NumberPopupReason.Heal, 0f);
-                NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Quirk: " + quirkName, NumberPopupReason.Heal, 0.9f);
+                NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Quirk: " + quirkName, NumberPopupReason.Heal, 0.7f);
             }
         }
 

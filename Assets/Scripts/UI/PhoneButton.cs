@@ -23,6 +23,9 @@ public class PhoneButton : MonoBehaviour
         mWiggle.enabled = !QuestR.seenMatches;
         newMatchesIndicator.SetActive(!QuestR.seenMatches);
 
+        if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return;
+
         if (Game.instance.actionSet.ToggleMap.WasPressed)
         {
             if (!DialogManager.AnyDialogsOpen())

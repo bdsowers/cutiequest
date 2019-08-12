@@ -347,4 +347,9 @@ public class Game : MonoBehaviour
         mCurrentDungeonData = defaultDungeonData;
         mCurrentDungeonFloor = 1;
     }
+
+    public void ForcePreviewMode()
+    {
+        transitionManager.TransitionToScreen("Preview");
+    }
 }

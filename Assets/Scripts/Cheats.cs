@@ -120,5 +120,10 @@ public class Cheats : MonoBehaviour
             Game.instance.companionBuilder.BuildCheatCompanionSet();
             QuestR.seenMatches = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Game.instance.ForcePreviewMode();
+        }
     }
 }

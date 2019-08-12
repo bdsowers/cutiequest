@@ -9,7 +9,7 @@ public class PreviewMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Game.instance.soundManager.StopMusic();   
     }
 
     // Update is called once per frame

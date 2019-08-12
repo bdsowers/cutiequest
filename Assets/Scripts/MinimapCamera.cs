@@ -44,7 +44,10 @@ public class MinimapCamera : MonoBehaviour
 
         if (Game.instance.actionSet.ToggleMap.WasPressed || (mShowingWholeMap && Game.instance.actionSet.Pause.WasPressed) || (mShowingWholeMap && Game.instance.actionSet.CloseMenu.WasPressed))
         {
-            ToggleFullMap(!mShowingWholeMap);
+            if (Game.instance.finishedTutorial)
+            {
+                ToggleFullMap(!mShowingWholeMap);
+            }
         }
 
         if (mShowingWholeMap)

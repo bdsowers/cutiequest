@@ -116,4 +116,13 @@ public class SoundManager : MonoBehaviour
 
         yield break;
     }
+
+    public void StopMusic()
+    {
+        if (mCurrentMusic != null)
+        {
+            mCurrentMusic.Stop();
+            mCurrentMusic = null;
+        }
+    }
 }

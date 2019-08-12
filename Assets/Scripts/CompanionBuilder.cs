@@ -8,7 +8,8 @@ public class CompanionBuilder : MonoBehaviour
     private const int GAMEPLAY_REUSE_WINDOW_SIZE = 5;
 
     // todo - once we have more content, actually bump this number up
-    private const int TEXT_REUSE_WINDOW_SIZE = 0;
+    // todo - revisit the reuse window, since gendering throws things off a bit.
+    private const int TEXT_REUSE_WINDOW_SIZE = 6;
 
     private List<Quirk> previouslyUsedQuirks = new List<Quirk>();
     private List<Spell> previouslyUsedSpells = new List<Spell>();
@@ -32,12 +33,12 @@ public class CompanionBuilder : MonoBehaviour
 
         randomCharacter.age = GenerateCharacterAge();
 
-        List<string> taglines = LocalizedText.GetKeysInList("[" + gender + "_TAGLINE]");
-        taglines.AddRange(LocalizedText.GetKeysInList("[NEUTRAL_TAGLINE]"));
+        List<string> taglines = LocalizedText.GetKeysInList("[NEUTRAL_TAGLINE]");
+        taglines.AddRange(LocalizedText.GetKeysInList("[" + gender + "_TAGLINE]"));
 
-        List<string> bios = LocalizedText.GetKeysInList("[" + gender + "_BIO]");
-        bios.AddRange(LocalizedText.GetKeysInList("[NEUTRAL_BIO]"));
-
+        List<string> bios = LocalizedText.GetKeysInList("[NEUTRAL_BIO]");
+        bios.AddRange(LocalizedText.GetKeysInList("[" + gender + "_BIO]"));
+        
         // These are parallel arrays
         int bioAndTaglinePosition = bios.SamplePosition(previouslyUsedBios);
         
