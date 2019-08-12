@@ -78,6 +78,9 @@ public class QuestR : Dialog
 
     public void OnClosePressed()
     {
+        if (!Game.instance.finishedTutorial)
+            return;
+
         if (matchView.gameObject.activeSelf)
         {
             if (Game.instance.followerData != null)
