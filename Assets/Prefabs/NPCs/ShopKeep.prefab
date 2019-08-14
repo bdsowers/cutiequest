@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5073518052470053922}
   - component: {fileID: 9182205973773178468}
   - component: {fileID: 16126872339708905}
+  - component: {fileID: 7489630948052517770}
   m_Layer: 0
   m_Name: ShopKeep
   m_TagString: Untagged
@@ -74,6 +75,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 5
+--- !u!114 &7489630948052517770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552a2db9191eaa54490b5e36c0961b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 5073518053295189686}
+  subMesh: {fileID: 0}
+  collisionIgnoreList: 
+  collisionIdentity: 4
 --- !u!1 &5073518053295189686
 GameObject:
   m_ObjectHideFlags: 0
