@@ -297,7 +297,7 @@ public class LevelGenerator : MonoBehaviour
                 else if (dungeon.TileType(x,y) == SHOP_KEEPER)
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
-                    PlaceMapPrefab("ShopKeep", x, y, WALKABLEMAP_STATIC_MARK, 0.5f);
+                    PlaceMapPrefab("ShopKeep", x, y, WALKABLEMAP_USE_PREFAB_MARK, 0.5f);
 
                     PlaceSurroundingActivationPlates(x, y, "shopkeep_talk", null, false);
                 }

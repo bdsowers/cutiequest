@@ -114,7 +114,10 @@ public class SimpleMovement : MonoBehaviour
         if (!useCollisionMap)
             return;
 
-        mCollisionMap.RemoveMarking(uniqueCollisionIdentity);
+        if (!mCollisionMap.RemoveMarking(uniqueCollisionIdentity))
+        {
+            Debug.LogError("CM bug for " + gameObject.name);
+        }
     }
 
     private void UpdateCollisionMapForMove(Vector3 currentPosition, Vector3 targetPosition)
@@ -128,7 +131,11 @@ public class SimpleMovement : MonoBehaviour
         Vector2Int oldCoords = MapCoordinateHelper.WorldToMapCoords(currentPosition);
         Vector2Int newCoords = MapCoordinateHelper.WorldToMapCoords(targetPosition);
 
-        mCollisionMap.RemoveMarking(uniqueCollisionIdentity);
+        if (!mCollisionMap.RemoveMarking(uniqueCollisionIdentity))
+        {
+            Debug.LogError("CM bug for " + gameObject.name);
+        }
+
         mCollisionMap.MarkSpace(newCoords.x, newCoords.y, uniqueCollisionIdentity);
     }
 

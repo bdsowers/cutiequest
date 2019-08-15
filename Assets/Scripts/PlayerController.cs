@@ -352,7 +352,11 @@ public class PlayerController : MonoBehaviour
 
         Vector2Int currentPos = MapCoordinateHelper.WorldToMapCoords(transform.position);
 
-        collisionMap.RemoveMarking(mSimpleMovement.uniqueCollisionIdentity);
+        if (!collisionMap.RemoveMarking(mSimpleMovement.uniqueCollisionIdentity))
+        {
+            Debug.LogError("CM error in PlayerController");
+        }
+
         collisionMap.MarkSpace(mTeleportTarget.x, mTeleportTarget.y, mSimpleMovement.uniqueCollisionIdentity);
 
         Game.instance.avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(mTeleportTarget);

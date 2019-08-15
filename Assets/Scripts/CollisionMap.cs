@@ -71,7 +71,8 @@ public class CollisionMap : MonoBehaviour
         }
     }
 
-    public void RemoveMarking(int value)
+    // Returns false if there was an error - trying to track down some odd collision bugs
+    public bool RemoveMarking(int value)
     {
         Vector2Int position;
         if (mPlacement.TryGetValue(value, out position))
@@ -83,10 +84,14 @@ public class CollisionMap : MonoBehaviour
 
             mMap[position.x, position.y] = 0;
             mPlacement.Remove(value);
+
+            return true;
         }
         else
         {
             Debug.LogError("Trying to remove a marking that doesn't exist in the map: " + value);
+
+            return false;
         }
     }
 
