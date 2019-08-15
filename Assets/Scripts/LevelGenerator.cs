@@ -167,6 +167,7 @@ public class LevelGenerator : MonoBehaviour
         if (cheatOverride != -1)
             npc = npcs[cheatOverride];
 
+        // todo bdsowers - use proper walkable map writing
         GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, 1);
         PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false, shrine);
     }

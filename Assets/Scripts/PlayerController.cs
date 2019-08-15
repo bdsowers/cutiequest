@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject buttonPromptCanvas;
 
+    public bool transitioning { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -199,7 +201,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
+        if (Game.instance.transitionManager.isTransitioning)
+            return;
         if (!isAlive)
+            return;
+        if (transitioning)
             return;
 
         MinimapCamera minimapCamera = GameObject.FindObjectOfType<MinimapCamera>();

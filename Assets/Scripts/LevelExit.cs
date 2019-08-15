@@ -17,6 +17,7 @@ public class LevelExit : MonoBehaviour
                 return;
 
             mIsTransitioning = true;
+            Game.instance.avatar.transitioning = true;
             Invoke("Transition", 0.5f);
         }
     }
