@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class TipsyQuirk : MonoBehaviour
+public class TipsyQuirk : Quirk
 {
     LensDistortion mLensDistortion;
     PostProcessVolume mVolume;
@@ -46,5 +46,24 @@ public class TipsyQuirk : MonoBehaviour
         }
 
         mLensDistortion.intensity.value = mIntensity;
+    }
+
+    private void OnDisable()
+    {
+        DestroyVolume();
+    }
+
+    private void OnDestroy()
+    {
+        DestroyVolume();
+    }
+
+    void DestroyVolume()
+    {
+        if (mVolume == null)
+            return;
+
+        RuntimeUtilities.DestroyVolume(mVolume, true, true);
+        mVolume = null;
     }
 }
