@@ -11,6 +11,10 @@ public class LevelGenerator : MonoBehaviour
     private const char SHOP_KEEPER = '8';
     private const char PRESET_ENEMY = '9';
 
+    private const int WALKABLEMAP_DONT_MARK = -1;
+    private const int WALKABLEMAP_USE_PREFAB_MARK = -2;
+    private const int WALKABLEMAP_STATIC_MARK = 1;
+
     RandomDungeon mDungeon;
     RandomDungeonGenerator mDungeonGenerator;
     RoomSet mRoomset;
@@ -168,7 +172,7 @@ public class LevelGenerator : MonoBehaviour
             npc = npcs[cheatOverride];
 
         // todo bdsowers - use proper walkable map writing
-        GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, 1);
+        GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, WALKABLEMAP_USE_PREFAB_MARK);
         PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false, shrine);
     }
 
@@ -180,7 +184,7 @@ public class LevelGenerator : MonoBehaviour
         if (cheatOverride != -1)
             shrineName = PrefabManager.instance.shrinePrefabs[cheatOverride].name;
 
-        GameObject shrine = PlaceMapPrefab(shrineName, pos.x, pos.y, 1);
+        GameObject shrine = PlaceMapPrefab(shrineName, pos.x, pos.y, WALKABLEMAP_STATIC_MARK);
         PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>(), true, shrine);
     }
 
@@ -208,7 +212,7 @@ public class LevelGenerator : MonoBehaviour
             chestType = "MegaChest";
         }
 
-        GameObject chest = PlaceMapPrefab(chestType, pos.x, pos.y, 1);
+        GameObject chest = PlaceMapPrefab(chestType, pos.x, pos.y, WALKABLEMAP_STATIC_MARK);
         PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>(), true, chest);
     }
 
@@ -217,13 +221,18 @@ public class LevelGenerator : MonoBehaviour
         return CurrentDungeonFloorData().generationData.scopeData[0].criticalPathMaxRooms == 1;
     }
 
-    private GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = -1, float yOffset = 0f)
+    private GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = WALKABLEMAP_DONT_MARK, float yOffset = 0f)
     {
         GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
         newItem.transform.SetParent(transform);
         newItem.transform.position = new Vector3(tileX, yOffset, -tileY);
 
-        if (collisionMapMark != -1)
+        if (collisionMapMark == WALKABLEMAP_USE_PREFAB_MARK)
+        {
+            int mark = newItem.GetComponent<SimpleMovement>().uniqueCollisionIdentity;
+            mCollisionMap.MarkSpace(tileX, tileY, mark);
+        }
+        else if (collisionMapMark != WALKABLEMAP_DONT_MARK)
         {
             mCollisionMap.MarkSpace(tileX, tileY, collisionMapMark);
         }
@@ -267,7 +276,7 @@ public class LevelGenerator : MonoBehaviour
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALL_TILE)
                 {
-                    PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, 1);
+                    PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, WALKABLEMAP_STATIC_MARK);
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE ||
                     dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE)
@@ -278,7 +287,7 @@ public class LevelGenerator : MonoBehaviour
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false; ;
                     
-                    PlaceMapPrefab(biomeData.shopPedestablPrefab, x, y, 1).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
+                    PlaceMapPrefab(biomeData.shopPedestablPrefab, x, y, WALKABLEMAP_STATIC_MARK).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
                     GameObject buyableItem = PlaceMapPrefab(RandomItem(), x, y);
                     buyableItem.transform.localPosition += Vector3.up * 0.3f;
 
@@ -288,7 +297,7 @@ public class LevelGenerator : MonoBehaviour
                 else if (dungeon.TileType(x,y) == SHOP_KEEPER)
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
-                    PlaceMapPrefab("ShopKeep", x, y, 1, 0.5f);
+                    PlaceMapPrefab("ShopKeep", x, y, WALKABLEMAP_STATIC_MARK, 0.5f);
 
                     PlaceSurroundingActivationPlates(x, y, "shopkeep_talk", null, false);
                 }
