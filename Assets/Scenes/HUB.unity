@@ -1876,7 +1876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: 0}
+  m_AnchoredPosition: {x: 40.399994, y: 0}
   m_SizeDelta: {x: -80.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198102202
@@ -2210,7 +2210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: 0}
+  m_AnchoredPosition: {x: 40.399994, y: 0}
   m_SizeDelta: {x: -80.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &262043609
@@ -3874,7 +3874,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -4305,7 +4305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: 0}
+  m_AnchoredPosition: {x: 40.399994, y: 0}
   m_SizeDelta: {x: -80.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &591844217
@@ -7893,7 +7893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: 0}
+  m_AnchoredPosition: {x: 40.399994, y: 0}
   m_SizeDelta: {x: -80.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124610413
@@ -12891,7 +12891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: 0}
+  m_AnchoredPosition: {x: 40.399994, y: 0}
   m_SizeDelta: {x: -80.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925483438
@@ -13247,7 +13247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: 0}
+  m_AnchoredPosition: {x: 40.399994, y: 0}
   m_SizeDelta: {x: -80.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1941524580
@@ -14687,6 +14687,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 625476992, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -199.29999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
 --- !u!224 &2135044085 stripped
@@ -15286,16 +15290,16 @@ Canvas:
   m_GameObject: {fileID: 1133164971966629892}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 534669904}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 213044635
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1133164971966629912

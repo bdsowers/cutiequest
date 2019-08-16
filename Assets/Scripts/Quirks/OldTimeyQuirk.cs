@@ -9,6 +9,15 @@ public class OldTimeyQuirk : Quirk
     Grain mGrain;
     PostProcessVolume mVolume;
 
+    private static bool mEnabled;
+
+    public static bool enabled {  get { return mEnabled; } }
+
+    private void OnEnable()
+    {
+        mEnabled = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +31,8 @@ public class OldTimeyQuirk : Quirk
         mGrain.lumContrib.Override(1f);
 
         mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mGrayscale, mGrain);
+
+        mEnabled = true;
     }
 
     // Update is called once per frame
@@ -32,11 +43,13 @@ public class OldTimeyQuirk : Quirk
 
     private void OnDisable()
     {
+        mEnabled = false;
         DestroyVolume();
     }
 
     private void OnDestroy()
     {
+        mEnabled = false;
         DestroyVolume();
     }
 

@@ -10,6 +10,7 @@ public class ScreenTransitionManager : MonoBehaviour
     public Image fullScreenQuad;
     public Typewriter deathMessage;
     public RawImage deathSpeakerImage;
+    public Text intermission;
 
     public bool isTransitioning { get; private set; }
 
@@ -105,6 +106,24 @@ public class ScreenTransitionManager : MonoBehaviour
         yield break;
     }
 
+    private IEnumerator ShowIntermission()
+    {
+        intermission.gameObject.SetActive(true);
+
+        float t = 0f;
+        while (t < 1.5f)
+        {
+            t += Time.deltaTime;
+            intermission.transform.localPosition = Vector3.zero + Vector3.right * Random.Range(-2f, 2f) + Vector3.up * Random.Range(-2f, 2f);
+
+            yield return null;
+        }
+
+        intermission.gameObject.SetActive(false);
+
+        yield break;
+    }
+
     private IEnumerator StandardTransition(string targetScene)
     {
         isTransitioning = true;
@@ -112,6 +131,11 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
 
         yield return StartCoroutine(ChangeScene(targetScene));
+
+        if (OldTimeyQuirk.enabled)
+        {
+            yield return StartCoroutine(ShowIntermission());
+        }
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
 
