@@ -47,11 +47,12 @@ public class PigLatinQuirk : Quirk
                     continue;
 
                 bool isFirstLetterCapital = IsCapitalLetter(firstLetter);
-                bool isLastLetterPunctuation = IsPunctuation(lastLetter);
+                string endingPunctuation = EndingPunctuationCluster(word);
+                bool wordEndsInPunctuation = endingPunctuation.Length > 0;
 
-                if (isLastLetterPunctuation)
+                if (wordEndsInPunctuation)
                 {
-                    word = word.Substring(0, word.Length - 1);
+                    word = word.Substring(0, word.Length - endingPunctuation.Length);
                 }
 
                 if (IsVowel(firstLetter))
@@ -74,9 +75,9 @@ public class PigLatinQuirk : Quirk
                     }
                 }
 
-                if (isLastLetterPunctuation)
+                if (wordEndsInPunctuation)
                 {
-                    word = word + lastLetter;
+                    word = word + endingPunctuation;
                 }
 
                 words[i] = word;
@@ -86,6 +87,20 @@ public class PigLatinQuirk : Quirk
         }
 
         return str;
+    }
+
+    private static string EndingPunctuationCluster(string word)
+    {
+        int position = word.Length - 1;
+        while (position >= 0 && IsPunctuation(word[position]))
+        {
+            position--;
+        }
+
+        if (position == word.Length - 1)
+            return "";
+        else
+            return word.Substring(position);
     }
 
     private static bool IsPunctuation(char letter)
