@@ -88,6 +88,9 @@ public class QuestR : Dialog
                 string spellName = LocalizedText.Get(Game.instance.followerData.spell.friendlyName);
                 string quirkName = LocalizedText.Get(Game.instance.followerData.quirk.friendlyName);
 
+                spellName = PigLatinQuirk.ApplyQuirkIfPresent(spellName);
+                quirkName = PigLatinQuirk.ApplyQuirkIfPresent(quirkName);
+
                 NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Spell: " + spellName, NumberPopupReason.Heal, 0f);
                 NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Quirk: " + quirkName, NumberPopupReason.Heal, 0.7f);
             }

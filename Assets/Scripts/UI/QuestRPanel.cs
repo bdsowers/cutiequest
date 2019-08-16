@@ -242,28 +242,49 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         System.Array.ForEach(nameLabels, (label) => label.text = nameText);
         System.Array.ForEach(taglineLabels, (label) => label.text = taglineText);
 
+        string spellPrefix = "Spell: ";
+        string quirkPrefix = "Quirk: ";
+        string passiveBoostPrefix = "PassiveBoost: ";
+
         if (characterData.spell != null)
         {
             System.Array.ForEach(spellImages, (image) => image.sprite = characterData.spell.icon);
-            System.Array.ForEach(spellTitleLabels, (label) => label.text = "Spell: " + LocalizedText.Get(characterData.spell.friendlyName));
+            System.Array.ForEach(spellTitleLabels, (label) => label.text = spellPrefix + LocalizedText.Get(characterData.spell.friendlyName));
             System.Array.ForEach(spellDescLabels, (label) => label.text = LocalizedText.Get(characterData.spell.description));
         }
 
         if (characterData.quirk != null)
         {
             System.Array.ForEach(quirkImages, (image) => image.sprite = characterData.quirk.icon);
-            System.Array.ForEach(quirkTitleLabels, (label) => label.text = "Quirk: " + LocalizedText.Get(characterData.quirk.friendlyName));
+            System.Array.ForEach(quirkTitleLabels, (label) => label.text = quirkPrefix + LocalizedText.Get(characterData.quirk.friendlyName));
             System.Array.ForEach(quirkDescLabels, (label) => label.text = LocalizedText.Get(characterData.quirk.description));
         }
 
         CharacterStatData statData = Game.instance.characterStatInfo.DataForStat(characterData.statBoost);
         System.Array.ForEach(boostImages, (image) => image.sprite = statData.icon);
-        System.Array.ForEach(boostTitleLabels, (label) => label.text = "Passive Boost: " + LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString());
+        System.Array.ForEach(boostTitleLabels, (label) => label.text = passiveBoostPrefix + LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString());
         System.Array.ForEach(boostDescLabels, (label) => label.text = LocalizedText.Get(statData.description));
         
         bioLabel.text = LocalizedText.Get(characterData.bio);
 
+        ApplyPigLatinIfNecessary();
+    }
 
+    private void ApplyPigLatinIfNecessary()
+    {
+        System.Array.ForEach(nameLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+        System.Array.ForEach(taglineLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+
+        System.Array.ForEach(spellTitleLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+        System.Array.ForEach(spellDescLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+
+        System.Array.ForEach(quirkTitleLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+        System.Array.ForEach(quirkDescLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+
+        System.Array.ForEach(boostTitleLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+        System.Array.ForEach(boostDescLabels, (label) => label.text = PigLatinQuirk.ApplyQuirkIfPresent(label.text));
+
+        bioLabel.text = PigLatinQuirk.ApplyQuirkIfPresent(bioLabel.text);
     }
 
     public void MoreInfo()

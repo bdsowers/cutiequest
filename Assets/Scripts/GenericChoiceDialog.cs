@@ -24,12 +24,12 @@ public class GenericChoiceDialog : Dialog
     {
         Clear();
 
-        label.text = text;
+        label.text = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(text));
 
         for (int i = 0; i < buttons.Count; ++i)
         {
             GameObject newButton = GameObject.Instantiate(buttonTemplate, buttonTemplate.transform.parent);
-            newButton.transform.GetChild(0).GetComponentInChildren<Text>().text = buttons[i].text;
+            newButton.transform.GetChild(0).GetComponentInChildren<Text>().text = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(buttons[i].text));
             newButton.name = buttons[i].name;
             newButton.transform.GetChild(0).GetComponentInChildren<Image>().sprite = buttons[i].icon;
             newButton.transform.GetChild(0).GetComponentInChildren<Image>().gameObject.SetActive(buttons[i].icon != null);

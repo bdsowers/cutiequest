@@ -30,6 +30,8 @@ public class CinematicActionTypewriter : CinematicAction
         base.InterpretParameters(dataProvider);
 
         mText = dataProvider.GetStringData(mParameters, "text");
+        mText = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(mText));
+
         mTarget = dataProvider.GetStringData(mParameters, "target", "typewriter");
         mWaitForInteraction = dataProvider.GetBoolData(mParameters, "wait_for_interaction", true);
         mKeepOpen = dataProvider.GetBoolData(mParameters, "keep_open", false);

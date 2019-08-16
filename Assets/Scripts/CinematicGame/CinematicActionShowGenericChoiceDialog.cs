@@ -17,9 +17,6 @@ public class CinematicActionShowGenericChoiceDialog : CinematicAction
 
         mText = dataProvider.GetStringData(mParameters, "text");
 
-        foreach (string key in mParameters.Keys)
-            Debug.Log(key);
-
         int buttonIndex = 1;
         bool keepGoing = true;
         while (keepGoing)

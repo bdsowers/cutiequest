@@ -23,7 +23,7 @@ public class IncreaseAttractivenessDialog : Dialog
         mCost = cost;
         costLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(mCost).ToString();
 
-        messageLabel.text = message;
+        messageLabel.text = PigLatinQuirk.ApplyQuirkIfPresent(message);
 
         mSuccessEvent = successEvent;
         mFailEvent = failEvent;
