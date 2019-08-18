@@ -22,8 +22,16 @@ public class DropsItems : MonoBehaviour
     public bool scatter;
     public float delay;
 
+    // Only allow a single drop, even if something else tries to override this
+    private bool mDropped = false;
+
     public void Drop()
     {
+        if (mDropped)
+            return;
+
+        mDropped = true;
+
         if (delay < 0.01f)
             DropInternal();
         else

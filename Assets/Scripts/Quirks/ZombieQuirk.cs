@@ -14,7 +14,7 @@ public class ZombieQuirk : Quirk
     {
         if (!enemy.isBoss)
         {
-            //enemy.GetComponent<Killable>().deathResponse = Killable.DeathResponse.MakeInactiveSilent;
+            enemy.GetComponent<Killable>().deathResponse = Killable.DeathResponse.MakeInactiveSilent;
             enemy.gameObject.AddComponent<Zombie>();
         }
     }

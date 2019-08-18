@@ -106,7 +106,7 @@ public class SimpleMovement : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void ClearSpaceMarking()
     {
         if (mCollisionMap == null)
             return;
@@ -114,10 +114,18 @@ public class SimpleMovement : MonoBehaviour
         if (!useCollisionMap)
             return;
 
-        if (!mCollisionMap.RemoveMarking(uniqueCollisionIdentity))
-        {
-            Debug.LogError("CM bug for " + gameObject.name);
-        }
+        mCollisionMap.RemoveMarking(uniqueCollisionIdentity);
+    }
+
+    public void MarkSpaceUnwalkable()
+    {
+        Vector2Int pos = MapCoordinateHelper.WorldToMapCoords(transform.position);
+        mCollisionMap.MarkSpace(pos.x, pos.y, uniqueCollisionIdentity);
+    }
+
+    private void OnDestroy()
+    {
+        ClearSpaceMarking();
     }
 
     private void UpdateCollisionMapForMove(Vector3 currentPosition, Vector3 targetPosition)
@@ -131,11 +139,8 @@ public class SimpleMovement : MonoBehaviour
         Vector2Int oldCoords = MapCoordinateHelper.WorldToMapCoords(currentPosition);
         Vector2Int newCoords = MapCoordinateHelper.WorldToMapCoords(targetPosition);
 
-        if (!mCollisionMap.RemoveMarking(uniqueCollisionIdentity))
-        {
-            Debug.LogError("CM bug for " + gameObject.name);
-        }
-
+        mCollisionMap.RemoveMarking(uniqueCollisionIdentity);
+       
         mCollisionMap.MarkSpace(newCoords.x, newCoords.y, uniqueCollisionIdentity);
     }
 

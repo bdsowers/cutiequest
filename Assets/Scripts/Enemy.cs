@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath(Killable entity)
     {
+        mSimpleMovement.ClearSpaceMarking();
+
         DropsItems[] di = GetComponentsInChildren<DropsItems>();
         for (int i = 0; i < di.Length; ++i)
         {
@@ -89,6 +91,8 @@ public class Enemy : MonoBehaviour
             return false;
 
         if (mKillable.isDead)
+            return false;
+        if (mKillable.isReviving)
             return false;
         if (!mEnemyAI.enabled)
             return false;

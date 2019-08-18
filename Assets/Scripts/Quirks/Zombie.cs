@@ -8,6 +8,7 @@ public class Zombie : MonoBehaviour
     CollisionMap mCollisionMap;
 
     float mReviveTime = 120f;
+    int mNumRevives = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class Zombie : MonoBehaviour
         mKillable = GetComponent<Killable>();
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
 
-        mReviveTime = 10f; //  Random.Range(120f, 240f);
+        mReviveTime = Random.Range(10f, 25f);
     }
 
     // Update is called once per frame
@@ -34,7 +35,9 @@ public class Zombie : MonoBehaviour
             Vector2Int mapPos = MapCoordinateHelper.WorldToMapCoords(transform.position);
             if (mCollisionMap.SpaceMarking(mapPos.x, mapPos.y) == 0)
             {
-                mReviveTime = Random.Range(120f, 240f);
+                ++mNumRevives;
+
+                mReviveTime = Random.Range(60, 120) * mNumRevives;
 
                 Revive();
             }
@@ -43,6 +46,6 @@ public class Zombie : MonoBehaviour
 
     private void Revive()
     {
-        // mKillable.Revive();
+        mKillable.Revive();
     }
 }

@@ -37,16 +37,30 @@ public class SimpleAttack : MonoBehaviour
         RaycastHit[] results = Physics.RaycastAll(ray, 1f);
         for (int i = 0; i < results.Length; ++i)
         {
-            if (((gameObject.layer == mPlayerLayer && results[i].collider.gameObject.layer == mEnemyLayer) ||
-                (gameObject.layer == mEnemyLayer && results[i].collider.gameObject.layer == mPlayerLayer) ||
-                (results[i].collider.gameObject.layer == mJunkLayer)) &&
-                results[i].collider.gameObject.GetComponentInParent<Killable>() != null)
+            if (CanAttack(results[i].collider.gameObject))
             {
                 return results[i].collider.gameObject;
             }
         }
 
         return null;
+    }
+
+    private bool CanAttack(GameObject target)
+    {
+        int attackerLayer = gameObject.layer;
+        int targetLayer = target.layer;
+
+        bool appropriateLayers = (((attackerLayer == mPlayerLayer && targetLayer == mEnemyLayer) ||
+                (attackerLayer == mEnemyLayer && targetLayer == mPlayerLayer) ||
+                (targetLayer == mJunkLayer)));
+
+        if (!appropriateLayers)
+            return false;
+
+        Killable killable = target.GetComponentInParent<Killable>();
+
+        return (killable != null && !killable.isDead);
     }
 
     public bool CanAttack(Vector3 direction)

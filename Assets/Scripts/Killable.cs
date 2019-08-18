@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Killable : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Killable : MonoBehaviour
     {
         Destroy,
         MakeInactive,
+        MakeInactiveSilent,
     }
 
     public delegate void Died(Killable entity);
@@ -26,13 +28,16 @@ public class Killable : MonoBehaviour
     public bool allowZeroDamage;
 
     private Enemy mEnemy;
+    private SimpleMovement mMovement;
 
     public bool invulnerable { get; set; }
     public bool isDead { get; private set; }
-    
+    public bool isReviving { get; private set; }
+
     private void Start()
     {
         mEnemy = GetComponent<Enemy>();
+        mMovement = GetComponent<SimpleMovement>();
     }
 
     private bool CanTakeDamage()
@@ -42,6 +47,8 @@ public class Killable : MonoBehaviour
         if (invulnerable)
             return false;
         if (isDead)
+            return false;
+        if (isReviving)
             return false;
 
         return true;
@@ -139,16 +146,39 @@ public class Killable : MonoBehaviour
         }
         else
         {
-            GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_BrokenHeart");
-            vfx.transform.position = transform.position + Vector3.up * 0.5f;
+            if (deathResponse != DeathResponse.MakeInactiveSilent)
+            {
+                GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_BrokenHeart");
+                vfx.transform.position = transform.position + Vector3.up * 0.5f;
+            }
+            else
+            {
+                mMovement.mesh.transform.DOLocalMoveY(-0.15f, 1f).SetDelay(2f);
+            }
 
-            Enemy enemy = GetComponent<Enemy>();
-            if (enemy)
+            if (mEnemy)
             {
                 GetComponentInChildren<Animator>().Play("Death");
             }
-
-            // gameObject.SetActive(false);
         }
+    }
+
+    public void Revive()
+    {
+        isDead = false;
+        isReviving = true;
+        mMovement.mesh.transform.DOLocalMoveY(0f, 1f).SetDelay(2f);
+        health = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, gameObject);
+
+        mMovement.MarkSpaceUnwalkable();
+
+        GetComponentInChildren<Animator>().Play("Revive");
+
+        Invoke("FinishRevive", 4f);
+    }
+
+    private void FinishRevive()
+    {
+        isReviving = false;
     }
 }
