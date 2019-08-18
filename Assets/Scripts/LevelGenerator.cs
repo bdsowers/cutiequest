@@ -549,8 +549,11 @@ public class LevelGenerator : MonoBehaviour
         // Now generate traps, filling the respective regions (where still possible)
         foreach(KeyValuePair<int, List<Vector2Int>> pair in regions)
         {
-            // todo bdsowers - trap density, my dude
-            if (Random.Range(0, 100) > 15)
+            int prob = 15;
+            if (TrapQueenQuirk.quirkEnabled)
+                prob = 75;
+
+            if (Random.Range(0, 100) > prob)
                 continue;
 
             int spikeNum = 0;

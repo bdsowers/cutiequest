@@ -132,7 +132,7 @@ public class ScreenTransitionManager : MonoBehaviour
 
         yield return StartCoroutine(ChangeScene(targetScene));
 
-        if (OldTimeyQuirk.enabled)
+        if (OldTimeyQuirk.quirkEnabled)
         {
             yield return StartCoroutine(ShowIntermission());
         }

@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class OldTimeyQuirk : Quirk
+public class Cowfolk : Quirk
 {
-    Grayscale mGrayscale;
-    Grain mGrain;
+    Sepia mSepia;
     PostProcessVolume mVolume;
 
     private static bool mEnabled;
 
-    public static bool quirkEnabled {  get { return mEnabled; } }
+    public static bool quirkEnabled { get { return mEnabled; } }
 
     private void OnEnable()
     {
@@ -21,16 +20,10 @@ public class OldTimeyQuirk : Quirk
     // Start is called before the first frame update
     void Start()
     {
-        mGrayscale = ScriptableObject.CreateInstance<Grayscale>();
-        mGrayscale.enabled.Override(true);
+        mSepia = ScriptableObject.CreateInstance<Sepia>();
+        mSepia.enabled.Override(true);
 
-        mGrain = ScriptableObject.CreateInstance<Grain>();
-        mGrain.enabled.Override(true);
-        mGrain.intensity.Override(1f);
-        mGrain.size.Override(1.5f);
-        mGrain.lumContrib.Override(1f);
-
-        mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mGrayscale, mGrain);
+        mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mSepia);
 
         mEnabled = true;
     }
@@ -38,7 +31,7 @@ public class OldTimeyQuirk : Quirk
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDisable()
