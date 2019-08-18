@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f70b9727626e44b8503dbea0296d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Trap Queen
+  friendlyName: Trapped
   description: The relationship may get a little slicey and a little dicey.
   icon: {fileID: 21300054, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
   requiredLevel: 1
