@@ -21,6 +21,8 @@ public class QuirkRegistry : MonoBehaviour
 
     public bool IsQuirkActive<T>()
     {
+        // note bdsowers - in practice, this list is only ever 1 or 2 items long,
+        // so this shouldn't really be a performance concern.
         for (int i = 0; i < mActiveQuirks.Count; ++i)
         {
             if (mActiveQuirks[i] is T)
