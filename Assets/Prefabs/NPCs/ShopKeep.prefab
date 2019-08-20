@@ -13,6 +13,12 @@ GameObject:
   - component: {fileID: 9182205973773178468}
   - component: {fileID: 16126872339708905}
   - component: {fileID: 7489630948052517770}
+  - component: {fileID: 5668683656217077207}
+  - component: {fileID: 4722814630529607900}
+  - component: {fileID: 5684586849658242100}
+  - component: {fileID: 1501231403649478188}
+  - component: {fileID: 2274723267065285342}
+  - component: {fileID: 5165633434428583002}
   m_Layer: 0
   m_Name: ShopKeep
   m_TagString: Untagged
@@ -91,6 +97,95 @@ MonoBehaviour:
   subMesh: {fileID: 0}
   collisionIgnoreList: 
   collisionIdentity: 4
+--- !u!114 &5668683656217077207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  deathResponse: 0
+  showNumberPopups: 1
+  deathEffect: CFX2_EnemyDeathSkull
+  deathEffectScale: 0.75
+  allowZeroDamage: 0
+--- !u!114 &4722814630529607900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc73261426361484bbe54714303ceccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMesh: {fileID: 5073518053295189686}
+  noDamage: 0
+--- !u!114 &5684586849658242100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ced62efca1e2234fb1053591236b5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1501231403649478188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 500
+  _strength: 10
+  _defense: 10
+  _magic: 10
+  _speed: 10
+  _luck: 10
+--- !u!114 &2274723267065285342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741465f27a1f744ab6b001db34e2881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinematicId: shopkeep
+--- !u!114 &5165633434428583002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518052470053920}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bc9b5f7d37d474c838c565a61983a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionCooldown: 0.5
+  isBoss: 0
 --- !u!1 &5073518053295189686
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5073518053295189687}
   - component: {fileID: 5073518053295189680}
+  - component: {fileID: 4991720977047695487}
   m_Layer: 0
   m_Name: ModelContainer
   m_TagString: Untagged
@@ -138,3 +234,16 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
   scale: 0.5
   rotation: 180
+--- !u!65 &4991720977047695487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073518053295189686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}

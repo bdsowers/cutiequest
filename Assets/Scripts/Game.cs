@@ -184,6 +184,8 @@ public class Game : MonoBehaviour
         set { mAttractivenessWhenDungeonEntered = value; }
     }
 
+    public bool isShopKeeperEnemy { get; set; }
+
     public CentralEvents centralEvents
     {
         get { return mCentralEvents; }
@@ -214,6 +216,8 @@ public class Game : MonoBehaviour
         mCurrentDungeonData = dungeonData;
         mCurrentDungeonFloor = 1;
         mAttractivenessWhenDungeonEntered = playerData.attractiveness;
+
+        isShopKeeperEnemy = false;
     }
 
     public bool InDungeon()
@@ -351,5 +355,21 @@ public class Game : MonoBehaviour
     public void ForcePreviewMode()
     {
         transitionManager.TransitionToScreen("Preview");
+    }
+
+    public void MakeShopKeeperEnemy()
+    {
+        GameObject shopKeep = CinematicId.FindObjectWithId("shopkeep");
+        if (shopKeep == null)
+            return;
+
+        shopKeep.GetComponent<Enemy>().enabled = true;
+        shopKeep.GetComponent<Killable>().enabled = true;
+        shopKeep.GetComponent<EnemyMelee>().enabled = true;
+        shopKeep.GetComponent<SimpleAttack>().enabled = true;
+        shopKeep.layer = LayerMask.NameToLayer("Enemy");
+        shopKeep.GetComponentInChildren<CharacterModel>().gameObject.layer = LayerMask.NameToLayer("Enemy");
+
+        isShopKeeperEnemy = true;
     }
 }

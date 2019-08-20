@@ -300,6 +300,9 @@ public class LevelGenerator : MonoBehaviour
                     PlaceMapPrefab("ShopKeep", x, y, WALKABLEMAP_USE_PREFAB_MARK, 0.5f);
 
                     PlaceSurroundingActivationPlates(x, y, "shopkeep_talk", null);
+
+                    if (Game.instance.isShopKeeperEnemy)
+                        Game.instance.MakeShopKeeperEnemy();
                 }
                 else if (dungeon.TileType(x,y) == PRESET_ENEMY)
                 {
