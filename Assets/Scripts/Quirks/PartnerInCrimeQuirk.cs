@@ -6,29 +6,6 @@ using VectorExtensions;
 
 public class PartnerInCrimeQuirk : Quirk
 {
-    private static bool mEnabled;
-    public static bool quirkEnabled {  get { return mEnabled; } }
-
-    private void Start()
-    {
-        mEnabled = true;
-    }
-
-    private void OnEnable()
-    {
-        mEnabled = true;
-    }
-
-    private void OnDestroy()
-    {
-        mEnabled = false;
-    }
-
-    private void OnDisable()
-    {
-        mEnabled = false;
-    }
-
     public void SpawnCops(RandomDungeon dungeon, CollisionMap collisionMap, Vector2 avatarStartPosition)
     {
         List<Vector2Int> walkablePositions = collisionMap.EmptyPositions();

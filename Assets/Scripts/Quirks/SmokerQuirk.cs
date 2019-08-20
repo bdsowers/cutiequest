@@ -8,13 +8,17 @@ public class SmokerQuirk : Quirk
 
     private GameObject mSmoke;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         mSmoke = GameObject.Instantiate(smokePrefab);    
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
+
         Destroy(mSmoke);
     }
 }

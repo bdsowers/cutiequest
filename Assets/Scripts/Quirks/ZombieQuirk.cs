@@ -5,8 +5,10 @@ using UnityEngine;
 // todo bdsowers - this whole thing is cut while I work out a way to get the animations smoother
 public class ZombieQuirk : Quirk
 {
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         Game.instance.centralEvents.onEnemyCreated += OnEnemyCreated;
     }
 
@@ -19,8 +21,10 @@ public class ZombieQuirk : Quirk
         }
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
+
         Game.instance.centralEvents.onEnemyCreated -= OnEnemyCreated;
     }
 }

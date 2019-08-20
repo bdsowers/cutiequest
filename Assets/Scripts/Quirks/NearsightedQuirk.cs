@@ -4,31 +4,9 @@ using UnityEngine;
 
 public class NearsightedQuirk : Quirk
 {
-    private static bool mEnabled;
-
-    private void Start()
-    {
-        mEnabled = true;
-    }
-
-    private void OnEnable()
-    {
-        mEnabled = true;
-    }
-
-    private void OnDestroy()
-    {
-        mEnabled = false;
-    }
-
-    private void OnDisable()
-    {
-        mEnabled = false;
-    }
-
     public static float ApplyQuirkIfPresent(float range)
     {
-        if (mEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<NearsightedQuirk>())
         {
             return range / 2;
         }

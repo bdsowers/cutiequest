@@ -11,8 +11,10 @@ public class DirectionallyChallengedQuirk : Quirk
     private int mCurrentRotation;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         mMinimapRawImage = CinematicId.FindObjectWithId("minimap_image");
         mTimer = Random.Range(10f, 15f);
     }

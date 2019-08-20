@@ -17,7 +17,7 @@ public class BackgroundSelector : MonoBehaviour
         caveBackground.SetActive(false);
         sciFiBackground.SetActive(false);
 
-        if (GothQuirk.quirkEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<GothQuirk>())
         {
             gothBackground.SetActive(true);
         }

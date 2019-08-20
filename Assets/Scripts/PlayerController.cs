@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
         GetComponent<Killable>().health = Game.instance.playerData.health;
 
-        if (DancePartyQuirk.quirkEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
             GetComponentInChildren<Animator>().SetBool("Dancing", true);
             GetComponentInChildren<Animator>().SetInteger("DanceNumber", Random.Range(0, 4));

@@ -4,22 +4,9 @@ using UnityEngine;
 
 public class ClingyQuirk : Quirk
 {
-    private static bool mEnabled;
-    public static bool quirkEnabled { get { return mEnabled; } }
-
-    private void OnEnable()
+    public override void Start()
     {
-        mEnabled = true;
-    }
-
-    private void OnDisable()
-    {
-        mEnabled = false;
-    }
-
-    void Start()
-    {
-        mEnabled = true;
+        base.Start();
         Game.instance.centralEvents.onEnemyCreated += OnEnemyCreated;
     }
 
@@ -30,9 +17,9 @@ public class ClingyQuirk : Quirk
         enemy.actionCooldown /= 2;
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
-        mEnabled = false;
+        base.OnDestroy();
         Game.instance.centralEvents.onEnemyCreated -= OnEnemyCreated;
     }
 }

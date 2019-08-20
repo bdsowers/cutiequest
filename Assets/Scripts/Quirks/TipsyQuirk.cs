@@ -13,8 +13,10 @@ public class TipsyQuirk : Quirk
     bool mMovedCenter = false;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         mLensDistortion = ScriptableObject.CreateInstance<LensDistortion>();
         mLensDistortion.enabled.Override(true);
         mLensDistortion.intensity.Override(0f);
@@ -48,13 +50,17 @@ public class TipsyQuirk : Quirk
         mLensDistortion.intensity.value = mIntensity;
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        base.OnDisable();
+
         DestroyVolume();
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
+
         DestroyVolume();
     }
 

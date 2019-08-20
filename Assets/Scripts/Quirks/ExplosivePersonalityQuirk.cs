@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ExplosivePersonalityQuirk : Quirk
 {
-    void Start()
+    public override void Start()
     {
+        base.Start();
         Game.instance.centralEvents.onEnemyCreated += OnEnemyCreated;
     }
 
@@ -21,8 +22,9 @@ public class ExplosivePersonalityQuirk : Quirk
         di.arbitraryDrops = new DropsItems.DropData[] { bombData };
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
         Game.instance.centralEvents.onEnemyCreated -= OnEnemyCreated;
     }
 }

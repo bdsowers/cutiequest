@@ -24,7 +24,7 @@ public class LevelExit : MonoBehaviour
     
     private bool CheckCompletionistQuirk()
     {
-        if (CompletionistQuirk.quirkEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<CompletionistQuirk>())
         {
             RevealWhenAvatarIsClose[] revealers = GameObject.FindObjectsOfType<RevealWhenAvatarIsClose>();
             for (int i = 0; i < revealers.Length; ++i)

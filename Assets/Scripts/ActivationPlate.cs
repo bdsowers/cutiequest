@@ -66,7 +66,7 @@ public class ActivationPlate : MonoBehaviour
         mLateUpdateProcessed = false;
         mCanActivateAny = (CanBeActivated() || mCanActivateAny);
         
-        if (KleptoQuirk.quirkEnabled && mIsPlayerInside && item != null)
+        if (Game.instance.quirkRegistry.IsQuirkActive<KleptoQuirk>() && mIsPlayerInside && item != null)
         {
             NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Your partner stole " + item.friendlyName, NumberPopupReason.Heal);
 

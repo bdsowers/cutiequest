@@ -43,7 +43,7 @@ public class DropsItems : MonoBehaviour
         int numCoinsToDrop = NumCurrencyToDrop(coinDropData);
         int numHeartsToDrop = NumCurrencyToDrop(heartDropData);
         
-        if (GoldDiggerQuirk.quirkEnabled && !ignoreGoldDigger)
+        if (Game.instance.quirkRegistry.IsQuirkActive<GoldDiggerQuirk>() && !ignoreGoldDigger)
         {
             numCoinsToDrop += numHeartsToDrop * 3;
             numHeartsToDrop = 0;

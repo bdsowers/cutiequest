@@ -4,22 +4,10 @@ using UnityEngine;
 
 public class GothQuirk : Quirk
 {
-    private static bool mEnabled;
-    public static bool quirkEnabled {  get { return mEnabled; } }
-
-    private void OnEnable()
+    public override void Start()
     {
-        mEnabled = true;
-    }
+        base.Start();
 
-    private void OnDisable()
-    {
-        mEnabled = false;
-    }
-
-    void Start()
-    {
-        mEnabled = true;
         Game.instance.centralEvents.onSceneChanged += OnSceneChanged;
     }
 
@@ -45,9 +33,10 @@ public class GothQuirk : Quirk
         Game.instance.avatar.highlightLight.transform.position = lightPos;
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
-        mEnabled = false;
+        base.OnDestroy();
+
         Game.instance.centralEvents.onSceneChanged -= OnSceneChanged;
     }
 }

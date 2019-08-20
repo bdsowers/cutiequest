@@ -14,4 +14,24 @@ public class Quirk : MonoBehaviour
     public string description;
     public Sprite icon;
     public int requiredLevel = 1;
+
+    public virtual void Start()
+    {
+        Game.instance.quirkRegistry.RegisterQuirkActive(this);
+    }
+
+    public virtual void OnEnable()
+    {
+        Game.instance.quirkRegistry.RegisterQuirkActive(this);
+    }
+
+    public virtual void OnDestroy()
+    {
+        Game.instance.quirkRegistry.RegisterQuirkInactive(this);
+    }
+
+    public virtual void OnDisable()
+    {
+        Game.instance.quirkRegistry.RegisterQuirkInactive(this);
+    }
 }

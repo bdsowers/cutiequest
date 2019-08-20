@@ -5,33 +5,11 @@ using VectorExtensions;
 
 public class SpaceCadetQuirk : Quirk
 {
-    private static bool mEnabled;
-
     private static Vector3? mRandomDirection;
-
-    private void Start()
-    {
-        mEnabled = true;
-    }
-
-    private void OnEnable()
-    {
-        mEnabled = true;
-    }
-
-    private void OnDestroy()
-    {
-        mEnabled = false;
-    }
-
-    private void OnDisable()
-    {
-        mEnabled = false;
-    }
 
     public static Vector3 ApplyQuirkIfPresent(Vector3 intendedDirection)
     {
-        if (mEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<SpaceCadetQuirk>())
         {
             if (intendedDirection.magnitude > 0.1f)
             {

@@ -44,7 +44,7 @@ public class Item : MonoBehaviour
             progressSpecificCost -= Random.Range(0, luck / 2);
             progressSpecificCost = Mathf.Max(0, progressSpecificCost);
 
-            if (ExpensiveTastesQuirk.isQuirkPresent)
+            if (Game.instance.quirkRegistry.IsQuirkActive<ExpensiveTastesQuirk>())
             {
                 progressSpecificCost += ExpensiveTastesQuirk.CostModification();
             }

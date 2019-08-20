@@ -15,7 +15,7 @@ public class ProjectileThrower : MonoBehaviour
     public bool IsInRange()
     {
         float range = 5f;
-        if (ClingyQuirk.quirkEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<ClingyQuirk>())
             range = 2f;
 
         return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < range;

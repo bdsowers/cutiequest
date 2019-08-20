@@ -31,7 +31,7 @@ public class Summoner : MonoBehaviour
     {
         // todo bdsowers - UGH
         SimpleMovement root = GetComponentInParent<SimpleMovement>();
-        if (root != null && !DancePartyQuirk.quirkEnabled)
+        if (root != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
             root.GetComponentInChildren<Animator>().Play("Spell");
         }

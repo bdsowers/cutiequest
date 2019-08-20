@@ -4,31 +4,9 @@ using UnityEngine;
 
 public class PigLatinQuirk : Quirk
 {
-    private static bool mEnabled;
-
-    private void Start()
-    {
-        mEnabled = true;
-    }
-
-    private void OnEnable()
-    {
-        mEnabled = true;
-    }
-
-    private void OnDestroy()
-    {
-        mEnabled = false;
-    }
-
-    private void OnDisable()
-    {
-        mEnabled = false;
-    }
-
     public static string ApplyQuirkIfPresent(string str)
     {
-        if (mEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<PigLatinQuirk>())
         {
             string[] words = str.Split(new char[] { ' ' }, System.StringSplitOptions.RemoveEmptyEntries);
 

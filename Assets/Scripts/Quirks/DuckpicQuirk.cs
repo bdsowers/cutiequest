@@ -6,8 +6,10 @@ public class DuckpicQuirk : Quirk
 {
     private float mTimer;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         mTimer = Random.Range(30, 120);
     }
 

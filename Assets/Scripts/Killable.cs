@@ -131,7 +131,7 @@ public class Killable : MonoBehaviour
         if (deathResponse == DeathResponse.Destroy)
         {
             float destroyTime = 2f;
-            if (deathEffect == "CFX2_EnemyDeathSkull" && GothQuirk.quirkEnabled)
+            if (deathEffect == "CFX2_EnemyDeathSkull" && Game.instance.quirkRegistry.IsQuirkActive<GothQuirk>())
             {
                 deathEffect = "CFX2_BatsCloud";
                 destroyTime = 5f;

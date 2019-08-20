@@ -26,6 +26,7 @@ public class Game : MonoBehaviour
     private EnemyDirector mEnemyDirector;
     private LevelGenerator mLevelGenerator;
     private SoundManager mSoundManager;
+    private QuirkRegistry mQuirkRegistry;
 
     private BasicActionSet mActionSet;
 
@@ -191,6 +192,11 @@ public class Game : MonoBehaviour
         get { return mCentralEvents; }
     }
 
+    public QuirkRegistry quirkRegistry
+    {
+        get { return mQuirkRegistry; }
+    }
+
     // todo bdsowers - not super crazy about this
     public LevelGenerator levelGenerator
     {
@@ -255,6 +261,7 @@ public class Game : MonoBehaviour
         mCompanionBuilder = GetComponentInChildren<CompanionBuilder>();
         mEnemyDirector = GetComponentInChildren<EnemyDirector>();
         mSoundManager = GetComponentInChildren<SoundManager>();
+        mQuirkRegistry = GetComponentInChildren<QuirkRegistry>();
 
         mSaveManager.LoadGame();
 

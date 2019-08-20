@@ -5,8 +5,10 @@ using ArrayExtensions;
 
 public class FaceBlindQuirk : Quirk
 {
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         Game.instance.centralEvents.onEnemyCreated += OnEnemyCreated;
     }
 
@@ -18,8 +20,10 @@ public class FaceBlindQuirk : Quirk
         enemy.GetComponentInChildren<CharacterModel>().ChangeModel(PrefabManager.instance.characterPrefabs.Sample().name);
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
+
         Game.instance.centralEvents.onEnemyCreated -= OnEnemyCreated;
     }
 }

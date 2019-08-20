@@ -509,7 +509,7 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < numHearts; ++i)
         {
             string prefab = "CollectableHeart";
-            if (GoldDiggerQuirk.quirkEnabled)
+            if (Game.instance.quirkRegistry.IsQuirkActive<GoldDiggerQuirk>())
             {
                 prefab = "CollectableCoin";
             }
@@ -552,7 +552,7 @@ public class LevelGenerator : MonoBehaviour
         foreach(KeyValuePair<int, List<Vector2Int>> pair in regions)
         {
             int prob = 15;
-            if (TrapQueenQuirk.quirkEnabled)
+            if (Game.instance.quirkRegistry.IsQuirkActive<TrapQueenQuirk>())
                 prob = 75;
 
             if (Random.Range(0, 100) > prob)

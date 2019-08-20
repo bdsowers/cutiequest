@@ -73,7 +73,7 @@ public class SpellCaster : MonoBehaviour
             range = 5f;
         }
 
-        if (ClingyQuirk.quirkEnabled)
+        if (Game.instance.quirkRegistry.IsQuirkActive<ClingyQuirk>())
             range = 2f;
 
         return Vector3.Distance(transform.position, target.transform.position) < range;
@@ -88,7 +88,7 @@ public class SpellCaster : MonoBehaviour
     {
         // todo bdsowers - UGH
         SimpleMovement root = GetComponentInParent<SimpleMovement>();
-        if (root != null && !DancePartyQuirk.quirkEnabled)
+        if (root != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
             root.GetComponentInChildren<Animator>().Play("Spell");
         }

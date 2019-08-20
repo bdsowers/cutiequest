@@ -8,41 +8,26 @@ public class Cowfolk : Quirk
     Sepia mSepia;
     PostProcessVolume mVolume;
 
-    private static bool mEnabled;
-
-    public static bool quirkEnabled { get { return mEnabled; } }
-
-    private void OnEnable()
-    {
-        mEnabled = true;
-    }
-
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         mSepia = ScriptableObject.CreateInstance<Sepia>();
         mSepia.enabled.Override(true);
 
         mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mSepia);
-
-        mEnabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnDisable()
     {
-
-    }
-
-    private void OnDisable()
-    {
-        mEnabled = false;
+        base.OnDisable();
         DestroyVolume();
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
-        mEnabled = false;
+        base.OnDestroy();
         DestroyVolume();
     }
 

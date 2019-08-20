@@ -7,8 +7,10 @@ public class MansplainQuirk : Quirk
     public GameObject mansplainCanvas;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         Game.instance.centralEvents.onEnemyCreated += OnEnemyCreated;
     }
 
@@ -18,8 +20,10 @@ public class MansplainQuirk : Quirk
         newCanvas.SetActive(true);
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
+
         Game.instance.centralEvents.onEnemyCreated -= OnEnemyCreated;   
     }
 }
