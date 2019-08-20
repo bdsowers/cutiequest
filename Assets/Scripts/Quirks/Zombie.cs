@@ -25,9 +25,6 @@ public class Zombie : MonoBehaviour
         if (!mKillable.isDead)
             return;
 
-        if (Input.GetKeyDown(KeyCode.J))
-            mReviveTime = 0f;
-
         mReviveTime -= Time.deltaTime;
         if (mReviveTime < 0f)
         {
