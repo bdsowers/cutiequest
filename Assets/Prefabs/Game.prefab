@@ -3577,6 +3577,7 @@ MonoBehaviour:
   - {fileID: 264502382425159473, guid: 13cc8ccd841fb82459d55a8df4ac3a6d, type: 3}
   - {fileID: 264502382425159473, guid: 38fc93bf7155f8642ae99580fb149190, type: 3}
   - {fileID: 264502382425159473, guid: 09481793bffb72e4ca5b207f4a21b836, type: 3}
+  - {fileID: 264502382425159473, guid: d93c0ee3deb8c4c46b5a4e9a925e8645, type: 3}
   spellPrefabs:
   - {fileID: 7642233172062837191, guid: 9a352a014bb1d794c83ebc03dc1b0d86, type: 3}
   - {fileID: 7642233172062837191, guid: 095fa57504be42f4a8dcdbbbbcfe28ba, type: 3}

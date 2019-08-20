@@ -13757,6 +13757,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
+        type: 3}
+      propertyPath: quirkPrefabs.Array.size
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
+        type: 3}
+      propertyPath: quirkPrefabs.Array.data[24]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
 --- !u!4 &1952840924 stripped
