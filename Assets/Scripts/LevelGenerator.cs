@@ -610,5 +610,11 @@ public class LevelGenerator : MonoBehaviour
         {
             hoarder.SpawnDebris(mDungeon, mCollisionMap, mAvatarStartPosition);
         }
+
+        GhostedQuirk ghosted = GameObject.FindObjectOfType<GhostedQuirk>();
+        if (ghosted != null)
+        {
+            ghosted.SpawnGhosts(mDungeon, mCollisionMap, mAvatarStartPosition);
+        }
     }
 }
