@@ -12,14 +12,27 @@ public class ActivationPlate : MonoBehaviour
     private bool mIsPlayerInside;
 
     // todo bdsowers - gets the job done but is a pretty ugly hack
-    private static bool mPlayerInsideAny = false;
+    private static bool mCanActivateAny = false;
     private static bool mLateUpdateProcessed = false;
 
     private GameObject mLink = null;
     private bool mHasLink = false;
 
     private Shrine mLinkedShrine;
-    
+
+    public Vector3 activationDirection;
+
+    public bool CanBeActivated()
+    {
+        if (!mIsPlayerInside)
+            return false;
+
+        if ((Game.instance.avatar.direction - activationDirection).magnitude < 0.01f)
+            return true;
+
+        return false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -50,11 +63,11 @@ public class ActivationPlate : MonoBehaviour
         }
 
         mLateUpdateProcessed = false;
-        mPlayerInsideAny = (mIsPlayerInside || mPlayerInsideAny);
+        mCanActivateAny = (CanBeActivated() || mCanActivateAny);
         
         if (Game.instance.actionSet.Activate.WasPressed)
         {
-            if (mIsPlayerInside)
+            if (CanBeActivated())
             {
                 if (!string.IsNullOrEmpty(cinematicEvent))
                 {
@@ -91,8 +104,8 @@ public class ActivationPlate : MonoBehaviour
             return;
 
         mLateUpdateProcessed = true;
-        Game.instance.avatar.buttonPromptCanvas.SetActive(mPlayerInsideAny);
-        mPlayerInsideAny = false;
+        Game.instance.avatar.buttonPromptCanvas.SetActive(mCanActivateAny);
+        mCanActivateAny = false;
     }
 
     private void OnTriggerEnter(Collider other)

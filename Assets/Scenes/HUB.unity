@@ -4726,6 +4726,11 @@ PrefabInstance:
       propertyPath: cinematicEvent
       value: Hub_Beats
       objectReference: {fileID: 0}
+    - target: {fileID: 5495564824363116647, guid: b10e3efc842659b4f8af76debf925f16,
+        type: 3}
+      propertyPath: activationDirection.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10e3efc842659b4f8af76debf925f16, type: 3}
 --- !u!4 &630005764 stripped
@@ -11369,6 +11374,11 @@ PrefabInstance:
       propertyPath: cinematicEvent
       value: stylist_talk
       objectReference: {fileID: 0}
+    - target: {fileID: 5495564824363116647, guid: b10e3efc842659b4f8af76debf925f16,
+        type: 3}
+      propertyPath: activationDirection.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10e3efc842659b4f8af76debf925f16, type: 3}
 --- !u!1001 &1638343181
@@ -12365,6 +12375,11 @@ PrefabInstance:
       propertyPath: cinematicEvent
       value: Hub_PunkyPeter
       objectReference: {fileID: 0}
+    - target: {fileID: 5495564824363116647, guid: b10e3efc842659b4f8af76debf925f16,
+        type: 3}
+      propertyPath: activationDirection.x
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10e3efc842659b4f8af76debf925f16, type: 3}
 --- !u!4 &1809313387 stripped
@@ -12474,6 +12489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cinematicEvent
       value: Hub_HotDogMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495564824363116647, guid: b10e3efc842659b4f8af76debf925f16,
+        type: 3}
+      propertyPath: activationDirection.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10e3efc842659b4f8af76debf925f16, type: 3}
@@ -13889,6 +13909,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cinematicEvent
       value: trainer_talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495564824363116647, guid: b10e3efc842659b4f8af76debf925f16,
+        type: 3}
+      propertyPath: activationDirection.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10e3efc842659b4f8af76debf925f16, type: 3}

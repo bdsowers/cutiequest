@@ -89,8 +89,6 @@ public class CollisionMap : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Trying to remove a marking that doesn't exist in the map: " + value);
-
             return false;
         }
     }

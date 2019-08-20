@@ -173,7 +173,7 @@ public class LevelGenerator : MonoBehaviour
 
         // todo bdsowers - use proper walkable map writing
         GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, WALKABLEMAP_USE_PREFAB_MARK);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, false, shrine);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, "Character_" + npc, null, shrine);
     }
 
     private void PlaceShrine(Vector2Int pos, int cheatOverride = -1)
@@ -185,7 +185,7 @@ public class LevelGenerator : MonoBehaviour
             shrineName = PrefabManager.instance.shrinePrefabs[cheatOverride].name;
 
         GameObject shrine = PlaceMapPrefab(shrineName, pos.x, pos.y, WALKABLEMAP_STATIC_MARK);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>(), true, shrine);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, null, shrine.GetComponent<Shrine>(), shrine);
     }
 
     private void PlaceChest(Vector2Int pos)
@@ -213,7 +213,7 @@ public class LevelGenerator : MonoBehaviour
         }
 
         GameObject chest = PlaceMapPrefab(chestType, pos.x, pos.y, WALKABLEMAP_STATIC_MARK);
-        PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>(), true, chest);
+        PlaceSurroundingActivationPlates(pos.x, pos.y, null, chest.GetComponent<Shrine>(), chest);
     }
 
     private bool IsPresetRoom()
@@ -292,14 +292,14 @@ public class LevelGenerator : MonoBehaviour
                     buyableItem.transform.localPosition += Vector3.up * 0.3f;
 
                     GameObject activationPlate = PlaceMapPrefab("ActivationPlate", x, y + 1);
-                    activationPlate.GetComponent<ActivationPlate>().item = buyableItem.GetComponent<Item>();
+                    PlaceSurroundingActivationPlates(x, y, null, null, null, buyableItem.GetComponent<Item>());
                 }
                 else if (dungeon.TileType(x,y) == SHOP_KEEPER)
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y);
                     PlaceMapPrefab("ShopKeep", x, y, WALKABLEMAP_USE_PREFAB_MARK, 0.5f);
 
-                    PlaceSurroundingActivationPlates(x, y, "shopkeep_talk", null, false);
+                    PlaceSurroundingActivationPlates(x, y, "shopkeep_talk", null);
                 }
                 else if (dungeon.TileType(x,y) == PRESET_ENEMY)
                 {
@@ -330,14 +330,11 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null, bool includeBehind = true, GameObject link = null)
+    private void PlaceSurroundingActivationPlates(int x, int y, string cinematicEvent = null, Shrine shrine = null, GameObject link = null, Item item = null)
     {
         int[] offsets = new int[] { 0, 1, 1, 0, -1, 0, 0, -1 };
 
         int offsetsToUse = offsets.Length;
-        if (!includeBehind)
-            offsetsToUse-=2;
-
         for (int i = 0; i < offsetsToUse; i += 2)
         {
             int offsetX = offsets[i];
@@ -347,6 +344,8 @@ public class LevelGenerator : MonoBehaviour
             ActivationPlate plate = plateObj.GetComponent<ActivationPlate>();
             plate.cinematicEvent = cinematicEvent;
             plate.shrine = shrine;
+            plate.activationDirection = new Vector3(-offsetX, 0, offsetY);
+            plate.item = item;
 
             if (link != null)
                 plate.LinkToEntity(link);
