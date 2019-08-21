@@ -14,6 +14,7 @@ Not everything is available here. In some cases, I'm using assets I don't have t
 * InControl2
 * Shikashi's Fantasy Icon Pack
 * JMO (Jean Moreno) Cartoon VFX
+* SC Post Effects
 
 All code here is free for you to use according to the MIT license below, but I make no guarantees as to its quality and can in some cases say it's downright terrible. ;)
 
