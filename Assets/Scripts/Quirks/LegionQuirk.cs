@@ -24,8 +24,6 @@ public class LegionQuirk : Quirk
 
             quirks.Remove(randomQuirk);
             RemoveMutuallyExclusiveQuirks(randomQuirk, quirks);
-
-            Debug.Log(newQuirk.name);
         }
     }
 

@@ -33,7 +33,7 @@ public class LevelGenerator : MonoBehaviour
 
     private List<GameObject> mPreviouslyUsedItems = new List<GameObject>();
 
-    private void Start()
+    private IEnumerator Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
         
@@ -51,6 +51,11 @@ public class LevelGenerator : MonoBehaviour
         GenerateEnvironmentFromDungeon(mDungeon);
 
         PlaceAvatar();
+
+        // Provide some time after the avatar is generated for any of its setup (ie: quirk setup)
+        // to impact dungeon generation
+        yield return null;
+        yield return null;
 
         if (!IsPresetRoom())
         {
@@ -70,6 +75,8 @@ public class LevelGenerator : MonoBehaviour
         QuirkSpecificSpawns();
 
         Game.instance.soundManager.PlayRandomMusicInCategory("DungeonMusic");
+
+        yield break;
     }
 
     private void PlaceDeadEndInterests()
