@@ -11,8 +11,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public GameObject standardView;
     public GameObject moreInfoView;
 
-    public bool isFrontPanel;
-    public int characterOffset;
+    // todo bdsowers - set this dynamically as appropriate
+    public bool isFrontPanel { get; set; }
+    public int characterOffset { get; set; }
 
     public GameObject cameraRig;
 
@@ -244,30 +245,49 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         string spellPrefix = "Spell: ";
         string quirkPrefix = "Quirk: ";
-        string passiveBoostPrefix = "PassiveBoost: ";
+        string passiveBoostPrefix = "Passive Boost: ";
 
         if (characterData.spell != null)
         {
             System.Array.ForEach(spellImages, (image) => image.sprite = characterData.spell.icon);
-            System.Array.ForEach(spellTitleLabels, (label) => label.text = spellPrefix + LocalizedText.Get(characterData.spell.friendlyName));
+            System.Array.ForEach(spellTitleLabels, (label) => label.text = (label.rectTransform.sizeDelta.x > 150 ? spellPrefix : "") + LocalizedText.Get(characterData.spell.friendlyName));
             System.Array.ForEach(spellDescLabels, (label) => label.text = LocalizedText.Get(characterData.spell.description));
         }
 
         if (characterData.quirk != null)
         {
             System.Array.ForEach(quirkImages, (image) => image.sprite = characterData.quirk.icon);
-            System.Array.ForEach(quirkTitleLabels, (label) => label.text = quirkPrefix + LocalizedText.Get(characterData.quirk.friendlyName));
+            System.Array.ForEach(quirkTitleLabels, (label) => label.text = (label.rectTransform.sizeDelta.x > 150 ? quirkPrefix : "") + LocalizedText.Get(characterData.quirk.friendlyName));
             System.Array.ForEach(quirkDescLabels, (label) => label.text = LocalizedText.Get(characterData.quirk.description));
         }
 
         CharacterStatData statData = Game.instance.characterStatInfo.DataForStat(characterData.statBoost);
         System.Array.ForEach(boostImages, (image) => image.sprite = statData.icon);
-        System.Array.ForEach(boostTitleLabels, (label) => label.text = passiveBoostPrefix + LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString());
+        System.Array.ForEach(boostTitleLabels, (label) => label.text = label.rectTransform.sizeDelta.x > 150 ? LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString() : ShortStatBoostDisplay(statData, characterData));
         System.Array.ForEach(boostDescLabels, (label) => label.text = LocalizedText.Get(statData.description));
         
         bioLabel.text = LocalizedText.Get(characterData.bio);
 
         ApplyPigLatinIfNecessary();
+    }
+
+    private string ShortStatBoostDisplay(CharacterStatData statData, CharacterData characterData)
+    {
+        int level = 0;
+        if (characterData.statBoostAmount <= 2)
+            level = 1;
+        else if (characterData.statBoostAmount <= 5)
+            level = 2;
+        else
+            level = 3;
+
+        string pluses = "+";
+        if (level == 2)
+            pluses = "++";
+        else if (level == 3)
+            pluses = "+++";
+
+        return LocalizedText.Get(statData.name) + pluses;
     }
 
     private void ApplyPigLatinIfNecessary()

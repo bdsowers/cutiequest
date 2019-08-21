@@ -49,6 +49,9 @@ public class QuestR : Dialog
         List<CharacterData> characters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
         characters.Shuffle();
 
+        panel1.isFrontPanel = panel1.transform.GetSiblingIndex() > panel2.transform.GetSiblingIndex();
+        panel2.isFrontPanel = !panel1.isFrontPanel;
+
         panel1.characterOffset = (panel1.isFrontPanel ? 0 : 1);
         panel2.characterOffset = (panel2.isFrontPanel ? 0 : 1);
 

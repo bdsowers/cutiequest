@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f613b1aa7e83c4044b0ea0660d7f9276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Chain Lightning
+  friendlyName: Lightning
   description: Zap. Bzzzt. It's lightning, you know what it does.
   cooldown: 8
   icon: {fileID: 21300000, guid: 0a39c38eecde1134d884c57495300a37, type: 3}
