@@ -132,8 +132,7 @@ public class ActivationPlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // todo bdsowers - I've never thought this method of detecting if we're inside a trigger was safe...
-        if (other.GetComponentInParent<PlayerController>() != null)
+        if (other.gameObject.CompareTag("Player"))
         {
             mIsPlayerInside = true;
         }
@@ -141,7 +140,7 @@ public class ActivationPlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponentInParent<PlayerController>() != null)
+        if (other.gameObject.CompareTag("Player"))
         {
             mIsPlayerInside = false; 
         }
