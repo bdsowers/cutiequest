@@ -1,12 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ArrayExtensions;
+using GameObjectExtensions;
 
 public class LegionQuirk : Quirk
 {
     // Start is called before the first frame update
     public override void Start()
     {
-        
+        // Pick 3 quirks in the player's level and attach them
+        List<Quirk> quirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness);
+
+        for (int i = 0; i < 3; ++i)
+        {
+            if (quirks.Count == 0)
+                continue;
+
+            Quirk randomQuirk = quirks.Sample();
+
+            GameObject newQuirk = GameObject.Instantiate(randomQuirk.gameObject, transform);
+            newQuirk.SetLayerRecursive(LayerMask.NameToLayer("Player"));
+
+            quirks.Remove(randomQuirk);
+            RemoveMutuallyExclusiveQuirks(randomQuirk, quirks);
+
+            Debug.Log(newQuirk.name);
+        }
+    }
+
+    public void RemoveMutuallyExclusiveQuirks(Quirk newQuirk, List<Quirk> quirks)
+    {
+        if (newQuirk.name == "CowboyQuirk")
+            quirks.RemoveAll(i => i.name == "OldTimeyQuirk");
+
+        if (newQuirk.name == "OldTimeyQuirk")
+            quirks.RemoveAll(i => i.name == "CowboyQuirk");
     }
 }
