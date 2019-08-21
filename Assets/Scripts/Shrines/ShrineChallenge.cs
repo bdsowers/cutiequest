@@ -11,7 +11,7 @@ public class ShrineChallenge : Shrine
 
         if (WasAccepted())
         {
-            NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, "Strength Increased", NumberPopupReason.Heal);
+            NumberPopupGenerator.instance.GeneratePopup(gameObject, "Strength Increased", NumberPopupReason.Good);
 
             CharacterStatModifier modifier = Game.instance.playerStats.gameObject.AddComponent<CharacterStatModifier>();
             modifier.SetRelativeModification(CharacterStatType.Strength, 2);

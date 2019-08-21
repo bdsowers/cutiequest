@@ -88,7 +88,7 @@ public class Killable : MonoBehaviour
 
         if (showNumberPopups)
         {
-            NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, damage, NumberPopupReason.TakeDamage);
+            NumberPopupGenerator.instance.GeneratePopup(gameObject, damage, NumberPopupReason.Bad);
         }
 
         if (onHit != null)

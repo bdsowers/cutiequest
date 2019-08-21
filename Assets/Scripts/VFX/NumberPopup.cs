@@ -26,12 +26,12 @@ public class NumberPopup : MonoBehaviour
         amountLabel.text = amountStr;
         amountShadowLabel.text = amountStr;
 
-        if (reason == NumberPopupReason.TakeDamage)
+        if (reason == NumberPopupReason.Bad)
         {
             amountLabel.color = Color.red;
             icon.gameObject.SetActive(false);
         }
-        else if (reason == NumberPopupReason.Heal)
+        else if (reason == NumberPopupReason.Good)
         {
             amountLabel.color = Color.green;
             icon.gameObject.SetActive(false);

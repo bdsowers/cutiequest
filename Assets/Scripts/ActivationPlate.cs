@@ -68,7 +68,7 @@ public class ActivationPlate : MonoBehaviour
         
         if (Game.instance.quirkRegistry.IsQuirkActive<KleptoQuirk>() && mIsPlayerInside && item != null)
         {
-            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Your partner stole " + item.friendlyName, NumberPopupReason.Heal);
+            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, "Your partner stole " + item.friendlyName, NumberPopupReason.Bad);
 
             item.Equip();
 
@@ -112,7 +112,7 @@ public class ActivationPlate : MonoBehaviour
         {
             Game.instance.playerData.numCoins -= item.Cost();
 
-            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, item.Cost(), NumberPopupReason.RemoveCoins);
+            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, item.Cost(), NumberPopupReason.RemoveCoins);
 
             item.Equip();
 

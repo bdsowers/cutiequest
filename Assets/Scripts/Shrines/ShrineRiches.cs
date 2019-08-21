@@ -10,7 +10,7 @@ public class ShrineRiches : Shrine
 
         if (WasAccepted())
         {
-            NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.one, Game.instance.playerData.numCoins, NumberPopupReason.RemoveCoins);
+            NumberPopupGenerator.instance.GeneratePopup(gameObject, Game.instance.playerData.numCoins, NumberPopupReason.RemoveCoins);
             Game.instance.playerData.numCoins = 0;
 
             CharacterStatModifier followerMod = Game.instance.avatar.follower.GetComponentInChildren<CharacterStatModifier>();

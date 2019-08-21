@@ -36,7 +36,7 @@ public class IncreaseAttractivenessDialog : Dialog
         {
             Game.instance.playerData.numHearts -= mCost;
 
-            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, mCost, NumberPopupReason.RemoveHearts);
+            NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, mCost, NumberPopupReason.RemoveHearts);
 
             ApplyEffect();
 

@@ -91,8 +91,8 @@ public class QuestR : Dialog
                 spellName = PigLatinQuirk.ApplyQuirkIfPresent(spellName);
                 quirkName = PigLatinQuirk.ApplyQuirkIfPresent(quirkName);
 
-                NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Spell: " + spellName, NumberPopupReason.Heal, 0f);
-                NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, "Quirk: " + quirkName, NumberPopupReason.Heal, 0.7f);
+                NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, "Spell: " + spellName, NumberPopupReason.Good, 0f);
+                NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, "Quirk: " + quirkName, NumberPopupReason.Good, 0.7f);
             }
         }
 

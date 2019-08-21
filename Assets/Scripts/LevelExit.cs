@@ -31,7 +31,7 @@ public class LevelExit : MonoBehaviour
             {
                 if (!revealers[i].fullyRevealed)
                 {
-                    NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position, "Not until we see everything!", NumberPopupReason.TakeDamage);
+                    NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, "Not until we see everything!", NumberPopupReason.Bad);
                     return true;
                 }
             }

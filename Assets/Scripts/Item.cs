@@ -102,6 +102,6 @@ public class Item : MonoBehaviour
     {
         string message = LocalizedText.Get(description);
 
-        NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.transform.position + Vector3.up * 0.7f, message, NumberPopupReason.Heal, 0.25f);
+        NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, message, NumberPopupReason.Good, 0.25f);
     }
 }

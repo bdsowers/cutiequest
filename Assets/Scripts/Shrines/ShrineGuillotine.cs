@@ -13,7 +13,7 @@ public class ShrineGuillotine : Shrine
             int val = Random.Range(0, 2);
             if (val == 0)
             {
-                NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, "All enemies destroyed", NumberPopupReason.Heal);
+                NumberPopupGenerator.instance.GeneratePopup(gameObject, "All enemies destroyed", NumberPopupReason.Good);
 
                 Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
                 for (int i = 0; i < enemies.Length; ++i)
@@ -24,7 +24,7 @@ public class ShrineGuillotine : Shrine
             }
             else
             {
-                NumberPopupGenerator.instance.GeneratePopup(transform.position + Vector3.up * 0.7f, "The odds were not in your favor", NumberPopupReason.TakeDamage);
+                NumberPopupGenerator.instance.GeneratePopup(gameObject, "The odds were not in your favor", NumberPopupReason.Bad);
 
                 Game.instance.playerData.health = 1;
                 Game.instance.avatar.GetComponent<Killable>().health = 1;
