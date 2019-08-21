@@ -8,4 +8,5 @@ public struct CharacterModelData
     public GameObject model;
     public int gender;
     public int requiredLevel;
+    public bool wearingHat;
 }
