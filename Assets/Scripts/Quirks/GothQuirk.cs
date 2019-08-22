@@ -16,7 +16,7 @@ public class GothQuirk : Quirk
         if (newScene == "Dungeon")
         {
             // Turn down them lights
-            Light sceneLight = GameObject.FindObjectOfType<Light>();
+            Light sceneLight = GameObject.FindGameObjectWithTag("MainLight").GetComponent<Light>();
             
             sceneLight.intensity = 0.1f;
             sceneLight.color = new Color(0.3f, 0.3f, 0.3f);
