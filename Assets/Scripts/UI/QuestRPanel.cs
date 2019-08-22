@@ -263,7 +263,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         CharacterStatData statData = Game.instance.characterStatInfo.DataForStat(characterData.statBoost);
         System.Array.ForEach(boostImages, (image) => image.sprite = statData.icon);
-        System.Array.ForEach(boostTitleLabels, (label) => label.text = label.rectTransform.sizeDelta.x > 150 ? LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString() : ShortStatBoostDisplay(statData, characterData));
+        System.Array.ForEach(boostTitleLabels, (label) => label.text = label.rectTransform.sizeDelta.x > 150 ? passiveBoostPrefix + LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString() : ShortStatBoostDisplay(statData, characterData));
         System.Array.ForEach(boostDescLabels, (label) => label.text = LocalizedText.Get(statData.description));
         
         bioLabel.text = LocalizedText.Get(characterData.bio);

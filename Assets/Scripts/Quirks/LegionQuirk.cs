@@ -11,6 +11,7 @@ public class LegionQuirk : Quirk
     {
         // Pick 3 quirks in the player's level and attach them
         List<Quirk> quirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness);
+        quirks.RemoveAll(i => i.name == "LegionQuirk");
 
         for (int i = 0; i < 3; ++i)
         {
@@ -29,10 +30,16 @@ public class LegionQuirk : Quirk
 
     public void RemoveMutuallyExclusiveQuirks(Quirk newQuirk, List<Quirk> quirks)
     {
-        if (newQuirk.name == "CowboyQuirk")
-            quirks.RemoveAll(i => i.name == "OldTimeyQuirk");
+        string[] mutuallyExclusiveQuirks = new string[]
+        {
+            "CowboyQuirk",
+            "OldTimeyQuirk",
+            "SketchyQuirk",
+        };
 
-        if (newQuirk.name == "OldTimeyQuirk")
-            quirks.RemoveAll(i => i.name == "CowboyQuirk");
+        if (System.Array.IndexOf(mutuallyExclusiveQuirks, newQuirk.name) != -1)
+        {
+            quirks.RemoveAll(i => System.Array.IndexOf(mutuallyExclusiveQuirks, i.name) != -1);
+        }
     }
 }
