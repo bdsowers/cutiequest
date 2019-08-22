@@ -7,6 +7,8 @@ public class EnemyProjectileThrower : EnemyAI
 {
     ProjectileThrower mProjectileThrower;
     SimpleMovement mSimpleMovement;
+    CollisionMap mCollisionMap;
+
     int mThrowCounter = 0;
 
     private GameObject target
@@ -21,6 +23,7 @@ public class EnemyProjectileThrower : EnemyAI
     {
         mProjectileThrower = GetComponentInChildren<ProjectileThrower>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+        mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
     }
 
     public override void AIStructureChanged()
@@ -36,6 +39,20 @@ public class EnemyProjectileThrower : EnemyAI
         mProjectileThrower.ThrowProjectile(magic, TargetDirection());
 
         mThrowCounter = 2;
+    }
+
+    // The projectile thrower AI is intentionally a little clunky, but they shouldn't try throwing
+    // stuff at walls right next to them. This detects if that might be the case.
+    private bool WouldThrowProjectileAtWall()
+    {
+        Vector3 direction = TargetDirection();
+        Vector2Int currentMapCoords = MapCoordinateHelper.WorldToMapCoords(transform.position);
+        currentMapCoords.x += Mathf.FloorToInt(direction.x);
+        currentMapCoords.y += -Mathf.FloorToInt(direction.z);
+        if (mCollisionMap.SpaceMarking(currentMapCoords.x, currentMapCoords.y) == 1)
+            return true;
+
+        return false;
     }
 
     private Vector3 TargetDirection()
@@ -72,7 +89,7 @@ public class EnemyProjectileThrower : EnemyAI
             if (alignedOnEitherAxis)
             {
                 // Large chance we're going to throw but a small chance we'll move in a random direction instead
-                if (Random.Range(0, 100) > 15 && mThrowCounter <= 0)
+                if (Random.Range(0, 100) > 15 && mThrowCounter <= 0 && !WouldThrowProjectileAtWall())
                 {
                     ThrowProjectile();
                 }
@@ -83,7 +100,7 @@ public class EnemyProjectileThrower : EnemyAI
                     {
                         mSimpleMovement.Move(randomDirection);
                     }
-                    else
+                    else if (!WouldThrowProjectileAtWall())
                     {
                         ThrowProjectile();
                     }
@@ -93,7 +110,7 @@ public class EnemyProjectileThrower : EnemyAI
             {
                 // If we're not aligned on one of the axis, there's a decent chance we'll try to become aligned;
                 // otherwise, we'll just do a throw.
-                if (Random.Range(0, 100) < 20 && mThrowCounter <= 0)
+                if (Random.Range(0, 100) < 20 && mThrowCounter <= 0 && !WouldThrowProjectileAtWall())
                 {
                     ThrowProjectile();
                 }
