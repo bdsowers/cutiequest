@@ -23,6 +23,8 @@ public class ActivationPlate : MonoBehaviour
 
     public Vector3 activationDirection;
 
+    public GameObject link { get { return mLink; } }
+
     public bool CanBeActivated()
     {
         if (!mIsPlayerInside)

@@ -56,6 +56,7 @@ public class CharacterModel : MonoBehaviour
         model.transform.localPosition = Vector3.zero;
         model.transform.localScale = Vector3.one * scale;
         model.transform.localRotation = Quaternion.Euler(0f, rotation, 0f);
+        model.SetLayerRecursive(gameObject.layer);
 
         if (material != null)
         {

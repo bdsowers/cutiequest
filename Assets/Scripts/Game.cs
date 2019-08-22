@@ -378,6 +378,16 @@ public class Game : MonoBehaviour
         shopKeep.layer = LayerMask.NameToLayer("Enemy");
         shopKeep.GetComponentInChildren<CharacterModel>().gameObject.layer = LayerMask.NameToLayer("Enemy");
 
+        // Disable all the activation plates that are pointing at the now hostile shopkeeper
+        ActivationPlate[] plates = GameObject.FindObjectsOfType<ActivationPlate>();
+        for (int i = 0; i < plates.Length; ++i)
+        {
+            if (plates[i].link == shopKeep)
+            {
+                plates[i].gameObject.SetActive(false);
+            }
+        }
+
         isShopKeeperEnemy = true;
     }
 }
