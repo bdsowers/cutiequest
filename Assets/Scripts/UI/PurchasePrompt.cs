@@ -11,6 +11,9 @@ public class PurchasePrompt : MonoBehaviour
     public Text cost;
     public Image image;
 
+    public GameObject purchaseContainer;
+    public GameObject notEnoughMoneyContainer;
+
     private Item mCurrentItem = null;
 
     public void ShowForItem(Item item)
@@ -31,6 +34,10 @@ public class PurchasePrompt : MonoBehaviour
 
         transform.DOKill();
         transform.DOScale(1f, 0.3f);
+
+        bool enoughMoney = Game.instance.playerData.numCoins >= item.Cost();
+        purchaseContainer.SetActive(enoughMoney);
+        notEnoughMoneyContainer.SetActive(!enoughMoney);
     }
 
     public void Hide()
