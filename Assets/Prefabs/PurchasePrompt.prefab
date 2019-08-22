@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: -48.799988}
-  m_SizeDelta: {x: 125, y: 50}
+  m_AnchoredPosition: {x: -108.3, y: -48.799988}
+  m_SizeDelta: {x: 66.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3527646834050925372
 CanvasRenderer:
@@ -492,8 +492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.2, y: 0.2000122}
-  m_SizeDelta: {x: 59.6, y: 30}
+  m_AnchoredPosition: {x: -14.1, y: 0.2000122}
+  m_SizeDelta: {x: 37.3, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1990753570418641170
 CanvasRenderer:
@@ -527,16 +527,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c641e1910cc88a44586ce5adf10e548c, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 25
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 250
+  m_Text: 50
 --- !u!1 &4210675457403309250
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 970885511055862224}
   - component: {fileID: 2726257258732337812}
   - component: {fileID: 1591432146853481568}
+  - component: {fileID: 6953507768834906723}
   m_Layer: 5
   m_Name: PurchasePrompt
   m_TagString: Untagged
@@ -769,3 +770,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &6953507768834906723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532043499994790183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b36cf6471c63f468bbe60f4c9ee4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 3424975287628924069}
+  description: {fileID: 8028490169485162935}
+  cost: {fileID: 2372695473190564744}
+  image: {fileID: 3654022579565917028}

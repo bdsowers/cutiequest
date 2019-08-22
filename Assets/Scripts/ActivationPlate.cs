@@ -14,6 +14,7 @@ public class ActivationPlate : MonoBehaviour
 
     // todo bdsowers - gets the job done but is a pretty ugly hack
     private static bool mCanActivateAny = false;
+    private static bool mPlayerOnItem = false;
     private static bool mLateUpdateProcessed = false;
 
     private GameObject mLink = null;
@@ -45,6 +46,16 @@ public class ActivationPlate : MonoBehaviour
             return;
         if (DialogManager.AnyDialogsOpen())
             return;
+
+        // If we're inside an item, show that prompt
+        if (item != null)
+        {
+            if (CanBeActivated())
+            {
+                Game.instance.hud.purchasePrompt.ShowForItem(item);
+                mPlayerOnItem = true;
+            }
+        }
 
         if (mHasLink)
         {
@@ -127,9 +138,14 @@ public class ActivationPlate : MonoBehaviour
         if (mLateUpdateProcessed)
             return;
 
+        if (!mPlayerOnItem && Game.instance.hud.purchasePrompt.IsOpen())
+            Game.instance.hud.purchasePrompt.Hide();
+
         mLateUpdateProcessed = true;
         Game.instance.avatar.buttonPromptCanvas.SetActive(mCanActivateAny);
+
         mCanActivateAny = false;
+        mPlayerOnItem = false;
     }
 
     private void OnTriggerEnter(Collider other)
