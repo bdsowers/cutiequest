@@ -115,6 +115,7 @@ MonoBehaviour:
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
+  invulnerable: 1
 --- !u!114 &4722814630529607900
 MonoBehaviour:
   m_ObjectHideFlags: 0

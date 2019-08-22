@@ -372,6 +372,7 @@ public class Game : MonoBehaviour
 
         shopKeep.GetComponent<Enemy>().enabled = true;
         shopKeep.GetComponent<Killable>().enabled = true;
+        shopKeep.GetComponent<Killable>().invulnerable = false;
         shopKeep.GetComponent<EnemyMelee>().enabled = true;
         shopKeep.GetComponent<SimpleAttack>().enabled = true;
         shopKeep.layer = LayerMask.NameToLayer("Enemy");

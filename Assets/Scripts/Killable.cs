@@ -30,7 +30,7 @@ public class Killable : MonoBehaviour
     private Enemy mEnemy;
     private SimpleMovement mMovement;
 
-    public bool invulnerable { get; set; }
+    public bool invulnerable;
     public bool isDead { get; private set; }
     public bool isReviving { get; private set; }
 
