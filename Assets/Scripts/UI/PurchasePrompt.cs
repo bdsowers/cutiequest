@@ -27,7 +27,7 @@ public class PurchasePrompt : MonoBehaviour
 
         title.text = LocalizedText.Get(item.friendlyName);
         description.text = LocalizedText.Get(item.description);
-        cost.text = item.Cost().ToString();
+        cost.text = BadAtMathQuirk.ApplyQuirkIfPresent(item.Cost()).ToString();
         image.sprite = item.GetComponentInChildren<SpriteRenderer>().sprite;
 
         transform.localScale = Vector3.zero;
