@@ -46,6 +46,9 @@ public class QuestR : Dialog
 
     private void OnEnable()
     {
+        rigModel1.transform.localPosition = Vector3.zero;
+        rigModel2.transform.localPosition = Vector3.zero;
+
         List<CharacterData> characters = Game.instance.GetComponent<CharacterDataList>().AllCharactersWithinLevelRange(0, Game.instance.playerData.attractiveness);
         characters.Shuffle();
 

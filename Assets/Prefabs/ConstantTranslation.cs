@@ -12,7 +12,7 @@ public class ConstantTranslation : MonoBehaviour
     {
         if (useFixedUpdate)
             return;
-
+        
         transform.position += direction * speed * Time.deltaTime;
     }
 

@@ -33,7 +33,9 @@ public class CinematicActionChangeSpeaker : CinematicAction
 
         if (showSpeaker)
         {
-            GameObject.Find("CharacterImageCapture").GetComponentInChildren<CharacterModel>().ChangeModel(mSpeakerModel);
+            CharacterModel model = GameObject.Find("CharacterImageCapture").GetComponentInChildren<CharacterModel>();
+            model.transform.localPosition = new Vector3(0f, 0f, 0.5f);
+            model.ChangeModel(mSpeakerModel);
         }
 
         yield break;
