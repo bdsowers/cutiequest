@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Necromancy
   description: What's dead should stay dead.
   icon: {fileID: 21300052, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
-  requiredLevel: 7
+  requiredLevel: 4

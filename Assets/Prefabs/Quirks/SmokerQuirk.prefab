@@ -46,6 +46,6 @@ MonoBehaviour:
   friendlyName: Smoker
   description: Bad habits can impact your survival.
   icon: {fileID: 21300070, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
-  requiredLevel: 1
+  requiredLevel: 2
   smokePrefab: {fileID: 1471606879612836162, guid: 60e3151f4fb95964397cdfeb5d7a8a4f,
     type: 3}
