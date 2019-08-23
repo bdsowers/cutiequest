@@ -295,4 +295,12 @@ public abstract class CinematicAction : System.ICloneable
 
         return null;
     }
+
+    // Some cinematics may have extra work to force them to shut down immediately.
+    // Note that by the time this is called, the cinematic director will have already
+    // stopped all coroutines.
+    public virtual void ForceStop()
+    {
+        isPlaying = false;
+    }
 }

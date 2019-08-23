@@ -117,5 +117,10 @@ public class CinematicDirector : MonoBehaviour
     public void EndAllCinematics()
     {
         StopAllCoroutines();
+
+        for (int i = 0; i < mLoadedCinematics.Count; ++i)
+        {
+            mLoadedCinematics[i].ForceStop();
+        }
     }
 }

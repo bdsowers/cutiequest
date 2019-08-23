@@ -5,17 +5,66 @@ using ArrayExtensions;
 
 public class Cheats : MonoBehaviour
 {
-    private int mCurrentActivationPlate = 0;
-
-    private int mCheatCharacter = 0;
-    private int mCheatShrine = 0;
-
-    private int mScreenshotNum = 1;
-
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private void SkipTutorial()
+    {
+        Game.instance.cinematicDirector.EndAllCinematics();
+        Game.instance.finishedTutorial = true;
+        KillAvatar();
+    }
+
+    private void RevealMap()
+    {
+        RevealWhenAvatarIsClose[] revealers = GameObject.FindObjectsOfType<RevealWhenAvatarIsClose>();
+        for (int i = 0; i < revealers.Length; ++i)
+        {
+            revealers[i].Reveal();
+        }
+    }
+
+    private void TeleportToDungeonExit()
+    {
+        LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
+        Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
+    }
+
+    private void ClearSavedFlags()
+    {
+        Game.instance.playerData.flags = new List<string>();
+    }
+
+    private void KillAvatar()
+    {
+        Game.instance.playerData.health = 1;
+        Game.instance.avatar.GetComponent<Killable>().health = 1;
+        Game.instance.avatar.GetComponent<Killable>().TakeDamage(1);
+    }
+
+    private void TakeScreenshot()
+    {
+        int screenshotNum = PlayerPrefs.GetInt("screenshotnum", 1);
+        ScreenCapture.CaptureScreenshot("C:\\Users\\bdsow\\Desktop\\QuestRScreenshots\\screen" + screenshotNum + ".png");
+
+        ++screenshotNum;
+        PlayerPrefs.SetInt("screenshotnum", screenshotNum);
+    }
+
+    private void SkipToBoss()
+    {
+        Game.instance.currentDungeonFloor = 4;
+        LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
+        Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
+    }
+
+    private void EnterDebugDungeon()
+    {
+        Game.instance.EnterDungeon(Game.instance.debugDungeonData);
+        Game.instance.transitionManager.TransitionToScreen("Dungeon");
     }
 
     // Update is called once per frame
@@ -27,32 +76,17 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Game.instance.transitionManager.TransitionToScreen("Dungeon");
+            SkipTutorial();
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            RevealWhenAvatarIsClose[] revealers = GameObject.FindObjectsOfType<RevealWhenAvatarIsClose>();
-            for (int i = 0; i  < revealers.Length; ++i)
-            {
-                revealers[i].Reveal();
-            }
+            RevealMap();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
-            Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ActivationPlate[] activationPlates = GameObject.FindObjectsOfType<ActivationPlate>();
-            if (activationPlates.Length > 0)
-            {
-                Game.instance.avatar.transform.position = activationPlates[mCurrentActivationPlate].transform.position + Vector3.up;
-                mCurrentActivationPlate = (mCurrentActivationPlate + 1) % activationPlates.Length;
-            }
+            TeleportToDungeonExit();
         }
 
         if (Input.GetKeyDown(KeyCode.Y))
@@ -73,30 +107,22 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Game.instance.playerData.flags = new List<string>();
+            ClearSavedFlags();
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Game.instance.playerData.health = 1;
-            Game.instance.avatar.GetComponent<Killable>().health = 1;
-            Game.instance.avatar.GetComponent<Killable>().TakeDamage(1);
+            KillAvatar();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            mScreenshotNum = PlayerPrefs.GetInt("screenshotnum", 1);
-            ScreenCapture.CaptureScreenshot("C:\\Users\\bdsow\\Desktop\\QuestRScreenshots\\screen" + mScreenshotNum + ".png");
-
-            ++mScreenshotNum;
-            PlayerPrefs.SetInt("screenshotnum", mScreenshotNum);
+            TakeScreenshot();
         }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Game.instance.currentDungeonFloor = 4;
-            LevelExit exit = GameObject.FindObjectOfType<LevelExit>();
-            Game.instance.avatar.transform.position = exit.transform.position + Vector3.right;
+            SkipToBoss();
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -111,8 +137,7 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Slash))
         {
-            Game.instance.EnterDungeon(Game.instance.debugDungeonData);
-            Game.instance.transitionManager.TransitionToScreen("Dungeon");
+            EnterDebugDungeon();
         }
 
         if (Input.GetKeyDown(KeyCode.Backslash))
@@ -123,6 +148,8 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Game.instance.cinematicDirector.EndAllCinematics();
+
             Game.instance.ForcePreviewMode();
         }
     }
