@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Disoriented
   description: You can't seem to get your bearings.
   icon: {fileID: 21300440, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
-  requiredLevel: 1
+  requiredLevel: 5

@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Shady
   description: You'll have to see things in a new light.
   icon: {fileID: 21300488, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
-  requiredLevel: 1
+  requiredLevel: 99
