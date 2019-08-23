@@ -7,6 +7,7 @@ using DG.Tweening;
 public class UnlockDialog : Dialog
 {
     public Image unlockImage;
+    public Image unlockImageBackground;
     public Text unlockTitleText;
     public Text unlockNameText;
     public Text unlockDescText;
@@ -31,6 +32,7 @@ public class UnlockDialog : Dialog
         unlockNameText.text = LocalizedText.Get(spell.friendlyName);
         unlockDescText.text = LocalizedText.Get(spell.description);
         unlockImage.sprite = spell.icon;
+        unlockImageBackground.sprite = spell.icon;
         gameObject.SetActive(true);
 
         transform.localScale = Vector3.zero;
@@ -43,6 +45,7 @@ public class UnlockDialog : Dialog
         unlockNameText.text = LocalizedText.Get(quirk.friendlyName);
         unlockDescText.text = LocalizedText.Get(quirk.description);
         unlockImage.sprite = quirk.icon;
+        unlockImageBackground.sprite = quirk.icon;
         gameObject.SetActive(true);
 
         transform.localScale = Vector3.zero;
@@ -51,6 +54,9 @@ public class UnlockDialog : Dialog
 
     public void OnConfirmButtonPressed()
     {
-        gameObject.SetActive(false);
+        if (transform.localScale.x > 0.8f)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
