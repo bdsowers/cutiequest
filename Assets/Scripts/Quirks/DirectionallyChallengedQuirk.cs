@@ -16,7 +16,7 @@ public class DirectionallyChallengedQuirk : Quirk
         base.Start();
 
         mMinimapRawImage = CinematicId.FindObjectWithId("minimap_image");
-        mTimer = Random.Range(10f, 15f);
+        mTimer = Random.Range(5f, 10f);
     }
 
     // Update is called once per frame
@@ -38,6 +38,8 @@ public class DirectionallyChallengedQuirk : Quirk
             int rotation = Random.Range(0, 4);
             while (rotation == mCurrentRotation)
                 rotation = Random.Range(0, 4);
+
+            mCurrentRotation = rotation;
 
             mMinimapRawImage.transform.DOLocalRotate(new Vector3(0f, 0f, rotation * 90f), 0.75f);
         }
