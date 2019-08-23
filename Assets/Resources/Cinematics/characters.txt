@@ -75,6 +75,13 @@ animation trigger: intro_boss_seen
 
 animation trigger: intro_boss_activated
 {
+	camera_shake intensity: 0.35, speed: 5, seconds: 1
+	spawn_prefab prefab: "FallingRock", x: 10, y: 3
+	spawn_prefab prefab: "FallingRock", x: 10, y: 4
+	spawn_prefab prefab: "FallingRock", x: 10, y: 5
+	spawn_prefab prefab: "FallingRock", x: 10, y: 6
+	spawn_prefab prefab: "FallingRock", x: 10, y: 7
+
 	change_speaker Chr_Fantasy_Gypsy_01
 	typewriter "Oh crap. He sees us now. This is... really bad."
 }

@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionCooldown: 0.3
+  isBoss: 0
 --- !u!114 &4841260898688364236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
+  invulnerable: 0
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 5000
-  _strength: 55
+  _strength: 56
   _defense: 50
   _magic: 1
   _speed: 5
@@ -162,7 +164,9 @@ MonoBehaviour:
     rate: 50
     amount: 1
   arbitraryDrops: []
+  ignoreGoldDigger: 0
   scatter: 0
+  delay: 0
 --- !u!114 &7020149889661926042
 MonoBehaviour:
   m_ObjectHideFlags: 0
