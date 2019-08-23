@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abbd8d624a7f6e43b8b7b053e16fb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Sword Barrage
+  friendlyName: Sword Sling
   description: Launch a bunch of swords at your foes.
   cooldown: 10
   icon: {fileID: 21300000, guid: df7b7991b896a934b979d4f4f4e26693, type: 3}

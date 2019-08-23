@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b867684d97b7b945b126b27093d6b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Mega Splash
+  friendlyName: Splash
   description: Drown your enemies in salty sea water.
   cooldown: 15
   icon: {fileID: 21300000, guid: 1c7ac88103e2cd74e808c6ed9a05c312, type: 3}

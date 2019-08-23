@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94532a7ef38f17d44ba924d9067c69cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Directionally Challenged
+  friendlyName: Disoriented
   description: You can't seem to get your bearings.
   icon: {fileID: 21300440, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
   requiredLevel: 1
