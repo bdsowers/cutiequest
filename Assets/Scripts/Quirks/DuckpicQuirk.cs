@@ -10,7 +10,7 @@ public class DuckpicQuirk : Quirk
     {
         base.Start();
 
-        mTimer = Random.Range(30, 120);
+        mTimer = Random.Range(25, 75);
     }
 
     private void Update()

@@ -79,8 +79,7 @@ public class MinimapCamera : MonoBehaviour
     private void ToggleFullMap(bool newShowingWholeMap)
     {
         mShowingWholeMap = newShowingWholeMap;
-        teleportWarning.SetActive(false);
-
+        
         if (mShowingWholeMap)
         {
             LevelGenerator generator = GameObject.FindObjectOfType<LevelGenerator>();
@@ -92,11 +91,6 @@ public class MinimapCamera : MonoBehaviour
 
             mInterestingDisplays = InterestingMapDisplays();
             SelectClosestMapDisplay();
-
-            if (!CanTeleport())
-            {
-                teleportWarning.SetActive(true);
-            }
         }
         else
         {
@@ -207,6 +201,11 @@ public class MinimapCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (teleportWarning != null)
+        {
+            teleportWarning.SetActive(mShowingWholeMap && !CanTeleport());
+        }
+
         if (mShowingWholeMap)
             return;
 
@@ -220,6 +219,9 @@ public class MinimapCamera : MonoBehaviour
         Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
         for (int i = 0; i < enemies.Length; ++i)
         {
+            if (!enemies[i].enabled)
+                continue;
+
             float distance = Vector3.Distance(Game.instance.avatar.transform.position, enemies[i].transform.position);
 
             if (distance < 7f)
