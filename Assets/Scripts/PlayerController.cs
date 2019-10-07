@@ -314,9 +314,9 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (mSimpleMovement.CanMove(intendedDirection))
                 {
-                    mSimpleMovement.Move(intendedDirection);
-                    GetComponentInChildren<Animator>().Play("Idle");
-                    MoveFollower(intendedDirection, transform.position + intendedDirection);
+                    //mSimpleMovement.Move(intendedDirection);
+                    //GetComponentInChildren<Animator>().Play("Idle");
+                    //MoveFollower(intendedDirection, transform.position + intendedDirection);
                 }
                 else
                 {

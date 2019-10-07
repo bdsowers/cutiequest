@@ -56,6 +56,9 @@ public class KillableMap : MonoBehaviour
         Killable[] allKillables = GameObject.FindObjectsOfType<Killable>();
         for (int i = 0; i < allKillables.Length; ++i)
         {
+            if (allKillables[i].GetComponent<PlayerController>() != null)
+                continue;
+                    
             Vector3 worldPosition = allKillables[i].transform.position;
             int x = Mathf.RoundToInt(worldPosition.x);
             int y = Mathf.RoundToInt(worldPosition.z);

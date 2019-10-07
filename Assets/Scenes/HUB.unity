@@ -7392,6 +7392,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5795509674590756097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1099098404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099098403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathResponse: 1
+  showNumberPopups: 1
+  deathEffect: CFX2_EnemyDeathSkull
+  deathEffectScale: 0.75
+  allowZeroDamage: 0
+  invulnerable: 0
 --- !u!1 &1101416909
 GameObject:
   m_ObjectHideFlags: 0
@@ -11580,8 +11599,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.462903, y: 3.2885613, z: 23.91421}
-  m_Center: {x: -1.4061044, y: 1.6442807, z: -7.9750605}
+  m_Size: {x: 10.462903, y: 3.2885613, z: 23.086508}
+  m_Center: {x: -1.4061044, y: 1.6442807, z: -8.388909}
 --- !u!4 &1785989753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 449432, guid: 390c2bf1514a09e49a2aa0361d9e314c,

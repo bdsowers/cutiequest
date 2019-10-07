@@ -148,28 +148,51 @@ public class SimpleMovement : MonoBehaviour
     {
         if (subMeshToOrient != null)
         {
+            float angle = Mathf.Atan2(-direction.z, direction.x) * Mathf.Rad2Deg + 90f;
+            subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+
+            /*
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
             {
+                float rotation = 0f;
                 if (direction.x < -0.1f)
                 {
-                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
+                    rotation = -90f;
                 }
                 else if (direction.x > 0.1f)
                 {
-                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+                    rotation = 90f;
                 }
+
+                if (direction.z < -0.1f)
+                    rotation -= 45f;
+                else if (direction.z > 0.1f)
+                    rotation += 45f;
+                Debug.Log("X>Z " + Time.time);
+
+                subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, rotation, 0f);
             }
             else
             {
+                float rotation = 0f;
                 if (direction.z < -0.1f)
                 {
-                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                    rotation = 180f;
                 }
                 else if (direction.z > 0.1f)
                 {
-                    subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                    rotation = 0f;
                 }
+
+                if (direction.x < -0.1f)
+                    rotation += 45f;
+                else if (direction.x > 0.1f)
+                    rotation += 45f;
+
+                Debug.Log("Z>X " + Time.time);
+                subMeshToOrient.transform.localRotation = Quaternion.Euler(0f, rotation, 0f);
             }
+            */
         }
     }
 

@@ -404,7 +404,10 @@ public class LevelGenerator : MonoBehaviour
         mAvatarStartPosition = pos;
 
         mCollisionMap.MarkSpace(pos.x, pos.y, avatar.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
+
+        avatar.GetComponent<CharacterController>().enabled = false;
         avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(pos);
+        avatar.GetComponent<CharacterController>().enabled = true;
 
         // Also place any followers/pets adjacent to the player
         Follower follower = avatar.GetComponent<PlayerController>().follower;
