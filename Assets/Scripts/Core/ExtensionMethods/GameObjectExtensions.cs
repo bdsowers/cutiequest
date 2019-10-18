@@ -17,7 +17,7 @@ namespace GameObjectExtensions
 
         public static T AddComponentIfNecessary<T>(this GameObject gameObject) where T:Component
         {
-            T prevComponent = gameObject.AddComponent<T>();
+            T prevComponent = gameObject.GetComponent<T>();
             if (prevComponent != null)
                 return prevComponent;
 

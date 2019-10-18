@@ -84,8 +84,46 @@ public class SpellCaster : MonoBehaviour
         StartCoroutine(CastSpellCoroutine(strength));
     }
 
+    public IEnumerator AnimateSpellLine(Vector3 start, Vector3 end)
+    {
+        LineRenderer lr = gameObject.AddComponentIfNecessary<LineRenderer>();
+
+        start += Vector3.up * 0.6f;
+        end += Vector3.up * 0.2f;
+
+        lr.startWidth = 0.01f;
+        lr.endWidth = 0.1f;
+        lr.SetPosition(0, start);
+        float time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * 5f;
+            Vector3 lineEnd = Vector3.Lerp(start, end, time);
+            lr.SetPosition(1, lineEnd);
+
+            yield return null;
+        }
+
+        lr.SetPosition(1, end);
+
+        time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * 5f;
+            Vector3 lineStart = Vector3.Lerp(start, end, time);
+            lr.SetPosition(0, lineStart);
+
+            yield return null;
+        }
+
+        Destroy(lr);
+
+        yield break;
+    }
+
     public IEnumerator CastSpellCoroutine(int strength)
     {
+        
         // todo bdsowers - UGH
         SimpleMovement root = GetComponentInParent<SimpleMovement>();
         if (root != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
@@ -96,6 +134,11 @@ public class SpellCaster : MonoBehaviour
         isCasting = true;
 
         Vector3 targetPosition = target.transform.position;
+
+        if (!targetCaster)
+        {
+            StartCoroutine(AnimateSpellLine(transform.position, targetPosition));
+        }
 
         int spellX = Mathf.RoundToInt(targetPosition.x);
         int spellZ = Mathf.RoundToInt(targetPosition.z);
