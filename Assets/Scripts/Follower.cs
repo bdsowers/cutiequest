@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Follower : MonoBehaviour
+public class Follower : CharacterComponentBase
 {
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class Follower : MonoBehaviour
             return;
 
         CharacterData followerData  = Game.instance.followerData;
-        GetComponentInChildren<CharacterModel>().ChangeModel(followerData);
+        commonComponents.characterModel.ChangeModel(followerData);
     }
 
     // Update is called once per frame

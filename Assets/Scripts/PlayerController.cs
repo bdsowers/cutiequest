@@ -51,7 +51,7 @@ public class PlayerController : CharacterComponentBase
 
         isAlive = true;
 
-        GetComponent<Killable>().health = Game.instance.playerData.health;
+        commonComponents.killable.health = Game.instance.playerData.health;
 
         if (Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
@@ -126,7 +126,7 @@ public class PlayerController : CharacterComponentBase
             return;
 
         Follower follower = GameObject.FindObjectOfType<Follower>();
-        follower.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.followerData);
+        follower.commonComponents.characterModel.ChangeModel(Game.instance.followerData);
 
         AttachFollowerComponents();
         PlaceFollowerInCorrectPosition();
@@ -317,7 +317,7 @@ public class PlayerController : CharacterComponentBase
 
                     if (HasFollower())
                     {
-                        SimpleMovement.OrientToDirection(follower.GetComponentInChildren<Animator>().gameObject, intendedDirection);
+                        SimpleMovement.OrientToDirection(follower.commonComponents.animator.gameObject, intendedDirection);
                     }
                 }
             }
@@ -386,7 +386,7 @@ public class PlayerController : CharacterComponentBase
             yield return null;
         }
 
-        follower.GetComponent<SimpleMovement>().Move(direction, playerTargetPosition + new Vector3(-0.25f, 0f, 0.25f));
+        follower.commonComponents.simpleMovement.Move(direction, playerTargetPosition + new Vector3(-0.25f, 0f, 0.25f));
         yield break;
     }
 
@@ -406,7 +406,7 @@ public class PlayerController : CharacterComponentBase
             yield return null;
         }
 
-        follower.GetComponent<SimpleAttack>().Attack(direction);
+        follower.commonComponents.simpleAttack.Attack(direction);
 
         yield break;
     }
