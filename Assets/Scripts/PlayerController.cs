@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameObjectExtensions;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterComponentBase
 {
     public Follower follower;
     public GameObject modelContainer;
     public GameObject highlightLight;
 
-    private SimpleMovement mSimpleMovement;
-    private SimpleAttack mSimpleAttack;
     private ExternalCharacterStatistics mCharacterStats;
-    private Killable mKillable;
     
     public bool isAlive { get; set; }
 
@@ -36,20 +33,16 @@ public class PlayerController : MonoBehaviour
         CharacterData characterData = ScriptableObject.CreateInstance<CharacterData>();
         characterData.model = Game.instance.playerData.model;
         characterData.material = Game.instance.companionBuilder.MaterialByName(Game.instance.playerData.material);
-        GetComponentInChildren<CharacterModel>().ChangeModel(characterData);
+        commonComponents.characterModel.ChangeModel(characterData);
 
         mCharacterStats = GetComponent<ExternalCharacterStatistics>();
         mCharacterStats.externalReference = Game.instance.playerStats;
         follower.GetComponent<ExternalCharacterStatistics>().externalReference = Game.instance.playerStats;
 
-        mSimpleMovement = GetComponent<SimpleMovement>();
-        mSimpleAttack = GetComponent<SimpleAttack>();
-        mKillable = GetComponent<Killable>();
+        commonComponents.simpleMovement.onMoveFinished += OnMoveFinished;
+        commonComponents.simpleAttack.onAttackFinished += OnAttackFinished;
 
-        mSimpleMovement.onMoveFinished += OnMoveFinished;
-        mSimpleAttack.onAttackFinished += OnAttackFinished;
-
-        mKillable.onDeath += OnDeath;
+        commonComponents.killable.onDeath += OnDeath;
 
         mFollowerId = Game.instance.playerData.followerUid;
         
@@ -62,8 +55,8 @@ public class PlayerController : MonoBehaviour
 
         if (Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
-            GetComponentInChildren<Animator>().SetBool("Dancing", true);
-            GetComponentInChildren<Animator>().SetInteger("DanceNumber", Random.Range(0, 4));
+            commonComponents.animator.SetBool("Dancing", true);
+            commonComponents.animator.SetInteger("DanceNumber", Random.Range(0, 4));
         }
 
         Game.instance.whoseTurn = 0;
@@ -108,7 +101,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        GetComponentInChildren<Animator>().Play("Death");
+        commonComponents.animator.Play("Death");
 
         Invoke("TransitionAfterDelay", 2.5f);
     }
@@ -236,7 +229,7 @@ public class PlayerController : MonoBehaviour
             mDanceQueued = true;
         }
 
-        if (mSimpleMovement.isMoving || mSimpleAttack.isAttacking)
+        if (commonComponents.simpleMovement.isMoving || commonComponents.simpleAttack.isAttacking)
             return;
 
         SpellCaster caster = GetComponentInChildren<SpellCaster>();
@@ -303,24 +296,24 @@ public class PlayerController : MonoBehaviour
 
             if (Game.instance.actionSet.HoldPosition.IsPressed)
             {
-                SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
+                SimpleMovement.OrientToDirection(commonComponents.animator.gameObject, intendedDirection);
             }
             else
             {
-                if (mSimpleAttack.CanAttack(intendedDirection))
+                if (commonComponents.simpleAttack.CanAttack(intendedDirection))
                 {
-                    mSimpleAttack.Attack(intendedDirection);
+                    commonComponents.simpleAttack.Attack(intendedDirection);
                     AttackFollower(intendedDirection);
                 }
-                else if (mSimpleMovement.CanMove(intendedDirection))
+                else if (commonComponents.simpleMovement.CanMove(intendedDirection))
                 {
-                    mSimpleMovement.Move(intendedDirection);
-                    GetComponentInChildren<Animator>().Play("Idle");
+                    commonComponents.simpleMovement.Move(intendedDirection);
+                    commonComponents.animator.Play("Idle");
                     MoveFollower(intendedDirection, transform.position + intendedDirection);
                 }
                 else
                 {
-                    SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, intendedDirection);
+                    SimpleMovement.OrientToDirection(commonComponents.animator.gameObject, intendedDirection);
 
                     if (HasFollower())
                     {
@@ -333,9 +326,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayRandomDance()
     {
-        SimpleMovement.OrientToDirection(mSimpleMovement.subMesh, Vector3.back);
+        SimpleMovement.OrientToDirection(commonComponents.simpleMovement.subMesh, Vector3.back);
         int dance = Random.Range(1, 5);
-        GetComponentInChildren<Animator>().Play("Dance" + dance);
+        commonComponents.animator.Play("Dance" + dance);
     }
 
     public void QueueTeleportation(Vector2Int target)
@@ -362,12 +355,12 @@ public class PlayerController : MonoBehaviour
 
         Vector2Int currentPos = MapCoordinateHelper.WorldToMapCoords(transform.position);
 
-        if (!collisionMap.RemoveMarking(mSimpleMovement.uniqueCollisionIdentity))
+        if (!collisionMap.RemoveMarking(commonComponents.simpleMovement.uniqueCollisionIdentity))
         {
             Debug.LogError("CM error in PlayerController");
         }
 
-        collisionMap.MarkSpace(mTeleportTarget.x, mTeleportTarget.y, mSimpleMovement.uniqueCollisionIdentity);
+        collisionMap.MarkSpace(mTeleportTarget.x, mTeleportTarget.y, commonComponents.simpleMovement.uniqueCollisionIdentity);
 
         Game.instance.avatar.transform.position = MapCoordinateHelper.MapToWorldCoords(mTeleportTarget);
         Game.instance.avatar.follower.transform.position = Game.instance.avatar.transform.position + new Vector3(-0.25f, 0f, 0.25f);
@@ -420,7 +413,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDancing()
     {
-        Animator animator = GetComponentInChildren<Animator>();
+        Animator animator = commonComponents.animator;
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName("Dance1") || stateInfo.IsName("Dance2") || stateInfo.IsName("Dance3") || stateInfo.IsName("Dance4");
     }

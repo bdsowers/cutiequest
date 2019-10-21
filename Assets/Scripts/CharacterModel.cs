@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameObjectExtensions;
 
-public class CharacterModel : MonoBehaviour
+public class CharacterModel : CharacterComponentBase
 {
     public string modelName;
     public RuntimeAnimatorController animatorController;
@@ -23,14 +23,14 @@ public class CharacterModel : MonoBehaviour
     {
         transform.gameObject.RemoveAllChildren();
 
-        if (GetComponentInParent<SimpleMovement>() != null)
+        if (commonComponents.simpleMovement != null)
         {
-            GetComponentInParent<SimpleMovement>().subMesh = null;
+            commonComponents.simpleMovement.subMesh = null;
         }
 
-        if (GetComponentInParent<SimpleAttack>() != null)
+        if (commonComponents.simpleAttack != null)
         {
-            GetComponentInParent<SimpleAttack>().subMesh = null;
+            commonComponents.simpleAttack.subMesh = null;
         }
     }
 
@@ -63,14 +63,14 @@ public class CharacterModel : MonoBehaviour
             model.GetComponentInChildren<Renderer>().material = material;
         }
 
-        if (GetComponentInParent<SimpleMovement>() != null)
+        if (commonComponents.simpleMovement != null)
         {
-            GetComponentInParent<SimpleMovement>().subMesh = model;
+            commonComponents.simpleMovement.subMesh = model;
         }
 
-        if (GetComponentInParent<SimpleAttack>() != null)
+        if (commonComponents.simpleAttack != null)
         {
-            GetComponentInParent<SimpleAttack>().subMesh = model;
+            commonComponents.simpleAttack.subMesh = model;
         }
 
         model.GetComponent<Animator>().runtimeAnimatorController = animatorController;

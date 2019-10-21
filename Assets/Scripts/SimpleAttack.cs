@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleAttack : MonoBehaviour
+public class SimpleAttack : CharacterComponentBase
 {
     public delegate void AttackFinished(GameObject attacker, GameObject target);
     public event AttackFinished onAttackFinished;
@@ -81,7 +81,7 @@ public class SimpleAttack : MonoBehaviour
         if (mIsAttacking)
             yield break;
 
-        SimpleMovement.OrientToDirection(GetComponentInChildren<Animator>().gameObject, direction);
+        SimpleMovement.OrientToDirection(commonComponents.animator.gameObject, direction);
 
         mIsAttacking = true;
         GameObject target = TargetInDirection(direction);

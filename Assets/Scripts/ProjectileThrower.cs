@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameObjectExtensions;
 
-public class ProjectileThrower : MonoBehaviour
+public class ProjectileThrower : CharacterComponentBase
 {
     public GameObject projectilePrefab;
     public float throwSpeed = 1f;
@@ -34,15 +34,15 @@ public class ProjectileThrower : MonoBehaviour
         if (!Game.instance.realTime)
             actualThrowSpeed = 5f;
 
-        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().Play("Throw", 0, 0f);
-        GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = actualThrowSpeed;
+        commonComponents.animator.Play("Throw", 0, 0f);
+        commonComponents.animator.speed = actualThrowSpeed;
         
         yield return new WaitForSeconds(0.75f / actualThrowSpeed);
 
         GameObject projectile = GameObject.Instantiate(projectilePrefab);
         projectile.GetComponent<Projectile>().strength = strength;
         projectile.GetComponent<ConstantTranslation>().direction = direction;
-        Transform handTransform = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
+        Transform handTransform = commonComponents.animator.GetBoneTransform(HumanBodyBones.RightHand);
 
         //projectile.transform.position = handTransform.position;
         projectile.transform.position = transform.position + Vector3.up * 0.5f;
@@ -52,7 +52,7 @@ public class ProjectileThrower : MonoBehaviour
             projectile.transform.position += offset.Value;
         }
 
-        projectile.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
+        projectile.transform.localRotation = commonComponents.animator.transform.localRotation;
 
         //projectile.SetLayerRecursive(gameObject.layer);
         // todo bdsowers - yuck
@@ -70,7 +70,7 @@ public class ProjectileThrower : MonoBehaviour
 
         if (!suppressStateUpdates)
         {
-            GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().speed = 1f;
+            commonComponents.animator.speed = 1f;
             isThrowing = false;
         }
 

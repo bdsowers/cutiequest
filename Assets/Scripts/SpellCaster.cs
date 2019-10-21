@@ -4,7 +4,7 @@ using UnityEngine;
 using GameObjectExtensions;
 using VectorExtensions;
 
-public class SpellCaster : MonoBehaviour
+public class SpellCaster : CharacterComponentBase
 {
     public int targetDeviation = 0;
     public bool targetCaster;
@@ -123,11 +123,9 @@ public class SpellCaster : MonoBehaviour
     public IEnumerator CastSpellCoroutine(int strength)
     {
         
-        // todo bdsowers - UGH
-        SimpleMovement root = GetComponentInParent<SimpleMovement>();
-        if (root != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
+        if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
-            root.GetComponentInChildren<Animator>().Play("Spell");
+           commonComponents.animator.Play("Spell");
         }
 
         isCasting = true;
@@ -138,7 +136,7 @@ public class SpellCaster : MonoBehaviour
 
         if (!targetCaster)
         {
-            Transform handTransform = GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
+            Transform handTransform = commonComponents.animator.GetBoneTransform(HumanBodyBones.RightHand);
 
             StartCoroutine(AnimateSpellLine(handTransform.position, targetPosition));
         }
@@ -214,7 +212,7 @@ public class SpellCaster : MonoBehaviour
 
         if (orientToDirection)
         {
-            spellContainer.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
+            spellContainer.transform.localRotation = commonComponents.animator.transform.localRotation;
 
             // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
             float y = spellContainer.transform.localRotation.eulerAngles.y;
@@ -224,7 +222,7 @@ public class SpellCaster : MonoBehaviour
 
         if (randomOrientation)
         {
-            spellContainer.transform.localRotation = GetComponentInParent<SimpleMovement>().GetComponentInChildren<Animator>().transform.localRotation;
+            spellContainer.transform.localRotation = commonComponents.animator.transform.localRotation;
 
             // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
             float y = Random.Range(0, 4) * 90;

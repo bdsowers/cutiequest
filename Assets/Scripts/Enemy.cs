@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : CharacterComponentBase
 {
-    private SimpleMovement mSimpleMovement;
     private EnemyAI mEnemyAI;
     private RevealWhenAvatarIsClose mReveal;
-
-    private Killable mKillable;
 
     public float actionCooldown;
     private float mActionCooldownTimer = -1;
@@ -22,11 +19,9 @@ public class Enemy : MonoBehaviour
         Game.instance.enemyDirector.RegisterEnemy(this);
 
         mEnemyAI = GetComponent<EnemyAI>();
-        mSimpleMovement = GetComponent<SimpleMovement>();
-        mKillable = GetComponent<Killable>();
         mReveal = GetComponentInChildren<RevealWhenAvatarIsClose>();
 
-        mKillable.onDeath += OnDeath;
+        commonComponents.killable.onDeath += OnDeath;
 
         Game.instance.centralEvents.FireEnemyCreated(this);
     }
@@ -43,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath(Killable entity)
     {
-        mSimpleMovement.ClearSpaceMarking();
+        commonComponents.simpleMovement.ClearSpaceMarking();
 
         DropsItems[] di = GetComponentsInChildren<DropsItems>();
         for (int i = 0; i < di.Length; ++i)
@@ -90,15 +85,15 @@ public class Enemy : MonoBehaviour
         if (!mReveal.fullyRevealed)
             return false;
 
-        if (mKillable.isDead)
+        if (commonComponents.killable.isDead)
             return false;
-        if (mKillable.isReviving)
+        if (commonComponents.killable.isReviving)
             return false;
         if (!mEnemyAI.enabled)
             return false;
         if (Game.instance.realTime && mActionCooldownTimer > 0f)
             return false;
-        if (mSimpleMovement.isMoving)
+        if (commonComponents.simpleMovement.isMoving)
             return false;
         
         if (!Game.instance.avatar.isAlive)
@@ -122,6 +117,6 @@ public class Enemy : MonoBehaviour
     // Turn-based support only
     public bool ReadyForTurn()
     {
-        return mEnemyAI.CanUpdateAI() && !mSimpleMovement.isMoving;
+        return mEnemyAI.CanUpdateAI() && !commonComponents.simpleMovement.isMoving;
     }
 }

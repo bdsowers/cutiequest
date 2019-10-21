@@ -5,7 +5,7 @@ using GameObjectExtensions;
 using VectorExtensions;
 using ArrayExtensions;
 
-public class Summoner : MonoBehaviour
+public class Summoner : CharacterComponentBase
 {
     public GameObject[] summonedEntities;
     public int numEnemiesToSummon;
@@ -29,11 +29,9 @@ public class Summoner : MonoBehaviour
 
     public IEnumerator CastSummonCoroutine()
     {
-        // todo bdsowers - UGH
-        SimpleMovement root = GetComponentInParent<SimpleMovement>();
-        if (root != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
+        if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
         {
-            root.GetComponentInChildren<Animator>().Play("Spell");
+            commonComponents.animator.Play("Spell");
         }
 
         isSummoning = true;
