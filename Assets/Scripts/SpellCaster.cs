@@ -88,7 +88,6 @@ public class SpellCaster : MonoBehaviour
     {
         LineRenderer lr = gameObject.AddComponentIfNecessary<LineRenderer>();
 
-        start += Vector3.up * 0.6f;
         end += Vector3.up * 0.2f;
 
         lr.startWidth = 0.01f;
@@ -133,11 +132,15 @@ public class SpellCaster : MonoBehaviour
 
         isCasting = true;
 
+        yield return new WaitForSeconds(0.4f);
+
         Vector3 targetPosition = target.transform.position;
 
         if (!targetCaster)
         {
-            StartCoroutine(AnimateSpellLine(transform.position, targetPosition));
+            Transform handTransform = GetComponentInChildren<Animator>().GetBoneTransform(HumanBodyBones.RightHand);
+
+            StartCoroutine(AnimateSpellLine(handTransform.position, targetPosition));
         }
 
         int spellX = Mathf.RoundToInt(targetPosition.x);
