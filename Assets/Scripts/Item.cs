@@ -35,8 +35,6 @@ public class Item : MonoBehaviour
 
     public int Cost()
     {
-        // todo bdsowers - factor luck into the cost
-
         if (progressSpecificCost < 0)
         {
             // Items get more expensive the further into the dungeon you go.
