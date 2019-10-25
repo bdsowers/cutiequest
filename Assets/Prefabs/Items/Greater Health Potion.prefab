@@ -48,6 +48,7 @@ MonoBehaviour:
   friendlyName: Greater Health Potion
   description: Heals You Fully
   baseCost: 25
+  dungeonOnly: 1
 --- !u!114 &8898893971233637225
 MonoBehaviour:
   m_ObjectHideFlags: 0

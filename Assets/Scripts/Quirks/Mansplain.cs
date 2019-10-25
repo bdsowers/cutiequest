@@ -13,7 +13,7 @@ public class Mansplain : MonoBehaviour
     void Update()
     {
         // todo bdsowers - only do this if this enemy has been revealed
-
+        
         mChangeTextTimer -= Time.deltaTime;
         if (mChangeTextTimer <= 0f)
         {

@@ -48,6 +48,7 @@ MonoBehaviour:
   friendlyName: Lesser Health Potion
   description: Heals You Slightly
   baseCost: 0
+  dungeonOnly: 1
 --- !u!114 &1523928832177413485
 MonoBehaviour:
   m_ObjectHideFlags: 0

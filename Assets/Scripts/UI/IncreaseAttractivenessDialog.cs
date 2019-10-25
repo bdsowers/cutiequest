@@ -61,17 +61,28 @@ public class IncreaseAttractivenessDialog : Dialog
         }
         else if (mEffect == "random_item")
         {
-            // todo bdsowers - add something to Item to make this list auto-update
-            List<GameObject> itemsToIgnore = new List<GameObject>
-            {
-                PrefabManager.instance.PrefabByName("Map"),
-                PrefabManager.instance.PrefabByName("Health Potion"),
-                PrefabManager.instance.PrefabByName("Greater Health Potion"),
-            };
-            
+            List<GameObject> itemsToIgnore = DungeonOnlyItems();
+
             GameObject newItem = GameObject.Instantiate(PrefabManager.instance.itemPrefabs.Sample(itemsToIgnore));
             newItem.GetComponentInChildren<Item>().Equip();
         }
+    }
+
+    private List<GameObject> DungeonOnlyItems()
+    {
+        List<GameObject> items = new List<GameObject>();
+
+        for (int i = 0; i < PrefabManager.instance.itemPrefabs.Length; ++i)
+        {
+            GameObject prefab = PrefabManager.instance.itemPrefabs[i];
+            Item item = prefab.GetComponent<Item>();
+            if (item != null && item.dungeonOnly)
+            {
+                items.Add(prefab);
+            }
+        }
+
+        return items;
     }
 
     public void OnNoPressed()

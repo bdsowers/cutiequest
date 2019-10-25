@@ -48,6 +48,7 @@ MonoBehaviour:
   friendlyName: Map
   description: Reveals the Current Floor
   baseCost: 0
+  dungeonOnly: 1
 --- !u!114 &6235618147279332454
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public GameObject standardView;
     public GameObject moreInfoView;
 
-    // todo bdsowers - set this dynamically as appropriate
     public bool isFrontPanel { get; set; }
     public int characterOffset { get; set; }
 

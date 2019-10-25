@@ -12,6 +12,10 @@ public class Item : MonoBehaviour
     public string description;
 
     public int baseCost;
+
+    // Sometimes town NPCs can provide items, but not every item makes sensqe in this context.
+    public bool dungeonOnly;
+
     private int progressSpecificCost = -1;
 
     public bool equipped { get; private set; }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// todo bdsowers - this whole thing is cut while I work out a way to get the animations smoother
 public class ZombieQuirk : Quirk
 {
     public override void Start()
