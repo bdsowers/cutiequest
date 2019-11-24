@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400773212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 5adc0c3c967231d45a4ea4f11f4e4400, type: 2}
@@ -191,8 +191,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Texture: {fileID: 8400000, guid: 01890e6f93388314db3bcb81916ee5dd, type: 2}
   m_UVRect:
     serializedVersion: 2
@@ -1139,7 +1137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 466082938260821529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1148,8 +1146,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1159,6 +1155,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &480676037396572425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,7 +2397,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4442877382713087578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2409,8 +2406,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c641e1910cc88a44586ce5adf10e548c, type: 3}
     m_FontSize: 100
@@ -2514,7 +2509,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4915047387692958841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2523,8 +2518,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c641e1910cc88a44586ce5adf10e548c, type: 3}
     m_FontSize: 75
@@ -3145,7 +3138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6275600083845143005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
@@ -3166,7 +3159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6275600083845143005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -3175,8 +3168,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: a7edb363176e8e84690fa6346835207f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -3186,6 +3177,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6549219489820591825
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,7 +3343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6898817926705004688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
@@ -3373,7 +3365,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6898817926705004688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
@@ -3475,7 +3467,6 @@ MonoBehaviour:
   - {fileID: 7818454422392994760, guid: 8946fdbf174ec224cad495fefa7c0bac, type: 3}
   - {fileID: 8791090138005552656, guid: e6ec40d84d85e1b48ac1b591947ad48d, type: 3}
   - {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4, type: 3}
-  - {fileID: 8976604116658114740, guid: 3a5192596bee5ce409975ccbba72852b, type: 3}
   - {fileID: 7642233172062837191, guid: 51f3242eab2c8bd4fa62abf5d4618906, type: 3}
   - {fileID: 9181373829774709663, guid: 2cfbebe96e449694bbc8dfb3eb189936, type: 3}
   - {fileID: 8135455753806573312, guid: 3ed8f513575856c4ba6047944fdc2194, type: 3}
@@ -3655,3 +3646,7 @@ MonoBehaviour:
   - {fileID: 5587387128094791932, guid: d9bb4b1efb4937749a15c315c19e2844, type: 3}
   - {fileID: 5587387128094791932, guid: a73139e7db550fc4495c83e87e9b5afa, type: 3}
   - {fileID: 5587387128094791932, guid: 4a3f3d0b965c36041985d658a3661564, type: 3}
+  trapPrefabs:
+  - {fileID: 8550327212465167450, guid: 8eb904133e66fbd4e8a2bc6857e41d2d, type: 3}
+  - {fileID: 8976604116658114740, guid: 3a5192596bee5ce409975ccbba72852b, type: 3}
+  - {fileID: 8550327212465167450, guid: 6d8ddfe54a7291e4bb45821878051fca, type: 3}

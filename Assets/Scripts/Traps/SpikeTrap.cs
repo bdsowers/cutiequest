@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrap : MonoBehaviour
+public class SpikeTrap : PlacedTrap
 {
     public GameObject spikes;
 
@@ -12,6 +12,7 @@ public class SpikeTrap : MonoBehaviour
 
     public float timeOffset = 0f;
 
+    
     private void Start()
     {
         mTimer += timeOffset;
@@ -64,6 +65,35 @@ public class SpikeTrap : MonoBehaviour
         if (killable != null && killable.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             killable.TakeDamage(15);
+        }
+    }
+
+    public override bool CanSpawn(List<Vector2Int> region)
+    {
+        return true;
+    }
+
+    public override void Spawn(List<Vector2Int> region, LevelGenerator levelGenerator)
+    {
+        int spikeNum = 0;
+        bool uniform = (Random.Range(0, 2) == 0);
+        float direction = (Random.Range(0, 2) == 0 ? 1 : -1);
+
+        // Generate the trap, making sure we're not generating out of turn
+        for (int posIdx = 0; posIdx < region.Count; ++posIdx)
+        {
+            Vector2Int pos = region[posIdx];
+
+            if (levelGenerator.collisionMap.SpaceMarking(pos.x, pos.y) == 0)
+            {
+                GameObject trapObj = levelGenerator.PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
+                SpikeTrap spikes = trapObj.GetComponent<SpikeTrap>();
+
+                if (!uniform)
+                    spikes.timeOffset = 0.25f * spikeNum * direction;
+
+                ++spikeNum;
+            }
         }
     }
 }

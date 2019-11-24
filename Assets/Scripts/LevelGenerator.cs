@@ -232,7 +232,7 @@ public class LevelGenerator : MonoBehaviour
         return CurrentDungeonFloorData().generationData.scopeData[0].criticalPathMaxRooms == 1;
     }
 
-    private GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = WALKABLEMAP_DONT_MARK, float yOffset = 0f)
+    public GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = WALKABLEMAP_DONT_MARK, float yOffset = 0f)
     {
         GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
         newItem.transform.SetParent(transform);
@@ -537,6 +537,8 @@ public class LevelGenerator : MonoBehaviour
 
     private void PlaceTraps()
     {
+        DungeonBiomeData biomeData = Game.instance.currentDungeonData.biomeData;
+
         // Collect regions with shared trap IDs
         Dictionary<int, List<Vector2Int>> regions = new Dictionary<int, List<Vector2Int>>();
         for (int x = 0; x < mDungeon.width; ++x)
@@ -559,7 +561,33 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
+        // Try to place the traps
+        // Traps may have requirements - ie: they may require certain region sizes
+        // They may also conditionally take up 1 or all spaces of a region
+        // todo bdsowers - break traps apart into traps & spawners so that traps
+        // aren't responsible for spawning themselves, which is awkward...
+
         // Now generate traps, filling the respective regions (where still possible)
+
+        // Find all the trap generators
+        List<PlacedTrap> trapPlacerPrefabs = new List<PlacedTrap>();
+        for (int i = 0; i < biomeData.trapPrefabs.Count; ++i)
+        {
+            string prefabName = biomeData.trapPrefabs[i];
+            GameObject prefab = PrefabManager.instance.PrefabByName(prefabName);
+            PlacedTrap trapPlacer = prefab.GetComponent<PlacedTrap>();
+            if (trapPlacer != null)
+            {
+                trapPlacerPrefabs.Add(prefab.GetComponent<PlacedTrap>());
+            }
+            else
+            {
+                Debug.LogError("Unplaceable trap in biome: " + prefabName);
+            }
+        }
+
+        List<PlacedTrap> potentialTraps = new List<PlacedTrap>();
+
         foreach(KeyValuePair<int, List<Vector2Int>> pair in regions)
         {
             int prob = 15;
@@ -569,24 +597,21 @@ public class LevelGenerator : MonoBehaviour
             if (Random.Range(0, 100) > prob)
                 continue;
 
-            int spikeNum = 0;
-            bool uniform = (Random.Range(0, 2) == 0);
-            float direction = (Random.Range(0, 2) == 0 ? 1 : -1);
+            potentialTraps.Clear();
+            potentialTraps.AddRange(trapPlacerPrefabs);
 
-            // Generate the trap, making sure we're not generating out of turn
-            for (int posIdx = 0; posIdx < pair.Value.Count; ++posIdx)
+            bool trapPlaced = false;
+            while (!trapPlaced && potentialTraps.Count > 0)
             {
-                Vector2Int pos = pair.Value[posIdx];
-
-                if (mCollisionMap.SpaceMarking(pos.x, pos.y) == 0)
+                PlacedTrap trap = potentialTraps.Sample();
+                if (trap.CanSpawn(pair.Value))
                 {
-                    GameObject trapObj = PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
-                    SpikeTrap spikes = trapObj.GetComponent<SpikeTrap>();
-
-                    if (!uniform)
-                        spikes.timeOffset = 0.25f * spikeNum * direction;
-
-                    ++spikeNum;
+                    trap.Spawn(pair.Value, this);
+                    trapPlaced = true;
+                }
+                else
+                {
+                    potentialTraps.Remove(trap);
                 }
             }
         }

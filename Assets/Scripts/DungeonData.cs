@@ -20,6 +20,7 @@ public struct DungeonBiomeData
 {
     public List<string> floorPrefabs;
     public List<string> wallPrefabs;
+    public List<string> trapPrefabs;
     public string shopPedestablPrefab;
 }
 
