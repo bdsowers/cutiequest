@@ -66,11 +66,11 @@ public class Cheats : MonoBehaviour
         Game.instance.EnterDungeon(Game.instance.debugDungeonData);
         Game.instance.transitionManager.TransitionToScreen("Dungeon");
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-#if RELEASE
+#if RELEASE || DISABLE_CHEATS
         return;
 #endif
 

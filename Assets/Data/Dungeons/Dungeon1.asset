@@ -194,6 +194,4 @@ MonoBehaviour:
     - ForestWall2
     trapPrefabs:
     - SpikeTrap
-    - AxeTrap
-    - FireballTrap
     shopPedestablPrefab: ShopPedestal

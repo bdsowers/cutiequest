@@ -308,11 +308,13 @@ public class Game : MonoBehaviour
             mLastInputTime = Time.time;
         }
 
+#if DEMO
         if (Time.time - mLastInputTime > mPreviewDelay && !transitionManager.isTransitioning &&
             !InPreview())
         {
             transitionManager.TransitionToScreen("Preview");
         }
+#endif
     }
 
     // Update is called once per frame

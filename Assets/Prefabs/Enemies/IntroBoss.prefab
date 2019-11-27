@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 5000
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
