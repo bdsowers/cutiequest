@@ -27,7 +27,7 @@ public class CinematicActionCameraShake : CinematicAction
     public override void InterpretParameters(CinematicDataProvider dataProvider)
     {
         base.InterpretParameters(dataProvider);
-
+        
         mIntensity = dataProvider.GetFloatData(mParameters, "intensity", 1f);
         mSpeed = dataProvider.GetFloatData(mParameters, "speed", 1f);
         mSeconds = dataProvider.GetFloatData(mParameters, "seconds", 1f);

@@ -60,28 +60,20 @@ public class PauseDialog : Dialog
 
     private void OnQuitDialogButtonPressed(string buttonName)
     {
+        genericChoiceDialog.onDialogButtonPressed -= OnQuitDialogButtonPressed;
+
         if (buttonName == "button_yes")
         {
-            CloseGame();
+#if DEMO || RELEASE
+            Game.instance.CloseGame();
+#else
+            Game.instance.CheckRatingDialog(true);
+#endif
         }
         else
         {
             returnToGameButton.Select();
         }
-    }
-
-    private void CloseGame()
-    {
-#if DEMO
-        Game.instance.cinematicDirector.EndAllCinematics();
-
-        Time.timeScale = 1f;
-        Invoke("DisableScreen", 0.01f);
-
-        Game.instance.transitionManager.TransitionToScreen("Title");
-#else
-        Application.Quit();
-#endif
     }
 
     private void DisableScreen()

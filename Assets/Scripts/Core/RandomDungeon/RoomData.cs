@@ -69,7 +69,7 @@ namespace OMM.RDG
                 mCategories[i] = mCategories[i].Trim();
             }
 
-            mProbability = float.Parse(lines[2].Trim());
+            mProbability = float.Parse(lines[2].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
 
             mWidth = lines[3].Trim().Length;
             mHeight = lines.Count - 3;

@@ -9415,6 +9415,8 @@ MonoBehaviour:
     gameObject: {fileID: 1133164971069246213}
   - name: questr_panel
     gameObject: {fileID: 912456238}
+  - name: choice_dialog
+    gameObject: {fileID: 2135044087}
 --- !u!4 &1422393245
 Transform:
   m_ObjectHideFlags: 0
@@ -13727,19 +13729,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1479856485, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866249458, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7208613044072731669, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: a2c964492f343dd4f8a76816c4e6d6c1, type: 2}
-    - target: {fileID: 1866249458, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1479856485, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7208613044072731668, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
@@ -14238,6 +14240,12 @@ RectTransform:
 --- !u!1 &2135044086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8258626652530064015, guid: c61028de0690a04489e563a5c9c1627d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2135044084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2135044087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1691103717, guid: c61028de0690a04489e563a5c9c1627d,
     type: 3}
   m_PrefabInstance: {fileID: 2135044084}
   m_PrefabAsset: {fileID: 0}

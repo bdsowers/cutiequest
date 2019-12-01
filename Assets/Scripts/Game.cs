@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using ArrayExtensions;
 using GameObjectExtensions;
+using DG.Tweening;
 
 public class Game : MonoBehaviour
 {
+    // todo bdsowers - go through an actual build process plz
+    public const int BUILD_NUMBER = 1;
+
     static Game mInstance = null;
 
     private PlayerController mAvatar;
@@ -36,6 +40,9 @@ public class Game : MonoBehaviour
 
     private const float mPreviewDelay = 2.5f * 60f;
     private float mLastInputTime = -1f;
+
+    private bool mClosingGame = false;
+    private int mHubEntriesForRatingDialog = 0;
 
     public static Game instance
     {
@@ -391,5 +398,89 @@ public class Game : MonoBehaviour
         }
 
         isShopKeeperEnemy = true;
+    }
+
+    public void HubEntered()
+    {
+        mHubEntriesForRatingDialog++;
+
+        CheckRatingDialog();
+    }
+
+    public void CheckRatingDialog(bool closing = false)
+    {
+#if DEMO || RELEASE
+        return;
+#endif
+
+        mClosingGame = closing;
+
+        if (closing == false && mHubEntriesForRatingDialog < 5)
+            return;
+
+        if (!Game.instance.finishedTutorial)
+            return;
+
+        if (Game.instance.cinematicDirector.IsCinematicPlaying())
+            return;
+
+        int currentRatingVersion = 1; // todo bdsowers - actual build numbers when we have build system
+        int lastRatedVersion = PlayerPrefs.GetInt("rate_version", 0);
+
+        if (lastRatedVersion >= currentRatingVersion)
+            return;
+
+        PlayerPrefs.SetInt("rate_version", currentRatingVersion);
+
+        GameObject dialog = Game.instance.cinematicDirector.objectMap.GetObjectByName("choice_dialog");
+        string text = "Could we trouble you to take a short survey to tell us about your experience?";
+
+        DialogButton buttonYes = new DialogButton()
+        {
+            name = "button_yes",
+            text = "Yes",
+            icon = null
+        };
+
+        DialogButton buttonNo = new DialogButton()
+        {
+            name = "button_no",
+            text = "No",
+            icon = null
+        };
+
+        dialog.GetComponent<GenericChoiceDialog>().Show(text, new List<DialogButton>() { buttonYes, buttonNo });
+        dialog.GetComponent<GenericChoiceDialog>().onDialogButtonPressed += OnRateButtonPressed;
+        dialog.transform.localScale = 1.1f * Vector3.one;
+    }
+
+    private void OnRateButtonPressed(string buttonName)
+    {
+        GameObject dialog = Game.instance.cinematicDirector.objectMap.GetObjectByName("choice_dialog");
+        dialog.GetComponent<GenericChoiceDialog>().onDialogButtonPressed -= OnRateButtonPressed;
+        
+        if (buttonName == "button_yes")
+        {
+            UnityEngine.Application.OpenURL("https://docs.google.com/forms/d/1sPvYirt1wT1DVrOF6z5vXsPps2PXfuJZBlyfHpyEr0A/edit");
+        }
+
+        if (mClosingGame)
+        {
+            CloseGame();
+        }
+    }
+
+    public void CloseGame()
+    {
+#if DEMO
+        Game.instance.cinematicDirector.EndAllCinematics();
+
+        Time.timeScale = 1f;
+        Invoke("DisableScreen", 0.01f);
+
+        Game.instance.transitionManager.TransitionToScreen("Title");
+#else
+        Application.Quit();
+#endif
     }
 }

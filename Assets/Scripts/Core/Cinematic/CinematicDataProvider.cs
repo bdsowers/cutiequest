@@ -73,7 +73,7 @@ public class CinematicDataProvider : MonoBehaviour
         if (strData == null)
             return defaultValue;
         else
-            return float.Parse(strData);
+            return float.Parse(strData, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
     }
 
     public int GetIntData(Dictionary<string, string> parameterList, string key, int defaultValue = 0)
@@ -111,9 +111,9 @@ public class CinematicDataProvider : MonoBehaviour
             // TODO bdsowers - we can do this without garbage generation.
             string[] tokens = strData.Split(new char[] { ':' });
             Vector3 newVec;
-            newVec.x = float.Parse(tokens[0].Trim());
-            newVec.y = float.Parse(tokens[1].Trim());
-            newVec.z = float.Parse(tokens[2].Trim());
+            newVec.x = float.Parse(tokens[0].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
+            newVec.y = float.Parse(tokens[1].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
+            newVec.z = float.Parse(tokens[2].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
             return newVec;
         }
         
@@ -131,10 +131,10 @@ public class CinematicDataProvider : MonoBehaviour
             // TODO bdsowers - we can do this without garbage generation.
             string[] tokens = strData.Split(new char[] { ':' });
             Color newColor;
-            newColor.r = float.Parse(tokens[0].Trim());
-            newColor.g = float.Parse(tokens[1].Trim());
-            newColor.b = float.Parse(tokens[2].Trim());
-            newColor.a = tokens.Length == 4 ? float.Parse(tokens[3].Trim()) : 1;
+            newColor.r = float.Parse(tokens[0].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
+            newColor.g = float.Parse(tokens[1].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
+            newColor.b = float.Parse(tokens[2].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
+            newColor.a = tokens.Length == 4 ? float.Parse(tokens[3].Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture) : 1;
             return newColor;
         }
     }
