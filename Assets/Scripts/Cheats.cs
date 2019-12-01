@@ -70,6 +70,14 @@ public class Cheats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Cheat that works even in builds to clear out save data
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.Escape))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Game.instance.saveManager.TriggerSave();
+        }
+
 #if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR
         return;
 #endif
