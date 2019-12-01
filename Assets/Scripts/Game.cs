@@ -415,7 +415,7 @@ public class Game : MonoBehaviour
 
         mClosingGame = closing;
 
-        if (closing == false && mHubEntriesForRatingDialog < 10)
+        if (closing == false && mHubEntriesForRatingDialog < 6)
             return;
 
         if (!Game.instance.finishedTutorial)
