@@ -67,7 +67,10 @@ public class PauseDialog : Dialog
 #if DEMO || RELEASE
             Game.instance.CloseGame();
 #else
-            Game.instance.CheckRatingDialog(true);
+            if (!Game.instance.CheckRatingDialog(true))
+            {
+                Game.instance.CloseGame();
+            }
 #endif
         }
         else

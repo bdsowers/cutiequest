@@ -71,11 +71,12 @@ public class Cheats : MonoBehaviour
     void Update()
     {
         // Cheat that works even in builds to clear out save data
+        // todo bdsowers - provide a first-class route for this
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.Escape))
         {
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
-            Game.instance.saveManager.TriggerSave();
+            Game.instance.CloseGame();
         }
 
 #if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR

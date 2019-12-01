@@ -407,27 +407,27 @@ public class Game : MonoBehaviour
         CheckRatingDialog();
     }
 
-    public void CheckRatingDialog(bool closing = false)
+    public bool CheckRatingDialog(bool closing = false)
     {
 #if DEMO || RELEASE
-        return;
+        return false;
 #endif
 
         mClosingGame = closing;
 
         if (closing == false && mHubEntriesForRatingDialog < 6)
-            return;
+            return false;
 
         if (!Game.instance.finishedTutorial)
-            return;
+            return false;
 
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
-            return;
+            return false;
 
         int lastRatedVersion = PlayerPrefs.GetInt("rate_version", 0);
 
         if (lastRatedVersion >= BUILD_NUMBER)
-            return;
+            return false;
 
         PlayerPrefs.SetInt("rate_version", BUILD_NUMBER);
 
@@ -451,6 +451,8 @@ public class Game : MonoBehaviour
         dialog.GetComponent<GenericChoiceDialog>().Show(text, new List<DialogButton>() { buttonYes, buttonNo });
         dialog.GetComponent<GenericChoiceDialog>().onDialogButtonPressed += OnRateButtonPressed;
         dialog.transform.localScale = 1.1f * Vector3.one;
+
+        return true;
     }
 
     private void OnRateButtonPressed(string buttonName)
