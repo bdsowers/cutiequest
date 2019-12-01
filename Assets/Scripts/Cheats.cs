@@ -70,7 +70,7 @@ public class Cheats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if RELEASE || DISABLE_CHEATS
+#if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR
         return;
 #endif
 
