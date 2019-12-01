@@ -415,7 +415,7 @@ public class Game : MonoBehaviour
 
         mClosingGame = closing;
 
-        if (closing == false && mHubEntriesForRatingDialog < 5)
+        if (closing == false && mHubEntriesForRatingDialog < 10)
             return;
 
         if (!Game.instance.finishedTutorial)
@@ -424,13 +424,12 @@ public class Game : MonoBehaviour
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
 
-        int currentRatingVersion = 1; // todo bdsowers - actual build numbers when we have build system
         int lastRatedVersion = PlayerPrefs.GetInt("rate_version", 0);
 
-        if (lastRatedVersion >= currentRatingVersion)
+        if (lastRatedVersion >= BUILD_NUMBER)
             return;
 
-        PlayerPrefs.SetInt("rate_version", currentRatingVersion);
+        PlayerPrefs.SetInt("rate_version", BUILD_NUMBER);
 
         GameObject dialog = Game.instance.cinematicDirector.objectMap.GetObjectByName("choice_dialog");
         string text = "Could we trouble you to take a short survey to tell us about your experience?";
