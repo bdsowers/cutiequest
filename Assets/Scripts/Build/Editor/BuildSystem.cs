@@ -19,6 +19,9 @@ public class BuildSystem : MonoBehaviour
 
     public static void SteamBuild()
     {
+        // TODO BDSOWERS - update build number
+        // TODO BDSOWERS - auto-send to Steam
+
         string outputPath = BuildPath(mSteamBuildLocation);
 
         BuildOptions options = BuildOptions.None;
