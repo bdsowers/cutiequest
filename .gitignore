@@ -23,6 +23,8 @@
 /Assets/SC Post Effects
 /Assets/SC Post Effects/*
 
+/Build/*
+/Build/
 /Steam/*
 /Steam/
 /Steam/sdk/tools/ContentBuilder/content
