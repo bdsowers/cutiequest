@@ -22,3 +22,8 @@
 /Assets/SFX
 /Assets/SC Post Effects
 /Assets/SC Post Effects/*
+
+/Steam/*
+/Steam/
+/Steam/sdk/tools/ContentBuilder/content
+/Steam/sdk/tools/ContentBuilder/content/*
