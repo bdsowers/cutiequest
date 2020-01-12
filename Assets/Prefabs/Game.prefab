@@ -3648,3 +3648,4 @@ MonoBehaviour:
   - {fileID: 5587387128094791932, guid: 4a3f3d0b965c36041985d658a3661564, type: 3}
   trapPrefabs:
   - {fileID: 8976604116658114740, guid: 3a5192596bee5ce409975ccbba72852b, type: 3}
+  - {fileID: 8550327212465167450, guid: 8eb904133e66fbd4e8a2bc6857e41d2d, type: 3}

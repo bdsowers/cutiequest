@@ -5,6 +5,8 @@ using ArrayExtensions;
 
 public class AxeTrap : PlacedTrap
 {
+    public GameObject[] groups;
+
     public override bool CanSpawn(List<Vector2Int> region)
     {
         return true;
@@ -31,7 +33,12 @@ public class AxeTrap : PlacedTrap
     // Start is called before the first frame update
     void Start()
     {
-        
+        int straddleMul = Random.Range(0, 2);
+        for (int i = 0; i < groups.Length; ++i)
+        {
+            groups[i].GetComponent<AxeTrapGroup>().setup = true;
+            groups[i].GetComponent<AxeTrapGroup>().delay = 1f + 1 * straddleMul * i;
+        }
     }
 
     // Update is called once per frame
