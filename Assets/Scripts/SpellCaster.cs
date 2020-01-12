@@ -123,7 +123,8 @@ public class SpellCaster : CharacterComponentBase
     public IEnumerator CastSpellCoroutine(int strength)
     {
         
-        if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>())
+        if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>() && 
+            commonComponents != null && commonComponents.animator != null)
         {
            commonComponents.animator.Play("Spell");
         }
@@ -212,7 +213,14 @@ public class SpellCaster : CharacterComponentBase
 
         if (orientToDirection)
         {
-            spellContainer.transform.localRotation = commonComponents.animator.transform.localRotation;
+            Quaternion rotation;
+
+            if (commonComponents != null && commonComponents.animator != null)
+                rotation = commonComponents.animator.transform.localRotation;
+            else
+                rotation = transform.localRotation;
+
+            spellContainer.transform.localRotation = rotation;
 
             // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
             float y = spellContainer.transform.localRotation.eulerAngles.y;

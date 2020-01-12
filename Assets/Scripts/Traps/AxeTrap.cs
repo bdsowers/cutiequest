@@ -26,6 +26,7 @@ public class AxeTrap : PlacedTrap
                 maxTries = 0;
 
                 GameObject trapObj = levelGenerator.PlaceMapPrefab("AxeTrap", pos.x, pos.y);
+                Game.instance.levelGenerator.collisionMap.MarkSpace(pos.x, pos.y, 6);
             }
         }
     }

@@ -574,6 +574,7 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < biomeData.trapPrefabs.Count; ++i)
         {
             string prefabName = biomeData.trapPrefabs[i];
+            
             GameObject prefab = PrefabManager.instance.PrefabByName(prefabName);
             PlacedTrap trapPlacer = prefab.GetComponent<PlacedTrap>();
             if (trapPlacer != null)

@@ -195,4 +195,5 @@ MonoBehaviour:
     trapPrefabs:
     - SpikeTrap
     - AxeTrap
+    - FireStaffTrap
     shopPedestablPrefab: ShopPedestal
