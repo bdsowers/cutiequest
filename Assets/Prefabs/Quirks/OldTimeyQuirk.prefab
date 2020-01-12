@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Old Timey
   description: A big fan of the silent movies.
-  icon: {fileID: 21300004, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 08c53f8e2a4804d4ea7ac652d04b8c76, type: 3}
   requiredLevel: 1
