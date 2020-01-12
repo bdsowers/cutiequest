@@ -11,11 +11,38 @@ public class FillRegion : MonoBehaviour
     public float heightDeviation;
     public bool randomRotation = true;
 
+    List<float> CreateYValuesToAvoidFighting()
+    {
+        List<float> validValues = new List<float>();
+        int numValues = 3000;
+        float inc = heightDeviation / numValues;
+        for (int i = 0; i < numValues; ++i)
+        {
+            validValues.Add(i * inc);
+        }
+
+        // Shuffle the big array a bunch...
+        for (int i = 0; i < numValues; ++i)
+        {
+            int pos1 = Random.Range(0, numValues);
+            int pos2 = Random.Range(0, numValues);
+
+            float temp = validValues[pos1];
+            validValues[pos1] = validValues[pos2];
+            validValues[pos2] = temp;
+        }
+
+        return validValues;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Vector3 min = GetComponent<BoxCollider>().bounds.min;
         Vector3 max = GetComponent<BoxCollider>().bounds.max;
+
+        int yIndex = 0;
+        List<float> yValues = CreateYValuesToAvoidFighting();
 
         for (float x = min.x; x < max.x; x += separation.x)
         {
@@ -23,7 +50,7 @@ public class FillRegion : MonoBehaviour
             {
                 GameObject obj = GameObject.Instantiate(fillPrefabs.Sample(), transform);
                 obj.transform.localScale = new Vector3(scale.x, 1f, scale.y);
-                obj.transform.localPosition = new Vector3(x, transform.position.y + Random.Range(0f, heightDeviation), z);
+                obj.transform.localPosition = new Vector3(x, transform.position.y + yValues[yIndex++], z);
 
                 if (randomRotation)
                 {
