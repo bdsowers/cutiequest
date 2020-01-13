@@ -148,4 +148,6 @@ MonoBehaviour:
     - ShipWall2
     - ShipWall1
     - ShipWall2
+    trapPrefabs: []
     shopPedestablPrefab: ShopPedestal
+  background: Ship

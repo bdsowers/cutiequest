@@ -136,4 +136,6 @@ MonoBehaviour:
     - CaveWall2
     - CaveWall3
     - CaveWall4
+    trapPrefabs: []
     shopPedestablPrefab: ShopPedestal
+  background: Cave

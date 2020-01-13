@@ -21,9 +21,17 @@ public class BackgroundSelector : MonoBehaviour
         {
             gothBackground.SetActive(true);
         }
-        else
+        else if (Game.instance.currentDungeonData.background == "Forest")
         {
             forestBackground.SetActive(true);
+        }
+        else if (Game.instance.currentDungeonData.background == "Cave")
+        {
+            caveBackground.SetActive(true);
+        }
+        else if (Game.instance.currentDungeonData.background == "Ship")
+        {
+            sciFiBackground.SetActive(true);
         }
     }
 }

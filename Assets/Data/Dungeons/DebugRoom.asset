@@ -60,4 +60,6 @@ MonoBehaviour:
     wallPrefabs:
     - ForestWall1
     - ForestWall2
+    trapPrefabs: []
     shopPedestablPrefab: ShopPedestal
+  background: Forest
