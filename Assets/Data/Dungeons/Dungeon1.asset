@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dungeon1
   m_EditorClassIdentifier: 
   floorData:
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
@@ -46,7 +46,7 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
@@ -79,7 +79,7 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4,
         type: 3}
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
@@ -112,7 +112,7 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: c8c02206ee4eba1468765bbdbf37ed6a,
         type: 3}
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
