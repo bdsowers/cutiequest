@@ -6,6 +6,7 @@ public class CinematicActionMoveTo : CinematicAction
 {
     private string mTarget;
     private string mDestination;
+    private string mSource;
     private float mSeconds;
 
     public override string actionName
@@ -22,6 +23,7 @@ public class CinematicActionMoveTo : CinematicAction
 
         mTarget = dataProvider.GetStringData(mParameters, "target");
         mDestination = dataProvider.GetStringData(mParameters, "destination");
+        mSource = dataProvider.GetStringData(mParameters, "source");
         mSeconds = dataProvider.GetFloatData(mParameters, "seconds", 1f);
     }
 
@@ -31,6 +33,13 @@ public class CinematicActionMoveTo : CinematicAction
         GameObject destination = player.objectMap.GetObjectByName(mDestination);
 
         Vector3 startPosition = target.transform.position;
+
+        if (!string.IsNullOrEmpty(mSource))
+        {
+            startPosition = player.objectMap.GetObjectByName(mSource).transform.position;
+            target.transform.position = startPosition;
+        }
+
         Vector3 endPosition = destination.transform.position;
 
         float time = 0f;

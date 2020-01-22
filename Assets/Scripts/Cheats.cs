@@ -82,6 +82,12 @@ public class Cheats : MonoBehaviour
 #if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR
         return;
 #endif
+        // Cinematic testing cheat
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            Game.instance.cinematicDirector.dataProvider.SetData("boss1_defeated", "true");
+            Game.instance.cinematicDirector.PostCinematicEvent("Hub_Reload");
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

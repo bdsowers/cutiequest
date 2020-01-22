@@ -2516,7 +2516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &308676465
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7892,6 +7892,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2142513206}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1046527458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046527459}
+  m_Layer: 0
+  m_Name: CaveRevealTargetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1046527459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046527458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.77, y: 0, z: 1.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1056337515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8966,6 +8996,7 @@ GameObject:
   - component: {fileID: 1196203985}
   - component: {fileID: 1196203986}
   - component: {fileID: 1196203987}
+  - component: {fileID: 1196203988}
   m_Layer: 0
   m_Name: FlagEvaluator
   m_TagString: Untagged
@@ -9037,6 +9068,22 @@ MonoBehaviour:
   - {fileID: 483248789}
   - {fileID: 1021104030}
   requiredFlag: beats
+  whenEvaluated: 1
+--- !u!114 &1196203988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196203983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6035197150e663746b0f1963ac02190a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 1530826593}
+  requiredFlag: cave_biome_revealed
   whenEvaluated: 1
 --- !u!1001 &1222021025
 PrefabInstance:
@@ -10719,6 +10766,14 @@ MonoBehaviour:
     gameObject: {fileID: 912456238}
   - name: choice_dialog
     gameObject: {fileID: 2135044087}
+  - name: cave_dungeon
+    gameObject: {fileID: 1530826593}
+  - name: cave_reveal_transform
+    gameObject: {fileID: 1708432206}
+  - name: cave_reveal_source
+    gameObject: {fileID: 1909362694}
+  - name: cave_reveal_target
+    gameObject: {fileID: 1046527458}
 --- !u!4 &1422393245
 Transform:
   m_ObjectHideFlags: 0
@@ -12576,6 +12631,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 12064172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708432206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708432207}
+  m_Layer: 0
+  m_Name: CaveRevealCinematicCameraPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1708432207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708432206}
+  m_LocalRotation: {x: -0.22176997, y: -0.038897585, z: 0.008855125, w: -0.9742826}
+  m_LocalPosition: {x: -0.976244, y: 9.785014, z: -11.62588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714341281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1395845474, guid: c61028de0690a04489e563a5c9c1627d,
@@ -13966,6 +14051,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903607050}
   m_CullTransparentMesh: 0
+--- !u!1 &1909362694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909362695}
+  m_Layer: 0
+  m_Name: CaveRevealSourcePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909362695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909362694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.77, y: -15, z: 1.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1914634427
 PrefabInstance:
   m_ObjectHideFlags: 0

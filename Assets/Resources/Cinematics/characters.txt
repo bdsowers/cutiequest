@@ -93,6 +93,7 @@ animation trigger: boss1_intro
 
 animation trigger: boss1_death
 {
+	set_saved_flag boss1_defeated
 	camera_shake intensity: 0.4, speed: 5, seconds: 2
 }
 
@@ -127,6 +128,25 @@ animation trigger: Character_PunkyPeter
 animation trigger: Hub_Reload
 {
 	set key: item_purchased, value: false
+	
+	flag_set boss1_defeated
+	{
+		flag_unset cave_biome_revealed
+		{
+			set_saved_flag cave_biome_revealed
+			play reveal_cave_biome
+		}
+	}
+}
+
+animation id: reveal_cave_biome, trigger: reveal_cave_biome
+{
+	move_camera target: cave_reveal_transform, time: 2
+	wait_seconds 3
+
+	enable cave_dungeon
+	camera_shake intensity: 1, speed: 5, seconds: 2
+	move_to target: cave_dungeon, source: cave_reveal_source, destination: cave_reveal_target
 }
 
 animation trigger: Hub_PunkyPeter
