@@ -21,7 +21,7 @@ public class RockMonster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 4f)
+        if (Vector3.Distance(transform.position, Game.instance.avatar.transform.position) < 3.5f)
         {
             Activate();
         }
