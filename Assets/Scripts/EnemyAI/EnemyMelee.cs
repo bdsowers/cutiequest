@@ -7,6 +7,13 @@ public class EnemyMelee : EnemyAI
     SimpleAttack mSimpleAttack;
     SimpleMovement mSimpleMovement;
 
+    private bool mUpdateMeleeAI = true;
+    public bool UpdateMeleeAI
+    {
+        get { return mUpdateMeleeAI; }
+        set { mUpdateMeleeAI = value; }
+    }
+
     private void Start()
     {
         mSimpleAttack = GetComponent<SimpleAttack>();
@@ -50,6 +57,9 @@ public class EnemyMelee : EnemyAI
 
     public override bool CanUpdateAI()
     {
+        if (!mUpdateMeleeAI)
+            return false;
+
         if (mSimpleAttack != null && mSimpleAttack.isAttacking)
             return false;
 
