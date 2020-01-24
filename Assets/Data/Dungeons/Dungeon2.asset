@@ -38,13 +38,13 @@ MonoBehaviour:
     enemyData:
       minEnemies: 10
       maxEnemies: 15
-      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+      commonEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+      uncommonEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
         type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      rareEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      scaryEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
         type: 3}
   - roomSet: cave
     generationData:
