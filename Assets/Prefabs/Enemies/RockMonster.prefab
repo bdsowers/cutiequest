@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 6215749322139787534}
   - component: {fileID: 7053227564434089843}
   - component: {fileID: 390251832170149459}
+  - component: {fileID: 4892943004297049099}
   m_Layer: 10
   m_Name: RockMonster
   m_TagString: Untagged
@@ -559,6 +560,19 @@ MonoBehaviour:
   eyes: {fileID: 3938023827057736317}
   body: {fileID: 1787935738455433314}
   aiController: {fileID: 7020149889661926042}
+--- !u!65 &4892943004297049099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2912607769821695900
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +614,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7196394461355567791}
-  - component: {fileID: 1335165542592414386}
   m_Layer: 10
   m_Name: FallingRock
   m_TagString: Untagged
@@ -623,19 +636,6 @@ Transform:
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1335165542592414386
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2975482996448379127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2994316059291288140
 GameObject:
   m_ObjectHideFlags: 0
