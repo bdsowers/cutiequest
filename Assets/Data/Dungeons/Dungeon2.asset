@@ -36,8 +36,8 @@ MonoBehaviour:
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 10
-      maxEnemies: 15
+      minEnemies: 30
+      maxEnemies: 45
       commonEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
