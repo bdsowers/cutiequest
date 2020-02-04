@@ -38,7 +38,7 @@ MonoBehaviour:
     enemyData:
       minEnemies: 30
       maxEnemies: 45
-      commonEnemy: {fileID: 2738750450090089171, guid: 729e1592d4ca5eb4f98dcdf0fb1cacc7,
+      commonEnemy: {fileID: 2738750450090089171, guid: 77c21864a78492142870075ff3037d3c,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: f58700b48f06c7d47bf6668937353961,
         type: 3}
