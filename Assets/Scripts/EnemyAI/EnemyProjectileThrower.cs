@@ -8,6 +8,7 @@ public class EnemyProjectileThrower : EnemyAI
     ProjectileThrower mProjectileThrower;
     SimpleMovement mSimpleMovement;
     CollisionMap mCollisionMap;
+    EnemyTeleport mTeleport;
 
     int mThrowCounter = 0;
 
@@ -24,6 +25,7 @@ public class EnemyProjectileThrower : EnemyAI
         mProjectileThrower = GetComponentInChildren<ProjectileThrower>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
+        mTeleport = GetComponent<EnemyTeleport>();
     }
 
     public override void AIStructureChanged()
@@ -84,7 +86,11 @@ public class EnemyProjectileThrower : EnemyAI
 
         --mThrowCounter;
 
-        if (mProjectileThrower.IsInRange())
+        if (mTeleport != null && mTeleport.ShouldTeleport())
+        {
+            mTeleport.Teleport();
+        }
+        else if (mProjectileThrower.IsInRange())
         {
             if (alignedOnEitherAxis)
             {

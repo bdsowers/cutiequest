@@ -6,6 +6,7 @@ public class EnemyMelee : EnemyAI
 {
     SimpleAttack mSimpleAttack;
     SimpleMovement mSimpleMovement;
+    EnemyTeleport mTeleport;
 
     private bool mUpdateMeleeAI = true;
     public bool UpdateMeleeAI
@@ -18,6 +19,7 @@ public class EnemyMelee : EnemyAI
     {
         mSimpleAttack = GetComponent<SimpleAttack>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+        mTeleport = GetComponent<EnemyTeleport>();
     }
 
     public override void AIStructureChanged()
@@ -37,7 +39,11 @@ public class EnemyMelee : EnemyAI
     {
         Vector3 direction = OrthogonalDirection(transform, target.transform, true);
 
-        if (mSimpleAttack != null && mSimpleAttack.CanAttack(direction))
+        if (mTeleport != null && mTeleport.ShouldTeleport())
+        {
+            mTeleport.Teleport();
+        }
+        else if (mSimpleAttack != null && mSimpleAttack.CanAttack(direction))
         {
             mSimpleAttack.Attack(direction);
         }

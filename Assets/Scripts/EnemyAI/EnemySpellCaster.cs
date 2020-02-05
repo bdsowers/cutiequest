@@ -7,6 +7,8 @@ public class EnemySpellCaster : EnemyAI
 {
     SpellCaster mSpellCaster;
     SimpleMovement mSimpleMovement;
+    EnemyTeleport mTeleport;
+
     int mCastCounter = 0;
 
     private GameObject target
@@ -21,11 +23,13 @@ public class EnemySpellCaster : EnemyAI
     {
         mSpellCaster = GetComponentInChildren<SpellCaster>();
         mSimpleMovement = GetComponent<SimpleMovement>();
+        mTeleport = GetComponent<EnemyTeleport>();
     }
 
     public override void AIStructureChanged()
     {
         mSpellCaster = GetComponentInChildren<SpellCaster>();
+        mTeleport = GetComponentInChildren<EnemyTeleport>();
     }
 
     public override void UpdateAI()
@@ -35,8 +39,12 @@ public class EnemySpellCaster : EnemyAI
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
         mCastCounter--;
-        
-        if (mSpellCaster.IsInRange())
+
+        if (mTeleport != null && mTeleport.ShouldTeleport())
+        {
+            mTeleport.Teleport();
+        }
+        else if (mSpellCaster.IsInRange())
         {
             // Increase the likelihood that we'll try to move away from the player the closer they get.
             // However, for casters that target themselves, hold your ground for the most part
