@@ -9,6 +9,7 @@ public class HUD : MonoBehaviour
     public ProgressBar bossHealth;
     public UnlockDialog unlockDialog;
     public PurchasePrompt purchasePrompt;
+    public CheatsDialog cheatsDialog;
 
     private void Start()
     {
@@ -34,6 +35,6 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 }

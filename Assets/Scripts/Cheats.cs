@@ -8,7 +8,7 @@ public class Cheats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        PopulateCheatsDialog();
     }
 
     private void SkipTutorial()
@@ -70,6 +70,40 @@ public class Cheats : MonoBehaviour
     private void UnlockAllDungeons()
     {
         Game.instance.playerData.SetFlag("cave_biome_revealed");
+        Game.instance.saveManager.TriggerSave();
+    }
+
+    public void AddCoins()
+    {
+        Game.instance.playerData.numCoins += 100;
+    }
+
+    public void AddHearts()
+    {
+        Game.instance.playerData.numHearts += 2;
+    }
+
+    public void NoDamage()
+    {
+        Game.instance.avatar.GetComponent<Killable>().invulnerable = true;
+    }
+
+    public void ResetAttractiveness()
+    {
+        Game.instance.playerData.attractiveness = 1;
+    }
+
+    public void BuildFullCompanionSet()
+    {
+        Game.instance.companionBuilder.BuildCheatCompanionSet();
+        QuestR.seenMatches = false;
+    }
+
+    public void EnterPreview()
+    {
+        Game.instance.cinematicDirector.EndAllCinematics();
+
+        Game.instance.ForcePreviewMode();
     }
 
     // Update is called once per frame
@@ -87,6 +121,11 @@ public class Cheats : MonoBehaviour
 #if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR
         return;
 #endif
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Game.instance.hud.cheatsDialog.gameObject.SetActive(true);
+        }
+
         // Cinematic testing cheat
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -111,18 +150,12 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            Game.instance.playerData.numCoins += 100;
+            AddCoins();
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            Game.instance.playerData.numHearts += 2;
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
+            AddHearts();
         }
 
         if (Input.GetKeyDown(KeyCode.O))
@@ -147,12 +180,12 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Game.instance.avatar.GetComponent<Killable>().invulnerable = true;
+            NoDamage();
         }
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Game.instance.playerData.attractiveness = 1;
+            ResetAttractiveness();
         }
 
         if (Input.GetKeyDown(KeyCode.Slash))
@@ -162,21 +195,44 @@ public class Cheats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Backslash))
         {
-            Game.instance.companionBuilder.BuildCheatCompanionSet();
-            QuestR.seenMatches = false;
+            BuildFullCompanionSet();
         }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Game.instance.cinematicDirector.EndAllCinematics();
-
-            Game.instance.ForcePreviewMode();
+            EnterPreview();
         }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
             UnlockAllDungeons();
-            Game.instance.saveManager.TriggerSave();
         }
+    }
+
+    void CloseCheatDialog()
+    {
+        Game.instance.hud.cheatsDialog.gameObject.SetActive(false);
+    }
+
+    void PopulateCheatsDialog()
+    {
+        CheatsDialog dialog = Game.instance.hud.cheatsDialog;
+
+        dialog.AddButton("Close", CloseCheatDialog, "");
+        dialog.AddButton("Unlock Dungeons", UnlockAllDungeons, "T");
+        dialog.AddButton("Skip Tutorial", SkipTutorial, "Q");
+        dialog.AddButton("Reveal Map", RevealMap, "W");
+        dialog.AddButton("Dungeon Exit", TeleportToDungeonExit, "R");
+        dialog.AddButton("Add Coins", AddCoins, "Y");
+        dialog.AddButton("Add Hearts", AddHearts, "U");
+        dialog.AddButton("Clear Flags", ClearSavedFlags, "O");
+        dialog.AddButton("Kill Avatar", KillAvatar, "A");
+        dialog.AddButton("Screenshot", TakeScreenshot, "S");
+        dialog.AddButton("Skip to Boss", SkipToBoss, "H");
+        dialog.AddButton("No Damage", NoDamage, "F");
+        dialog.AddButton("Reset Attract", ResetAttractiveness, "G");
+        dialog.AddButton("Debug Dungeon", EnterDebugDungeon, "/");
+        dialog.AddButton("Companions", BuildFullCompanionSet, "\\");
+        dialog.AddButton("Preview", EnterPreview, "P");
     }
 }
