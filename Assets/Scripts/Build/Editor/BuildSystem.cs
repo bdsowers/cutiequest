@@ -8,6 +8,7 @@ public class BuildSystem : MonoBehaviour
 {
     private static string mSteamBuildLocation = "Steam/sdk/tools/ContentBuilder/content/HeroesSwipeRight.exe";
     private static string mConventionBuildLocation = "Build/convention/HeroesSwipeRight.exe";
+    private static string mSocialMediaBuildLocation = "Build/socialmedia/HeroesSwipeRight.exe";
 
     private static string BuildPath(string relativeTarget)
     {
@@ -44,6 +45,20 @@ public class BuildSystem : MonoBehaviour
 
         List<string> flags = new List<string>();
         flags.Add("DEMO");
+
+        Build(outputPath, options, flags);
+    }
+
+    public static void SocialMediaBuild()
+    {
+        // TODO - consider turning off UI
+        string outputPath = BuildPath(mSocialMediaBuildLocation);
+
+        BuildOptions options = BuildOptions.None;
+        options |= BuildOptions.Development;
+        options |= BuildOptions.AllowDebugging;
+
+        List<string> flags = new List<string>();
 
         Build(outputPath, options, flags);
     }

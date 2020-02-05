@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Cowboy
   description: Yeehaw!
-  icon: {fileID: 21300126, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: cb3994d4f1bd05045b28cc4ffb4a7987, type: 3}
   requiredLevel: 9

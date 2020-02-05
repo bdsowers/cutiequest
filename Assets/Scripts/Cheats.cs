@@ -8,7 +8,7 @@ public class Cheats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void SkipTutorial()
@@ -66,7 +66,12 @@ public class Cheats : MonoBehaviour
         Game.instance.EnterDungeon(Game.instance.debugDungeonData);
         Game.instance.transitionManager.TransitionToScreen("Dungeon");
     }
-    
+
+    private void UnlockAllDungeons()
+    {
+        Game.instance.playerData.SetFlag("cave_biome_revealed");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -166,6 +171,12 @@ public class Cheats : MonoBehaviour
             Game.instance.cinematicDirector.EndAllCinematics();
 
             Game.instance.ForcePreviewMode();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            UnlockAllDungeons();
+            Game.instance.saveManager.TriggerSave();
         }
     }
 }

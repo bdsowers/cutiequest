@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Trapped
   description: The relationship may get a little slicey and a little dicey.
-  icon: {fileID: 21300054, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 7525b688920f7cb48a704cf49408b86f, type: 3}
   requiredLevel: 5

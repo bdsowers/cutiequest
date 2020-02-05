@@ -16,4 +16,10 @@ public class EditorBuildSystem : MonoBehaviour
     {
         BuildSystem.ConventionBuild();
     }
+
+    [MenuItem("HSR/Social Media Build")]
+    public static void SocialMediaBuild()
+    {
+        BuildSystem.SocialMediaBuild();
+    }
 }

@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyName: Klepto
   description: Stealing from the shopkeeper might make you a permanent enemy.
-  icon: {fileID: 21300094, guid: 2338a5b37c602a6428b65a8aed0a533a, type: 3}
+  icon: {fileID: 21300000, guid: 493ea6622d4885a43a25911c1f0c97bf, type: 3}
   requiredLevel: 1
