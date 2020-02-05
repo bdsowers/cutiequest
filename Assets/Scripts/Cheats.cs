@@ -5,10 +5,12 @@ using ArrayExtensions;
 
 public class Cheats : MonoBehaviour
 {
+    private bool mDialogPopulated;
+
     // Start is called before the first frame update
     void Start()
     {
-        PopulateCheatsDialog();
+
     }
 
     private void SkipTutorial()
@@ -123,6 +125,12 @@ public class Cheats : MonoBehaviour
 #endif
         if (Input.GetKeyDown(KeyCode.C))
         {
+            if (!mDialogPopulated)
+            {
+                mDialogPopulated = true;
+                PopulateCheatsDialog();
+            }
+
             Game.instance.hud.cheatsDialog.gameObject.SetActive(true);
         }
 
