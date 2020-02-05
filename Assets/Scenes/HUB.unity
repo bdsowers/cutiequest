@@ -6609,24 +6609,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1914634427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &924874448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5940583348516570664, guid: 20d9e1181388fe14bb9d821825adaaee,
-    type: 3}
-  m_PrefabInstance: {fileID: 1949433070}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &924874449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924874448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 310e358188722bc4d9d06be504c3f7f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &927580166
 GameObject:
   m_ObjectHideFlags: 0
@@ -15970,21 +15952,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1133164971966629912}
     m_Modifications:
-    - target: {fileID: 599426588624298806, guid: c61028de0690a04489e563a5c9c1627d,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 599426588624298806, guid: c61028de0690a04489e563a5c9c1627d,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 599426588624298806, guid: c61028de0690a04489e563a5c9c1627d,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 5303312171234136625, guid: c61028de0690a04489e563a5c9c1627d,
         type: 3}
       propertyPath: m_Name
