@@ -12,6 +12,8 @@ public class ProjectileThrower : CharacterComponentBase
 
     public bool suppressStateUpdates { get; set; }
 
+    public int numThrows = 1;
+
     public bool IsInRange()
     {
         float range = 5f;
@@ -30,43 +32,46 @@ public class ProjectileThrower : CharacterComponentBase
     {
         isThrowing = true;
 
-        float actualThrowSpeed = throwSpeed;
+        float actualThrowSpeed = throwSpeed * numThrows;
         if (!Game.instance.realTime)
             actualThrowSpeed = 5f;
 
-        commonComponents.animator.Play("Throw", 0, 0f);
-        commonComponents.animator.speed = actualThrowSpeed;
-        
-        yield return new WaitForSeconds(0.75f / actualThrowSpeed);
-
-        GameObject projectile = GameObject.Instantiate(projectilePrefab);
-        projectile.GetComponent<Projectile>().strength = strength;
-        projectile.GetComponent<ConstantTranslation>().direction = direction;
-        Transform handTransform = commonComponents.animator.GetBoneTransform(HumanBodyBones.RightHand);
-
-        //projectile.transform.position = handTransform.position;
-        projectile.transform.position = transform.position + Vector3.up * 0.5f;
-
-        if (offset.HasValue)
+        for (int i = 0; i < numThrows; ++i)
         {
-            projectile.transform.position += offset.Value;
+            commonComponents.animator.Play("Throw", 0, 0f);
+            commonComponents.animator.speed = actualThrowSpeed;
+
+            yield return new WaitForSeconds(0.75f / actualThrowSpeed);
+
+            GameObject projectile = GameObject.Instantiate(projectilePrefab);
+            projectile.GetComponent<Projectile>().strength = strength;
+            projectile.GetComponent<ConstantTranslation>().direction = direction;
+            Transform handTransform = commonComponents.animator.GetBoneTransform(HumanBodyBones.RightHand);
+
+            //projectile.transform.position = handTransform.position;
+            projectile.transform.position = transform.position + Vector3.up * 0.5f;
+
+            if (offset.HasValue)
+            {
+                projectile.transform.position += offset.Value;
+            }
+
+            projectile.transform.localRotation = commonComponents.animator.transform.localRotation;
+
+            //projectile.SetLayerRecursive(gameObject.layer);
+            // todo bdsowers - yuck
+            if (gameObject.layer == LayerMask.NameToLayer("Player"))
+                projectile.SetLayerRecursive(LayerMask.NameToLayer("PlayerProjectile"));
+            else
+                projectile.SetLayerRecursive(LayerMask.NameToLayer("EnemyProjectile"));
+
+            // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
+            float y = projectile.transform.localRotation.eulerAngles.y;
+            y = Mathf.Round(y / 90) * 90.0f;
+            projectile.transform.localRotation = Quaternion.Euler(projectile.transform.localRotation.eulerAngles.x, y, projectile.transform.localRotation.eulerAngles.z);
+
+            yield return new WaitForSeconds(2f / actualThrowSpeed);
         }
-
-        projectile.transform.localRotation = commonComponents.animator.transform.localRotation;
-
-        //projectile.SetLayerRecursive(gameObject.layer);
-        // todo bdsowers - yuck
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-            projectile.SetLayerRecursive(LayerMask.NameToLayer("PlayerProjectile"));
-        else
-            projectile.SetLayerRecursive(LayerMask.NameToLayer("EnemyProjectile"));
-
-        // Round the Y rotation to the nearest 90 degree interval; root motion makes the rotation a little imprecise.
-        float y = projectile.transform.localRotation.eulerAngles.y;
-        y = Mathf.Round(y / 90) * 90.0f;
-        projectile.transform.localRotation = Quaternion.Euler(projectile.transform.localRotation.eulerAngles.x, y, projectile.transform.localRotation.eulerAngles.z);
-
-        yield return new WaitForSeconds(2f / actualThrowSpeed);
 
         if (!suppressStateUpdates)
         {

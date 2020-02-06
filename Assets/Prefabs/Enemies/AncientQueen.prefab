@@ -162,6 +162,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 81ce00ddd978d1149a0126c0c921effc,
     type: 3}
   throwSpeed: 1
+  numThrows: 3
 --- !u!114 &1467316340057780798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +832,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
+    - target: {fileID: 95108973957424844, guid: 02ac59dea0bf44d4d87bba04f0a6ca33,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02ac59dea0bf44d4d87bba04f0a6ca33, type: 3}
 --- !u!1 &9122710267268762280 stripped

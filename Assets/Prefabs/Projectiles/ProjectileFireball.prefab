@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: -1, y: 0, z: 0}
-  speed: 2
+  speed: 5
   useFixedUpdate: 0
 --- !u!114 &4605565583640297134
 MonoBehaviour:
@@ -277,7 +277,7 @@ PrefabInstance:
     - target: {fileID: 198531851669923632, guid: 9af958dc284d6b14d8fec3f6396edf9b,
         type: 3}
       propertyPath: moveWithTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198531851669923632, guid: 9af958dc284d6b14d8fec3f6396edf9b,
         type: 3}
