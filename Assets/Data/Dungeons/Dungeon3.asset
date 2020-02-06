@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dungeon3
   m_EditorClassIdentifier: 
   floorData:
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
@@ -38,13 +38,13 @@ MonoBehaviour:
     enemyData:
       minEnemies: 10
       maxEnemies: 15
-      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+      commonEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
         type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      rareEnemy: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      scaryEnemy: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
         type: 3}
   - roomSet: roomset6
     generationData:
