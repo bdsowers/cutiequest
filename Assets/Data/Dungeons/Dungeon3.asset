@@ -46,7 +46,7 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
         type: 3}
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
@@ -79,7 +79,7 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
-  - roomSet: roomset6
+  - roomSet: forest
     generationData:
       randomSeed: 0
       scopeData:
