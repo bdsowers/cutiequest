@@ -103,8 +103,6 @@ public class BuildSystem : MonoBehaviour
             currentBuildNumber++;
 
             File.WriteAllText(path, currentBuildNumber.ToString());
-
-            PlayerSettings.bundleVersion = currentBuildNumber.ToString();
         }
         catch(System.Exception)
         {
