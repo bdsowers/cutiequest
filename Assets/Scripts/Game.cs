@@ -4,11 +4,29 @@ using UnityEngine;
 using ArrayExtensions;
 using GameObjectExtensions;
 using DG.Tweening;
+using System.IO;
 
 public class Game : MonoBehaviour
 {
-    // todo bdsowers - go through an actual build process plz
-    public const int BUILD_NUMBER = 1;
+    private int mBuildNumber = -1;
+    public int BUILD_NUMBER
+    {
+        get
+        {
+            if (mBuildNumber == -1)
+            {
+                try
+                {
+                    string text = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "build.txt"));
+                    text = text.Trim();
+                    mBuildNumber = int.Parse(text);
+                }
+                catch (System.Exception) { }
+            }
+
+            return mBuildNumber;
+        }
+    }
 
     static Game mInstance = null;
 
@@ -168,7 +186,7 @@ public class Game : MonoBehaviour
     {
         get { return mSaveManager; }
     }
-    
+
     // note bdsowers - eventually turn-based support will likely be deprecated
     public bool realTime
     {
@@ -257,7 +275,7 @@ public class Game : MonoBehaviour
 
         mInstance = this;
         DontDestroyOnLoad(gameObject);
-        
+
         mPlayerStats = GetComponentInChildren<CharacterStatistics>();
         mSaveManager = GetComponent<SaveManager>();
         mTransitionManager = GetComponentInChildren<ScreenTransitionManager>();
@@ -306,7 +324,7 @@ public class Game : MonoBehaviour
 
         if (InControl.InputManager.ActiveDevice.AnyButtonIsPressed ||
             InControl.InputManager.ActiveDevice.AnyButtonWasPressed ||
-            InControl.InputManager.AnyKeyIsPressed || 
+            InControl.InputManager.AnyKeyIsPressed ||
             Input.anyKeyDown ||
             InControl.InputManager.ActiveDevice.LeftStick.HasChanged ||
             InControl.InputManager.ActiveDevice.RightStick.HasChanged ||
@@ -359,7 +377,7 @@ public class Game : MonoBehaviour
         playerStats.ChangeBaseStat(CharacterStatType.Magic, 2);
         playerStats.ChangeBaseStat(CharacterStatType.Speed, 2);
         playerStats.ChangeBaseStat(CharacterStatType.Strength, 2);
-        
+
         mPlayerData.followerUid = "1";
 
         finishedTutorial = false;
@@ -459,7 +477,7 @@ public class Game : MonoBehaviour
     {
         GameObject dialog = Game.instance.cinematicDirector.objectMap.GetObjectByName("choice_dialog");
         dialog.GetComponent<GenericChoiceDialog>().onDialogButtonPressed -= OnRateButtonPressed;
-        
+
         if (buttonName == "button_yes")
         {
             UnityEngine.Application.OpenURL("https://docs.google.com/forms/d/1sPvYirt1wT1DVrOF6z5vXsPps2PXfuJZBlyfHpyEr0A/edit");

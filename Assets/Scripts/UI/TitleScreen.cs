@@ -7,6 +7,7 @@ public class TitleScreen : MonoBehaviour
 {
     public GameObject heartPrefab;
     public GameObject titleContainer;
+    public Text buildNumber;
 
     private bool mLeaving = false;
     private float mLeaveTimer = 0f;
@@ -35,6 +36,8 @@ public class TitleScreen : MonoBehaviour
         }
 
         ResetDemoGame();
+
+        buildNumber.text = "Build " + Game.instance.BUILD_NUMBER;
     }
 
     void ResetDemoGame()

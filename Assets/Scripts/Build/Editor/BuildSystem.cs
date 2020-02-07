@@ -20,7 +20,6 @@ public class BuildSystem : MonoBehaviour
 
     public static void SteamBuild()
     {
-        // TODO BDSOWERS - update build number
         // TODO BDSOWERS - auto-send to Steam
 
         string outputPath = BuildPath(mSteamBuildLocation);
@@ -65,6 +64,8 @@ public class BuildSystem : MonoBehaviour
 
     public static void Build(string outputPath, BuildOptions options, List<string> flags)
     {
+        UpdateBuildNumber();
+
         string cacheSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone);
         string newSymbols = ConstructPreprocessorList(flags);
         Debug.Log(newSymbols);
@@ -83,5 +84,31 @@ public class BuildSystem : MonoBehaviour
         List<string> finalFlags = new List<string>(currentFlags);
         finalFlags.AddRange(flags);
         return string.Join(";", finalFlags);
+    }
+
+    private static void UpdateBuildNumber()
+    {
+        try
+        {
+            int currentBuildNumber = 100;
+
+            string path = Path.Combine(Application.streamingAssetsPath, "build.txt");
+            if (File.Exists(path))
+            {
+                string text = File.ReadAllText(path);
+                text = text.Trim();
+                currentBuildNumber = int.Parse(text);
+            }
+
+            currentBuildNumber++;
+
+            File.WriteAllText(path, currentBuildNumber.ToString());
+
+            PlayerSettings.bundleVersion = currentBuildNumber.ToString();
+        }
+        catch(System.Exception)
+        {
+            Debug.LogError("Failed to update build number");
+        }
     }
 }
