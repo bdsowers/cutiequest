@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 7519224713004977550}
-  subMesh: {fileID: 4567404666510170843}
+  subMesh: {fileID: 4568511131227003786}
   collisionIgnoreList: 
   collisionIdentity: 4
 --- !u!114 &7670395356955178461
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionCooldown: 0.5
+  isBoss: 0
 --- !u!114 &4841260898688364236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,12 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 22
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
+  invulnerable: 0
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _maxHealth: 22
   _strength: 3
   _defense: 0
   _magic: 4
@@ -141,7 +143,9 @@ MonoBehaviour:
     rate: 25
     amount: 1
   arbitraryDrops: []
+  ignoreGoldDigger: 0
   scatter: 0
+  delay: 0
 --- !u!114 &2401922656385248018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +161,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 48647dabeeb17b74380b6780afc64d7a,
     type: 3}
   throwSpeed: 1
+  numThrows: 1
 --- !u!114 &1467316340057780798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +229,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4569414620403578163}
+  - {fileID: 4568511131227010243}
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -728,13 +733,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5d192ff58055741beb3d8e0e2466e6, type: 3}
---- !u!1 &4567404666510170843 stripped
+--- !u!1 &4568511131227003786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1181921010304908, guid: ad5d192ff58055741beb3d8e0e2466e6,
     type: 3}
   m_PrefabInstance: {fileID: 4568511131227004247}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4569414620403578163 stripped
+--- !u!4 &4568511131227010243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4308745711888484, guid: ad5d192ff58055741beb3d8e0e2466e6,
     type: 3}

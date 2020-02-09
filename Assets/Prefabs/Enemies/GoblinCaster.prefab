@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 7519224713004977550}
-  subMesh: {fileID: 4930632715655939754}
+  subMesh: {fileID: 4931078367216178526}
   collisionIgnoreList: 
   collisionIdentity: 4
 --- !u!114 &7670395356955178461
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionCooldown: 0.5
+  isBoss: 0
 --- !u!114 &4841260898688364236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,12 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 40
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
+  invulnerable: 0
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxHealth: 40
   _strength: 5
   _defense: 0
   _magic: 5
@@ -147,7 +149,9 @@ MonoBehaviour:
     rate: 50
     amount: 1
   arbitraryDrops: []
+  ignoreGoldDigger: 0
   scatter: 0
+  delay: 0
 --- !u!114 &9042846019687223288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +251,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4926941758077320102}
+  - {fileID: 4931078367216186007}
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -756,13 +760,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e77aa60f5941c4fac8214300600242, type: 3}
---- !u!1 &4930632715655939754 stripped
+--- !u!1 &4931078367216178526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1009295489438026, guid: 66e77aa60f5941c4fac8214300600242,
     type: 3}
   m_PrefabInstance: {fileID: 4931078367216179168}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4926941758077320102 stripped
+--- !u!4 &4931078367216186007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4141632177056838, guid: 66e77aa60f5941c4fac8214300600242,
     type: 3}

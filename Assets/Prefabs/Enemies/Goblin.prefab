@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 7519224713004977550}
-  subMesh: {fileID: 4858685897485563724}
+  subMesh: {fileID: 4858203813652265114}
   collisionIgnoreList: 
   collisionIdentity: 4
 --- !u!114 &7670395356955178461
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionCooldown: 1
+  isBoss: 0
 --- !u!114 &4841260898688364236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,12 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 42
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
+  invulnerable: 0
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
-  _strength: 5
+  _maxHealth: 42
+  _strength: 4
   _defense: 0
   _magic: 1
   _speed: 2
@@ -161,7 +163,9 @@ MonoBehaviour:
     rate: 50
     amount: 1
   arbitraryDrops: []
+  ignoreGoldDigger: 0
   scatter: 0
+  delay: 0
 --- !u!114 &7020149889661926042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +233,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4862669827471989306}
+  - {fileID: 4858203813652258128}
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -733,13 +737,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: badeb88086af5f2499be1af06a7bb438, type: 3}
---- !u!1 &4858685897485563724 stripped
+--- !u!1 &4858203813652265114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1772087364770496, guid: badeb88086af5f2499be1af06a7bb438,
     type: 3}
   m_PrefabInstance: {fileID: 4858203813652262284}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4862669827471989306 stripped
+--- !u!4 &4858203813652258128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4612249973602230, guid: badeb88086af5f2499be1af06a7bb438,
     type: 3}
