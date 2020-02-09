@@ -66,7 +66,7 @@ public class CharacterSelect : MonoBehaviour
             mControlTimer = rotateTime + 0.05f;
         }
 
-        
+
         if (Game.instance.actionSet.Activate.WasPressed || Game.instance.actionSet.Spell.WasPressed)
         {
             Game.instance.playerData.model = selectableCharacters[mCurrentSelection].name;
@@ -74,6 +74,7 @@ public class CharacterSelect : MonoBehaviour
             materialName = materialName.Replace(" (Instance)", "");
 
             Game.instance.playerData.material = materialName;
+            Game.instance.dungeonEntranceId = "forest";
             Game.instance.transitionManager.TransitionToScreen("Dungeon");
         }
     }

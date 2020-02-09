@@ -239,8 +239,10 @@ public class Game : MonoBehaviour
 
     public BasicActionSet actionSet { get { return mActionSet; } }
 
-    public void EnterDungeon(DungeonData dungeonData)
+    public void EnterDungeon(DungeonData dungeonData, string entranceId)
     {
+        dungeonEntranceId = entranceId;
+
         Game.instance.playerData.numHearts = 0;
         Game.instance.playerData.numCoins = 0;
 
@@ -264,6 +266,8 @@ public class Game : MonoBehaviour
     public bool finishedTutorial { get; set; }
 
     public int whoseTurn { get; set; }
+
+    public string dungeonEntranceId { get; set; }
 
     private void Awake()
     {

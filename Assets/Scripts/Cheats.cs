@@ -65,7 +65,7 @@ public class Cheats : MonoBehaviour
 
     private void EnterDebugDungeon()
     {
-        Game.instance.EnterDungeon(Game.instance.debugDungeonData);
+        Game.instance.EnterDungeon(Game.instance.debugDungeonData, null);
         Game.instance.transitionManager.TransitionToScreen("Dungeon");
     }
 
