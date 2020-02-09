@@ -78,15 +78,6 @@ public class HUB : MonoBehaviour
         yield break;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Game.instance.dungeonEntranceId = "forest";
-            StartCoroutine(PlayExitDungeonSequence());
-        }
-    }
-
     private GameObject DungeonEntranceWithId(string entranceId)
     {
         DungeonEntrance[] allEntrances = GameObject.FindObjectsOfType<DungeonEntrance>();
