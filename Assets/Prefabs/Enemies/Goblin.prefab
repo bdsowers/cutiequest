@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 42
+  health: 40
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 42
+  _maxHealth: 40
   _strength: 4
   _defense: 0
   _magic: 1
