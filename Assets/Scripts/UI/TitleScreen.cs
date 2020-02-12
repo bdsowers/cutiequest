@@ -14,27 +14,11 @@ public class TitleScreen : MonoBehaviour
 
     private float mStartupDelay = 0.5f;
 
+    public Button quitButton;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (float x = -6; x <= 6; x += 0.5f)
-        {
-            for (float y = -6; y <= 6; y += 0.5f)
-            {
-                float offset = 0f;
-
-                if (y >= -1.25f && y <= 1.5f) continue;
-
-                float sepX = 3.75f * 0.5f;
-                float sepY = 4f * 0.5f;
-
-                Vector3 pos = new Vector3(x * sepX, offset + y * sepY, 0f);
-                GameObject newHeart = GameObject.Instantiate(heartPrefab);
-                newHeart.transform.position = pos;
-                newHeart.transform.localScale = Vector3.one * 0.85f;
-            }
-        }
-
         ResetDemoGame();
 
         buildNumber.text = "Build " + Game.instance.BUILD_NUMBER;
@@ -46,6 +30,7 @@ public class TitleScreen : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         Game.instance.saveManager.LoadGame();
+        quitButton.interactable = false;
 #endif
     }
 
@@ -57,36 +42,35 @@ public class TitleScreen : MonoBehaviour
             mStartupDelay -= Time.deltaTime;
             return;
         }
-
-        if (Input.anyKeyDown && !Game.instance.transitionManager.isTransitioning)
-            Leave();
-
-        if (mLeaving)
-        {
-            mLeaveTimer += Time.deltaTime * 6f;
-            mLeaveTimer = Mathf.Min(mLeaveTimer, 1f);
-            titleContainer.transform.localScale = new Vector3(1f - mLeaveTimer, 1f, 1f);
-        }
     }
 
-    void Leave()
+    public void OnPlay()
+    {
+        MoveToNextScene();
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
+
+    public void OnCredits()
+    {
+
+    }
+
+    public void OnSettings()
+    {
+
+    }
+
+    void MoveToNextScene()
     {
         if (mLeaving)
             return;
 
         mLeaving = true;
 
-        TitleHeart[] hearts = GameObject.FindObjectsOfType<TitleHeart>();
-        for (int i = 0; i < hearts.Length; ++i)
-        {
-            hearts[i].MakeDisappear();
-        }
-
-        Invoke("MoveToNextScene", 0.6f);
-    }
-
-    void MoveToNextScene()
-    {
         if (Game.instance.finishedTutorial && Game.instance.playerData.model != null)
         {
             Game.instance.transitionManager.TransitionToScreen("HUB");
