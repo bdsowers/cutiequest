@@ -1,3 +1,16 @@
+StartingRoom
+guaranteed_first
+1
+2213122
+2111112
+1111111
+311p113
+1111111
+2111112
+2113112
+end
+
+
 Room1
 primary, extra, rotate_1
 1

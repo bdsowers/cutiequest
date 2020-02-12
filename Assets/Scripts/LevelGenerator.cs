@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     private const char SHOP_PEDESTAL = '7';
     private const char SHOP_KEEPER = '8';
     private const char PRESET_ENEMY = '9';
+    private const char AVATAR_POSITION = 'p';
 
     private const int WALKABLEMAP_DONT_MARK = -1;
     private const int WALKABLEMAP_USE_PREFAB_MARK = -2;
@@ -36,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
     private IEnumerator Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
-        
+
         TextAsset roomSetData = Resources.Load<TextAsset>("RoomSets/" + CurrentDungeonFloorData().roomSet);
         mRoomset = new RoomSet();
         mRoomset.LoadFromTextAsset(roomSetData);
@@ -64,10 +65,10 @@ public class LevelGenerator : MonoBehaviour
 
         PlaceTraps();
         PlaceEnemies();
-        
+
         if (!IsPresetRoom())
         {
-            
+
             PlaceHearts();
             PlaceExit();
         }
@@ -290,14 +291,15 @@ public class LevelGenerator : MonoBehaviour
                     PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, WALKABLEMAP_STATIC_MARK);
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE ||
-                    dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE)
+                    dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE ||
+                    dungeon.TileType(x,y) == AVATAR_POSITION)
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs.Sample(), x, y);
                 }
                 else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
                 {
                     PlaceMapPrefab(biomeData.floorPrefabs[0], x, y).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false; ;
-                    
+
                     PlaceMapPrefab(biomeData.shopPedestablPrefab, x, y, WALKABLEMAP_STATIC_MARK).GetComponent<RevealWhenAvatarIsClose>().allowScaleVariation = false;
                     GameObject buyableItem = PlaceMapPrefab(RandomItem(), x, y);
                     buyableItem.transform.localPosition += Vector3.up * 0.3f;
@@ -373,19 +375,29 @@ public class LevelGenerator : MonoBehaviour
         return item.name;
     }
 
+    private bool IsPositionEmpty(Vector2Int pos)
+    {
+        int tileType = mDungeon.TileType(pos);
+        bool possiblyEmpty = (tileType == RandomDungeonTileData.WALKABLE_TILE ||
+            tileType == RandomDungeonTileData.EXIT_TILE ||
+            tileType == AVATAR_POSITION);
+
+        if (!possiblyEmpty)
+            return false;
+
+        return mCollisionMap.SpaceMarking(pos.x, pos.y) == 0;
+    }
+
     public Vector2Int FindEmptyNearbyPosition(Vector2Int sourcePos)
     {
-        if (mDungeon.TileType(sourcePos) != RandomDungeonTileData.WALKABLE_TILE ||
-            mCollisionMap.SpaceMarking(sourcePos.x, sourcePos.y) != 0)
+        if (!IsPositionEmpty(sourcePos))
         {
             for (int xOffset = -1; xOffset <= 1; ++xOffset)
             {
                 for (int yOffset = 1; yOffset >= -1; --yOffset)
                 {
                     Vector2Int pos = sourcePos + new Vector2Int(xOffset, yOffset);
-                    if (mDungeon.TileType(pos) == RandomDungeonTileData.WALKABLE_TILE &&
-                        mCollisionMap.SpaceMarking(pos.x, pos.y) == 0 &&
-                        Mathf.Abs(xOffset) != Mathf.Abs(yOffset))
+                    if (IsPositionEmpty(pos) && Mathf.Abs(xOffset) != Mathf.Abs(yOffset))
                     {
                         return pos;
                     }
@@ -399,7 +411,12 @@ public class LevelGenerator : MonoBehaviour
     private void PlaceAvatar()
     {
         GameObject avatar = GameObject.Find("Avatar");
+
         Vector2Int pos = mDungeon.primaryPathPositions[0];
+        Vector2Int guaranteedPos = mDungeon.PositionForSpecificTile('p');
+        if (guaranteedPos.x != -1 && guaranteedPos.y != -1)
+            pos = guaranteedPos;
+
         pos = FindEmptyNearbyPosition(pos);
         mAvatarStartPosition = pos;
 
@@ -458,7 +475,7 @@ public class LevelGenerator : MonoBehaviour
 
     private string ChooseRandomEnemy(DungeonFloorData floorData)
     {
-        
+
         DungeonEnemyData enemyData = floorData.enemyData;
 
         int randomNum = Random.Range(0, 100);
@@ -496,7 +513,7 @@ public class LevelGenerator : MonoBehaviour
             if (walkablePositions.Count == 0)
                 return;
 
-            
+
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
             PlaceEnemy(data, pos2);
@@ -530,7 +547,7 @@ public class LevelGenerator : MonoBehaviour
             walkablePositions.Remove(pos2);
             Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
             newHeart.transform.position = pos;
-            
+
             // Don't mark these on the collision map - entities can walk through them freely
         }
     }
@@ -575,7 +592,7 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < maxTrapPrefabsToConsider; ++i)
         {
             string prefabName = biomeData.trapPrefabs[i];
-            
+
             GameObject prefab = PrefabManager.instance.PrefabByName(prefabName);
             PlacedTrap trapPlacer = prefab.GetComponent<PlacedTrap>();
             if (trapPlacer != null)

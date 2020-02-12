@@ -68,7 +68,7 @@ namespace OMM.RDG
         private Dictionary<Vector2Int, RandomDungeonTileData> mRoomScratch = new Dictionary<Vector2Int, RandomDungeonTileData>();
         private List<Vector2Int> mAvailableExits = new List<Vector2Int>();
         private RoomSet mRoomSet;
-        
+
         private List<Vector2Int> mPrimaryPathPositions = new List<Vector2Int>();
 
         private RoomData mPreviousRoomPlaced;
@@ -82,7 +82,7 @@ namespace OMM.RDG
 
         private bool mMapInvalid = true;
         private bool mGenerationRequiredRetry = false;
-        
+
         public int maxDistanceFromPrimaryPath { get; private set; }
 
         public bool generationRequiredRetry
@@ -108,7 +108,7 @@ namespace OMM.RDG
                 PrepareNewMapGeneration();
 
                 ConstructPrimaryPath(generationData.scopeData);
-                
+
                 CollectAvailableExits(ForbiddenScopesForExtraRooms(generationData.scopeData));
                 AddExtraRooms(generationData.numExtraRoomsPlacedBeforeSpecialRooms);
 
@@ -227,7 +227,7 @@ namespace OMM.RDG
                 {
                     int tile = dungeon.TileType(x, y);
                     bool wallBelow = (y < dungeon.height - 1 && dungeon.TileType(x, y + 1) == RandomDungeonTileData.WALL_TILE);
-                    
+
                     if (tile == RandomDungeonTileData.EMPTY_TILE)
                     {
                         if (wallBelow)
@@ -255,13 +255,14 @@ namespace OMM.RDG
         /// <summary>
         /// Constructs the primary or critical path for the dungeon - this is the central path
         /// that any extra rooms branch off from.
-        /// Primary paths only move forward - they never branch. 
+        /// Primary paths only move forward - they never branch.
         /// </summary>
         /// <param name="scopes"></param>
         private void ConstructPrimaryPath(RandomDungeonScopeData[] scopes)
         {
             // After choosing where a new room is going to go, close off all the paths in
             // the previous room to prevent branching.
+            bool firstRoomPlaced = false;
 
             List<int> successfulRoomsPerScope = new List<int>();
             for (int i = 0; i < scopes.Length; ++i)
@@ -273,7 +274,7 @@ namespace OMM.RDG
             {
                 RandomDungeonScopeData scope = scopes[scopeIdx];
                 int roomsPerScope = mRNG.Next(scope.criticalPathMinRooms, scope.criticalPathMaxRooms);
-                
+
                 for (int i = 0; i < roomsPerScope; ++i)
                 {
                     RoomPlacementOptions options = RoomPlacementOptions.None;
@@ -282,7 +283,12 @@ namespace OMM.RDG
                         options = RoomPlacementOptions.AllowMismatchScopes;
                     }
 
-                    if (TryPlaceRoom("primary", true, scopeIdx, options) != null)
+                    if (!firstRoomPlaced)
+                    {
+                        firstRoomPlaced = true;
+                        TryPlaceRoom("guaranteed_first", true, scopeIdx, options);
+                    }
+                    else if (TryPlaceRoom("primary", true, scopeIdx, options) != null)
                     {
                         successfulRoomsPerScope[scopeIdx]++;
                     }
@@ -414,7 +420,7 @@ namespace OMM.RDG
             // Otherwise pick a random exit
             int exitIndex = -1;
             Vector2Int mapExit;
-            
+
             if (mAvailableExits.Count == 0)
             {
                 mapExit = new Vector2Int(0, 0);
@@ -477,11 +483,11 @@ namespace OMM.RDG
                         td = mRoomScratch[mapPos];
                         td.Clear();
                     }
-                   
+
                     td.tileType = roomTile;
                     td.scope = scope;
                     td.room = mCurrentRoomId;
-                    
+
                     if (primaryPath)
                     {
                         td.distanceFromPrimaryPath = 0;
@@ -580,7 +586,7 @@ namespace OMM.RDG
                     Vector2Int mapPos = new Vector2Int(mapX, mapY);
 
                     int roomTile = roomData.Tile(roomX, roomY);
-                    
+
                     if (!mRoomScratch.ContainsKey(mapPos) || roomTile == RandomDungeonTileData.EMPTY_TILE)
                     {
                         // Any kind of tile can be placed over an empty location
@@ -599,7 +605,7 @@ namespace OMM.RDG
                             // that a scope only has a single point of entry.
                             return true;
                         }
-                        else if (RoomPlacementOptionSet(roomPlacementOptions, RoomPlacementOptions.AllowWallsToBecomeExits) && 
+                        else if (RoomPlacementOptionSet(roomPlacementOptions, RoomPlacementOptions.AllowWallsToBecomeExits) &&
                             mapTile == RandomDungeonTileData.WALL_TILE && roomTile == RandomDungeonTileData.EXIT_TILE)
                         {
                             // If the options indicate that walls can become exits, support that.
@@ -690,7 +696,7 @@ namespace OMM.RDG
             int width = maxX - minX + 1 + padding * 2;
             int height = maxY - minY + 1 + padding * 2;
             RandomDungeon dungeon = new RandomDungeon(width, height);
-           
+
             foreach(KeyValuePair<Vector2Int, RandomDungeonTileData> pair in scratch)
             {
                 int x = pair.Key.x - minX + padding;
