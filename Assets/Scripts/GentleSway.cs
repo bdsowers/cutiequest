@@ -12,7 +12,7 @@ public class GentleSway : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mStartPosition = transform.position;
+        mStartPosition = transform.localPosition;
 
         mSpeed = Random.Range(0.2f, 1.0f);
         mTimer = Random.Range(0f, 200f);
@@ -23,6 +23,6 @@ public class GentleSway : MonoBehaviour
     {
         mTimer += Time.deltaTime * mSpeed;
 
-        transform.position = mStartPosition + Vector3.right * Mathf.Sin(mTimer) * mStrength + Vector3.up * Mathf.Cos(mTimer / 2f) * 5f;
+        transform.localPosition = mStartPosition + Vector3.right * Mathf.Sin(mTimer) * mStrength + Vector3.up * Mathf.Cos(mTimer / 2f) * 5f;
     }
 }
