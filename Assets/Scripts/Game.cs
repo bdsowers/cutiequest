@@ -263,6 +263,11 @@ public class Game : MonoBehaviour
         return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Preview";
     }
 
+    public bool InTitle()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Title";
+    }
+
     public bool finishedTutorial { get; set; }
 
     public int whoseTurn { get; set; }
@@ -351,7 +356,7 @@ public class Game : MonoBehaviour
     {
         mActionSet.DetectController();
 
-        if (Game.instance.actionSet.Pause.WasPressed)
+        if (Game.instance.actionSet.Pause.WasPressed && !InTitle())
         {
             // In some control schemes, pause & close are the same button (Escape)
             // Make sure these don't overlap

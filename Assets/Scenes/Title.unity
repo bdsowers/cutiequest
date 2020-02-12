@@ -176,6 +176,7 @@ MonoBehaviour:
   - {fileID: 1257652281}
   - {fileID: 402752120}
   - {fileID: 760283045}
+  autoSelect: 1
 --- !u!1 &21614237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2031,30 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 625476991, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303312170302710328, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303312170677007495, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303312171129409374, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303312171605904045, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}

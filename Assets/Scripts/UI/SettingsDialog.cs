@@ -30,10 +30,15 @@ public class SettingsDialog : Dialog
 
     private bool mScreenSettingsChanged = false;
 
-    private void Start()
+    private void OnEnable()
     {
+        buttonSet.GetComponent<ButtonSet>().ForceUnfocus();
+
+        mScreenSettingsChanged = false;
+        mCurrentSelection = 0;
         mFullScreen = Screen.fullScreen;
         mAvailableResolutions = Screen.resolutions;
+
         mSelectedResolution = System.Array.IndexOf(mAvailableResolutions, Screen.currentResolution);
         if (mSelectedResolution < 0)
             mSelectedResolution = 0;
@@ -59,6 +64,9 @@ public class SettingsDialog : Dialog
         if (Game.instance.actionSet.MoveUp.WasPressed)
         {
             mCurrentSelection = Mathf.Max(mCurrentSelection - 1, 0);
+
+            buttonSet.GetComponent<ButtonSet>().ForceUnfocus();
+
             UpdateVisuals();
         }
 
