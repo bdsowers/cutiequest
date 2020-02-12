@@ -61,7 +61,7 @@ public class TitleScreen : MonoBehaviour
 
     public void OnSettings()
     {
-
+        Game.instance.hud.settingsDialog.gameObject.SetActive(true);
     }
 
     void MoveToNextScene()

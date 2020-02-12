@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour
     public UnlockDialog unlockDialog;
     public PurchasePrompt purchasePrompt;
     public CheatsDialog cheatsDialog;
+    public SettingsDialog settingsDialog;
 
     private void Start()
     {
@@ -26,6 +27,9 @@ public class HUD : MonoBehaviour
     private void OnPlayerDataChanged(PlayerData newData)
     {
         // null reference guard when order of operations isn't clear
+        if (Game.instance.avatar == null)
+            return;
+
         if (Game.instance.avatar.GetComponent<ExternalCharacterStatistics>().externalReference == null)
             return;
 

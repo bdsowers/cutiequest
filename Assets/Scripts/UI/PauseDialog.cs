@@ -40,8 +40,7 @@ public class PauseDialog : Dialog
 
     public void OnSettingsPressed()
     {
-        // todo bdsowers
-        gameObject.SetActive(false);
+        Game.instance.hud.settingsDialog.gameObject.SetActive(true);
     }
 
     public void OnQuitPressed()

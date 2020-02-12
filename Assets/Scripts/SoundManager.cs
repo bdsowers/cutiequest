@@ -19,9 +19,35 @@ public class SoundManager : MonoBehaviour
     private Dictionary<string, float> mMaxFrequencies = new Dictionary<string, float>();
     private Dictionary<string, float> mFrequencyTrackers = new Dictionary<string, float>();
 
+    private float mMusicVolume;
+    private float mSFXVolume;
+
+    public float MusicVolume
+    {
+        get { return mMusicVolume; }
+        set
+        {
+            mMusicVolume = Mathf.Clamp(value, 0, 1);
+            PlayerPrefs.SetFloat("music", mMusicVolume);
+        }
+    }
+
+    public float SFXVolume
+    {
+        get { return mSFXVolume; }
+        set
+        {
+            mSFXVolume = Mathf.Clamp(value, 0, 1);
+            PlayerPrefs.SetFloat("sfx", mSFXVolume);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        mMusicVolume = PlayerPrefs.GetFloat("music", 1f);
+        mSFXVolume = PlayerPrefs.GetFloat("sfx", 1f);
+
         mAudioSources = GetComponentsInChildren<AudioSource>();
 
         for (int i = 0; i < mAudioSources.Length; ++i)
@@ -62,8 +88,9 @@ public class SoundManager : MonoBehaviour
                 return;
             }
         }
-        
+
         mAudioSourceMap[soundName].pitch = 1f + Random.Range(-0.1f, 0.1f);
+        mAudioSourceMap[soundName].volume = SFXVolume;
         mAudioSourceMap[soundName].Play();
     }
 
@@ -88,6 +115,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             mCurrentMusic = mAudioSourceMap[musicName];
+            mCurrentMusic.volume = MusicVolume;
             mCurrentMusic.Play();
         }
     }
@@ -104,15 +132,15 @@ public class SoundManager : MonoBehaviour
         {
             t += Time.deltaTime;
 
-            prevMusic.volume = 1f - t;
-            nextMusic.volume = t;
+            prevMusic.volume = (1f - t) * MusicVolume;
+            nextMusic.volume = t * MusicVolume;
             yield return null;
         }
 
         prevMusic.volume = 0f;
         prevMusic.Stop();
 
-        nextMusic.volume = 1f;
+        nextMusic.volume = MusicVolume;
 
         yield break;
     }

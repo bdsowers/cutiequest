@@ -7,9 +7,14 @@ public class ButtonSet : MonoBehaviour
 {
     public List<Button> buttons;
 
+    public bool autoSelect = true;
+
     private void OnEnable()
     {
-        StartCoroutine(Reset());
+        if (autoSelect)
+        {
+            StartCoroutine(Reset());
+        }
     }
 
     public IEnumerator Reset()
@@ -24,13 +29,18 @@ public class ButtonSet : MonoBehaviour
         {
             buttons[1].Select();
         }
-        
+
         if (buttons.Count > 0)
         {
             buttons[0].Select();
         }
 
         yield break;
+    }
+
+    public void TakeFocus()
+    {
+        StartCoroutine(Reset());
     }
 
     private IEnumerator SelectButtonAfterTick()
