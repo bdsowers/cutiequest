@@ -28,6 +28,17 @@ public class QuestR : Dialog
 
     public bool joystickNeedsReset { get; set; }
 
+    public GameObject matchMakerContainer;
+    public GameObject personalContainer;
+    public GameObject mapContainer;
+    public GameObject inventoryContainer;
+
+    public Image[] tabs;
+    public Image[] tabIcons;
+    private int mSelectedTab = 0;
+
+    public GameObject frontCameraRig;
+
     public void SetTutorialMode(bool tutorialMode)
     {
         if (tutorialMode)
@@ -69,6 +80,8 @@ public class QuestR : Dialog
         DisableButtonNavigation();
 
         seenMatches = true;
+
+        UpdateTabVisuals();
     }
 
     private void DisableButtonNavigation()
@@ -116,8 +129,41 @@ public class QuestR : Dialog
         {
             Close();
         }
+
+        if (Game.instance.actionSet.MoveDown.WasPressed && !tutorialMode)
+        {
+            int prev = mSelectedTab;
+            mSelectedTab = Mathf.Clamp(mSelectedTab + 1, 0, VisibleTabs() - 1);
+
+            if (prev != mSelectedTab)
+            {
+                UpdateTabVisuals();
+            }
+        }
+        else if (Game.instance.actionSet.MoveUp.WasPressed && !tutorialMode)
+        {
+            int prev = mSelectedTab;
+            mSelectedTab = Mathf.Clamp(mSelectedTab - 1, 0, VisibleTabs() - 1);
+
+            if (prev != mSelectedTab)
+            {
+                UpdateTabVisuals();
+            }
+        }
     }
 
+    private int VisibleTabs()
+    {
+        int sum = 0;
+        for (int i = 0; i < tabs.Length; ++i)
+        {
+            if (tabs[i].gameObject.activeSelf)
+            {
+                ++sum;
+            }
+        }
+        return sum;
+    }
     public void AcceptCharacter(CharacterData characterData)
     {
         Game.instance.playerData.followerUid = characterData.characterUniqueId;
@@ -129,5 +175,38 @@ public class QuestR : Dialog
         rigModel2.ChangeModel(characterData);
 
         Game.instance.soundManager.PlaySound("confirm_special");
+    }
+
+    private void UpdateTabVisuals()
+    {
+        // TODO bdsowers - both of these are turned off for now.
+        // if (!Game.instance.InDungeon())
+        {
+            tabs[2].gameObject.SetActive(false);
+            tabs[3].gameObject.SetActive(false);
+        }
+
+        matchMakerContainer.gameObject.SetActive(mSelectedTab == 0);
+        personalContainer.gameObject.SetActive(mSelectedTab == 1);
+        mapContainer.gameObject.SetActive(mSelectedTab == 2);
+        inventoryContainer.gameObject.SetActive(mSelectedTab == 3);
+
+        for (int i = 0; i < tabIcons.Length; ++i)
+        {
+            Color color = (i == mSelectedTab) ? Color.white : new Color(0.7f, 0.7f, 0.7f, 1f);
+            tabIcons[i].color = color;
+            tabs[i].color = color;
+        }
+
+        // Ensure the panels are setup if we have to swap out images to display current
+        // character details
+        panel1.ReestablishModels();
+        panel2.ReestablishModels();
+
+        // If we switch to personal view, show the personal character ...
+        if (personalContainer.gameObject.activeSelf)
+        {
+            frontCameraRig.GetComponentInChildren<CharacterModel>().ChangeModel(Game.instance.avatar.characterData, false);
+        }
     }
 }

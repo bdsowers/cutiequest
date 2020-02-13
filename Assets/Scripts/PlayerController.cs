@@ -10,7 +10,7 @@ public class PlayerController : CharacterComponentBase
     public GameObject highlightLight;
 
     private ExternalCharacterStatistics mCharacterStats;
-    
+
     public bool isAlive { get; set; }
 
     private string mFollowerId;
@@ -27,10 +27,15 @@ public class PlayerController : CharacterComponentBase
 
     public bool transitioning { get; set; }
 
+    public CharacterData characterData
+    {
+        get; private set;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        CharacterData characterData = ScriptableObject.CreateInstance<CharacterData>();
+        characterData = ScriptableObject.CreateInstance<CharacterData>();
         characterData.model = Game.instance.playerData.model;
         characterData.material = Game.instance.companionBuilder.MaterialByName(Game.instance.playerData.material);
         commonComponents.characterModel.ChangeModel(characterData);
@@ -45,7 +50,7 @@ public class PlayerController : CharacterComponentBase
         commonComponents.killable.onDeath += OnDeath;
 
         mFollowerId = Game.instance.playerData.followerUid;
-        
+
         OnFollowerChanged();
         Game.instance.playerData.onPlayerDataChanged += OnPlayerDataChanged;
 
@@ -269,7 +274,7 @@ public class PlayerController : CharacterComponentBase
         followerDirection.Normalize();
 
         Vector3 intendedDirection = Vector3.zero;
-        
+
         float moveThreshold = 0.5f;
         if (Game.instance.actionSet.Move.Y > moveThreshold)
         {

@@ -50,7 +50,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -63,6 +63,11 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         mParent = GetComponentInParent<QuestR>();
         mParent.moreInfoMode = false;
         mCurrentCharacter = characterOffset;
+        SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
+    }
+
+    public void ReestablishModels()
+    {
         SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }
 
@@ -82,7 +87,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             diff.y = 0;
 
             transform.localPosition += diff.AsVector3();
-            
+
             mStartDragPosition = mousePosition;
 
             if (Mathf.Abs(transform.localPosition.x) >= mThreshold)
@@ -147,11 +152,11 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         Vector3 startPosition = transform.localPosition;
         mIsQuestPanelAnimating = true;
-        
+
         float time = 0f;
         while (time < 1f)
         {
-            time += Time.deltaTime * 4f; 
+            time += Time.deltaTime * 4f;
             transform.localPosition = Vector3.Lerp(startPosition, endPosition, time);
             yield return null;
         }
@@ -169,7 +174,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             mParent.AcceptCharacter(mAvailableCharacters[character]);
         }
-        
+
         mIsQuestPanelAnimating = false;
         yield break;
     }
@@ -264,7 +269,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         System.Array.ForEach(boostImages, (image) => image.sprite = statData.icon);
         System.Array.ForEach(boostTitleLabels, (label) => label.text = label.rectTransform.sizeDelta.x > 150 ? passiveBoostPrefix + LocalizedText.Get(statData.name) + " + " + characterData.statBoostAmount.ToString() : ShortStatBoostDisplay(statData, characterData));
         System.Array.ForEach(boostDescLabels, (label) => label.text = LocalizedText.Get(statData.description));
-        
+
         bioLabel.text = LocalizedText.Get(characterData.bio);
 
         ApplyPigLatinIfNecessary();

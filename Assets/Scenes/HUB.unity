@@ -17236,6 +17236,11 @@ PrefabInstance:
       propertyPath: rigModel2
       value: 
       objectReference: {fileID: 24472765}
+    - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: frontCameraRig
+      value: 
+      objectReference: {fileID: 2053253717}
     - target: {fileID: 160589776669806470, guid: ec5c60380b0daf049bf6e746ae15fcdd,
         type: 3}
       propertyPath: cameraRig

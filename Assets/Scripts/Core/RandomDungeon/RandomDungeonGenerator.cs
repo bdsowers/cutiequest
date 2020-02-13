@@ -286,7 +286,15 @@ namespace OMM.RDG
                     if (!firstRoomPlaced)
                     {
                         firstRoomPlaced = true;
-                        TryPlaceRoom("guaranteed_first", true, scopeIdx, options);
+                        if (TryPlaceRoom("guaranteed_first", true, scopeIdx, options) != null)
+                        {
+                            successfulRoomsPerScope[scopeIdx]++;
+                        }
+                        else
+                        {
+                            // Force another room generation
+                            i--;
+                        }
                     }
                     else if (TryPlaceRoom("primary", true, scopeIdx, options) != null)
                     {
