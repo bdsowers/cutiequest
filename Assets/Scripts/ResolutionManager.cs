@@ -36,7 +36,7 @@ public class ResolutionManager
             string[] tokens = res.Split(new char[] { ':' });
             targetResX = int.Parse(tokens[0]);
             targetResY = int.Parse(tokens[1]);
-            fullScreen = (int.Parse(tokens[2]) == 0);
+            fullScreen = (int.Parse(tokens[2]) == 1);
 
             ChangeResolution(targetResX, targetResY, fullScreen);
         }
