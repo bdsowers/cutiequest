@@ -436,9 +436,8 @@ public class Game : MonoBehaviour
 
     public bool CheckRatingDialog(bool closing = false)
     {
-#if DEMO || RELEASE
+        // Disabled forever
         return false;
-#endif
 
         mClosingGame = closing;
 
