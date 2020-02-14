@@ -482,6 +482,31 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: rigModel1
+      value: 
+      objectReference: {fileID: 1672762327}
+    - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: rigModel2
+      value: 
+      objectReference: {fileID: 623265446}
+    - target: {fileID: 1704973330486617491, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: frontCameraRig
+      value: 
+      objectReference: {fileID: 1672762328}
+    - target: {fileID: 160589776669806470, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: cameraRig
+      value: 
+      objectReference: {fileID: 623265447}
+    - target: {fileID: 9091216071806945049, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+        type: 3}
+      propertyPath: cameraRig
+      value: 
+      objectReference: {fileID: 1672762328}
     - target: {fileID: 1635980125092749807, guid: ec5c60380b0daf049bf6e746ae15fcdd,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -877,6 +902,12 @@ PrefabInstance:
 --- !u!224 &101626430 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1704973330486617484, guid: ec5c60380b0daf049bf6e746ae15fcdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 101626429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &101626431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1704973330486617487, guid: ec5c60380b0daf049bf6e746ae15fcdd,
     type: 3}
   m_PrefabInstance: {fileID: 101626429}
   m_PrefabAsset: {fileID: 0}
@@ -2124,6 +2155,24 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7208613044072731668, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+--- !u!114 &623265446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7208613042885115509, guid: 4885b3e38732daf47bc0a57f00663f47,
+    type: 3}
+  m_PrefabInstance: {fileID: 623265445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fa8c23fc6b24041a06e36602f0eecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &623265447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7208613043618338211, guid: 4885b3e38732daf47bc0a57f00663f47,
+    type: 3}
+  m_PrefabInstance: {fileID: 623265445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &682686670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,7 +3246,7 @@ PrefabInstance:
     - target: {fileID: 7208613043618338208, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7208613043618338208, guid: 4885b3e38732daf47bc0a57f00663f47,
         type: 3}
@@ -3264,6 +3313,24 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7208613044072731668, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4885b3e38732daf47bc0a57f00663f47, type: 3}
+--- !u!114 &1672762327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7208613042885115509, guid: 4885b3e38732daf47bc0a57f00663f47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1672762326}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fa8c23fc6b24041a06e36602f0eecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1672762328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7208613043618338211, guid: 4885b3e38732daf47bc0a57f00663f47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1672762326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691103717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1691103717, guid: c61028de0690a04489e563a5c9c1627d,
@@ -3811,6 +3878,7 @@ MonoBehaviour:
   fullMap: {fileID: 1974024714}
   toggleButtonDisplay: {fileID: 682686670}
   teleportWarning: {fileID: 790129386}
+  questR: {fileID: 101626431}
 --- !u!20 &2055356390
 Camera:
   m_ObjectHideFlags: 0

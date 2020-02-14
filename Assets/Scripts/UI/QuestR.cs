@@ -118,8 +118,22 @@ public class QuestR : Dialog
         Close();
     }
 
+    public void SetTab(int tab)
+    {
+        int prev = mSelectedTab;
+        mSelectedTab = Mathf.Clamp(tab, 0, VisibleTabs() - 1);
+
+        if (prev != mSelectedTab)
+        {
+            UpdateTabVisuals();
+        }
+    }
+
     public override void Update()
     {
+        if (panel1.isAnimating || panel2.isAnimating)
+            return;
+
         if (Game.instance.actionSet.CloseMenu.WasPressed)
         {
             Close();
@@ -130,25 +144,17 @@ public class QuestR : Dialog
             Close();
         }
 
+        // Don't allow tab switching if we're in match view
+        if (matchView.activeSelf)
+            return;
+
         if (Game.instance.actionSet.MoveDown.WasPressed && !tutorialMode)
         {
-            int prev = mSelectedTab;
-            mSelectedTab = Mathf.Clamp(mSelectedTab + 1, 0, VisibleTabs() - 1);
-
-            if (prev != mSelectedTab)
-            {
-                UpdateTabVisuals();
-            }
+            SetTab(mSelectedTab + 1);
         }
         else if (Game.instance.actionSet.MoveUp.WasPressed && !tutorialMode)
         {
-            int prev = mSelectedTab;
-            mSelectedTab = Mathf.Clamp(mSelectedTab - 1, 0, VisibleTabs() - 1);
-
-            if (prev != mSelectedTab)
-            {
-                UpdateTabVisuals();
-            }
+            SetTab(mSelectedTab - 1);
         }
     }
 
@@ -175,17 +181,26 @@ public class QuestR : Dialog
         rigModel2.ChangeModel(characterData);
 
         Game.instance.soundManager.PlaySound("confirm_special");
+
+        UpdateTabVisuals();
     }
 
     private void UpdateTabVisuals()
     {
+        // In Match View, hide all tabs and prevent moving away ...
+        for (int i = 0; i < tabs.Length; ++i)
+        {
+            tabs[i].gameObject.SetActive(!matchView.gameObject.activeSelf);
+        }
+
         // NOTE bdsowers - was intending on implementing these two tabs
         // but it leads to some weird use-cases and ends up more trouble than it's
         // worth. Keeping a rough pathway in in case I ever change my mind (but I doubt it).
-        // if (!Game.instance.InDungeon())
+        tabs[3].gameObject.SetActive(false);
+
+        if (!Game.instance.InDungeon())
         {
             tabs[2].gameObject.SetActive(false);
-            tabs[3].gameObject.SetActive(false);
         }
 
         matchMakerContainer.gameObject.SetActive(mSelectedTab == 0);

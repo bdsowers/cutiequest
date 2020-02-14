@@ -42,6 +42,14 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private bool mJoystickNeedsReset;
 
+    public GameObject likeButton;
+    public GameObject dislikeButton;
+
+    public bool isAnimating
+    {
+        get { return mIsQuestPanelAnimating; }
+    }
+
     public List<CharacterData> availableCharacters
     {
         get { return mAvailableCharacters; }
@@ -64,28 +72,42 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         mParent.moreInfoMode = false;
         mCurrentCharacter = characterOffset;
 
+        ReestablishModels();
+
+        if (Game.instance.InDungeon())
+        {
+            likeButton.SetActive(false);
+            dislikeButton.SetActive(false);
+        }
+    }
+
+    public void ReestablishModels()
+    {
         if (Game.instance.InDungeon())
             SetupForCharacter(Game.instance.followerData);
         else
             SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }
 
-    public void ReestablishModels()
-    {
-        SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        // We're in 'fixed' mode while in the dungeon - readonly
-        if (Game.instance.InDungeon())
-            return;
-
         if (mParent.tutorialMode)
             return;
 
         if (mIsQuestPanelAnimating)
+            return;
+
+        if (Game.instance.actionSet.ToggleMap.WasPressed)
+        {
+            if (moreInfoView.gameObject.activeSelf)
+                OnLessInfoPressed();
+            else
+                OnMoreInfoPressed();
+        }
+
+        // We're in 'fixed' mode while in the dungeon - readonly
+        if (Game.instance.InDungeon())
             return;
 
         if (mIsMouseOver)
@@ -118,14 +140,6 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (Game.instance.actionSet.boundDevice != null)
         {
             UpdateJoystick();
-        }
-
-        if (Game.instance.actionSet.ToggleMap.WasPressed)
-        {
-            if (moreInfoView.gameObject.activeSelf)
-                OnLessInfoPressed();
-            else
-                OnMoreInfoPressed();
         }
     }
 
