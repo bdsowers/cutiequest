@@ -79,7 +79,7 @@ public class MinimapCamera : MonoBehaviour
     private void ToggleFullMap(bool newShowingWholeMap)
     {
         mShowingWholeMap = newShowingWholeMap;
-        
+
         if (mShowingWholeMap)
         {
             LevelGenerator generator = GameObject.FindObjectOfType<LevelGenerator>();
@@ -104,7 +104,7 @@ public class MinimapCamera : MonoBehaviour
         miniMap.SetActive(!mShowingWholeMap);
         toggleButtonDisplay.SetActive(!mShowingWholeMap);
     }
-    
+
     List<MapDisplay> InterestingMapDisplays()
     {
         MapDisplay[] displays = GameObject.FindObjectsOfType<MapDisplay>();
@@ -153,7 +153,7 @@ public class MinimapCamera : MonoBehaviour
             return;
 
         int previousSelection = mSelectedDisplay;
-        
+
         MapDisplay currentDisplay = mInterestingDisplays[mSelectedDisplay];
         float minDistance = float.MaxValue;
         Debug.Log("-----");
@@ -163,8 +163,8 @@ public class MinimapCamera : MonoBehaviour
                 continue;
 
             MapDisplay testDisplay = mInterestingDisplays[i];
-            
-            // Find the one with the minimum distance that isn't in the other 
+
+            // Find the one with the minimum distance that isn't in the other
             Vector3 testDirection = testDisplay.transform.position.WithZeroY() - currentDisplay.transform.position.WithZeroY();
             float distance = VectorHelper.OrthogonalDistance(testDisplay.transform.position.WithZeroY(), currentDisplay.transform.position.WithZeroY());
             testDirection.Normalize();
@@ -178,7 +178,7 @@ public class MinimapCamera : MonoBehaviour
             }
         }
 
-        
+
         if (previousSelection != mSelectedDisplay)
         {
             mInterestingDisplays[previousSelection].isSelected = false;

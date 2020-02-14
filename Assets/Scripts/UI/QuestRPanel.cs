@@ -63,7 +63,11 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         mParent = GetComponentInParent<QuestR>();
         mParent.moreInfoMode = false;
         mCurrentCharacter = characterOffset;
-        SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
+
+        if (Game.instance.InDungeon())
+            SetupForCharacter(Game.instance.followerData);
+        else
+            SetupForCharacter(mAvailableCharacters[mCurrentCharacter]);
     }
 
     public void ReestablishModels()
@@ -74,6 +78,10 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Update is called once per frame
     void Update()
     {
+        // We're in 'fixed' mode while in the dungeon - readonly
+        if (Game.instance.InDungeon())
+            return;
+
         if (mParent.tutorialMode)
             return;
 

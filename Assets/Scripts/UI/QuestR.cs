@@ -179,7 +179,9 @@ public class QuestR : Dialog
 
     private void UpdateTabVisuals()
     {
-        // TODO bdsowers - both of these are turned off for now.
+        // NOTE bdsowers - was intending on implementing these two tabs
+        // but it leads to some weird use-cases and ends up more trouble than it's
+        // worth. Keeping a rough pathway in in case I ever change my mind (but I doubt it).
         // if (!Game.instance.InDungeon())
         {
             tabs[2].gameObject.SetActive(false);
