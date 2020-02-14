@@ -190,7 +190,7 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0)));
 
         fullScreenQuad.gameObject.SetActive(false);
-        
+
         deathMessage.gameObject.SetActive(false);
 
         isTransitioning = false;
@@ -227,7 +227,7 @@ public class ScreenTransitionManager : MonoBehaviour
         }
 
         deathSpeakerImage.color = targetColor;
-        
+
         yield break;
     }
 

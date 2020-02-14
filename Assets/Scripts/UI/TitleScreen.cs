@@ -56,7 +56,8 @@ public class TitleScreen : MonoBehaviour
 
     public void OnCredits()
     {
-
+        if (!Game.instance.transitionManager.isTransitioning)
+            Game.instance.transitionManager.TransitionToScreen("Credits");
     }
 
     public void OnSettings()
@@ -77,7 +78,7 @@ public class TitleScreen : MonoBehaviour
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelect");
+            Game.instance.transitionManager.TransitionToScreen("CharacterSelect");
         }
     }
 }
