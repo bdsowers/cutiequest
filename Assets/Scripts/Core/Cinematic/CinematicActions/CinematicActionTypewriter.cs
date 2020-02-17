@@ -30,6 +30,7 @@ public class CinematicActionTypewriter : CinematicAction
         base.InterpretParameters(dataProvider);
 
         mText = dataProvider.GetStringData(mParameters, "text");
+        mText = ActionGlyphMapper.ReplaceActionCodesWithGlyphs(mText);
         mText = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(mText));
 
         mTarget = dataProvider.GetStringData(mParameters, "target", "typewriter");

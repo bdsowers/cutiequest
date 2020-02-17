@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VectorExtensions;
+using TMPro;
 
 public class FullMapDisplay : MonoBehaviour
 {
@@ -13,9 +14,15 @@ public class FullMapDisplay : MonoBehaviour
     private int mSelectedDisplay = -1;
 
     private float mReselectDelay = 0f;
+    private string mNormalControlMsg;
 
     private void OnEnable()
     {
+        if (mNormalControlMsg == null)
+            mNormalControlMsg = normalControls.GetComponent<TextMeshProUGUI>().text;
+
+        normalControls.GetComponent<TextMeshProUGUI>().SetText(ActionGlyphMapper.ReplaceActionCodesWithGlyphs(mNormalControlMsg));
+
         mInterestingDisplays = InterestingMapDisplays();
         SelectClosestMapDisplay();
     }

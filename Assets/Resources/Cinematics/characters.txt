@@ -55,7 +55,7 @@ animation trigger: intro_ready
 {
 	change_speaker Chr_Fantasy_Gypsy_01
 	typewriter text: "Isn't it a lovely day for a stroll through the forest?", keep_open: true
-	typewriter "Use the THUMBSTICK or DPAD to move."
+	typewriter "Use the [ACTION_MOVE] to move."
 }
 
 animation trigger: intro_first_enemy_seen
@@ -69,7 +69,7 @@ animation trigger: intro_boss_seen
 {
 	change_speaker Chr_Fantasy_Gypsy_01
 	typewriter text: "That guy looks... tough. But don't worry. We can hit him at a distance with my spell!", keep_open: true
-	typewriter text: "Get within 3 squares of him and use the X button to activate my spell.", keep_open: true
+	typewriter text: "Get within 3 squares of him and use the [ACTION_SPELL] button to activate my spell.", keep_open: true
 	typewriter text: "Don't worry if you miss. The spell will recharge after a few seconds."
 }
 
@@ -220,7 +220,7 @@ animation trigger: Hub_Beats
 animation trigger: beats_success
 {
 	change_speaker MiniCharacter_GamerGirl_01
-	typewriter text: "Righteous! Press B at any time to start dancing."
+	typewriter text: "Righteous! Press [ACTION_DANCE] at any time to start dancing."
 	set_saved_flag dance_purchased
 }
 
@@ -237,7 +237,7 @@ animation trigger: hub_tutorial
 	enable tutorial_overlay
 	typewriter text: "Did you lose your adventuring partner to a roaming pack of skeletons? Have I got the answer for you!", keep_open: true
 	enable questr_display
-	typewriter text: "Introducing QUESTR!!! The hot new mobile app for finding dungeon diving companions.", keep_open: true
+	typewriter text: "Introducing QUESTERS ONLY!!! The hot new mobile app for finding dungeon diving companions.", keep_open: true
 	disable questr_display
 	questr_tutorial true
 	enable questr

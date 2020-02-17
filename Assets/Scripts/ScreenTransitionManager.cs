@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ColorExtensions;
 using ArrayExtensions;
+using TMPro;
 
 public class ScreenTransitionManager : MonoBehaviour
 {
@@ -156,7 +157,7 @@ public class ScreenTransitionManager : MonoBehaviour
     {
         isTransitioning = true;
 
-        deathMessage.GetComponentInChildren<Text>().CrossFadeAlpha(1f, 0f, false);
+        deathMessage.GetComponentInChildren<TextMeshProUGUI>().CrossFadeAlpha(1f, 0f, false);
 
         yield return StartCoroutine(Fade(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1)));
 
@@ -177,7 +178,7 @@ public class ScreenTransitionManager : MonoBehaviour
         yield return deathMessage.ShowTextCoroutine(msg, 1f);
         yield return new WaitForSeconds(1f);
 
-        deathMessage.GetComponentInChildren<Text>().CrossFadeAlpha(0f, 0.5f, false);
+        deathMessage.GetComponentInChildren<TextMeshProUGUI>().CrossFadeAlpha(0f, 0.5f, false);
         yield return StartCoroutine(FadeDeathSpeaker(new Color(1, 1, 1, 1), new Color(0, 0, 0, 0)));
 
         deathSpeakerImage.gameObject.SetActive(false);

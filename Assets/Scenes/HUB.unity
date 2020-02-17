@@ -14571,23 +14571,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: prefabs.Array.size
-      value: 77
-      objectReference: {fileID: 0}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: prefabs.Array.data[75]
-      value: 
-      objectReference: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
-        type: 3}
-    - target: {fileID: 5094195114542733486, guid: 20d9e1181388fe14bb9d821825adaaee,
-        type: 3}
-      propertyPath: prefabs.Array.data[76]
-      value: 
-      objectReference: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d9e1181388fe14bb9d821825adaaee, type: 3}
 --- !u!4 &1952840924 stripped
@@ -15147,7 +15130,7 @@ MonoBehaviour:
   miniMap: {fileID: 0}
   fullMap: {fileID: 0}
   toggleButtonDisplay: {fileID: 0}
-  teleportWarning: {fileID: 0}
+  questR: {fileID: 0}
 --- !u!20 &2055356390
 Camera:
   m_ObjectHideFlags: 0
@@ -15857,6 +15840,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7028433053212502057, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -569485785187502874, guid: ef24f683a096bce44b2851f5e5b86c09,
+        type: 2}
+    - target: {fileID: 7028433053212502057, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -569485785187502874, guid: ef24f683a096bce44b2851f5e5b86c09,
+        type: 2}
+    - target: {fileID: 446965925, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25.099976
+      objectReference: {fileID: 0}
+    - target: {fileID: 446965925, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446965925, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.2000122
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
 --- !u!224 &2135044085 stripped
@@ -16366,7 +16373,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 213044635
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -17056,6 +17063,10 @@ PrefabInstance:
       propertyPath: follower
       value: 
       objectReference: {fileID: 854897903}
+    - target: {fileID: 1081803891, guid: 0ea2087e9986ddc4399215f98e25fe59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea2087e9986ddc4399215f98e25fe59, type: 3}
 --- !u!1001 &7208613043255410678

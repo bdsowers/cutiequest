@@ -49,6 +49,7 @@ public class Game : MonoBehaviour
     private LevelGenerator mLevelGenerator;
     private SoundManager mSoundManager;
     private QuirkRegistry mQuirkRegistry;
+    private ActionGlyphMapper mActionGlyphMapper;
 
     private BasicActionSet mActionSet;
 
@@ -65,6 +66,17 @@ public class Game : MonoBehaviour
     public static Game instance
     {
         get { return mInstance; }
+    }
+
+    public ActionGlyphMapper actionGlyphMapper
+    {
+        get
+        {
+            if (mActionGlyphMapper == null)
+                mActionGlyphMapper = GetComponentInChildren<ActionGlyphMapper>();
+
+            return mActionGlyphMapper;
+        }
     }
 
     public PlayerController avatar

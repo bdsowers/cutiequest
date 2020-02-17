@@ -7,7 +7,7 @@ using System.Text;
 
 public class Typewriter : MonoBehaviour
 {
-    private Text mLabel;
+    private TextMeshProUGUI mLabel;
     private bool mIsAnimating;
     private string mTargetText;
 
@@ -23,7 +23,7 @@ public class Typewriter : MonoBehaviour
 
     private void Awake()
     {
-        mLabel = GetComponentInChildren<Text>();
+        mLabel = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void HideText()
@@ -47,7 +47,7 @@ public class Typewriter : MonoBehaviour
     public void ForceFinish()
     {
         StopAllCoroutines();
-        mLabel.text = mTargetText.Replace("\\n", "\n"); ;
+        mLabel.SetText(mTargetText.Replace("\\n", "\n"));
         mIsAnimating = false;
     }
 
@@ -59,9 +59,9 @@ public class Typewriter : MonoBehaviour
         bool wasActive = gameObject.activeSelf && gameObject.transform.localScale.x > 0.1f;
 
         gameObject.SetActive(true);
-        
+
         StringBuilder stringBuilder = new StringBuilder();
-        mLabel.text = "";
+        mLabel.SetText("");
 
         text = text.Replace("\\n", "\n");
 
@@ -80,16 +80,29 @@ public class Typewriter : MonoBehaviour
         }
         yield return new WaitForSeconds(0.15f);
 
+        // Glyphs require a way to type forward that isn't as nice when word wrapping happens
+        bool useFancyType = !(text.Contains("<"));
+
         for (int i = 0; i <= text.Length; ++i)
         {
             stringBuilder.Length = 0;
 
             if (i > 0)
             {
+                // Skip glyph control codes
+                if (i != text.Length && text[i] == '<')
+                {
+                    while (text[i] != '>')
+                        ++i;
+                    ++i;
+                }
+
                 string visible = text.Substring(0, i);
+
+
                 stringBuilder.Append(visible);
 
-                if (i < text.Length - 1)
+                if (useFancyType && i < text.Length - 1)
                 {
                     string invisible = text.Substring(i);
                     stringBuilder.Append("<color=#00000000>");
@@ -98,8 +111,8 @@ public class Typewriter : MonoBehaviour
                 }
             }
 
-            mLabel.text = stringBuilder.ToString();
-            
+            mLabel.SetText(stringBuilder.ToString());
+
             yield return new WaitForSeconds(0.03f);
         }
 

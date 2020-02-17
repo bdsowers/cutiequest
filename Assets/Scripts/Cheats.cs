@@ -108,6 +108,13 @@ public class Cheats : MonoBehaviour
         Game.instance.ForcePreviewMode();
     }
 
+    public void ResetGame()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Game.instance.CloseGame();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -115,9 +122,7 @@ public class Cheats : MonoBehaviour
         // todo bdsowers - provide a first-class route for this
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.Escape))
         {
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
-            Game.instance.CloseGame();
+            ResetGame();
         }
 
 #if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR
@@ -242,5 +247,6 @@ public class Cheats : MonoBehaviour
         dialog.AddButton("Debug Dungeon", EnterDebugDungeon, "/");
         dialog.AddButton("Companions", BuildFullCompanionSet, "\\");
         dialog.AddButton("Preview", EnterPreview, "P");
+        dialog.AddButton("Reset Game", ResetGame, "APM");
     }
 }
