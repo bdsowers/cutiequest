@@ -70,6 +70,10 @@ public class SettingsDialog : Dialog
             UpdateVisuals();
         }
 
+        // Don't account for settings changes while there's a large value in the Y direction
+        if (Mathf.Abs(Game.instance.actionSet.Move.Y) > 0.3f)
+            return;
+
         if (Game.instance.actionSet.MoveLeft.WasPressed)
         {
             if (mCurrentSelection == MUSIC_VOLUME)

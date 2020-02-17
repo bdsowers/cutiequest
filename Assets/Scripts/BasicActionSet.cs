@@ -40,6 +40,8 @@ public class BasicActionSet : PlayerActionSet
 
         MoveUp.StateThreshold = 0.3f;
         MoveDown.StateThreshold = 0.3f;
+        MoveLeft.StateThreshold = 0.3f;
+        MoveRight.StateThreshold = 0.3f;
 
         HoldPosition = CreatePlayerAction("Hold Position");
         Activate = CreatePlayerAction("Activate");
