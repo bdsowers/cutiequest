@@ -38,6 +38,9 @@ public class BasicActionSet : PlayerActionSet
         MoveDown = CreatePlayerAction("Move Down");
         Move = CreateTwoAxisPlayerAction(MoveLeft, MoveRight, MoveDown, MoveUp);
 
+        MoveUp.StateThreshold = 0.3f;
+        MoveDown.StateThreshold = 0.3f;
+
         HoldPosition = CreatePlayerAction("Hold Position");
         Activate = CreatePlayerAction("Activate");
         Spell = CreatePlayerAction("Cast Spell");

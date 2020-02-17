@@ -152,7 +152,7 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (mParent.joystickNeedsReset)
         {
-            if (Mathf.Abs(moveValue.x) < 0.1f)
+            if (moveValue.magnitude < 0.1f)
             {
                 mParent.joystickNeedsReset = false;
             }
@@ -160,6 +160,12 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 return;
             }
+        }
+
+        // If we're moving up & down at a high velocity, we're not moving left/right
+        if (Mathf.Abs(moveValue.y) > 0.3f || Mathf.Abs(moveValue.x) < Mathf.Abs(moveValue.y) + 0.2f)
+        {
+            moveValue = Vector2.zero;
         }
 
         transform.localPosition = Vector3.right * moveValue.x * 500;

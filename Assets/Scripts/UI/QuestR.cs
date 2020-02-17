@@ -187,6 +187,8 @@ public class QuestR : Dialog
 
     private void UpdateTabVisuals()
     {
+        joystickNeedsReset = true;
+
         // In Match View, hide all tabs and prevent moving away ...
         for (int i = 0; i < tabs.Length; ++i)
         {
