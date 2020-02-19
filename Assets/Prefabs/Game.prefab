@@ -3639,6 +3639,8 @@ MonoBehaviour:
   - {fileID: 8135455753806573312, guid: 81ce00ddd978d1149a0126c0c921effc, type: 3}
   - {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433, type: 3}
   - {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83, type: 3}
+  - {fileID: 5073518052470053920, guid: 070b3bd9a27d38f44859a5375f15bcd7, type: 3}
+  - {fileID: 5073518052470053920, guid: b58708d58eccf134389211e473678df5, type: 3}
   characterPrefabs:
   - {fileID: 1404823412658210, guid: ddafa5fb4e3e8fb4aa97a7ea8e8b72d6, type: 3}
   - {fileID: 1036188767206046, guid: 788e877e2b68b894e9ac2c9e3a6432d7, type: 3}

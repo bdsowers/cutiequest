@@ -131,11 +131,23 @@ public class LevelGenerator : MonoBehaviour
     private void PlacePointOfInterest(Vector2Int pos)
     {
         int value = Random.Range(0, 100);
-        if (value < 33 && (!mShrinePlaced || !mNPCPlaced))
+        int prob = 33;
+
+        if (PriorityNPCUnfound())
+        {
+            // Probably starts pretty high, but as the dungeon floor increases, gets even higher
+            prob = 80 + Game.instance.currentDungeonFloor * 10;
+        }
+
+        if (value < prob && (!mShrinePlaced || !mNPCPlaced))
         {
             // Shrine or NPC
             value = Random.Range(0, 100);
-            if (value < 50 && !mShrinePlaced)
+            if (!mNPCPlaced && PriorityNPCUnfound() && AvailableNPCS().Count > 0)
+            {
+                PlaceNPC(pos);
+            }
+            else if (value < 50 && !mShrinePlaced)
             {
                 PlaceShrine(pos);
             }
@@ -150,24 +162,59 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    private bool PriorityNPCUnfound()
+    {
+        List<string> highPriorityNPCFlags = new List<string>()
+        {
+            "punkypeter",
+            "trainer",
+        };
+
+        foreach(string flag in highPriorityNPCFlags)
+        {
+            if (!Game.instance.playerData.IsFlagSet(flag))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private List<string> AvailableNPCS()
     {
-        // todo bdsowers - this needs to be way more robust
+        Dictionary<string, string> priorityNPCMap = new Dictionary<string, string>()
+        {
+            {"trainer", "Trainer"},
+            {"punkypeter", "PunkyPeter" },
+        };
+
+        Dictionary<string, string> npcMap = new Dictionary<string, string>()
+        {
+            {"beats", "Beats" },
+            {"hotdogman", "HotDogMan" },
+            {"stylist", "Stylist" },
+        };
 
         List<string> npcs = new List<string>();
-        if (!Game.instance.playerData.IsFlagSet("beats"))
+
+        // If there are any priority NPCs, only return them
+        // They're more important gameplay-wise
+        foreach (KeyValuePair<string, string> pair in priorityNPCMap)
         {
-            npcs.Add("Beats");
+            if (!Game.instance.playerData.IsFlagSet(pair.Key))
+            {
+                npcs.Add(pair.Value);
+                return npcs;
+            }
         }
 
-        if (!Game.instance.playerData.IsFlagSet("hotdogman"))
+        foreach (KeyValuePair<string, string> pair in npcMap)
         {
-            npcs.Add("HotDogMan");
-        }
-
-        if (!Game.instance.playerData.IsFlagSet("punkypeter"))
-        {
-            npcs.Add("PunkyPeter");
+            if (!Game.instance.playerData.IsFlagSet(pair.Key))
+            {
+                npcs.Add(pair.Value);
+            }
         }
 
         return npcs;
@@ -182,6 +229,8 @@ public class LevelGenerator : MonoBehaviour
         string npc = npcs.Sample();
         if (cheatOverride != -1)
             npc = npcs[cheatOverride];
+
+        Debug.Log("Placed NPC " + npc);
 
         // todo bdsowers - use proper walkable map writing
         GameObject shrine = PlaceMapPrefab(npc, pos.x, pos.y, WALKABLEMAP_USE_PREFAB_MARK);

@@ -125,6 +125,24 @@ animation trigger: Character_PunkyPeter
 	remove_npc char_punkypeter
 }
 
+animation trigger: Character_Trainer
+{
+	change_speaker Chr_Vikings_ShieldMaiden_01
+	typewriter text: "Wanna get strong? Stronger than anyone ever was?", keep_open: true
+	typewriter text: "See me in town. I'll train you right up."
+	set_saved_flag trainer
+	remove_npc char_trainer
+}
+
+animation trigger: Character_Stylist
+{
+	change_speaker Chr_Fantasy_Bard_01
+	typewriter text: "Hi there cutie! You're lookin' fine.", keep_open: true
+	typewriter text: "This dungeon is lame. I'm going back to town. Come say hey!"
+	set_saved_flag stylist
+	remove_npc char_stylist
+}
+
 animation trigger: Hub_Reload
 {
 	set key: item_purchased, value: false
