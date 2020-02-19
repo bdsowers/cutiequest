@@ -205,3 +205,6 @@ MonoBehaviour:
     trapPrefabs: []
     shopPedestablPrefab: ShopPedestal
   background: Cave
+  backfillEnemies:
+  - {fileID: 2738750450090089171, guid: 7ca4207f6057c1d4c988c1b9533f0de4, type: 3}
+  - {fileID: 2738750450090089171, guid: c8c02206ee4eba1468765bbdbf37ed6a, type: 3}

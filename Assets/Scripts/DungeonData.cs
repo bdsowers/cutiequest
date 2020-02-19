@@ -38,4 +38,6 @@ public class DungeonData : ScriptableObject
     public DungeonFloorData[] floorData;
     public DungeonBiomeData biomeData;
     public string background;
+
+    public List<GameObject> backfillEnemies;
 }

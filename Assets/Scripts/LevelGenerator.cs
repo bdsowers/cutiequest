@@ -475,8 +475,15 @@ public class LevelGenerator : MonoBehaviour
 
     private string ChooseRandomEnemy(DungeonFloorData floorData)
     {
-
+        DungeonData dungeonData = Game.instance.currentDungeonData;
         DungeonEnemyData enemyData = floorData.enemyData;
+
+        // About 20% of enemies are from previous levels when possible
+        bool useBackfill = Random.Range(0, 100) < 20;
+        if (useBackfill && dungeonData.backfillEnemies != null && dungeonData.backfillEnemies.Count > 0)
+        {
+            return dungeonData.backfillEnemies.Sample().name;
+        }
 
         int randomNum = Random.Range(0, 100);
         if (randomNum < 50)
