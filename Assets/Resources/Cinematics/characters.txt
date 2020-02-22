@@ -91,9 +91,31 @@ animation trigger: boss1_intro
 	camera_shake intensity: 0.35, speed: 5, seconds: 1
 }
 
+animation trigger: boss2_intro
+{
+	camera_shake intensity: 0.35, speed: 5, seconds: 1
+}
+
+animation trigger: boss3_intro
+{
+	camera_shake intensity: 0.35, speed: 5, seconds: 1
+}
+
 animation trigger: boss1_death
 {
 	set_saved_flag boss1_defeated
+	camera_shake intensity: 0.4, speed: 5, seconds: 2
+}
+
+animation trigger: boss2_death
+{
+	set_saved_flag boss2_defeated
+	camera_shake intensity: 0.4, speed: 5, seconds: 2
+}
+
+animation trigger: boss3_death
+{
+	set_saved_flag boss3_defeated
 	camera_shake intensity: 0.4, speed: 5, seconds: 2
 }
 

@@ -15,7 +15,7 @@ public class EnemyTeleport : MonoBehaviour
         teleportTimer = Random.Range(0f, teleportCooldown);
     }
 
-    private bool CanTeleport()
+    public bool CanTeleport()
     {
         return teleportTimer <= 0f;
     }
@@ -25,7 +25,7 @@ public class EnemyTeleport : MonoBehaviour
         return CanTeleport() && Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < 3f;
     }
 
-    public void Teleport()
+    public void Teleport(bool playerCentric = false)
     {
         teleportTimer = teleportCooldown;
 
@@ -33,11 +33,24 @@ public class EnemyTeleport : MonoBehaviour
 
         Vector2Int pos = MapCoordinateHelper.WorldToMapCoords(transform.position);
 
+        if (playerCentric)
+        {
+            pos = MapCoordinateHelper.WorldToMapCoords(Game.instance.avatar.transform.position);
+        }
+
         List<Vector2Int> viablePositions = new List<Vector2Int>();
         for (int xOffset = -teleportMaxDistance; xOffset <= teleportMaxDistance; ++xOffset)
         {
             for (int yOffset = -teleportMaxDistance; yOffset <= teleportMaxDistance; ++yOffset)
             {
+                if (playerCentric)
+                {
+                    if (xOffset != 0 && yOffset != 0)
+                    {
+                        continue;
+                    }
+                }
+
                 int teleDist = Mathf.Abs(xOffset) + Mathf.Abs(yOffset);
                 if (teleDist < teleportMinDistance || teleDist > teleportMaxDistance)
                 {

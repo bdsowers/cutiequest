@@ -14,13 +14,13 @@ public class FollowCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void LateUpdate()
@@ -42,5 +42,37 @@ public class FollowCamera : MonoBehaviour
 
         transform.position = trackPosition + offset + cinematicOffset + animationOffset;
         transform.LookAt(trackPosition);
+    }
+
+    public void SimpleShake()
+    {
+        StartCoroutine(SimpleShakeCoroutine());
+    }
+
+    IEnumerator SimpleShakeCoroutine()
+    {
+        float totalSeconds = 0.25f;
+        float speed = 5f;
+        float intensity = 0.25f;
+
+        float seconds = 0f;
+        while (seconds < totalSeconds)
+        {
+            Vector3 offset = animationOffset;
+            offset.x = Mathf.Sin(seconds * speed * 2f * 3.1415f) * intensity;
+            offset.y = Mathf.Sin(seconds * speed * 2f * 3.1415f * 0.25f) * intensity;
+
+            animationOffset = offset;
+            seconds += Time.deltaTime;
+            yield return null;
+        }
+
+        while (animationOffset.magnitude > 0.1f)
+        {
+            animationOffset *= 0.5f;
+            yield return null;
+        }
+
+        animationOffset = Vector3.zero;
     }
 }
