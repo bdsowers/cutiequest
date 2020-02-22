@@ -2483,7 +2483,7 @@ Transform:
   m_Children:
   - {fileID: 363395288}
   m_Father: {fileID: 1122001227}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 90}
 --- !u!1 &286901559 stripped
 GameObject:
@@ -2592,6 +2592,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1013726237}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &306497849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306497850}
+  m_Layer: 0
+  m_Name: SciFiRevealCameraPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306497850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306497849}
+  m_LocalRotation: {x: -0.17838779, y: -0.23594926, z: 0.044109274, w: -0.95423275}
+  m_LocalPosition: {x: -15.293694, y: 7.8731413, z: -6.548792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308676464
 GameObject:
   m_ObjectHideFlags: 0
@@ -5185,15 +5215,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651870325}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.125, y: 3.259, z: -0.017}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.125, y: 3.259, z: -0.01699996}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children:
   - {fileID: 2097795503}
   - {fileID: 2098194092}
   - {fileID: 973551853}
   m_Father: {fileID: 1122001227}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &666965607 stripped
 Transform:
@@ -6397,6 +6427,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870326644}
   m_CullTransparentMesh: 0
+--- !u!1 &884278376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884278377}
+  m_Layer: 0
+  m_Name: SpaceshipRevealSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884278377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884278376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.695, y: 20, z: 1.615}
+  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &889082018 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1615003726210220, guid: 83ee10f4aa3678f468ff8a8b30a275d8,
@@ -7261,6 +7321,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 434962, guid: 46c53497e3001f54a99bbdccd3d1a96f,
     type: 3}
   m_PrefabInstance: {fileID: 852000867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &973551852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 120096, guid: 07bee576df5b5e049a39f20f65b6ddb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868708938}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &973551853 stripped
 Transform:
@@ -8773,8 +8839,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1912379588}
-  - {fileID: 280440552}
   - {fileID: 651870326}
+  - {fileID: 280440552}
   m_Father: {fileID: 2065952959}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9245,6 +9311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 1122001226}
+  - {fileID: 973551852}
   disabledObjects:
   - {fileID: 1541394237}
   requiredFlag: scifi_biome_revealed
@@ -10925,6 +10992,22 @@ MonoBehaviour:
     gameObject: {fileID: 1909362694}
   - name: cave_reveal_target
     gameObject: {fileID: 1046527458}
+  - name: scifi_dungeon
+    gameObject: {fileID: 1122001226}
+  - name: spaceship
+    gameObject: {fileID: 651870325}
+  - name: spaceship_reveal_source
+    gameObject: {fileID: 884278376}
+  - name: spaceship_reveal_target
+    gameObject: {fileID: 1595202728}
+  - name: scifi_reveal_transform
+    gameObject: {fileID: 306497849}
+  - name: ship_energy
+    gameObject: {fileID: 973551852}
+  - name: scifi_dungeon_inner1
+    gameObject: {fileID: 1912379587}
+  - name: scifi_dungeon_inner2
+    gameObject: {fileID: 280440551}
 --- !u!4 &1422393245
 Transform:
   m_ObjectHideFlags: 0
@@ -12182,6 +12265,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f91512376d75e54a9b57ea29926599d, type: 3}
+--- !u!1 &1595202728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595202729}
+  m_Layer: 0
+  m_Name: SpaceshipRevealTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595202729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595202728}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.695, y: 3.9790015, z: 1.615}
+  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603670340
 GameObject:
   m_ObjectHideFlags: 0
@@ -13907,6 +14020,10 @@ PrefabInstance:
     - target: {fileID: 120096, guid: 07bee576df5b5e049a39f20f65b6ddb1, type: 3}
       propertyPath: m_Name
       value: FX_LightRayCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 120096, guid: 07bee576df5b5e049a39f20f65b6ddb1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 423916, guid: 07bee576df5b5e049a39f20f65b6ddb1, type: 3}
       propertyPath: m_LocalPosition.x

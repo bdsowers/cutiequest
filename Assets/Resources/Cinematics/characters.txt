@@ -177,6 +177,15 @@ animation trigger: Hub_Reload
 			play reveal_cave_biome
 		}
 	}
+
+	flag_set boss2_defeated
+	{
+		flag_unset scifi_biome_revealed
+		{
+			set_saved_flag scifi_biome_revealed
+			play reveal_scifi_biome
+		}
+	}
 }
 
 animation id: reveal_cave_biome, trigger: reveal_cave_biome
@@ -187,6 +196,25 @@ animation id: reveal_cave_biome, trigger: reveal_cave_biome
 	enable cave_dungeon
 	camera_shake intensity: 1, speed: 5, seconds: 2
 	move_to target: cave_dungeon, source: cave_reveal_source, destination: cave_reveal_target
+}
+
+animation id: reveal_scifi_biome, trigger: reveal_scifi_biome
+{
+	move_camera target: scifi_reveal_transform, time: 2
+	wait_seconds 3
+
+	enable scifi_dungeon
+	disable scifi_dungeon_inner1
+	disable scifi_dungeon_inner2
+
+	camera_shake intensity: 1, speed: 5, seconds: 2
+	move_to target: spaceship, source: spaceship_reveal_source, destination: spaceship_reveal_target
+
+	wait_seconds 2
+
+	enable ship_energy
+	enable scifi_dungeon_inner1
+	enable scifi_dungeon_inner2
 }
 
 animation trigger: Hub_PunkyPeter
