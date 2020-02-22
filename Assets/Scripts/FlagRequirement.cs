@@ -12,6 +12,8 @@ public class FlagRequirement : MonoBehaviour
     }
 
     public GameObject[] objects;
+    public GameObject[] disabledObjects;
+
     public string requiredFlag;
     public RequirementEvaluation whenEvaluated = RequirementEvaluation.Start;
 
@@ -48,6 +50,11 @@ public class FlagRequirement : MonoBehaviour
         for (int i = 0; i < objects.Length; ++i)
         {
             objects[i].SetActive(shouldBeActive);
+        }
+
+        for (int i = 0; i < disabledObjects.Length; ++i)
+        {
+            disabledObjects[i].SetActive(!shouldBeActive);
         }
     }
 }

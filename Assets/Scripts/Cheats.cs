@@ -72,6 +72,7 @@ public class Cheats : MonoBehaviour
     private void UnlockAllDungeons()
     {
         Game.instance.playerData.SetFlag("cave_biome_revealed");
+        Game.instance.playerData.SetFlag("scifi_biome_revealed");
         Game.instance.saveManager.TriggerSave();
     }
 
