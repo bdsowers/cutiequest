@@ -375,6 +375,10 @@ public class Game : MonoBehaviour
             if (DialogManager.AnyDialogsOpen())
                 return;
 
+            DuckpicUI dp = GameObject.FindObjectOfType<DuckpicUI>();
+            if (dp != null && dp.gameObject.activeInHierarchy)
+                return;
+
             GameObject hud = GameObject.Find("HUD");
             if (hud == null)
                 return;
