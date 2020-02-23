@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - MainLight
+  - Boss3
   layers:
   - Default
   - TransparentFX

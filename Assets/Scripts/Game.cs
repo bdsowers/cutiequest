@@ -188,7 +188,7 @@ public class Game : MonoBehaviour
         get
         {
             if (mHUD == null)
-                mHUD = GameObject.Find("HUD").GetComponent<HUD>();
+                mHUD = GameObject.FindObjectOfType<HUD>();
 
             return mHUD;
         }

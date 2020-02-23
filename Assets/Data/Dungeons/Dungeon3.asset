@@ -112,6 +112,64 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
+  - roomSet: forest
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 4
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 8
+      numExtraRoomsPlacedAfterSpecialRooms: 15
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 15
+      maxEnemies: 20
+      commonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+  - roomSet: boss3
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 1
+        criticalPathMaxRooms: 1
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 0
+      numExtraRoomsPlacedAfterSpecialRooms: 0
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 0
+      maxEnemies: 0
+      commonEnemy: {fileID: 2738750450090089171, guid: 7563a90aa0c8a2040b749557034d341a,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 7269a461ec8800448897a80ec0d45e5e,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
   biomeData:
     floorPrefabs:
     - ShipFloor

@@ -145,7 +145,7 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
-  - roomSet: boss1
+  - roomSet: boss2
     generationData:
       randomSeed: 0
       scopeData:
