@@ -23,6 +23,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58448435314426338}
   - component: {fileID: 1026359009984719956}
+  - component: {fileID: 8443724752830329164}
   m_Layer: 0
   m_Name: ShipWall2
   m_TagString: Untagged
@@ -58,6 +59,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowScaleVariation: 1
+  revealDelay: 1
+--- !u!114 &8443724752830329164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067581624821485147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e81a0c9f8ec0d141b2ac26a8cd4bb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayType: 1
 --- !u!1001 &4443239210913173981
 PrefabInstance:
   m_ObjectHideFlags: 0
