@@ -14,7 +14,7 @@ animation trigger: trainer_talk
 animation trigger: stylist_talk
 {
 	change_speaker Chr_Fantasy_Bard_01
-	typewriter text: "Not happy with your Questers Only matches? For a few hearts, I can shuffle them around for you.", keep_open: true
+	typewriter text: "Not happy with your Questers Only matches? For a few gems, I can shuffle them around for you.", keep_open: true
 	typewriter text: "Fair warning, if you currently have a companion they'll probably ditch you."
 	increase_attraction message: "Shuffle your Questers Only matches? Your current companion will leave you. :(", cost: 3, success: stylist_success, fail: stylist_fail, effect: shuffle_matches
 }
@@ -228,7 +228,7 @@ animation trigger: Hub_PunkyPeter
 
 	flag_unset item_purchased
 	{
-		typewriter text: "If you've got some hearts to spare, I can grab an item from this well for you to take into the dungeon.", keep_open: true
+		typewriter text: "If you've got some gems to spare, I can grab an item from this well for you to take into the dungeon.", keep_open: true
 		typewriter text: "Can't promise it will be good, but it will be... an item."
 		cost_dialog message: "Purchase a random item for your next dungeon adventure?", cost: 10, success: punkypeter_success, fail: punkypeter_fail, effect: random_item
 	}
@@ -245,7 +245,7 @@ animation trigger: punkypeter_success
 animation trigger: punkypeter_fail
 {
 	change_speaker MiniCharacter_PunkGuy_01
-	typewriter "Ahem, I think you'll need a few more hearts plz thx."
+	typewriter "Ahem, I think you'll need a few more gems plz thx."
 }
 
 animation trigger: Hub_HotDogMan
