@@ -10,6 +10,8 @@ public class EnemyTeleport : MonoBehaviour
     public int teleportMaxDistance = 6;
     private float teleportTimer;
 
+    List<ParticleSystem> mParticleSystemScratch = new List<ParticleSystem>();
+
     private void Start()
     {
         teleportTimer = Random.Range(0f, teleportCooldown);
@@ -83,11 +85,23 @@ public class EnemyTeleport : MonoBehaviour
         effect.transform.position = previousPosition;
         effect.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
         effect.transform.localScale = Vector3.one * 0.75f;
+        Speedup(effect);
 
         GameObject effect2 = PrefabManager.instance.InstantiatePrefabByName("CFX2_WWExplosion_C");
         effect2.transform.position = transform.position;
         effect2.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
         effect2.transform.localScale = Vector3.one * 0.75f;
+        Speedup(effect2);
+    }
+
+    void Speedup(GameObject parent)
+    {
+        mParticleSystemScratch.Clear();
+        parent.GetComponentsInChildren<ParticleSystem>(mParticleSystemScratch);
+        for (int i = 0; i < mParticleSystemScratch.Count; ++i)
+        {
+            mParticleSystemScratch[i].playbackSpeed = 2f;
+        }
     }
 
     private void Update()

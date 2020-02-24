@@ -78,9 +78,4 @@ public class Boss3b : Boss3
     public override void AIStructureChanged()
     {
     }
-
-    private void OnDestroy()
-    {
-        Game.instance.hud.bossHealth.gameObject.SetActive(false);
-    }
 }

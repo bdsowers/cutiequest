@@ -14,16 +14,37 @@ public abstract class Boss3 : EnemyAI
     List<Boss3> subBosses = new List<Boss3>();
     int totalHealth;
 
-    private static bool healthShown = false;
+    protected int mCurrentPhase = 0;
+    protected bool mIsPrimary;
+
+    protected Killable killable
+    {
+        get
+        {
+            if (mKillable == null)
+                mKillable = GetComponent<Killable>();
+            return mKillable;
+        }
+    }
+
+    protected CharacterStatistics statistics
+    {
+        get
+        {
+            if (mStatistics == null)
+                mStatistics = GetComponent<CharacterStatistics>();
+
+            return mStatistics;
+        }
+    }
 
     protected virtual void Start()
     {
-        mStatistics = GetComponent<CharacterStatistics>();
-        mKillable = GetComponent<Killable>();
-        mKillable.onDeath += OnDeath;
+        killable.onDeath += OnDeath;
+        killable.onHit += OnHit;
 
         Game.instance.hud.bossHealth.gameObject.SetActive(true);
-        Game.instance.hud.bossHealth.SetWithValues(0, mKillable.health, mKillable.health);
+        Game.instance.hud.bossHealth.SetWithValues(0, killable.health, killable.health);
 
         Game.instance.hud.bossHealth.transform.localScale = Vector3.zero;
         Game.instance.hud.bossHealth.transform.DOScale(1f, 0.5f);
@@ -35,16 +56,16 @@ public abstract class Boss3 : EnemyAI
             subBosses.Add(comp);
         }
 
+        mIsPrimary = (this == subBosses[0]);
+
         totalHealth = 0;
         for (int i = 0; i < subBosses.Count; ++i)
         {
             totalHealth += subBosses[i].MaxHealth();
         }
 
-        if (!healthShown)
+        if (mIsPrimary)
         {
-            healthShown = true;
-
             Game.instance.hud.bossHealth.gameObject.SetActive(true);
             Game.instance.hud.bossHealth.SetWithValues(0, mKillable.health, mKillable.health);
 
@@ -53,11 +74,33 @@ public abstract class Boss3 : EnemyAI
         }
     }
 
-    private static bool enableCalled = false;
+    private void OnHit(Killable entity)
+    {
+        if (!mIsPrimary) return;
+
+        int prevPhase = mCurrentPhase;
+
+        if (CurrentTotalHealth() < totalHealth * 0.33f)
+            mCurrentPhase = 2;
+        else if (CurrentTotalHealth() < totalHealth * 0.66f)
+            mCurrentPhase = 1;
+        else
+            mCurrentPhase = 0;
+
+        if (prevPhase == mCurrentPhase)
+            return;
+
+        if (mCurrentPhase == 0)
+            Game.instance.hud.bossHealth.fullImage.color = new Color(121 / 255.0f, 100 / 255.0f, 64 / 255.0f);
+        else if (mCurrentPhase == 1)
+            Game.instance.hud.bossHealth.fullImage.color = new Color(1, 1, 0);
+        else
+            Game.instance.hud.bossHealth.fullImage.color = new Color(1, 0, 0);
+    }
+
     private void OnEnable()
     {
-        if (enableCalled) return;
-        enableCalled = true;
+        if (!mIsPrimary) return;
 
         // Reveal the whole map when this boss becomes active
         RevealWhenAvatarIsClose[] revealers = GameObject.FindObjectsOfType<RevealWhenAvatarIsClose>();
@@ -126,25 +169,33 @@ public abstract class Boss3 : EnemyAI
 
     private void OnDestroy()
     {
-        Game.instance.hud.bossHealth.gameObject.SetActive(false);
+        if (Game.instance != null && Game.instance.hud != null)
+            Game.instance.hud.bossHealth.gameObject.SetActive(false);
     }
 
     protected int MaxHealth()
     {
-        if (mStatistics == null)
-            mStatistics = GetComponent<CharacterStatistics>();
-
-        return mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject);
+        return statistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject);
     }
 
     protected int CurrentHealth()
     {
-        return mKillable.health;
+        return killable.health;
+    }
+
+    protected int CurrentTotalHealth()
+    {
+        int total = 0;
+        for (int i = 0; i < subBosses.Count; ++i)
+        {
+            total += subBosses[i].CurrentHealth();
+        }
+        return total;
     }
 
     protected bool IsDead()
     {
-        return mKillable.isDead;
+        return killable.isDead;
     }
 
     protected virtual void Update()

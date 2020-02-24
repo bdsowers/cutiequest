@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 4635320262406962570}
   - component: {fileID: 3673156242125148797}
   m_Layer: 10
-  m_Name: Boss3b
+  m_Name: Boss3c
   m_TagString: Boss3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b114faf5a9a5f684684e288aeac13fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationRange: 3
+  activationRange: 5
   enemyAIController: {fileID: 7231845773022846569}
   activationCinematicEvent: boss3_intro_null
 --- !u!114 &3715545944746184160
@@ -244,7 +244,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 81ce00ddd978d1149a0126c0c921effc,
     type: 3}
   throwSpeed: 1.5
-  numThrows: 7
+  numThrows: 6
 --- !u!114 &3673156242125148797
 MonoBehaviour:
   m_ObjectHideFlags: 0

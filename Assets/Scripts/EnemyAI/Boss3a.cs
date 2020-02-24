@@ -13,8 +13,20 @@ public class Boss3a : Boss3
     EnemyTeleport mTeleport;
     SimpleMovement mSimpleMovement;
     SimpleAttack mSimpleAttack;
+    ProjectileThrower mProjectileThrower;
 
-    int mCurrentPhase = 0;
+    public enum AIState
+    {
+        Teleporting,
+        Throwing,
+        Delay,
+    }
+
+    private AIState mCurrentState = AIState.Teleporting;
+
+    private int mNumTeleports;
+    private float mDelayTimer;
+    private int mMaxTeleports;
 
     protected override void Start()
     {
@@ -24,6 +36,7 @@ public class Boss3a : Boss3
         mTeleport = GetComponent<EnemyTeleport>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
+        mProjectileThrower = GetComponent<ProjectileThrower>();
 
         mEnemy.SetEnemyAI(this);
         mKillable.onHit += OnHit;
@@ -33,6 +46,8 @@ public class Boss3a : Boss3
 
         Game.instance.hud.bossHealth.transform.localScale = Vector3.zero;
         Game.instance.hud.bossHealth.transform.DOScale(1f, 0.5f);
+
+        mMaxTeleports = Random.Range(4, 6);
     }
 
     private void SpawnTeleporter()
@@ -56,37 +71,7 @@ public class Boss3a : Boss3
 
     private void SwitchPhaseIfNecessary()
     {
-        int prevPhase = mCurrentPhase;
 
-        if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) * 0.33f)
-            mCurrentPhase = 2;
-        else if (mKillable.health < mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject) * 0.66f)
-            mCurrentPhase = 1;
-        else
-            mCurrentPhase = 0;
-
-        if (prevPhase == mCurrentPhase)
-            return;
-
-        if (mCurrentPhase == 0)
-            Game.instance.hud.bossHealth.fullImage.color = new Color(121 / 255.0f, 100 / 255.0f, 64 / 255.0f);
-        else if (mCurrentPhase == 1)
-            Game.instance.hud.bossHealth.fullImage.color = new Color(1, 1, 0);
-        else
-            Game.instance.hud.bossHealth.fullImage.color = new Color(1, 0, 0);
-
-        if (mCurrentPhase == 0)
-        {
-
-        }
-        else if (mCurrentPhase == 1)
-        {
-            mTeleport.teleportCooldown /= 2;
-        }
-        else if (mCurrentPhase == 2)
-        {
-            mTeleport.teleportCooldown /= 2;
-        }
     }
 
     public override bool CanUpdateAI()
@@ -99,26 +84,57 @@ public class Boss3a : Boss3
             return false;
         if (mSimpleAttack == null || mSimpleAttack.isAttacking)
             return false;
+        if (mProjectileThrower == null || mProjectileThrower.isThrowing)
+            return false;
 
         return true;
     }
 
     public override void UpdateAI()
     {
+        if (mCurrentState == AIState.Teleporting && mTeleport.CanTeleport())
+        {
+            mNumTeleports++;
+            mTeleport.Teleport(mNumTeleports == mMaxTeleports);
 
-    }
+            if (mNumTeleports == mMaxTeleports)
+            {
+                mCurrentState = AIState.Throwing;
 
-    private void SwitchState()
-    {
+                mMaxTeleports = Random.Range(4, 7) + mCurrentPhase;
+            }
+        }
+        else if (mCurrentState == AIState.Throwing)
+        {
+            SimpleMovement.OrientToDirection(mSimpleMovement.subMesh, TowardPlayer());
+            mProjectileThrower.ThrowProjectile(20, TowardPlayer());
 
+            mCurrentState = AIState.Delay;
+
+            mNumTeleports = 0;
+            mDelayTimer = 0f;
+        }
+        else if (mCurrentState == AIState.Delay)
+        {
+            if (mDelayTimer > 2f - mCurrentPhase * 0.5f)
+            {
+                mCurrentState = AIState.Teleporting;
+                mNumTeleports = 0;
+            }
+        }
     }
 
     public override void AIStructureChanged()
     {
     }
 
-    private void OnDestroy()
+    protected override void Update()
     {
-        Game.instance.hud.bossHealth.gameObject.SetActive(false);
+        base.Update();
+
+        if (!mProjectileThrower.isThrowing)
+        {
+            mDelayTimer += Time.deltaTime;
+        }
     }
 }

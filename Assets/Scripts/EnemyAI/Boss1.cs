@@ -145,7 +145,8 @@ public class Boss1 : EnemyAI
 
     private void OnDestroy()
     {
-        Game.instance.hud.bossHealth.gameObject.SetActive(false);
+        if (Game.instance != null && Game.instance.hud != null)
+            Game.instance.hud.bossHealth.gameObject.SetActive(false);
     }
 
     private void Update()
