@@ -58,8 +58,6 @@ public class ProjectileThrower : CharacterComponentBase
 
             projectile.transform.localRotation = commonComponents.animator.transform.localRotation;
 
-            //projectile.SetLayerRecursive(gameObject.layer);
-            // todo bdsowers - yuck
             if (gameObject.layer == LayerMask.NameToLayer("Player"))
                 projectile.SetLayerRecursive(LayerMask.NameToLayer("PlayerProjectile"));
             else

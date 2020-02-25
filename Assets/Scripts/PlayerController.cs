@@ -347,7 +347,6 @@ public class PlayerController : CharacterComponentBase
         CollisionMap collisionMap = Game.instance.levelGenerator.collisionMap;
         List<Vector2Int> viablePositions = collisionMap.EmptyPositionsNearPosition(mTeleportTarget, 1);
 
-        // todo bdsowers - what to do here? error message?
         if (viablePositions.Count == 0)
             return;
 

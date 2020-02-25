@@ -12,7 +12,6 @@ public class ActivationPlate : MonoBehaviour
 
     private bool mIsPlayerInside;
 
-    // todo bdsowers - gets the job done but is a pretty ugly hack
     private static bool mCanActivateAny = false;
     private static bool mPlayerOnItem = false;
     private static bool mLateUpdateProcessed = false;
@@ -78,7 +77,7 @@ public class ActivationPlate : MonoBehaviour
 
         mLateUpdateProcessed = false;
         mCanActivateAny = (CanBeActivated() || mCanActivateAny);
-        
+
         if (Game.instance.quirkRegistry.IsQuirkActive<KleptoQuirk>() && mIsPlayerInside && item != null)
         {
             NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, "Your partner stole " + item.friendlyName, NumberPopupReason.Bad);
@@ -160,7 +159,7 @@ public class ActivationPlate : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            mIsPlayerInside = false; 
+            mIsPlayerInside = false;
         }
     }
 

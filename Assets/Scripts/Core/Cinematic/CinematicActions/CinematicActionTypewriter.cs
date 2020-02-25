@@ -61,7 +61,6 @@ public class CinematicActionTypewriter : CinematicAction
             {
                 if (target.isAnimating)
                 {
-                    // todo bdsowers - use InControl for this
                     if (actionSet.Activate.WasPressed || actionSet.Spell.WasPressed)
                     {
                         target.ForceFinish();

@@ -12,8 +12,8 @@ public class Mansplain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // todo bdsowers - only do this if this enemy has been revealed
-        
+        // todo PRERELEASE - only do this if this enemy has been revealed
+
         mChangeTextTimer -= Time.deltaTime;
         if (mChangeTextTimer <= 0f)
         {

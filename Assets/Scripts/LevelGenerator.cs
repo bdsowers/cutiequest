@@ -92,8 +92,6 @@ public class LevelGenerator : MonoBehaviour
         deadEnds.Sort((i1, i2) => i2.distanceFromPrimaryPath.CompareTo(i1.distanceFromPrimaryPath));
 
         // Remove dead ends that are too close to each other from consideration (based off room Id, which isn't a perfect metric but is OK)
-        // todo bdsowers - also remove dead-ends that are too close to our guaranteed chests/shrines that
-        // have already been placed.
         int position = 1;
         while (position < deadEnds.Count)
         {

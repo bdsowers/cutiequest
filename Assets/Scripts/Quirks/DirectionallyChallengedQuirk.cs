@@ -6,7 +6,7 @@ using DG.Tweening;
 public class DirectionallyChallengedQuirk : Quirk
 {
     private GameObject mMinimapRawImage;
-    
+
     private float mTimer;
     private int mCurrentRotation;
 
@@ -25,7 +25,6 @@ public class DirectionallyChallengedQuirk : Quirk
         if (mMinimapRawImage == null)
             return;
 
-        // todo bdsowers - performance yuck
         GameObject fullMap = CinematicId.FindObjectWithId("full_map_image");
         if (fullMap != null)
             fullMap.transform.rotation = mMinimapRawImage.transform.rotation;

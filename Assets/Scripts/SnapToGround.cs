@@ -9,8 +9,6 @@ public class SnapToGround : MonoBehaviour
 
     private static RaycastHit[] mCollisionList = new RaycastHit[10];
 
-    // todo bdsowers - for many things, this only needs to be done once; there's definitely a good
-    // optimization opportunity here.
     private void LateUpdate()
     {
         if (ignoreList == null || ignoreList.Length == 0)
@@ -44,7 +42,7 @@ public class SnapToGround : MonoBehaviour
     private void ComplexSnap()
     {
         Ray ray = new Ray(transform.position + Vector3.up, Vector3.down);
-        
+
         int layerMask = (1 << LayerMask.NameToLayer("Environment"));
 
         int numCollisions = Physics.RaycastNonAlloc(ray, mCollisionList, 2f, layerMask);

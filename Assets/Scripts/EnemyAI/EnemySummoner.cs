@@ -36,7 +36,7 @@ public class EnemySummoner : EnemyAI
         Vector3 smallDistanceDirection = OrthogonalDirection(transform, target.transform, false);
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
-        // todo bdsowers - this logic will need some refinement 
+        // todo PRERELEASE - this logic will need some refinement
         if (Random.Range(0, 2) == 0)
         {
             // Summoners try to keep their distance, but will also summon when appropriate.

@@ -234,7 +234,6 @@ public class Game : MonoBehaviour
         get { return mQuirkRegistry; }
     }
 
-    // todo bdsowers - not super crazy about this
     public LevelGenerator levelGenerator
     {
         get
@@ -395,7 +394,6 @@ public class Game : MonoBehaviour
 
         cinematicDataProvider.Reset();
 
-        // todo bdsowers - there's a lot of work here to do...
         playerStats.ChangeBaseStat(CharacterStatType.MaxHealth, 100);
         playerStats.ChangeBaseStat(CharacterStatType.Defense, 2);
         playerStats.ChangeBaseStat(CharacterStatType.Luck, 2);
