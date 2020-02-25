@@ -223,6 +223,17 @@ public class Cheats : MonoBehaviour
         }
     }
 
+    void UnlockAllNPCS()
+    {
+        Game.instance.playerData.SetFlag("hotdogman");
+        Game.instance.playerData.SetFlag("punkypeter");
+        Game.instance.playerData.SetFlag("trainer");
+        Game.instance.playerData.SetFlag("stylist");
+        Game.instance.playerData.SetFlag("tourist");
+        Game.instance.playerData.SetFlag("beats");
+        Game.instance.playerData.SetFlag("bruiser");
+    }
+
     void CloseCheatDialog()
     {
         Game.instance.hud.cheatsDialog.gameObject.SetActive(false);
@@ -249,5 +260,6 @@ public class Cheats : MonoBehaviour
         dialog.AddButton("Companions", BuildFullCompanionSet, "\\");
         dialog.AddButton("Preview", EnterPreview, "P");
         dialog.AddButton("Reset Game", ResetGame, "APM");
+        dialog.AddButton("Unlock NPCS", UnlockAllNPCS, "");
     }
 }

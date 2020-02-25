@@ -157,6 +157,15 @@ animation trigger: Character_Tourist
 	remove_npc char_tourist
 }
 
+animation trigger: Character_Bruiser
+{
+	change_speaker MiniCharacter_Female_Jacket_01
+	typewriter text: "Dungeon not hard enough for you?", keep_open: true
+	typewriter text: "If you're itching for more of a challenge, come see me in town."
+	set_saved_flag bruiser
+	remove_npc char_bruiser
+}
+
 animation trigger: Character_PunkyPeter
 {
 	change_speaker MiniCharacter_PunkGuy_01
@@ -187,7 +196,8 @@ animation trigger: Character_Stylist
 animation trigger: Hub_Reload
 {
 	set key: item_purchased, value: false
-	
+	set key: bruiser_active, value: false
+
 	flag_set boss1_defeated
 	{
 		flag_unset cave_biome_revealed
@@ -304,6 +314,39 @@ animation trigger: tourist_fail
 {
 	change_speaker MiniCharacter_SummerGirl_01
 	typewriter text: "Sorry, you gotta pay for this wit."
+}
+
+animation trigger: Hub_Bruiser
+{
+	change_speaker MiniCharacter_Female_Jacket_01
+
+	flag_set bruiser_active
+	{
+		typewriter text: "I hope you're ready for your challenge!"
+	}
+
+	flag_unset bruiser_active
+	{
+		typewriter text: "If you're itching for a challenge, I've got you bae.", keep_open: true
+		typewriter text: "I can send you into your next dungeon with some random quirks to throw you off your game.", keep_open: true
+		typewriter text: "The rewards will be greater, but your life expectancy won't be."
+		cost_dialog message: "Take on a challenge?", cost: 5, success: bruiser_success, fail: bruiser_fail, effect: bruiser
+	}
+}
+
+animation trigger: bruiser_success
+{
+	change_speaker MiniCharacter_Female_Jacket_01
+	typewriter text: "Good luck! HAHAHAHAHA", keep_open: true
+	typewriter text: "HAHAHAHAHAHAHAHAHAHAHA", keep_open: true
+	typewriter text: "Er, yea. Good luck."
+	set key: bruiser_active, value: true
+}
+
+animation trigger: bruiser_fail
+{
+	change_speaker MiniCharacter_Female_Jacket_01
+	typewriter text: "Oy! My services come at a cost, and you don't have the scratch."
 }
 
 animation trigger: Hub_Beats

@@ -66,6 +66,10 @@ public class IncreaseAttractivenessDialog : Dialog
             GameObject newItem = GameObject.Instantiate(PrefabManager.instance.itemPrefabs.Sample(itemsToIgnore));
             newItem.GetComponentInChildren<Item>().Equip();
         }
+        else if (mEffect == "bruiser")
+        {
+            // TODO PRERELEASE
+        }
     }
 
     private List<GameObject> DungeonOnlyItems()
