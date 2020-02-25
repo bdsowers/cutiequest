@@ -192,6 +192,7 @@ public class LevelGenerator : MonoBehaviour
             {"beats", "Beats" },
             {"hotdogman", "HotDogMan" },
             {"stylist", "Stylist" },
+            {"tourist", "Tourist" }
         };
 
         List<string> npcs = new List<string>();

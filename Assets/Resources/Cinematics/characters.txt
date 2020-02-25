@@ -147,6 +147,16 @@ animation trigger: Character_HotDogMan
 	remove_npc char_hotdogman
 }
 
+animation trigger: Character_Tourist
+{
+	change_speaker MiniCharacter_SummerGirl_01
+	typewriter text: "This is a nice place to get some sun, don't you think?", keep_open: true
+	typewriter text: "But I think it's time I went home.", keep_open: true
+	typewriter text: "Come see me in town. I've got some neat things to tell you."
+	set_saved_flag tourist
+	remove_npc char_tourist
+}
+
 animation trigger: Character_PunkyPeter
 {
 	change_speaker MiniCharacter_PunkGuy_01
@@ -275,6 +285,25 @@ animation trigger: hotdogman_fail
 {
 	change_speaker MiniCharacter_HotdogMan_01
 	typewriter text: "Seriously? Get out of here. GO ON! GIT!!!"
+}
+
+animation trigger: Hub_Tourist
+{
+	change_speaker MiniCharacter_SummerGirl_01
+	typewriter text: "I'm a world-renowned jokester. Want to hear one?"
+	cost_dialog message: "Hear a joke?", cost: 1, success: tourist_success, fail: tourist_fail, effect: random_joke
+}
+
+animation trigger: tourist_success
+{
+	change_speaker MiniCharacter_SummerGirl_01
+	random_joke type: TOURIST
+}
+
+animation trigger: tourist_fail
+{
+	change_speaker MiniCharacter_SummerGirl_01
+	typewriter text: "Sorry, you gotta pay for this wit."
 }
 
 animation trigger: Hub_Beats

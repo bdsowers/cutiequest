@@ -9,10 +9,19 @@ public class CinematicActionRandomJoke : CinematicAction
         get { return "random_joke"; }
     }
 
+    private string mType;
+
+    public override void InterpretParameters(CinematicDataProvider dataProvider)
+    {
+        base.InterpretParameters(dataProvider);
+
+        mType = dataProvider.GetStringData(mParameters, "type", "JOKE");
+    }
+
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
-        List<string> setups = LocalizedText.GetKeysInList("[JOKE_SETUP]");
-        List<string> punchlines = LocalizedText.GetKeysInList("[JOKE_PUNCHLINE]");
+        List<string> setups = LocalizedText.GetKeysInList("[" + mType + "_SETUP]");
+        List<string> punchlines = LocalizedText.GetKeysInList("[" + mType + "_PUNCHLINE]");
 
         int jokeNum = Random.Range(0, setups.Count);
         string setupKey = setups[jokeNum];
