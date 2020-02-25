@@ -330,7 +330,7 @@ animation trigger: Hub_Bruiser
 		typewriter text: "If you're itching for a challenge, I've got you bae.", keep_open: true
 		typewriter text: "I can send you into your next dungeon with some random quirks to throw you off your game.", keep_open: true
 		typewriter text: "The rewards will be greater, but your life expectancy won't be."
-		cost_dialog message: "Take on a challenge?", cost: 5, success: bruiser_success, fail: bruiser_fail, effect: bruiser
+		cost_dialog message: "Take on a challenge?", cost: 5, success: bruiser_success, fail: bruiser_fail, effect: effect_bruiser
 	}
 }
 

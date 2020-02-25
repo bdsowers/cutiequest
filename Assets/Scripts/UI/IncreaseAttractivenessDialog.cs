@@ -66,9 +66,11 @@ public class IncreaseAttractivenessDialog : Dialog
             GameObject newItem = GameObject.Instantiate(PrefabManager.instance.itemPrefabs.Sample(itemsToIgnore));
             newItem.GetComponentInChildren<Item>().Equip();
         }
-        else if (mEffect == "bruiser")
+        else if (mEffect == "effect_bruiser")
         {
-            // TODO PRERELEASE
+            GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName("DifficultyBoost"));
+            newItem.GetComponentInChildren<Item>().Equip();
+            DifficultyBoost.Reset();
         }
     }
 

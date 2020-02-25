@@ -56,6 +56,15 @@ public class LevelGenerator : MonoBehaviour
         // Provide some time after the avatar is generated for any of its setup (ie: quirk setup)
         // to impact dungeon generation
         yield return null;
+
+        // Special handling for the 'difficulty boost' effect
+        DifficultyBoost db = GameObject.FindObjectOfType<DifficultyBoost>();
+        if (db != null)
+        {
+            db.ApplyQuirks();
+            yield return null;
+        }
+
         yield return null;
 
         if (!IsPresetRoom())

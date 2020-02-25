@@ -33,4 +33,17 @@ public class QuirkRegistry : MonoBehaviour
 
         return false;
     }
+
+    public bool IsQuirkActive(Quirk quirk)
+    {
+        for (int i = 0; i < mActiveQuirks.Count; ++i)
+        {
+            if (quirk.GetType() == mActiveQuirks[i].GetType())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
