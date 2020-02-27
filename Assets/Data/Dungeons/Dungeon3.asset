@@ -207,8 +207,10 @@ MonoBehaviour:
     - ShipWall1
     - ShipWall2
     trapPrefabs:
+    - FireStaffTrap
+    - SpikeTrap
     - LavaTrap
-    - LavaTrap
+    - AxeTrap
     shopPedestablPrefab: ShopPedestal
   background: Ship
   backfillEnemies:

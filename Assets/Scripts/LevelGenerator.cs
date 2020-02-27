@@ -617,6 +617,11 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    private int MaxTrapsToConsider(DungeonBiomeData biomeData)
+    {
+        return Mathf.Min(biomeData.trapPrefabs.Count, Game.instance.currentDungeonFloor);
+    }
+
     private void PlaceTraps()
     {
         DungeonBiomeData biomeData = Game.instance.currentDungeonData.biomeData;
@@ -653,7 +658,7 @@ public class LevelGenerator : MonoBehaviour
 
         // Find all the trap generators
         List<PlacedTrap> trapPlacerPrefabs = new List<PlacedTrap>();
-        int maxTrapPrefabsToConsider = Mathf.Min(biomeData.trapPrefabs.Count, Game.instance.currentDungeonFloor);
+        int maxTrapPrefabsToConsider = MaxTrapsToConsider(biomeData);
         for (int i = 0; i < maxTrapPrefabsToConsider; ++i)
         {
             string prefabName = biomeData.trapPrefabs[i];

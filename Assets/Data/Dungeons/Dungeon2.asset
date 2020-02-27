@@ -194,7 +194,11 @@ MonoBehaviour:
     - CaveWall2
     - CaveWall3
     - CaveWall4
-    trapPrefabs: []
+    trapPrefabs:
+    - SpikeTrap
+    - LavaTrap
+    - LavaTrap
+    - AxeTrap
     shopPedestablPrefab: ShopPedestal
   background: Cave
   backfillEnemies:

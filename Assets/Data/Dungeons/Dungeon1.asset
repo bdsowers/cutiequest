@@ -194,7 +194,9 @@ MonoBehaviour:
     - ForestWall2
     trapPrefabs:
     - SpikeTrap
+    - SpikeTrap
     - AxeTrap
-    - FireStaffTrap
+    - AxeTrap
     shopPedestablPrefab: ShopPedestal
   background: Forest
+  backfillEnemies: []
