@@ -95,6 +95,10 @@ public class CollisionMap : MonoBehaviour
 
     public int SpaceMarking(int x, int y)
     {
+        // TODO bdsowers - this is a little gross, but the safest thing right now
+        if (x < 0 || y < 0 || x >= mMap.GetLength(0) || y >= mMap.GetLength(0))
+            return 1;
+
         return mMap[x, y];
     }
 
