@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 7519224713004977550}
-  subMesh: {fileID: 4858685897485563724}
+  subMesh: {fileID: 5761146610380969041}
   collisionIgnoreList: 
   collisionIdentity: 4
 --- !u!114 &7670395356955178461
@@ -742,12 +742,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: badeb88086af5f2499be1af06a7bb438, type: 3}
---- !u!1 &4858685897485563724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1772087364770496, guid: badeb88086af5f2499be1af06a7bb438,
-    type: 3}
-  m_PrefabInstance: {fileID: 4858203813652262284}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4862669827471989306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4612249973602230, guid: badeb88086af5f2499be1af06a7bb438,
@@ -833,6 +827,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2739774a07ffdb459c1bd60e3ef4f10, type: 3}
+--- !u!1 &5761146610380969041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1033247876357254, guid: b2739774a07ffdb459c1bd60e3ef4f10,
+    type: 3}
+  m_PrefabInstance: {fileID: 5760139016478820567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5764147339354741593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013894390911886, guid: b2739774a07ffdb459c1bd60e3ef4f10,
