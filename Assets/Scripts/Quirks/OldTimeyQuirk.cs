@@ -19,6 +19,10 @@ public class OldTimeyQuirk : Quirk
     {
         base.Start();
 
+        // If the player has the monocle, vision-based quirks don't kick in
+        if (Game.instance.playerStats.IsItemEquipped<Monocle>())
+            return;
+
         mGrayscale = ScriptableObject.CreateInstance<Grayscale>();
         mGrayscale.enabled.Override(true);
 
@@ -34,7 +38,7 @@ public class OldTimeyQuirk : Quirk
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void OnDisable()
@@ -51,7 +55,7 @@ public class OldTimeyQuirk : Quirk
         DestroyVolume();
     }
 
-    void DestroyVolume()
+    public override void DestroyVolume()
     {
         if (mVolume == null)
             return;

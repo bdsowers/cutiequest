@@ -18,6 +18,10 @@ public class SketchyQuirk : Quirk
     {
         base.Start();
 
+        // If the player has the monocle, vision-based quirks don't kick in
+        if (Game.instance.playerStats.IsItemEquipped<Monocle>())
+            return;
+
         mEdgeDetection = ScriptableObject.CreateInstance<EdgeDetection>();
         mEdgeDetection.enabled.Override(true);
         mEdgeDetection.mode.Override(EdgeDetection.EdgeDetectMode.LuminanceBased);
@@ -44,7 +48,7 @@ public class SketchyQuirk : Quirk
         DestroyVolume();
     }
 
-    void DestroyVolume()
+    public override void DestroyVolume()
     {
         if (mVolume == null)
             return;

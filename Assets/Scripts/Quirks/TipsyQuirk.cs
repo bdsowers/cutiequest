@@ -17,6 +17,10 @@ public class TipsyQuirk : Quirk
     {
         base.Start();
 
+        // If the player has the monocle, vision-based quirks don't kick in
+        if (Game.instance.playerStats.IsItemEquipped<Monocle>())
+            return;
+
         mLensDistortion = ScriptableObject.CreateInstance<LensDistortion>();
         mLensDistortion.enabled.Override(true);
         mLensDistortion.intensity.Override(0f);
@@ -29,6 +33,9 @@ public class TipsyQuirk : Quirk
     // Update is called once per frame
     void Update()
     {
+        if (mVolume == null)
+            return;
+
         float influence = 50f;
         float speed = 50f;
 
@@ -64,7 +71,7 @@ public class TipsyQuirk : Quirk
         DestroyVolume();
     }
 
-    void DestroyVolume()
+    public override void DestroyVolume()
     {
         if (mVolume == null)
             return;

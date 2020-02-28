@@ -34,4 +34,9 @@ public class Quirk : MonoBehaviour
     {
         Game.instance.quirkRegistry.RegisterQuirkInactive(this);
     }
+
+    public virtual void DestroyVolume()
+    {
+        // Generally does nothing, but some quirks have vision VFX setup that may need to be destroyed
+    }
 }

@@ -13,6 +13,10 @@ public class Cowfolk : Quirk
     {
         base.Start();
 
+        // If the player has the monocle, vision-based quirks don't kick in
+        if (Game.instance.playerStats.IsItemEquipped<Monocle>())
+            return;
+
         mSepia = ScriptableObject.CreateInstance<Sepia>();
         mSepia.enabled.Override(true);
 
@@ -31,7 +35,7 @@ public class Cowfolk : Quirk
         DestroyVolume();
     }
 
-    void DestroyVolume()
+    public override void DestroyVolume()
     {
         if (mVolume == null)
             return;
