@@ -24,13 +24,13 @@ public class CentralEvents
         }
     }
 
-    public delegate void EnemyHit(Enemy enemy, int damage);
+    public delegate void EnemyHit(Enemy enemy, int damage, DamageReason damageSource);
     public event EnemyHit onEnemyHit;
-    public void FireEnemyHit(Enemy enemy, int damage)
+    public void FireEnemyHit(Enemy enemy, int damage, DamageReason damageSource)
     {
         if (onEnemyHit != null)
         {
-            onEnemyHit(enemy, damage);
+            onEnemyHit(enemy, damage, damageSource);
         }
     }
 }

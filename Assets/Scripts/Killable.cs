@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+public enum DamageReason
+{
+    Melee,
+    Spell,
+    Projectile,
+    Trap,
+    ForceKill,
+    StatusEffect,
+}
+
 public class Killable : MonoBehaviour
 {
     public enum DeathResponse
@@ -54,7 +64,7 @@ public class Killable : MonoBehaviour
         return true;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, DamageReason damageSource)
     {
         if (!CanTakeDamage())
             return;
@@ -83,7 +93,7 @@ public class Killable : MonoBehaviour
         health -= damage;
         if (mEnemy != null)
         {
-            Game.instance.centralEvents.FireEnemyHit(mEnemy, damage);
+            Game.instance.centralEvents.FireEnemyHit(mEnemy, damage, damageSource);
         }
 
         if (showNumberPopups)

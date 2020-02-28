@@ -26,7 +26,7 @@ public class LavaTrap : PlacedTrap
             mTimer += Time.deltaTime;
             if (mTimer > 0.75f)
             {
-                killable.TakeDamage(5);
+                killable.TakeDamage(5, DamageReason.Trap);
                 mTimer = 0f;
             }
         }

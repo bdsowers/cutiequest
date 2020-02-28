@@ -19,7 +19,7 @@ public class ShrineGuillotine : Shrine
                 for (int i = 0; i < enemies.Length; ++i)
                 {
                     Killable killable = enemies[i].GetComponent<Killable>();
-                    killable.TakeDamage(killable.health);
+                    killable.TakeDamage(killable.health, DamageReason.ForceKill);
                 }
             }
             else

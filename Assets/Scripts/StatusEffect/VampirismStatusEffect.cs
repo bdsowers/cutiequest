@@ -15,11 +15,11 @@ public class VampirismStatusEffect : StatusEffect
         Game.instance.centralEvents.onEnemyHit += OnEnemyHit;
     }
 
-    private void OnEnemyHit(Enemy enemy, int damage)
+    private void OnEnemyHit(Enemy enemy, int damage, DamageReason damageReason)
     {
         float multiplier = 0.05f + (strength / 200f);
         multiplier = Mathf.Min(multiplier, 0.3f);
-        
+
         int amount = Mathf.RoundToInt(damage * multiplier);
         amount = Mathf.Max(amount, 1);
 

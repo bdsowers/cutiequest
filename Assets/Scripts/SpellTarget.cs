@@ -33,7 +33,7 @@ public class SpellTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private IEnumerator Animation(float totalSeconds)
@@ -70,7 +70,7 @@ public class SpellTarget : MonoBehaviour
             mMaterial.color = ColorHelper.Lerp(mBaseColor, mDangerColor, time);
             yield return null;
         }
-        
+
         time = 0f;
         float blinkTime = 0.2f;
         while (time < 1f + blinkTime)
@@ -120,7 +120,7 @@ public class SpellTarget : MonoBehaviour
             int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
             int damage = strength * 4 - defense * 2;
 
-            targetKillable.TakeDamage(damage);
+            targetKillable.TakeDamage(damage, DamageReason.Spell);
             return true;
         }
 

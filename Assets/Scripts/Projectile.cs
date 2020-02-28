@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
             int damage = strength * 4 - defense * 2;
             mEnemiesHit.Add(targetKillable);
 
-            targetKillable.TakeDamage(damage);
+            targetKillable.TakeDamage(damage, DamageReason.Projectile);
 
             if (destroyOnEnemyHit)
             {

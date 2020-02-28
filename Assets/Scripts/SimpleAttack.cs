@@ -138,8 +138,8 @@ public class SimpleAttack : CharacterComponentBase
             int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
 
             int damage = strength * 4 - defense * 2;
-            
-            targetKillable.TakeDamage(damage);
+
+            targetKillable.TakeDamage(damage, DamageReason.Melee);
         }
     }
 }

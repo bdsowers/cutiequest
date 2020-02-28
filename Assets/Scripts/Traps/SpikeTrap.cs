@@ -12,7 +12,7 @@ public class SpikeTrap : PlacedTrap
 
     public float timeOffset = 0f;
 
-    
+
     private void Start()
     {
         mTimer += timeOffset;
@@ -64,7 +64,7 @@ public class SpikeTrap : PlacedTrap
         Killable killable = KillableMap.instance.KillableAtWorldPosition(transform.position);
         if (killable != null && killable.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            killable.TakeDamage(15);
+            killable.TakeDamage(15, DamageReason.Trap);
         }
     }
 

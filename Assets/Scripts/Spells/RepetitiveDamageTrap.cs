@@ -39,7 +39,7 @@ public class RepetitiveDamageTrap : MonoBehaviour
 
             for (int i = 0; i < mKillablesInTrap.Count; ++i)
             {
-                mKillablesInTrap[i].TakeDamage(strength);
+                mKillablesInTrap[i].TakeDamage(strength, DamageReason.Trap);
             }
         }
     }
