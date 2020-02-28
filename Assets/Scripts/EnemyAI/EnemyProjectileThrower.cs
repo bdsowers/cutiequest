@@ -38,7 +38,12 @@ public class EnemyProjectileThrower : EnemyAI
         SimpleMovement.OrientToDirection(GetComponent<SimpleMovement>().subMesh, TargetDirection());
 
         int magic = GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, gameObject);
-        mProjectileThrower.ThrowProjectile(magic, TargetDirection());
+
+        float speedModifier = 1f;
+        if (Game.instance.playerStats.IsItemEquipped<BlackCoffee>())
+            speedModifier = 0.65f;
+
+        mProjectileThrower.ThrowProjectile(magic, TargetDirection(), null, speedModifier);
 
         mThrowCounter = 2;
     }

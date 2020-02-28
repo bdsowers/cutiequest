@@ -23,12 +23,12 @@ public class ProjectileThrower : CharacterComponentBase
         return Vector3.Distance(Game.instance.avatar.transform.position, transform.position) < range;
     }
 
-    public void ThrowProjectile(int strength, Vector3 direction, Vector3? offset = null)
+    public void ThrowProjectile(int strength, Vector3 direction, Vector3? offset = null, float speedModifier = 1f)
     {
-        StartCoroutine(ThrowProjectileCoroutine(strength, direction, offset));
+        StartCoroutine(ThrowProjectileCoroutine(strength, direction, offset, speedModifier));
     }
 
-    public IEnumerator ThrowProjectileCoroutine(int strength, Vector3 direction, Vector3? offset = null)
+    public IEnumerator ThrowProjectileCoroutine(int strength, Vector3 direction, Vector3? offset = null, float speedModifier = 1f)
     {
         isThrowing = true;
 
@@ -46,6 +46,7 @@ public class ProjectileThrower : CharacterComponentBase
             GameObject projectile = GameObject.Instantiate(projectilePrefab);
             projectile.GetComponent<Projectile>().strength = strength;
             projectile.GetComponent<ConstantTranslation>().direction = direction;
+            projectile.GetComponent<ConstantTranslation>().speed *= speedModifier;
             Transform handTransform = commonComponents.animator.GetBoneTransform(HumanBodyBones.RightHand);
 
             //projectile.transform.position = handTransform.position;
