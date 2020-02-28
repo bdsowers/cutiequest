@@ -83,9 +83,9 @@ public class CharacterStatistics : MonoBehaviour
     public virtual int ModifiedStatValue(CharacterStatType statType, GameObject entity)
     {
         int value = BaseStatValue(statType);
-       
+
         CharacterStatModifier[] modifiers = entity.GetComponentsInChildren<CharacterStatModifier>();
-        
+
         // Absolute modifications take preference over relative ones
         for (int i = 0; i < modifiers.Length; ++i)
         {
@@ -136,5 +136,10 @@ public class CharacterStatistics : MonoBehaviour
             return CharacterStatType.Luck;
         else
             return CharacterStatType.MaxHealth;
+    }
+
+    public bool IsItemEquipped<T>()
+    {
+        return GetComponentInChildren<T>() != null;
     }
 }

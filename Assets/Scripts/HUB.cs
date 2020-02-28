@@ -94,7 +94,15 @@ public class HUB : MonoBehaviour
 
     private void ResetCharacter()
     {
-        Game.instance.playerData.numCoins = 0;
+        if (!Game.instance.playerStats.IsItemEquipped<LuckyPenny>())
+        {
+            Game.instance.playerData.numCoins = 0;
+        }
+        else
+        {
+            Game.instance.luckyPennyUsed = true;
+        }
+
         Game.instance.playerStats.gameObject.RemoveAllChildren();
 
         CharacterStatModifier[] modifiers = Game.instance.playerStats.GetComponentsInChildren<CharacterStatModifier>();

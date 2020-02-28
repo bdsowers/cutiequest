@@ -250,12 +250,22 @@ public class Game : MonoBehaviour
 
     public BasicActionSet actionSet { get { return mActionSet; } }
 
+    public bool luckyPennyUsed { get; set; }
+
     public void EnterDungeon(DungeonData dungeonData, string entranceId)
     {
         dungeonEntranceId = entranceId;
 
-        Game.instance.playerData.numHearts = 0;
-        Game.instance.playerData.numCoins = 0;
+        // Reset hearts & coins unless there's a lucky penny in play, then kill the penny
+        if (!Game.instance.luckyPennyUsed)
+        {
+            Game.instance.playerData.numHearts = 0;
+            Game.instance.playerData.numCoins = 0;
+        }
+        else
+        {
+            Game.instance.luckyPennyUsed = false;
+        }
 
         mCurrentDungeonData = dungeonData;
         mCurrentDungeonFloor = 1;
