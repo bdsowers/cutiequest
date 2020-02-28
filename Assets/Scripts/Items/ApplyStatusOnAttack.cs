@@ -24,6 +24,7 @@ public class ApplyStatusOnAttack : MonoBehaviour
     private void OnDestroy()
     {
         Game.instance.centralEvents.onEnemyHit -= OnEnemyHitByMelee;
+        if (parentItem != null) parentItem.onEquip -= OnEquip;
     }
 
     private void OnEnemyHitByMelee(Enemy enemy, int damage, DamageReason reason)

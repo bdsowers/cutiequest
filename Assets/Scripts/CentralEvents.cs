@@ -33,4 +33,14 @@ public class CentralEvents
             onEnemyHit(enemy, damage, damageSource);
         }
     }
+
+    public delegate void PlayerHit(GameObject damageSource, int damage, DamageReason damageReason);
+    public event PlayerHit onPlayerHit;
+    public void FirePlayerHit(GameObject damageSource, int damage, DamageReason damageReason)
+    {
+        if (onPlayerHit != null)
+        {
+            onPlayerHit(damageSource, damage, damageReason);
+        }
+    }
 }

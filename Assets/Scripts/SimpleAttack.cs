@@ -139,7 +139,7 @@ public class SimpleAttack : CharacterComponentBase
 
             int damage = strength * 4 - defense * 2;
 
-            targetKillable.TakeDamage(damage, DamageReason.Melee);
+            targetKillable.TakeDamage(gameObject, damage, DamageReason.Melee);
         }
     }
 }

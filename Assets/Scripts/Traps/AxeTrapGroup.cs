@@ -41,7 +41,7 @@ public class AxeTrapGroup : MonoBehaviour
         Killable killable = KillableMap.instance.KillableAtWorldPosition(hitPoint.position);
         if (!mHit && killable != null && killable.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            killable.TakeDamage(15, DamageReason.Trap);
+            killable.TakeDamage(gameObject, 15, DamageReason.Trap);
             mHit = true;
         }
     }

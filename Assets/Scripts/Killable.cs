@@ -64,7 +64,7 @@ public class Killable : MonoBehaviour
         return true;
     }
 
-    public void TakeDamage(int damage, DamageReason damageSource)
+    public void TakeDamage(GameObject damageSource, int damage, DamageReason damageReason)
     {
         if (!CanTakeDamage())
             return;
@@ -88,12 +88,13 @@ public class Killable : MonoBehaviour
             }
 
             Game.instance.playerData.health -= damage;
+            Game.instance.centralEvents.FirePlayerHit(damageSource, damage, damageReason);
         }
 
         health -= damage;
         if (mEnemy != null)
         {
-            Game.instance.centralEvents.FireEnemyHit(mEnemy, damage, damageSource);
+            Game.instance.centralEvents.FireEnemyHit(mEnemy, damage, damageReason);
         }
 
         if (showNumberPopups)

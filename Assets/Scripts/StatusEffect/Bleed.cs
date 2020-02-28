@@ -32,7 +32,7 @@ public class Bleed : MonoBehaviour
         if (mDamageTimer > mDamageTime)
         {
             mDamageTimer = 0f;
-            mKillable.TakeDamage(mDamageAmount, DamageReason.StatusEffect);
+            mKillable.TakeDamage(null, mDamageAmount, DamageReason.StatusEffect);
 
             mTimesDamaged++;
             if (mTimesDamaged >= mNumberDamages)

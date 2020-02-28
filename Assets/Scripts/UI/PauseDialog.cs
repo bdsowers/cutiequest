@@ -35,7 +35,7 @@ public class PauseDialog : Dialog
     {
         Time.timeScale = 1f;
         Invoke("DisableScreen", 0.01f);
-        Game.instance.avatar.GetComponent<Killable>().TakeDamage(Game.instance.playerData.health, DamageReason.ForceKill);
+        Game.instance.avatar.GetComponent<Killable>().TakeDamage(null, Game.instance.playerData.health, DamageReason.ForceKill);
     }
 
     public void OnSettingsPressed()

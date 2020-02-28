@@ -64,7 +64,7 @@ public class SpikeTrap : PlacedTrap
         Killable killable = KillableMap.instance.KillableAtWorldPosition(transform.position);
         if (killable != null && killable.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            killable.TakeDamage(15, DamageReason.Trap);
+            killable.TakeDamage(gameObject, 15, DamageReason.Trap);
         }
     }
 

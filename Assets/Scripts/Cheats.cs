@@ -7,6 +7,8 @@ public class Cheats : MonoBehaviour
 {
     private bool mDialogPopulated;
 
+    public static bool forceTestItemGeneration { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class Cheats : MonoBehaviour
     {
         Game.instance.playerData.health = 1;
         Game.instance.avatar.GetComponent<Killable>().health = 1;
-        Game.instance.avatar.GetComponent<Killable>().TakeDamage(1, DamageReason.Trap);
+        Game.instance.avatar.GetComponent<Killable>().TakeDamage(null, 1, DamageReason.Trap);
     }
 
     private void TakeScreenshot()
@@ -234,6 +236,11 @@ public class Cheats : MonoBehaviour
         Game.instance.playerData.SetFlag("bruiser");
     }
 
+    void TestSpecificItem()
+    {
+        forceTestItemGeneration = true;
+    }
+
     void CloseCheatDialog()
     {
         Game.instance.hud.cheatsDialog.gameObject.SetActive(false);
@@ -261,5 +268,6 @@ public class Cheats : MonoBehaviour
         dialog.AddButton("Preview", EnterPreview, "P");
         dialog.AddButton("Reset Game", ResetGame, "APM");
         dialog.AddButton("Unlock NPCS", UnlockAllNPCS, "");
+        dialog.AddButton("Test Item", TestSpecificItem, "");
     }
 }

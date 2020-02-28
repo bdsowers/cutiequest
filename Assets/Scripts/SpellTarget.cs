@@ -120,7 +120,7 @@ public class SpellTarget : MonoBehaviour
             int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
             int damage = strength * 4 - defense * 2;
 
-            targetKillable.TakeDamage(damage, DamageReason.Spell);
+            targetKillable.TakeDamage(null, damage, DamageReason.Spell);
             return true;
         }
 

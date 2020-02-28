@@ -429,6 +429,9 @@ public class LevelGenerator : MonoBehaviour
     private string RandomItem()
     {
         GameObject item = PrefabManager.instance.itemPrefabs.Sample(mPreviouslyUsedItems);
+
+        if (Cheats.forceTestItemGeneration) item = PrefabManager.instance.itemPrefabs[PrefabManager.instance.itemPrefabs.Length - 1];
+
         mPreviouslyUsedItems.Add(item);
         return item.name;
     }

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 932687729038033099}
   - component: {fileID: 690712235}
-  - component: {fileID: 8898893971233637225}
+  - component: {fileID: 6362268146289450457}
   m_Layer: 0
-  m_Name: Greater Health Potion
+  m_Name: SpikeVest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1c553ed8f61a8478d31fa5a1009d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendlyName: Health Crystal
-  description: Heals You Fully
-  baseCost: 25
-  dungeonOnly: 1
---- !u!114 &8898893971233637225
+  friendlyName: Spike Vest
+  description: Retaliate Against Your Aggressors!
+  baseCost: 0
+  dungeonOnly: 0
+--- !u!114 &6362268146289450457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,10 +58,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 932687729038033101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0e7070362669c42bfa8236f5026d74, type: 3}
+  m_Script: {fileID: 11500000, guid: d8259fc7c7fb7d14690a50fef6848f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 99999
+  parentItem: {fileID: 690712235}
 --- !u!1 &932687729658016426
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4fab5f2484a07024bb4b3d31cbb24f4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d59cda38d5deb64784e930a136be437, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

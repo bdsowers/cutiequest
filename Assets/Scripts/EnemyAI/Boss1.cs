@@ -61,7 +61,7 @@ public class Boss1 : EnemyAI
         for (int i = 0; i < allEnemies.Length; ++i)
         {
             allEnemies[i].GetComponent<Killable>().showNumberPopups = false;
-            allEnemies[i].GetComponent<Killable>().TakeDamage(10000, DamageReason.ForceKill);
+            allEnemies[i].GetComponent<Killable>().TakeDamage(null, 10000, DamageReason.ForceKill);
         }
 
         Game.instance.cinematicDirector.PostCinematicEvent("boss1_death");
