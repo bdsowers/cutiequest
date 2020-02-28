@@ -18,7 +18,7 @@ public class MirrorShield : MonoBehaviour
         if (mDurability <= 0)
         {
             Destroy(gameObject);
-            GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
+            Game.instance.RefreshInventory();
 
             string message = "Mirror Shield Broke!";
             NumberPopupGenerator.instance.GeneratePopup(Game.instance.avatar.gameObject, message, NumberPopupReason.Good, 0.25f);

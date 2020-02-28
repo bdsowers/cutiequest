@@ -136,7 +136,7 @@ public class PlayerController : CharacterComponentBase
         AttachFollowerComponents();
         PlaceFollowerInCorrectPosition();
 
-        GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
+        Game.instance.RefreshInventory();
     }
 
     public void PlaceFollowerInCorrectPosition()

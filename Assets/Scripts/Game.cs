@@ -295,6 +295,18 @@ public class Game : MonoBehaviour
 
     public string dungeonEntranceId { get; set; }
 
+    private InventoryDisplay mInventoryDisplay;
+    public InventoryDisplay inventoryDisplay
+    {
+        get
+        {
+            if (mInventoryDisplay == null)
+                mInventoryDisplay = GameObject.FindObjectOfType<InventoryDisplay>();
+
+            return mInventoryDisplay;
+        }
+    }
+
     private void Awake()
     {
         if (mInstance != null)
@@ -533,5 +545,10 @@ public class Game : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void RefreshInventory()
+    {
+        inventoryDisplay.Refresh();
     }
 }

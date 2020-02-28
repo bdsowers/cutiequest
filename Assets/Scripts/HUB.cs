@@ -17,7 +17,7 @@ public class HUB : MonoBehaviour
         yield return null;
         Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
         yield return null;
-        GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
+        Game.instance.RefreshInventory();
 
         // note bdsowers - used exclusively for rating dialog
         Game.instance.HubEntered();

@@ -78,9 +78,9 @@ public class Item : MonoBehaviour
         {
             canvas.gameObject.SetActive(false);
         }
-        
+
         // Add this guy's sprite to the inventory UI
-        GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
+        Game.instance.RefreshInventory();
 
         ShowEquipMessage();
 

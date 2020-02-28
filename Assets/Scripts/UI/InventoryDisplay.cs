@@ -29,6 +29,14 @@ public class InventoryDisplay : MonoBehaviour
 
     public void Refresh()
     {
+        StartCoroutine(RefreshCoroutine());
+    }
+
+    public IEnumerator RefreshCoroutine()
+    {
+        // Give it a frame ...
+        yield return null;
+
         Clear();
 
         mQuirkList.Clear();
@@ -67,6 +75,8 @@ public class InventoryDisplay : MonoBehaviour
 
             AddToInventory(sprite);
         }
+
+        yield break;
     }
 
     void AddToInventory(Sprite sprite)

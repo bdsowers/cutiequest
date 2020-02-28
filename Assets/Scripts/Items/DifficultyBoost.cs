@@ -43,7 +43,7 @@ public class DifficultyBoost : MonoBehaviour
             newQuirk.SetLayerRecursive(LayerMask.NameToLayer("Player"));
         }
 
-        GameObject.FindObjectOfType<InventoryDisplay>().Refresh();
+        Game.instance.RefreshInventory();
     }
 
     void PickQuirks()
