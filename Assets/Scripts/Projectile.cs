@@ -25,6 +25,17 @@ public class Projectile : MonoBehaviour
         Killable targetKillable = collider.GetComponentInParent<Killable>();
         if (targetKillable != null && targetKillable.gameObject.layer != gameObject.layer && !mEnemiesHit.Contains(targetKillable))
         {
+            // If the victim was the player & the player has a mirror shield, reflect!
+            if (targetKillable.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                if (Game.instance.playerStats.IsItemEquipped<MirrorShield>())
+                {
+                    MirrorShield shield = Game.instance.playerStats.GetComponentInChildren<MirrorShield>();
+                    shield.Reflect(this);
+                    return;
+                }
+            }
+
             CharacterStatistics stats = targetKillable.GetComponent<CharacterStatistics>();
             int defense = stats == null ? 0 : stats.ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
             int damage = strength * 4 - defense * 2;
