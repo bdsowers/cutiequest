@@ -52,7 +52,7 @@ public class Summoner : CharacterComponentBase
     private List<Vector2Int> LockDownSummonLocations()
     {
         Vector2Int pos = MapCoordinateHelper.WorldToMapCoords(transform.position);
-        
+
         List<Vector2Int> walkablePositions = WalkablePositionsInRange(pos.x, pos.y);
         List<Vector2Int> summonLocations = new List<Vector2Int>();
         for (int i = 0; i < numEnemiesToSummon; ++i)
@@ -91,7 +91,7 @@ public class Summoner : CharacterComponentBase
 
         string enemy = summonedEntities.Sample().name;
 
-        GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
+        GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy), Game.instance.levelGenerator.transform);
         Vector2Int pos2 = mapPos;
         Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;

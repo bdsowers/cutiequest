@@ -293,7 +293,7 @@ public class LevelGenerator : MonoBehaviour
 
     public GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = WALKABLEMAP_DONT_MARK, float yOffset = 0f)
     {
-        GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
+        GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName), transform);
         newItem.transform.SetParent(transform);
         newItem.transform.position = new Vector3(tileX, yOffset, -tileY);
 
@@ -472,6 +472,7 @@ public class LevelGenerator : MonoBehaviour
     private void PlaceAvatar()
     {
         GameObject avatar = GameObject.Find("Avatar");
+        avatar.transform.SetParent(transform);
 
         Vector2Int pos = mDungeon.primaryPathPositions[0];
         Vector2Int guaranteedPos = mDungeon.PositionForSpecificTile('p');
@@ -505,7 +506,7 @@ public class LevelGenerator : MonoBehaviour
         Vector2Int pos = mDungeon.primaryPathPositions[mDungeon.primaryPathPositions.Count - 1];
         pos = FindEmptyNearbyPosition(pos);
 
-        GameObject exit = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Exit"));
+        GameObject exit = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Exit"), transform);
         exit.transform.position = MapCoordinateHelper.MapToWorldCoords(pos, 0.4f);
     }
 
@@ -591,7 +592,7 @@ public class LevelGenerator : MonoBehaviour
     private void PlaceEnemy(DungeonFloorData data, Vector2Int pos2)
     {
         string enemy = ChooseEnemy(data);
-        GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy));
+        GameObject newEnemy = GameObject.Instantiate(PrefabManager.instance.PrefabByName(enemy), transform);
         Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;
         mCollisionMap.MarkSpace(pos2.x, pos2.y, newEnemy.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
@@ -610,7 +611,7 @@ public class LevelGenerator : MonoBehaviour
                 prefab = "CollectableCoin";
             }
 
-            GameObject newHeart = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefab));
+            GameObject newHeart = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefab), transform);
             Vector2Int pos2 = walkablePositions[Random.Range(0, walkablePositions.Count)];
             walkablePositions.Remove(pos2);
             Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);

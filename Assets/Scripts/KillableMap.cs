@@ -12,13 +12,19 @@ public class KillableMap : MonoBehaviour
 {
     private Killable[,] mMap = null;
     private static KillableMap mInstance;
+    private List<Killable> mAllKillables = new List<Killable>();
 
     public static KillableMap instance {  get { return mInstance; } }
+
+    public List<Killable> allKillables
+    {
+        get { return mAllKillables; }
+    }
 
     private void Awake()
     {
         if (mInstance == null)
-            mInstance = this;    
+            mInstance = this;
     }
 
     public void SetupWithDungeon(RandomDungeon dungeon)
@@ -53,15 +59,17 @@ public class KillableMap : MonoBehaviour
             }
         }
 
-        Killable[] allKillables = GameObject.FindObjectsOfType<Killable>();
-        for (int i = 0; i < allKillables.Length; ++i)
+        mAllKillables.Clear();
+
+        Game.instance.levelGenerator.GetComponentsInChildren<Killable>(mAllKillables);
+        for (int i = 0; i < mAllKillables.Count; ++i)
         {
-            Vector3 worldPosition = allKillables[i].transform.position;
+            Vector3 worldPosition = mAllKillables[i].transform.position;
             int x = Mathf.RoundToInt(worldPosition.x);
             int y = Mathf.RoundToInt(worldPosition.z);
             y = -y;
 
-            mMap[x, y] = allKillables[i];
+            mMap[x, y] = mAllKillables[i];
         }
     }
 }
