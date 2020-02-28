@@ -60,7 +60,19 @@ public class Enemy : CharacterComponentBase
             float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);
             if (distance < 7f)
             {
-                mActivated = true;
+                float secondDistanceAmount = 7f;
+
+                // If the player has a fake nose on, decrease activation distance
+                // Still keep this inside the first distance check for performance
+                if (Game.instance.playerStats.IsItemEquipped<FakeNose>())
+                {
+                    secondDistanceAmount = 3.5f;
+                }
+
+                if (distance < secondDistanceAmount)
+                {
+                    mActivated = true;
+                }
             }
         }
 

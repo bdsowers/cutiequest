@@ -3732,6 +3732,7 @@ MonoBehaviour:
   - {fileID: 932687729038033101, guid: abca7af2ccceade42bdc68f32c401d0a, type: 3}
   - {fileID: 932687729038033101, guid: 07c57094149679642aca9bd67eca08ae, type: 3}
   - {fileID: 932687729038033101, guid: 8c722d41179d4b64583d3b81ad911a19, type: 3}
+  - {fileID: 932687729038033101, guid: dcc3808687bf2f44a8aaec0c085a0cd7, type: 3}
   shrinePrefabs:
   - {fileID: 7818454422392994760, guid: aac334327cf58f0419fa0ff79440e0aa, type: 3}
   - {fileID: 7818454422392994760, guid: 32fa9057240881a4d8ad0f4b571370d3, type: 3}
