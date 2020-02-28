@@ -26,7 +26,11 @@ public class LavaTrap : PlacedTrap
             mTimer += Time.deltaTime;
             if (mTimer > 0.75f)
             {
-                killable.TakeDamage(gameObject, 5, DamageReason.Trap);
+                if (!Game.instance.playerStats.IsItemEquipped<IronBoots>())
+                {
+                    killable.TakeDamage(gameObject, 5, DamageReason.Trap);
+                }
+
                 mTimer = 0f;
             }
         }
