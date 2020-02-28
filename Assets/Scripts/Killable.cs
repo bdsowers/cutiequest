@@ -132,6 +132,25 @@ public class Killable : MonoBehaviour
 
     private void HandleDeath()
     {
+        // If this is the player, they have an extra life equipped, and it hasn't been used, SURVIVE!
+        if (GetComponent<PlayerController>() != null)
+        {
+            if (Game.instance.playerStats.IsItemEquipped<ExtraLife>())
+            {
+                ExtraLife el = Game.instance.playerStats.GetComponentInChildren<ExtraLife>();
+                if (!el.used)
+                {
+                    el.used = true;
+
+                    health = 50;
+                    Game.instance.playerData.health = health;
+                    Game.instance.playerData.MarkDirty();
+
+                    return;
+                }
+            }
+        }
+
         isDead = true;
 
         if (onDeath != null)
