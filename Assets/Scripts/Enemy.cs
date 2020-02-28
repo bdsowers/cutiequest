@@ -28,7 +28,7 @@ public class Enemy : CharacterComponentBase
 
     private void OnDestroy()
     {
-        Game.instance.enemyDirector.UnregisterEnemy(this);    
+        Game.instance.enemyDirector.UnregisterEnemy(this);
     }
 
     public void SetEnemyAI(EnemyAI ai)
@@ -70,7 +70,7 @@ public class Enemy : CharacterComponentBase
                 mActionCooldownTimer -= Time.deltaTime;
 
             if (CanUpdateAI())
-            {   
+            {
                 UpdateAI();
                 mActionCooldownTimer = actionCooldown;
             }
@@ -95,7 +95,7 @@ public class Enemy : CharacterComponentBase
             return false;
         if (commonComponents.simpleMovement.isMoving)
             return false;
-        
+
         if (!Game.instance.avatar.isAlive)
             return false;
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
@@ -110,6 +110,16 @@ public class Enemy : CharacterComponentBase
     {
         if (!CanUpdateAI())
             return;
+
+        // If the enemy is dancin', that's their AI update
+        // TODO PRERELEASE - make this more efficient; this is just silly
+        ForceDance fd = GetComponent<ForceDance>();
+        if (fd != null)
+        {
+            SimpleMovement.OrientToDirection(commonComponents.simpleMovement.subMesh, new Vector3(0, 0, -1));
+            commonComponents.animator.Play("Dance1");
+            return;
+        }
 
         mEnemyAI.UpdateAI();
     }

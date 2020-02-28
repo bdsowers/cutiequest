@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO bdsower - should inherit from StatusEffect
 public class Bleed : MonoBehaviour
 {
     Killable mKillable;

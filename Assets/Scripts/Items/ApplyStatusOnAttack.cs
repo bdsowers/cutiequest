@@ -9,6 +9,7 @@ public class ApplyStatusOnAttack : MonoBehaviour
     public Item parentItem;
     public float chance;
     public MonoBehaviour statusComponentTemplate;
+    public bool canHitBoss = true;
 
     private void Start()
     {
@@ -31,6 +32,8 @@ public class ApplyStatusOnAttack : MonoBehaviour
         if (!parentItem.equipped)
             return;
         if (reason != DamageReason.Melee)
+            return;
+        if (!canHitBoss && enemy.isBoss)
             return;
 
         int val = Random.Range(0, 100);
