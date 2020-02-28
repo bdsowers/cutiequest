@@ -124,7 +124,7 @@ public class SimpleAttack : CharacterComponentBase
         yield break;
     }
 
-    private void DealDamage(GameObject target)
+    private void DealDamage(GameObject target, bool canPierce = true)
     {
         if (noDamage)
             return;
@@ -140,6 +140,25 @@ public class SimpleAttack : CharacterComponentBase
             int damage = strength * 4 - defense * 2;
 
             targetKillable.TakeDamage(gameObject, damage, DamageReason.Melee);
+
+            if (canPierce) AttemptPierce(targetKillable);
+        }
+    }
+
+    private void AttemptPierce(Killable originalTarget)
+    {
+        // If this is the player attacking and the player has a spear, it may pierce
+        if (gameObject.layer == mPlayerLayer && Game.instance.playerStats.IsItemEquipped<Spear>())
+        {
+            Vector3 dir = originalTarget.transform.position - transform.position;
+            dir.y = 0f;
+            dir.Normalize();
+
+            Killable nextTarget = KillableMap.instance.KillableAtWorldPosition(originalTarget.transform.position + dir);
+            if (nextTarget != null)
+            {
+                DealDamage(nextTarget.gameObject, false);
+            }
         }
     }
 }
