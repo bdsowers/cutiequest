@@ -64,7 +64,7 @@ public class Enemy : CharacterComponentBase
 
                 // If the player has a fake nose on, decrease activation distance
                 // Still keep this inside the first distance check for performance
-                if (Game.instance.playerStats.IsItemEquipped<FakeNose>())
+                if (Game.instance.playerStats.IsItemEquipped<FakeNose>() && !isBoss)
                 {
                     secondDistanceAmount = 3.5f;
                 }
