@@ -24,7 +24,7 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +42,7 @@ public class Collectable : MonoBehaviour
         if (mIsAnimating)
             return;
 
-        if (collider.GetComponentInParent<PlayerController>() != null)
+        if (collider != null && collider.GetComponentInParent<PlayerController>() != null)
         {
             StartCoroutine(CollectCoroutine());
         }
@@ -107,7 +107,7 @@ public class Collectable : MonoBehaviour
             delay -= Time.deltaTime * 0.75f;
             yield return null;
         }
-        
+
         float time = 0f;
         while (time < 1f)
         {

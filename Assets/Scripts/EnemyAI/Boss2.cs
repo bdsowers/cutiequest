@@ -24,6 +24,8 @@ public class Boss2 : EnemyAI
     EnemyTeleport mTeleport;
     SimpleMovement mSimpleMovement;
     SimpleAttack mSimpleAttack;
+    Animator mAnimator;
+
     public SpellCaster mSpell1;
     public SpellCaster mSpell2;
 
@@ -53,6 +55,7 @@ public class Boss2 : EnemyAI
         mTeleport = GetComponent<EnemyTeleport>();
         mSimpleMovement = GetComponent<SimpleMovement>();
         mSimpleAttack = GetComponent<SimpleAttack>();
+        mAnimator = GetComponentInChildren<Animator>();
 
         mEnemy.SetEnemyAI(this);
         mKillable.onHit += OnHit;
@@ -293,7 +296,11 @@ public class Boss2 : EnemyAI
 
     private void Update()
     {
-        mStunTimer += Time.deltaTime;
+        if (mCurrentState == AIState.Stun)
+        {
+            mStunTimer += Time.deltaTime;
+            mAnimator.Play("Dizzy");
+        }
 
         Game.instance.hud.bossHealth.SetWithValues(0, mStatistics.ModifiedStatValue(CharacterStatType.MaxHealth, gameObject), mKillable.health);
     }
