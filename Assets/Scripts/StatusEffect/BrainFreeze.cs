@@ -11,4 +11,10 @@ public class BrainFreeze : StatusEffect
         mDuration = 5f;
         mTimeLeft = 5f;
     }
+
+    public void UpdateAI(CharacterComponentBase ccb)
+    {
+        SimpleMovement.OrientToDirection(ccb.commonComponents.simpleMovement.subMesh, new Vector3(0, 0, -1));
+        ccb.commonComponents.animator.Play("Dizzy");
+    }
 }

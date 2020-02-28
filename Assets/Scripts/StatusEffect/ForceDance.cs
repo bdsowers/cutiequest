@@ -11,4 +11,10 @@ public class ForceDance : StatusEffect
         mDuration = 5f;
         mTimeLeft = mDuration;
     }
+
+    public void UpdateAI(CharacterComponentBase ccb)
+    {
+        SimpleMovement.OrientToDirection(ccb.commonComponents.simpleMovement.subMesh, new Vector3(0, 0, -1));
+        ccb.commonComponents.animator.Play("Dance1");
+    }
 }

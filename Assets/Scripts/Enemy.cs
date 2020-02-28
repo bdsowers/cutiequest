@@ -123,21 +123,26 @@ public class Enemy : CharacterComponentBase
         if (!CanUpdateAI())
             return;
 
-        // If the enemy is dancin' or has brain freeze, that's their AI update
+        // If the enemy is dancin' or has brain freeze or scared, that's their AI update
         // TODO PRERELEASE - make this more efficient; this is just silly
         ForceDance fd = GetComponent<ForceDance>();
         if (fd != null)
         {
-            SimpleMovement.OrientToDirection(commonComponents.simpleMovement.subMesh, new Vector3(0, 0, -1));
-            commonComponents.animator.Play("Dance1");
+            fd.UpdateAI(this);
             return;
         }
 
         BrainFreeze bf = GetComponent<BrainFreeze>();
         if (bf != null)
         {
-            SimpleMovement.OrientToDirection(commonComponents.simpleMovement.subMesh, new Vector3(0, 0, -1));
-            commonComponents.animator.Play("Dizzy");
+            bf.UpdateAI(this);
+            return;
+        }
+
+        Scared scared = GetComponent<Scared>();
+        if (scared != null)
+        {
+            scared.TryMoveAwayFromPlayer(this);
             return;
         }
 
