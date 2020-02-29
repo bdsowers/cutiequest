@@ -95,15 +95,7 @@ public class PlayerController : CharacterComponentBase
 
         if (Game.instance.finishedTutorial)
         {
-            if (Game.instance.playerData.attractiveness < 3)
-            {
-                // First two runs will unlock new stuff regardless of how poorly the player does
-                Game.instance.playerData.attractiveness++;
-            }
-            else if (Game.instance.currentDungeonFloor > 1)
-            {
-                Game.instance.playerData.attractiveness++;
-            }
+            Game.instance.RunEnded(false);
         }
 
         commonComponents.animator.Play("Death");

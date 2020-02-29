@@ -50,6 +50,7 @@ MonoBehaviour:
   description: Chance to Cause Bleed
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 11
 --- !u!114 &8540320842006393842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +78,7 @@ MonoBehaviour:
   parentItem: {fileID: 690712235}
   chance: 10
   statusComponentTemplate: {fileID: 8540320842006393842}
+  canHitBoss: 1
 --- !u!1 &932687729658016426
 GameObject:
   m_ObjectHideFlags: 0

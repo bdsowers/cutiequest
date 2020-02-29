@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Tipsy
   description: Is the world spinning or is it just you?
   icon: {fileID: 21300000, guid: fbc0f7c6d6fb7254ba90d34712b4fa3a, type: 3}
-  requiredLevel: 4
+  requiredLevel: 23

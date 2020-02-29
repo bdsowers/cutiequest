@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Increased Reaction Time
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 18
 --- !u!114 &4673293315236416379
 MonoBehaviour:
   m_ObjectHideFlags: 0

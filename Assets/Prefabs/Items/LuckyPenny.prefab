@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Keep Your Gems & Coins After Death
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 11
 --- !u!114 &4672560974733027504
 MonoBehaviour:
   m_ObjectHideFlags: 0

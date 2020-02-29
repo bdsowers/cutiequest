@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Attacks Pierce
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 2
 --- !u!114 &3135528216647357292
 MonoBehaviour:
   m_ObjectHideFlags: 0

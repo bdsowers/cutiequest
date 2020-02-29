@@ -428,7 +428,8 @@ public class LevelGenerator : MonoBehaviour
 
     private string RandomItem()
     {
-        GameObject item = PrefabManager.instance.itemPrefabs.Sample(mPreviouslyUsedItems);
+        List<Item> items = Game.instance.companionBuilder.ItemsInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1);
+        GameObject item = items.Sample(mPreviouslyUsedItems);
 
         if (Cheats.forceTestItemGeneration) item = PrefabManager.instance.itemPrefabs[PrefabManager.instance.itemPrefabs.Length - 1];
 

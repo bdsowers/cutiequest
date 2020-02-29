@@ -11,11 +11,12 @@ public class UnlockDialog : Dialog
     public Text unlockTitleText;
     public Text unlockNameText;
     public Text unlockDescText;
+    public Image scoutImage;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public override void Update()
@@ -34,6 +35,7 @@ public class UnlockDialog : Dialog
         unlockImage.sprite = spell.icon;
         unlockImageBackground.sprite = spell.icon;
         gameObject.SetActive(true);
+        scoutImage.gameObject.SetActive(spell.scoutLevel > 0);
 
         transform.localScale = Vector3.zero;
         transform.DOScale(1f, 0.25f);
@@ -47,6 +49,21 @@ public class UnlockDialog : Dialog
         unlockImage.sprite = quirk.icon;
         unlockImageBackground.sprite = quirk.icon;
         gameObject.SetActive(true);
+        scoutImage.gameObject.SetActive(quirk.requiredScoutLevel > 0);
+
+        transform.localScale = Vector3.zero;
+        transform.DOScale(1f, 0.25f);
+    }
+
+    public void ShowWithItem(Item item)
+    {
+        unlockTitleText.text = "You unlocked a new item!";
+        unlockNameText.text = LocalizedText.Get(item.friendlyName);
+        unlockDescText.text = LocalizedText.Get(item.description);
+        unlockImage.sprite = item.GetComponentInChildren<SpriteRenderer>().sprite;
+        unlockImageBackground.sprite = item.GetComponentInChildren<SpriteRenderer>().sprite;
+        gameObject.SetActive(true);
+        scoutImage.gameObject.SetActive(item.scoutLevel > 0);
 
         transform.localScale = Vector3.zero;
         transform.DOScale(1f, 0.25f);

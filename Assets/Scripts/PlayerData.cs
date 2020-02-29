@@ -15,6 +15,7 @@ public class PlayerData
     private int mNumCoins = 0;
     private int mHealth = 100;
     private int mAttractiveness = 1;
+    private int mScoutLevel = 0;
 
     private List<string> mFlags = new List<string>();
 
@@ -84,6 +85,20 @@ public class PlayerData
             if (mAttractiveness != value)
             {
                 mAttractiveness = value;
+
+                MarkDirty();
+            }
+        }
+    }
+
+    public int scoutLevel
+    {
+        get { return mScoutLevel; }
+        set
+        {
+            if (mScoutLevel != value)
+            {
+                mScoutLevel = value;
 
                 MarkDirty();
             }

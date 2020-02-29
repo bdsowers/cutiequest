@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Prevent One Fatal Blow
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 24
 --- !u!114 &1612363410617626811
 MonoBehaviour:
   m_ObjectHideFlags: 0

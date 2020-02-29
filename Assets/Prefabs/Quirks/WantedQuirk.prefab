@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Wanted
   description: More enemies appear in the dungeon. A lot more. Good luck.
   icon: {fileID: 21300000, guid: b996ff40347f4684d948420c19bd611f, type: 3}
-  requiredLevel: 10
+  requiredLevel: 25

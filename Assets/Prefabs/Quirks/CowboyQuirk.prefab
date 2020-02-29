@@ -46,4 +46,4 @@ MonoBehaviour:
   friendlyName: Cowboy
   description: Yeehaw!
   icon: {fileID: 21300000, guid: cb3994d4f1bd05045b28cc4ffb4a7987, type: 3}
-  requiredLevel: 9
+  requiredLevel: 20

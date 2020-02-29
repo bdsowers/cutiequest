@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Retaliate Against Your Aggressors!
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 12
 --- !u!114 &6362268146289450457
 MonoBehaviour:
   m_ObjectHideFlags: 0

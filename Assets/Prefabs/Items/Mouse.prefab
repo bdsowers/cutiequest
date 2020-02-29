@@ -50,6 +50,7 @@ MonoBehaviour:
   description: Chance to Scare Enemies
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 21
 --- !u!114 &7076910016427174977
 MonoBehaviour:
   m_ObjectHideFlags: 0

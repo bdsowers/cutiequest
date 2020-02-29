@@ -20,7 +20,7 @@ public class DungeonExit : MonoBehaviour
 
     private void Transition()
     {
-        Game.instance.currentDungeonFloor++;
+        Game.instance.RunEnded(true);
 
         Game.instance.transitionManager.TransitionToScreen("HUB");
     }

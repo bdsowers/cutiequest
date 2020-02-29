@@ -63,7 +63,7 @@ public class DifficultyBoost : MonoBehaviour
 
         int numQuirks = Random.Range(2, 4);
 
-        List<Quirk> possibleQuirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness);
+        List<Quirk> possibleQuirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1);
         possibleQuirks.RemoveAll(i => System.Array.IndexOf(unavailable, i.name) != -1);
 
         int currentQuirk = 0;

@@ -50,6 +50,7 @@ MonoBehaviour:
   description: Gives Enemies Brain Freeze
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 22
 --- !u!114 &341523231149019932
 MonoBehaviour:
   m_ObjectHideFlags: 0

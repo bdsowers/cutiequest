@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Small Chance to Insta-Kill
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 26
 --- !u!114 &2892847863886179767
 MonoBehaviour:
   m_ObjectHideFlags: 0

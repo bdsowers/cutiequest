@@ -49,6 +49,8 @@ MonoBehaviour:
   description: Dance to Bring the Pain
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 1
+  scoutLevel: 3
 --- !u!114 &8974364572383080922
 MonoBehaviour:
   m_ObjectHideFlags: 0

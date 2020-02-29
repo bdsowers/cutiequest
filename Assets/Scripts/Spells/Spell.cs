@@ -13,6 +13,7 @@ public class Spell : MonoBehaviour
     public Sprite icon;
 
     public int requiredLevel = 1;
+    public int scoutLevel = 0;
 
     public bool canActivate
     {

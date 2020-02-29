@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Enemies Don't Recognize You as Fast
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 13
 --- !u!114 &2321944049208600596
 MonoBehaviour:
   m_ObjectHideFlags: 0

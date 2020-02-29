@@ -551,4 +551,36 @@ public class Game : MonoBehaviour
     {
         inventoryDisplay.Refresh();
     }
+
+    public void RunEnded(bool success)
+    {
+        // If we have the scout, bump up the scout level
+        if (Game.instance.playerStats.IsItemEquipped<Scout>())
+        {
+            Game.instance.playerData.scoutLevel++;
+        }
+
+        // The max attractiveness we can reach is a function of what level & dungeon we're currently in
+        int dungeonNum = currentDungeonData.dungeonNum;
+        int levelNum = currentDungeonFloor;
+        int maxAttractiveness = (dungeonNum - 1) * 10 + levelNum * 2 + 1;
+
+        // On the boss's floor, lock out the 'higher tier' unlocks unless the boss fight was actually
+        // successful
+        if (levelNum == 5 && !success)
+        {
+            maxAttractiveness--;
+        }
+
+        if (Game.instance.playerData.attractiveness < maxAttractiveness)
+        {
+            Game.instance.playerData.attractiveness++;
+        }
+
+        // If we just killed a boss, play some massive catchup
+        if (success && Game.instance.playerData.attractiveness < maxAttractiveness)
+        {
+            Game.instance.playerData.attractiveness = maxAttractiveness;
+        }
+    }
 }

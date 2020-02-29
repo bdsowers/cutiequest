@@ -38,10 +38,10 @@ public class CompanionBuilder : MonoBehaviour
 
         List<string> bios = LocalizedText.GetKeysInList("[NEUTRAL_BIO]");
         bios.AddRange(LocalizedText.GetKeysInList("[" + gender + "_BIO]"));
-        
+
         // These are parallel arrays
         int bioAndTaglinePosition = bios.SamplePosition(previouslyUsedBios);
-        
+
         randomCharacter.bio = bios[bioAndTaglinePosition];
         randomCharacter.characterName = LocalizedText.GetKeysInList("[" + gender + "_NAME]").Sample((genderNum == 0 ? previouslyUsedMaleNames : previouslyUsedFemaleNames));
         randomCharacter.levelRequirement = 1;
@@ -53,8 +53,8 @@ public class CompanionBuilder : MonoBehaviour
         randomCharacter.model = modelData.model.name;
         randomCharacter.tagline = taglines[bioAndTaglinePosition];
         randomCharacter.characterUniqueId = randomCharacter.characterName + ":::" + randomCharacter.bio + ":::" + randomCharacter.tagline + ":::" + randomCharacter.model;
-        randomCharacter.quirk = QuirksInLevel(Game.instance.playerData.attractiveness).Sample(previouslyUsedQuirks).GetComponent<Quirk>();
-        randomCharacter.spell =SpellsInLevel(Game.instance.playerData.attractiveness).Sample(previouslyUsedSpells).GetComponent<Spell>();
+        randomCharacter.quirk = QuirksInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1).Sample(previouslyUsedQuirks).GetComponent<Quirk>();
+        randomCharacter.spell =SpellsInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1).Sample(previouslyUsedSpells).GetComponent<Spell>();
         randomCharacter.statBoost = (CharacterStatType)Random.Range(1, 6);
         randomCharacter.statBoostAmount = 1 + Random.Range(0, MaximumPassiveStatBoost(randomCharacter.statBoost) + 1);
         randomCharacter.material = materials.Sample();
@@ -72,7 +72,7 @@ public class CompanionBuilder : MonoBehaviour
         previouslyUsedQuirks.AddWindowed(randomCharacter.quirk, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedSpells.AddWindowed(randomCharacter.spell, GAMEPLAY_REUSE_WINDOW_SIZE);
         previouslyUsedModels.AddWindowed(modelData, GAMEPLAY_REUSE_WINDOW_SIZE);
-        
+
         previouslyUsedBios.AddWindowed(bioAndTaglinePosition, TEXT_REUSE_WINDOW_SIZE);
         if (genderNum == 0)
             previouslyUsedMaleNames.AddWindowed(randomCharacter.characterName, TEXT_REUSE_WINDOW_SIZE);
@@ -86,7 +86,7 @@ public class CompanionBuilder : MonoBehaviour
     {
         // Look at the player's current level in that area
         int baseLevel = Game.instance.avatar.GetComponent<CharacterStatistics>().BaseStatValue(statType);
-        
+
         return baseLevel / 2;
     }
 
@@ -121,8 +121,8 @@ public class CompanionBuilder : MonoBehaviour
     {
         Game.instance.playerData.followerUid = null;
 
-        List<Quirk> quirks = QuirksInLevel(90);
-        List<Spell> spells = SpellsInLevel(90);
+        List<Quirk> quirks = QuirksInLevel(90, -1, 90, -1);
+        List<Spell> spells = SpellsInLevel(90, -1, 90, -1);
 
         int numCharacters = Mathf.Max(quirks.Count, spells.Count);
 
@@ -160,13 +160,18 @@ public class CompanionBuilder : MonoBehaviour
         }
     }
 
-    public List<Quirk> QuirksInLevel(int maxLevel, int minLevel = -1)
+    public List<Quirk> QuirksInLevel(int maxLevel, int minLevel, int maxScoutLevel, int minScoutLevel)
     {
         List<Quirk> quirks = new List<Quirk>();
         for (int i = 0; i < PrefabManager.instance.quirkPrefabs.Length; ++i)
         {
             Quirk quirk = PrefabManager.instance.quirkPrefabs[i].GetComponent<Quirk>();
-            if (quirk.requiredLevel <= maxLevel && quirk.requiredLevel >= minLevel)
+            if (quirk.requiredScoutLevel == 0 && quirk.requiredLevel <= maxLevel && quirk.requiredLevel >= minLevel)
+            {
+                quirks.Add(quirk);
+            }
+
+            if (quirk.requiredScoutLevel != 0 && quirk.requiredScoutLevel <= maxScoutLevel && quirk.requiredScoutLevel >= minScoutLevel)
             {
                 quirks.Add(quirk);
             }
@@ -174,18 +179,42 @@ public class CompanionBuilder : MonoBehaviour
         return quirks;
     }
 
-    public List<Spell> SpellsInLevel(int maxLevel, int minLevel = -1)
+    public List<Spell> SpellsInLevel(int maxLevel, int minLevel, int maxScoutLevel, int minScoutLevel)
     {
         List<Spell> spells = new List<Spell>();
         for (int i = 0; i < PrefabManager.instance.spellPrefabs.Length; ++i)
         {
             Spell spell = PrefabManager.instance.spellPrefabs[i].GetComponent<Spell>();
-            if (spell.requiredLevel <= maxLevel && spell.requiredLevel >= minLevel)
+            if (spell.scoutLevel == 0 && spell.requiredLevel <= maxLevel && spell.requiredLevel >= minLevel)
+            {
+                spells.Add(spell);
+            }
+
+            if (spell.scoutLevel != 0 && spell.scoutLevel <= maxScoutLevel && spell.scoutLevel >= minScoutLevel)
             {
                 spells.Add(spell);
             }
         }
         return spells;
+    }
+
+    public List<Item> ItemsInLevel(int maxLevel, int minLevel, int maxScoutLevel, int minScoutLevel)
+    {
+        List<Item> items = new List<Item>();
+        for (int i = 0; i < PrefabManager.instance.itemPrefabs.Length; ++i)
+        {
+            Item item = PrefabManager.instance.itemPrefabs[i].GetComponent<Item>();
+            if (item.scoutLevel == 0 && item.requiedLevel <= maxLevel && item.requiedLevel >= minLevel)
+            {
+                items.Add(item);
+            }
+
+            if (item.scoutLevel != 0 && item.scoutLevel <= maxScoutLevel && item.scoutLevel >= minScoutLevel)
+            {
+                items.Add(item);
+            }
+        }
+        return items;
     }
 
     public Material MaterialByName(string name)

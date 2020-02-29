@@ -14,6 +14,7 @@ public class Quirk : MonoBehaviour
     public string description;
     public Sprite icon;
     public int requiredLevel = 1;
+    public int requiredScoutLevel = 0;
 
     public virtual void Start()
     {

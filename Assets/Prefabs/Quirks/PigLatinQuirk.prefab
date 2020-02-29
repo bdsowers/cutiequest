@@ -78,7 +78,7 @@ MonoBehaviour:
   friendlyName: Pig Whisperer
   description: Pig Latin is the wrong language to study in school.
   icon: {fileID: 21300000, guid: 69f7d13d56dced34aad241233022771a, type: 3}
-  requiredLevel: 2
+  requiredLevel: 4
 --- !u!1 &856810096776967386
 GameObject:
   m_ObjectHideFlags: 0

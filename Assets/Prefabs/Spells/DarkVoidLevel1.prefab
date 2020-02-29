@@ -48,7 +48,7 @@ MonoBehaviour:
   description: Place a trap that will hurt any enemies inside it.
   cooldown: 15
   icon: {fileID: 21300000, guid: 4a914d67f6bb1dc44ab283d20ded5b32, type: 3}
-  requiredLevel: 3
+  requiredLevel: 22
 --- !u!114 &3782688275299859117
 MonoBehaviour:
   m_ObjectHideFlags: 0

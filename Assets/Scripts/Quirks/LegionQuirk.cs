@@ -10,7 +10,7 @@ public class LegionQuirk : Quirk
     public override void Start()
     {
         // Pick 3 quirks in the player's level and attach them
-        List<Quirk> quirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness);
+        List<Quirk> quirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1);
         quirks.RemoveAll(i => i.name == "LegionQuirk");
 
         for (int i = 0; i < 3; ++i)

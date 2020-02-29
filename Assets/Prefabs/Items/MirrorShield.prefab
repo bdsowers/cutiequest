@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Reflects Projectiles
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 15
 --- !u!114 &7470910787513959268
 MonoBehaviour:
   m_ObjectHideFlags: 0

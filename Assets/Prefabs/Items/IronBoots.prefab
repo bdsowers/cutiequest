@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Floor Traps Don't Scare You
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 5
 --- !u!114 &3810139414999344292
 MonoBehaviour:
   m_ObjectHideFlags: 0

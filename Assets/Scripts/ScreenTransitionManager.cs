@@ -247,8 +247,9 @@ public class ScreenTransitionManager : MonoBehaviour
             !Game.instance.finishedTutorial)
             yield break;
 
-        List<Quirk> unlockedQuirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness, Game.instance.playerData.attractiveness);
-        List<Spell> unlockedSpells = Game.instance.companionBuilder.SpellsInLevel(Game.instance.playerData.attractiveness, Game.instance.playerData.attractiveness);
+        List<Quirk> unlockedQuirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness, Game.instance.attractivenessWhenDungeonEntered + 1, Game.instance.playerData.scoutLevel, Game.instance.playerData.scoutLevel);
+        List<Spell> unlockedSpells = Game.instance.companionBuilder.SpellsInLevel(Game.instance.playerData.attractiveness, Game.instance.attractivenessWhenDungeonEntered + 1, Game.instance.playerData.scoutLevel, Game.instance.playerData.scoutLevel);
+        List<Item> unlockedItems = Game.instance.companionBuilder.ItemsInLevel(Game.instance.playerData.attractiveness, Game.instance.attractivenessWhenDungeonEntered + 1, Game.instance.playerData.scoutLevel, Game.instance.playerData.scoutLevel);
 
         for (int i = 0; i < unlockedQuirks.Count; ++i)
         {
@@ -261,6 +262,14 @@ public class ScreenTransitionManager : MonoBehaviour
         for (int i = 0; i < unlockedSpells.Count; ++i)
         {
             Game.instance.hud.unlockDialog.ShowWithSpell(unlockedSpells[i]);
+
+            while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
+                yield return null;
+        }
+
+        for (int i = 0; i < unlockedItems.Count; ++i)
+        {
+            Game.instance.hud.unlockDialog.ShowWithItem(unlockedItems[i]);
 
             while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
                 yield return null;

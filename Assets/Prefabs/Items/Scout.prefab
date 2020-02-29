@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Chance of Finding Cool Stuff
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 8
 --- !u!114 &2128149180994277479
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,6 +20,9 @@ public class Item : MonoBehaviour
 
     public bool equipped { get; private set; }
 
+    public int requiedLevel = 1;
+    public int scoutLevel = 0;
+
     private void Start()
     {
         // todo bdsowers - ew

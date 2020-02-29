@@ -49,6 +49,7 @@ MonoBehaviour:
   description: Combats Vision-Based Quirks
   baseCost: 0
   dungeonOnly: 0
+  requiedLevel: 11
 --- !u!114 &7353550194398870465
 MonoBehaviour:
   m_ObjectHideFlags: 0

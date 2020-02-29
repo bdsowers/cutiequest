@@ -46,5 +46,5 @@ MonoBehaviour:
   friendlyName: Sketchy
   description: They look a little... rough around the edges.
   icon: {fileID: 21300000, guid: cef563b28a90b234abd982b969ebefa4, type: 3}
-  requiredLevel: 3
+  requiredLevel: 16
   strokeTexture: {fileID: 2800000, guid: f24e4c3dda89e824bac5f9f19949c372, type: 3}
