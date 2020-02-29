@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 140
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
@@ -470,11 +470,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 75
-  _strength: 9
+  _maxHealth: 140
+  _strength: 5
   _defense: 0
   _magic: 1
-  _speed: 3
+  _speed: 5
   _luck: 1
 --- !u!114 &6961990967797571961
 MonoBehaviour:
@@ -501,7 +501,7 @@ MonoBehaviour:
   heartDropData:
   - itemName: 
     rate: 50
-    amount: 5
+    amount: 10
   arbitraryDrops: []
   ignoreGoldDigger: 0
   scatter: 0

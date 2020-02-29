@@ -107,9 +107,10 @@ public class SaveManager : MonoBehaviour
             Game.instance.playerData.scoutLevel = scoutLevel;
 
             Game.instance.cinematicDataProvider.Reset();
-
-            foreach(string flag in splitFlags)
+            Game.instance.playerData.flags = new List<string>(splitFlags);
+            foreach (string flag in splitFlags)
             {
+                Debug.Log("Restoring flag " + flag);
                 Game.instance.cinematicDataProvider.SetData(flag, "true");
             }
 
