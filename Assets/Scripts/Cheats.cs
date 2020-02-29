@@ -246,6 +246,16 @@ public class Cheats : MonoBehaviour
         Game.instance.hud.cheatsDialog.gameObject.SetActive(false);
     }
 
+    void CreateTestingBackup()
+    {
+        Game.instance.saveManager.SaveTestingBackup();
+    }
+
+    void LoadTestingBackup()
+    {
+        Game.instance.saveManager.LoadTestingBackup();
+    }
+
     void PopulateCheatsDialog()
     {
         CheatsDialog dialog = Game.instance.hud.cheatsDialog;
