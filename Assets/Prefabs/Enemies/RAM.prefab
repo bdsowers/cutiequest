@@ -16,10 +16,11 @@ GameObject:
   - component: {fileID: 2738750450090089172}
   - component: {fileID: 8268176248063259198}
   - component: {fileID: 6961990967797571961}
-  - component: {fileID: 7020149889661926042}
   - component: {fileID: 6215749322139787534}
   - component: {fileID: 7053227564434089843}
   - component: {fileID: 1884892863759015162}
+  - component: {fileID: 7040683642421000392}
+  - component: {fileID: 3988078143094831359}
   m_Layer: 10
   m_Name: RAM
   m_TagString: Untagged
@@ -134,7 +135,7 @@ MonoBehaviour:
   _maxHealth: 80
   _strength: 8
   _defense: 0
-  _magic: 1
+  _magic: 8
   _speed: 4
   _luck: 1
 --- !u!114 &6961990967797571961
@@ -167,18 +168,6 @@ MonoBehaviour:
   ignoreGoldDigger: 0
   scatter: 0
   delay: 0
---- !u!114 &7020149889661926042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738750450090089171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ced62efca1e2234fb1053591236b5a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6215749322139787534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +209,34 @@ MonoBehaviour:
   teleportCooldown: 5
   teleportMinDistance: 4
   teleportMaxDistance: 6
+--- !u!114 &7040683642421000392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d162561644f9bb0439df4852bd726c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8135455753806573312, guid: 81ce00ddd978d1149a0126c0c921effc,
+    type: 3}
+  throwSpeed: 1.5
+  numThrows: 1
+--- !u!114 &3988078143094831359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd9c131f95a8cb49b33424b80c078d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7519224713004977550
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +266,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4862669827471989306}
+  - {fileID: 4858203813652257269}
   - {fileID: 8984455755686646285}
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
@@ -758,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: badeb88086af5f2499be1af06a7bb438, type: 3}
---- !u!4 &4862669827471989306 stripped
+--- !u!4 &4858203813652257269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4612249973602230, guid: badeb88086af5f2499be1af06a7bb438,
     type: 3}
