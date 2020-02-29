@@ -32,7 +32,7 @@ public class LevelGenerator : MonoBehaviour
     private bool mNPCPlaced = false;
     private bool mShrinePlaced = false;
 
-    private List<GameObject> mPreviouslyUsedItems = new List<GameObject>();
+    private List<Item> mPreviouslyUsedItems = new List<Item>();
 
     private IEnumerator Start()
     {
@@ -429,9 +429,9 @@ public class LevelGenerator : MonoBehaviour
     private string RandomItem()
     {
         List<Item> items = Game.instance.companionBuilder.ItemsInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1);
-        GameObject item = items.Sample(mPreviouslyUsedItems);
+        Item item = items.Sample(mPreviouslyUsedItems);
 
-        if (Cheats.forceTestItemGeneration) item = PrefabManager.instance.itemPrefabs[PrefabManager.instance.itemPrefabs.Length - 1];
+        if (Cheats.forceTestItemGeneration) item = PrefabManager.instance.itemPrefabs[PrefabManager.instance.itemPrefabs.Length - 1].GetComponent<Item>();
 
         mPreviouslyUsedItems.Add(item);
         return item.name;
