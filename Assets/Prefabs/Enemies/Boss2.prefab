@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3000
+  health: 3500
   deathResponse: 1
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1400
+  _maxHealth: 3500
   _strength: 40
   _defense: 0
   _magic: 10
@@ -156,7 +156,7 @@ MonoBehaviour:
   heartDropData:
   - itemName: 
     rate: 10000
-    amount: 128
+    amount: 256
   arbitraryDrops: []
   ignoreGoldDigger: 1
   scatter: 1
@@ -248,21 +248,21 @@ MonoBehaviour:
   orientToDirection: 0
   randomOrientation: 0
   showTargetArea: 1
-  patternString: '888888888
+  patternString: '88888888888
 
-    666666666
+    66666666666
 
-    222222222
+    22222222222
 
-    444444444
+    44444444444
 
-    111101111
+    11111011111
 
-    555555555
+    55555555555
 
-    333333333
+    33333333333
 
-    999999999'
+    99999999999'
   castSpeed: 5
   effectName: CFX2_RockHit
   effectOffset: {x: 0, y: 0, z: 0}
@@ -284,31 +284,31 @@ MonoBehaviour:
   orientToDirection: 1
   randomOrientation: 0
   showTargetArea: 1
-  patternString: '666
+  patternString: '66666
 
-    555
+    55555
 
-    444
+    44444
 
-    333
+    33333
 
-    222
+    22222
 
-    111
+    11111
 
-    000
+    00000
 
-    000
+    00000
 
-    000
+    00000
 
-    000
+    00000
 
-    000
+    00000
 
-    000
+    00000
 
-    000'
+    00000'
   castSpeed: 3
   effectName: CFX2_RockHit
   effectOffset: {x: 0, y: 0, z: 0}
