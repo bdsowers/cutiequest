@@ -201,9 +201,14 @@ public class LevelGenerator : MonoBehaviour
             {"beats", "Beats" },
             {"hotdogman", "HotDogMan" },
             {"stylist", "Stylist" },
-            {"tourist", "Tourist" },
-            {"bruiser", "Bruiser" }
         };
+
+        // Tourist & Bruiser don't become available until dungeon 2
+        if (Game.instance.playerData.attractiveness > 11)
+        {
+            npcMap.Add("tourist", "Tourist");
+            npcMap.Add("bruiser", "Bruiser");
+        }
 
         List<string> npcs = new List<string>();
 
