@@ -147,7 +147,7 @@ MonoBehaviour:
   heartDropData:
   - itemName: 
     rate: 50
-    amount: 4
+    amount: 6
   arbitraryDrops: []
   ignoreGoldDigger: 0
   scatter: 0
