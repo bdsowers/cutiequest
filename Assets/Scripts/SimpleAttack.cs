@@ -139,10 +139,33 @@ public class SimpleAttack : CharacterComponentBase
 
             int damage = strength * 4 - defense * 2;
 
+            if (InstaKill(targetKillable))
+                damage = 9999999;
+
             targetKillable.TakeDamage(gameObject, damage, DamageReason.Melee);
 
             if (canPierce) AttemptPierce(targetKillable);
         }
+    }
+
+    private bool InstaKill(Killable target)
+    {
+        // If this is the player attacking and the player has the Saw, it may insta-kill
+        if (gameObject.layer == mPlayerLayer && Game.instance.playerStats.IsItemEquipped<Saw>())
+        {
+            Enemy targetEnemy = target.GetComponent<Enemy>();
+            if (targetEnemy != null && !targetEnemy.isBoss)
+            {
+                int val = Random.Range(0, 100);
+
+                if (val < 5) // Don't apply luck - it's supposed to be very rare
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private void AttemptPierce(Killable originalTarget)
