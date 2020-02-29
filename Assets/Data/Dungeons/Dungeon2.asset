@@ -32,8 +32,8 @@ MonoBehaviour:
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 1
-      numExtraRoomsPlacedBeforeSpecialRooms: 3
-      numExtraRoomsPlacedAfterSpecialRooms: 8
+      numExtraRoomsPlacedBeforeSpecialRooms: 2
+      numExtraRoomsPlacedAfterSpecialRooms: 7
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
@@ -65,8 +65,8 @@ MonoBehaviour:
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 1
-      numExtraRoomsPlacedBeforeSpecialRooms: 4
-      numExtraRoomsPlacedAfterSpecialRooms: 9
+      numExtraRoomsPlacedBeforeSpecialRooms: 2
+      numExtraRoomsPlacedAfterSpecialRooms: 7
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
@@ -93,13 +93,13 @@ MonoBehaviour:
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 2
-      numExtraRoomsPlacedBeforeSpecialRooms: 5
-      numExtraRoomsPlacedAfterSpecialRooms: 12
+      numExtraRoomsPlacedBeforeSpecialRooms: 4
+      numExtraRoomsPlacedAfterSpecialRooms: 10
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
@@ -131,8 +131,8 @@ MonoBehaviour:
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 2
-      numExtraRoomsPlacedBeforeSpecialRooms: 6
-      numExtraRoomsPlacedAfterSpecialRooms: 15
+      numExtraRoomsPlacedBeforeSpecialRooms: 5
+      numExtraRoomsPlacedAfterSpecialRooms: 12
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:

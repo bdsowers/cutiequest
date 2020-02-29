@@ -119,7 +119,7 @@ MonoBehaviour:
   _maxHealth: 100
   _strength: 5
   _defense: 0
-  _magic: 8
+  _magic: 7
   _speed: 6
   _luck: 1
 --- !u!114 &6961990967797571961
@@ -147,7 +147,7 @@ MonoBehaviour:
   heartDropData:
   - itemName: 
     rate: 50
-    amount: 6
+    amount: 12
   arbitraryDrops: []
   ignoreGoldDigger: 0
   scatter: 0
