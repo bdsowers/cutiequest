@@ -18,22 +18,22 @@ MonoBehaviour:
     generationData:
       randomSeed: 0
       scopeData:
-      - criticalPathMinRooms: 2
+      - criticalPathMinRooms: 1
         criticalPathMaxRooms: 4
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
-      - criticalPathMinRooms: 2
+      - criticalPathMinRooms: 1
         criticalPathMaxRooms: 4
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
-      - criticalPathMinRooms: 2
+      - criticalPathMinRooms: 1
         criticalPathMaxRooms: 4
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 1
-      numExtraRoomsPlacedBeforeSpecialRooms: 5
-      numExtraRoomsPlacedAfterSpecialRooms: 10
+      numExtraRoomsPlacedBeforeSpecialRooms: 3
+      numExtraRoomsPlacedAfterSpecialRooms: 8
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
@@ -52,21 +52,21 @@ MonoBehaviour:
       randomSeed: 0
       scopeData:
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 1
-      numExtraRoomsPlacedBeforeSpecialRooms: 8
-      numExtraRoomsPlacedAfterSpecialRooms: 15
+      numExtraRoomsPlacedBeforeSpecialRooms: 4
+      numExtraRoomsPlacedAfterSpecialRooms: 9
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
@@ -85,11 +85,11 @@ MonoBehaviour:
       randomSeed: 0
       scopeData:
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
@@ -98,8 +98,8 @@ MonoBehaviour:
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 2
-      numExtraRoomsPlacedBeforeSpecialRooms: 8
-      numExtraRoomsPlacedAfterSpecialRooms: 15
+      numExtraRoomsPlacedBeforeSpecialRooms: 5
+      numExtraRoomsPlacedAfterSpecialRooms: 12
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
@@ -131,7 +131,7 @@ MonoBehaviour:
         forbidSpecialRooms: 0
       minSpecialRooms: 0
       maxSpecialRooms: 2
-      numExtraRoomsPlacedBeforeSpecialRooms: 8
+      numExtraRoomsPlacedBeforeSpecialRooms: 6
       numExtraRoomsPlacedAfterSpecialRooms: 15
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0

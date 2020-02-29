@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bc9b5f7d37d474c838c565a61983a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionCooldown: 0.8
+  actionCooldown: 0.9
   isBoss: 0
 --- !u!114 &4841260898688364236
 MonoBehaviour:
@@ -470,8 +470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 160
-  _strength: 4
+  _maxHealth: 140
+  _strength: 10
   _defense: 0
   _magic: 1
   _speed: 5
