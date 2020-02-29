@@ -279,5 +279,7 @@ public class Cheats : MonoBehaviour
         dialog.AddButton("Reset Game", ResetGame, "APM");
         dialog.AddButton("Unlock NPCS", UnlockAllNPCS, "");
         dialog.AddButton("Test Item", TestSpecificItem, "");
+        dialog.AddButton("Save Backup", CreateTestingBackup, "");
+        dialog.AddButton("Load Backup", LoadTestingBackup, "");
     }
 }
