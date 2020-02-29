@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cd82f2bc392f2439799a39efad31c2, type: 3}
   m_Name: Dungeon3
   m_EditorClassIdentifier: 
+  dungeonNum: 3
   floorData:
   - roomSet: ship
     generationData:

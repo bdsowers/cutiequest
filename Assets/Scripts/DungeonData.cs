@@ -35,6 +35,8 @@ public struct DungeonFloorData
 [CreateAssetMenu(fileName = "Character", menuName = "CutieQuest/DungeonData")]
 public class DungeonData : ScriptableObject
 {
+    public int dungeonNum;
+
     public DungeonFloorData[] floorData;
     public DungeonBiomeData biomeData;
     public string background;
