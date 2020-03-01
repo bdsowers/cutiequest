@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1400
+  health: 1600
   deathResponse: 1
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1400
+  _maxHealth: 1600
   _strength: 40
   _defense: 0
   _magic: 10
@@ -244,7 +244,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 81ce00ddd978d1149a0126c0c921effc,
     type: 3}
   throwSpeed: 1.5
-  numThrows: 6
+  numThrows: 3
 --- !u!114 &3673156242125148797
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -71,7 +71,6 @@ public class Boss3a : Boss3
 
     private void SwitchPhaseIfNecessary()
     {
-
     }
 
     public override bool CanUpdateAI()
@@ -116,7 +115,7 @@ public class Boss3a : Boss3
         }
         else if (mCurrentState == AIState.Delay)
         {
-            if (mDelayTimer > 2f - mCurrentPhase * 0.5f)
+            if (mDelayTimer > 1.5f - mCurrentPhase * 0.5f)
             {
                 mCurrentState = AIState.Teleporting;
                 mNumTeleports = 0;
