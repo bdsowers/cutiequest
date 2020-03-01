@@ -142,14 +142,14 @@ public class Boss2 : EnemyAI
         else if (mCurrentPhase == 1)
         {
             mTeleport.teleportCooldown /= 2;
-            mSpell1.castSpeed *= 1.25f;
-            mSpell2.castSpeed *= 1.25f;
+            mSpell1.castSpeed *= 1.1f;
+            mSpell2.castSpeed *= 1.1f;
         }
         else if (mCurrentPhase == 2)
         {
             mTeleport.teleportCooldown /= 2;
-            mSpell1.castSpeed *= 1.25f;
-            mSpell2.castSpeed *= 1.25f;
+            mSpell1.castSpeed *= 1.1f;
+            mSpell2.castSpeed *= 1.1f;
         }
     }
 
