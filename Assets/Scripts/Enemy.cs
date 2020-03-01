@@ -22,12 +22,21 @@ public class Enemy : CharacterComponentBase
         mReveal = GetComponentInChildren<RevealWhenAvatarIsClose>();
 
         commonComponents.killable.onDeath += OnDeath;
+        commonComponents.killable.onHit += OnHit;
 
         Game.instance.centralEvents.FireEnemyCreated(this);
     }
 
+    private void OnHit(Killable entity)
+    {
+        mActivated = true;
+    }
+
     private void OnDestroy()
     {
+        commonComponents.killable.onDeath -= OnDeath;
+        commonComponents.killable.onHit -= OnHit;
+
         Game.instance.enemyDirector.UnregisterEnemy(this);
     }
 
