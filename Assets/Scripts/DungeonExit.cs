@@ -14,6 +14,7 @@ public class DungeonExit : MonoBehaviour
         if (other.GetComponentInParent<PlayerController>() != null)
         {
             mIsTransitioning = true;
+            Game.instance.avatar.transitioning = true;
             Invoke("Transition", 0.5f);
         }
     }
