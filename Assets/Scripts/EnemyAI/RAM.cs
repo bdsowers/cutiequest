@@ -29,14 +29,14 @@ public class RAM : EnemyAI
     public enum AIState
     {
         Wandering,
-        Teleporting,
         Charging,
         Stun,
+        Running,
     }
 
     int mCurrentPhase = 0;
 
-    private AIState mCurrentState = AIState.Teleporting;
+    private AIState mCurrentState = AIState.Wandering;
     private int mNumTeleports = 0;
     private Vector3 mChargeDirection;
     private float mStunTimer = 0f;
@@ -92,33 +92,11 @@ public class RAM : EnemyAI
         {
             if (mStunTimer > 2f)
             {
-                SwitchState();
+                mCurrentState = AIState.Wandering;
             }
         }
-        else if (!mTeleportedIntoPlaceForState)
+        else if (mCurrentState == AIState.Wandering)
         {
-            mTeleport.Teleport(true);
-
-            mTeleportedIntoPlaceForState = true;
-
-            // If we're going into the charging state, get ready to head toward the player ...
-            mChargeDirection = TowardPlayer();
-        }
-        else if (mCurrentState == AIState.Teleporting)
-        {
-            if (mTeleport.CanTeleport())
-            {
-                ++mNumTeleports;
-                int maxTeleports = 5 + mCurrentPhase;
-
-                mTeleport.Teleport();
-                SimpleMovement.OrientToDirection(mSimpleMovement.subMesh, TowardPlayer());
-
-                if (mNumTeleports >= maxTeleports)
-                {
-                    SwitchState();
-                }
-            }
 
         }
         else if (mCurrentState == AIState.Charging)
@@ -128,7 +106,7 @@ public class RAM : EnemyAI
                 mSimpleAttack.Attack(mChargeDirection);
                 Camera.main.GetComponent<FollowCamera>().SimpleShake();
 
-                SwitchState();
+                mCurrentState = AIState.Running;
             }
             else if (mSimpleMovement.CanMove(mChargeDirection))
             {
@@ -142,30 +120,10 @@ public class RAM : EnemyAI
                 Camera.main.GetComponent<FollowCamera>().SimpleShake();
             }
         }
-    }
-
-    private void SwitchState()
-    {
-        AIState newState = mCurrentState;
-
-        // Don't repeat states
-        // Charging requires extra love since it transitions immediately into stun
-        while (newState == mCurrentState || (mCurrentState == AIState.Stun && newState == AIState.Charging))
+        else if (mCurrentState == AIState.Running)
         {
-            int val = Random.Range(0, 4);
-            switch(val)
-            {
-                case 0: newState = AIState.Teleporting; break;
-                case 3: newState = AIState.Charging; break;
-            }
+
         }
-
-        mCurrentState = newState;
-        mNumTeleports = 0;
-
-        Debug.Log(mCurrentState);
-
-        mTeleportedIntoPlaceForState = false;
     }
 
     private Vector3 TowardPlayer()
@@ -183,6 +141,11 @@ public class RAM : EnemyAI
 
         towardPlayer.Normalize();
         return towardPlayer;
+    }
+
+    private bool StraightLineToPlayer()
+    {
+        return false;
     }
 
     public override void AIStructureChanged()

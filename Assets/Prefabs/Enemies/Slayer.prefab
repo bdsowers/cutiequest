@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 2738750450090089172}
   - component: {fileID: 8268176248063259198}
   - component: {fileID: 6961990967797571961}
-  - component: {fileID: 7020149889661926042}
   - component: {fileID: 6215749322139787534}
   - component: {fileID: 7053227564434089843}
+  - component: {fileID: 705136441239495931}
+  - component: {fileID: 8411336115560707902}
   m_Layer: 10
   m_Name: Slayer
   m_TagString: Untagged
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 160
+  health: 100
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
@@ -130,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 160
-  _strength: 12
+  _maxHealth: 100
+  _strength: 11
   _defense: 0
   _magic: 1
   _speed: 8
@@ -151,7 +152,7 @@ MonoBehaviour:
   coinDropData:
   - itemName: 
     rate: 10
-    amount: 10
+    amount: 15
   - itemName: 
     rate: 50
     amount: 5
@@ -160,24 +161,12 @@ MonoBehaviour:
     amount: 1
   heartDropData:
   - itemName: 
-    rate: 50
-    amount: 26
+    rate: 65
+    amount: 40
   arbitraryDrops: []
   ignoreGoldDigger: 0
   scatter: 0
   delay: 0
---- !u!114 &7020149889661926042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738750450090089171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ced62efca1e2234fb1053591236b5a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6215749322139787534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +193,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 3
+--- !u!114 &705136441239495931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4585f7dcfc3be9442ada1f9e402360c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportCooldown: 5
+  teleportMinDistance: 4
+  teleportMaxDistance: 6
+--- !u!114 &8411336115560707902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738750450090089171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ced62efca1e2234fb1053591236b5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7519224713004977550
 GameObject:
   m_ObjectHideFlags: 0
