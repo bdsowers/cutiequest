@@ -48,7 +48,7 @@ public class BuffStatsDialog : Dialog
 
             if (statSelected == CharacterStatType.MaxHealth)
             {
-                Game.instance.playerStats.ChangeBaseStat(statSelected, currentLevel + 10);
+                Game.instance.playerStats.ChangeBaseStat(statSelected, currentLevel + 15);
                 Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
             }
             else
