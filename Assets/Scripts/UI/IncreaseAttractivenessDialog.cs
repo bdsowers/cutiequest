@@ -52,6 +52,20 @@ public class IncreaseAttractivenessDialog : Dialog
         Close();
     }
 
+    private IEnumerator GiveRandomItemCoroutine()
+    {
+        List<GameObject> itemsToIgnore = DungeonOnlyItems();
+
+        GameObject newItem = GameObject.Instantiate(PrefabManager.instance.itemPrefabs.Sample(itemsToIgnore));
+
+        // Wait a frame for the item to be fully setup
+        yield return null;
+
+        newItem.GetComponentInChildren<Item>().Equip();
+
+        yield break;
+    }
+
     private void ApplyEffect()
     {
         if (mEffect == "shuffle_matches")
@@ -61,10 +75,7 @@ public class IncreaseAttractivenessDialog : Dialog
         }
         else if (mEffect == "random_item")
         {
-            List<GameObject> itemsToIgnore = DungeonOnlyItems();
-
-            GameObject newItem = GameObject.Instantiate(PrefabManager.instance.itemPrefabs.Sample(itemsToIgnore));
-            newItem.GetComponentInChildren<Item>().Equip();
+            StartCoroutine(GiveRandomItemCoroutine());
         }
         else if (mEffect == "effect_bruiser")
         {
