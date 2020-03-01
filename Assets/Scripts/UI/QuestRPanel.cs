@@ -45,6 +45,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public GameObject likeButton;
     public GameObject dislikeButton;
 
+    private bool mSwitchingInfoModes;
+
     public bool isAnimating
     {
         get { return mIsQuestPanelAnimating; }
@@ -341,6 +343,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void MoreInfo()
     {
+        if (mSwitchingInfoModes) return;
+
         moreInfoView.gameObject.SetActive(true);
         mParent.moreInfoMode = true;
 
@@ -350,6 +354,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void LessInfo()
     {
+        if (mSwitchingInfoModes) return;
+
         standardView.gameObject.SetActive(true);
         mParent.moreInfoMode = false;
 
@@ -398,6 +404,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private IEnumerator FadeCanvasGroup(CanvasGroup group, float sourceAlpha, float targetAlpha)
     {
+        mSwitchingInfoModes = true;
+
         group.alpha = sourceAlpha;
 
         float time = 0f;
@@ -412,6 +420,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (targetAlpha < 0.1f)
             group.gameObject.SetActive(false);
+
+        mSwitchingInfoModes = false;
 
         yield break;
     }
