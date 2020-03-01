@@ -137,7 +137,7 @@ MonoBehaviour:
   _maxHealth: 1600
   _strength: 40
   _defense: 0
-  _magic: 10
+  _magic: 11
   _speed: 10
   _luck: 1
 --- !u!114 &6961990967797571961
