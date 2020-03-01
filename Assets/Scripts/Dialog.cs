@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
+    public virtual void OnEnable()
+    {
+        Game.instance.dialogManager.DialogOpened(this);
+    }
+
+    public virtual void OnDisable()
+    {
+        Game.instance.dialogManager.DialogClosed(this);
+    }
+
+    public virtual void OnDestroy()
+    {
+        Game.instance.dialogManager.DialogClosed(this);
+    }
+
     // Update is called once per frame
     public virtual void Update()
     {

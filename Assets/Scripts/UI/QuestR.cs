@@ -55,8 +55,10 @@ public class QuestR : Dialog
         }
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
+
         rigModel1.transform.localPosition = Vector3.zero;
         rigModel2.transform.localPosition = Vector3.zero;
 

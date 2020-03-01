@@ -43,7 +43,7 @@ public class ActivationPlate : MonoBehaviour
             return;
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
-        if (DialogManager.AnyDialogsOpen())
+        if (Game.instance.dialogManager != null && Game.instance.dialogManager.AnyDialogsOpen())
             return;
 
         // If we're inside an item, show that prompt

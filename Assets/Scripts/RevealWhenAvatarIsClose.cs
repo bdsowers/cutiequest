@@ -12,16 +12,29 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
 
     public bool fullyRevealed {  get { return mFullyRevealed; } }
 
+    // Performance optimization
+    private static int mFrameOffsetStatic = 0;
+    private int mFrameOffset = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.localScale = Vector3.zero;
+
+        mFrameOffset = mFrameOffsetStatic;
+        mFrameOffsetStatic = (mFrameOffset + 1) % 3;
+        if (mFrameOffsetStatic > 10000)
+            mFrameOffsetStatic = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (mFullyRevealed)
+            return;
+
+        // Performance optimization - only check for reveal every 3 frames
+        if (!mRevealed && (Time.frameCount + mFrameOffset) % 3 != 0)
             return;
 
         float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);

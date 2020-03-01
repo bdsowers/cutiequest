@@ -83,13 +83,17 @@ public class PauseDialog : Dialog
         gameObject.SetActive(false);
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
+
         Time.timeScale = 0f;
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        base.OnDisable();
+
         Time.timeScale = 1f;
     }
 }

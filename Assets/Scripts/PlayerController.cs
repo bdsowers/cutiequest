@@ -214,7 +214,7 @@ public class PlayerController : CharacterComponentBase
         if (minimapCamera.showingWholeMap)
             return;
 
-        if (DialogManager.AnyDialogsOpen())
+        if (Game.instance.dialogManager != null && Game.instance.dialogManager.AnyDialogsOpen())
             return;
 
         // Queue spells while moving / attack to be executed once those actions end.

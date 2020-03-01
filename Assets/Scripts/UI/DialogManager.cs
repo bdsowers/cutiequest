@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    private static int mAnyDialogsOpen = -1;
+    private List<Dialog> mOpenDialogs = new List<Dialog>();
 
-    public static bool AnyDialogsOpen()
+    public bool AnyDialogsOpen()
     {
-        if (mAnyDialogsOpen == -1)
-        {
-            Dialog dialog = GameObject.FindObjectOfType<Dialog>();
-            mAnyDialogsOpen = (dialog != null ? 1 : 0);
-        }
-
-        return mAnyDialogsOpen == 1;
+        return mOpenDialogs.Count > 0;
     }
 
-    private void LateUpdate()
+    public void DialogOpened(Dialog dialog)
     {
-        mAnyDialogsOpen = -1;
+        mOpenDialogs.Add(dialog);
+    }
+
+    public void DialogClosed(Dialog dialog)
+    {
+        mOpenDialogs.Remove(dialog);
     }
 }

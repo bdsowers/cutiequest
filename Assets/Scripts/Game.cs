@@ -319,6 +319,18 @@ public class Game : MonoBehaviour
         }
     }
 
+    private DialogManager mDialogManager;
+    public DialogManager dialogManager
+    {
+        get
+        {
+            if (mDialogManager == null)
+                mDialogManager = GameObject.FindObjectOfType<DialogManager>();
+
+            return mDialogManager;
+        }
+    }
+
     private void Awake()
     {
         if (mInstance != null)
@@ -405,7 +417,7 @@ public class Game : MonoBehaviour
         {
             // In some control schemes, pause & close are the same button (Escape)
             // Make sure these don't overlap
-            if (DialogManager.AnyDialogsOpen())
+            if (Game.instance.dialogManager != null && Game.instance.dialogManager.AnyDialogsOpen())
                 return;
 
             DuckpicUI dp = GameObject.FindObjectOfType<DuckpicUI>();

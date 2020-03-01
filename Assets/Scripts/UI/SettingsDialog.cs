@@ -30,8 +30,10 @@ public class SettingsDialog : Dialog
 
     private bool mScreenSettingsChanged = false;
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
+
         buttonSet.GetComponent<ButtonSet>().ForceUnfocus();
 
         mScreenSettingsChanged = false;
