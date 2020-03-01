@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521d2e3589a57e5499e00bd76140fbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preActivationMessage: If those hearts are creating a hole in your pocket, replace
+  preActivationMessage: If those coins are creating a hole in your pocket, replace
     them to make your cutie's passive boost more boostful.
 --- !u!1001 &3212915899536461240
 PrefabInstance:
