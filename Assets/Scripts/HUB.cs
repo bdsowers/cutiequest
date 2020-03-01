@@ -57,6 +57,11 @@ public class HUB : MonoBehaviour
         GameObject entrance = DungeonEntranceWithId(Game.instance.dungeonEntranceId);
 
         avatar.transform.position = entrance.transform.position + new Vector3(0f, 0f, -4f);
+        Vector3 roundedPos = avatar.transform.position;
+        roundedPos.x = Mathf.RoundToInt(roundedPos.x);
+        roundedPos.z = Mathf.RoundToInt(roundedPos.z);
+        avatar.transform.position = roundedPos;
+
         Vector3 originPos = avatar.modelContainer.transform.localPosition;
         Vector3 backPos = avatar.modelContainer.transform.localPosition + new Vector3(0f, 0f, 6f);
         Vector3 fallTarget = originPos + new Vector3(0f, -0.25f, 0f);
