@@ -535,9 +535,13 @@ public class LevelGenerator : MonoBehaviour
         {
             return floorData.enemyData.commonEnemy.name;
         }
-        else
+        else if (mPresetEnemyCounter == 2)
         {
             return floorData.enemyData.uncommonEnemy.name;
+        }
+        else
+        {
+            return floorData.enemyData.rareEnemy.name;
         }
     }
 

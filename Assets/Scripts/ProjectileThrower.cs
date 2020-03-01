@@ -32,7 +32,7 @@ public class ProjectileThrower : CharacterComponentBase
     {
         isThrowing = true;
 
-        float actualThrowSpeed = throwSpeed * numThrows;
+        float actualThrowSpeed = throwSpeed;
         if (!Game.instance.realTime)
             actualThrowSpeed = 5f;
 
