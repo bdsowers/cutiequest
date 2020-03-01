@@ -275,6 +275,11 @@ public class ScreenTransitionManager : MonoBehaviour
                 yield return null;
         }
 
+        // TODO bdsowers : HACK!
+        // Bumping scout level up so that those unlocks don't show over & over
+        if (Game.instance.playerData.scoutLevel % 2 == 1)
+            Game.instance.playerData.scoutLevel++;
+
         yield break;
     }
 }

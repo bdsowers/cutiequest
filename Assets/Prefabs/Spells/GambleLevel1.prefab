@@ -49,7 +49,7 @@ MonoBehaviour:
   cooldown: 25
   icon: {fileID: 21300000, guid: 4435f58d5b20eef438f27d40a33aa8b9, type: 3}
   requiredLevel: 1
-  scoutLevel: 2
+  scoutLevel: 3
   level: 1
 --- !u!114 &3184930428061427769
 MonoBehaviour:
