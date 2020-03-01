@@ -68,6 +68,7 @@ public class KillableMap : MonoBehaviour
         Killable last = mAllKillables[mAllKillables.Count - 1];
         int removeIndex = killable.killableMapIndex;
         mAllKillables[removeIndex] = last;
+        last.killableMapIndex = removeIndex;
         killable.killableMapIndex = -1;
         mAllKillables.RemoveAt(mAllKillables.Count - 1);
     }

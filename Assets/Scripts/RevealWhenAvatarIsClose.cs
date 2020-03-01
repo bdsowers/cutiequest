@@ -21,13 +21,81 @@ public class RevealWhenAvatarIsClose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mRevealed)
+        if (mFullyRevealed)
             return;
 
         float distance = Vector3.Distance(transform.position, Game.instance.avatar.transform.position);
-        if (distance < NearsightedQuirk.ApplyQuirkIfPresent(6.5f))
+        if (!mRevealed && distance < NearsightedQuirk.ApplyQuirkIfPresent(6.5f))
         {
-            Reveal();
+            StartUpdateReveal();
+        }
+
+        UpdateReveal();
+    }
+
+    // Reveal without garbage-intensive coroutines
+    private float mRevealDelayTimer = 0f;
+    private Vector3 mStartScale;
+    private Vector3 mTargetScale;
+    private float mRevealTimer = 0f;
+    private float mOvershoot = 0.2f;
+    private float mRevealSpeed = 3f;
+    private int mRevealState = 0;
+    void StartUpdateReveal()
+    {
+        mRevealed = true;
+
+        mRevealDelayTimer = Random.Range(0f, 0.5f);
+        if (!revealDelay)
+        {
+            mRevealDelayTimer = 0f;
+        }
+
+        mStartScale = Vector3.zero;
+        mTargetScale = Vector3.one;
+        if (allowScaleVariation)
+        {
+            mTargetScale.y = Random.Range(0.9f, 1.2f);
+        }
+    }
+
+    void UpdateReveal()
+    {
+        if (mRevealed && !mFullyRevealed)
+        {
+            if (mRevealDelayTimer > 0f)
+            {
+                mRevealDelayTimer -= Time.deltaTime;
+                return;
+            }
+
+            if (mRevealState == 0)
+            {
+                if (mRevealTimer < 1f + mOvershoot)
+                {
+                    mRevealTimer += Time.deltaTime * mRevealSpeed;
+                    transform.localScale = mStartScale + (mTargetScale - mStartScale) * mRevealTimer;
+                }
+                else
+                {
+                    mRevealState = 1;
+                }
+            }
+            else if (mRevealState == 1)
+            {
+                if (mRevealTimer > 1f)
+                {
+                    mRevealTimer -= Time.deltaTime * mRevealSpeed;
+                    if (mRevealTimer < 1f) mRevealTimer = 1f;
+                    transform.localScale = mStartScale + (mTargetScale - mStartScale) * mRevealTimer;
+                }
+                else
+                {
+                    transform.localScale = mTargetScale;
+                    mFullyRevealed = true;
+                    enabled = false;
+                }
+            }
         }
     }
 
