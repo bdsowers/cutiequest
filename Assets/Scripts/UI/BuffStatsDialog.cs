@@ -34,6 +34,14 @@ public class BuffStatsDialog : Dialog
             level = (level - mStartingHealth + mHealthPerLevel) / mHealthPerLevel;
 
         int cost = Mathf.RoundToInt(Mathf.Pow(2, level));
+
+        // Slow the cost ramp at higher levels
+        if (level > 8)
+        {
+            int overage = level - 8;
+            cost = Mathf.RoundToInt(Mathf.Pow(2, 8)) + 128 * overage;
+        }
+
         return cost;
     }
 
