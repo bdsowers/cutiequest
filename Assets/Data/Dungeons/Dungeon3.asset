@@ -18,12 +18,12 @@ MonoBehaviour:
     generationData:
       randomSeed: 0
       scopeData:
-      - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+      - criticalPathMinRooms: 1
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
-      - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+      - criticalPathMinRooms: 1
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
@@ -31,14 +31,47 @@ MonoBehaviour:
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
-      maxSpecialRooms: 0
-      numExtraRoomsPlacedBeforeSpecialRooms: 5
-      numExtraRoomsPlacedAfterSpecialRooms: 10
+      maxSpecialRooms: 1
+      numExtraRoomsPlacedBeforeSpecialRooms: 2
+      numExtraRoomsPlacedAfterSpecialRooms: 7
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 10
-      maxEnemies: 15
+      minEnemies: 35
+      maxEnemies: 40
+      commonEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
+        type: 3}
+  - roomSet: ship
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 3
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 3
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      - criticalPathMinRooms: 2
+        criticalPathMaxRooms: 3
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 2
+      numExtraRoomsPlacedBeforeSpecialRooms: 2
+      numExtraRoomsPlacedAfterSpecialRooms: 7
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 40
+      maxEnemies: 45
       commonEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
         type: 3}
       uncommonEnemy: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
@@ -52,33 +85,33 @@ MonoBehaviour:
       randomSeed: 0
       scopeData:
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
+        criticalPathMaxRooms: 3
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
-      maxSpecialRooms: 1
-      numExtraRoomsPlacedBeforeSpecialRooms: 8
-      numExtraRoomsPlacedAfterSpecialRooms: 15
+      maxSpecialRooms: 2
+      numExtraRoomsPlacedBeforeSpecialRooms: 4
+      numExtraRoomsPlacedAfterSpecialRooms: 10
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 15
-      maxEnemies: 20
-      commonEnemy: {fileID: 2738750450090089171, guid: f97d72f6de766ba49b93e1ac088f1471,
+      minEnemies: 45
+      maxEnemies: 55
+      commonEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      uncommonEnemy: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
         type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      rareEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
         type: 3}
   - roomSet: ship
     generationData:
@@ -97,54 +130,21 @@ MonoBehaviour:
         forbidExtraRooms: 0
         forbidSpecialRooms: 0
       minSpecialRooms: 0
-      maxSpecialRooms: 0
-      numExtraRoomsPlacedBeforeSpecialRooms: 8
-      numExtraRoomsPlacedAfterSpecialRooms: 15
+      maxSpecialRooms: 3
+      numExtraRoomsPlacedBeforeSpecialRooms: 5
+      numExtraRoomsPlacedAfterSpecialRooms: 12
       enforceTwoTileHighWalls: 0
       fillEmptyCellsWithWalls: 0
     enemyData:
-      minEnemies: 15
-      maxEnemies: 20
-      commonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      minEnemies: 55
+      maxEnemies: 60
+      commonEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      uncommonEnemy: {fileID: 2738750450090089171, guid: d6de9c6e70963bb48874d16375b444e9,
         type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      rareEnemy: {fileID: 2738750450090089171, guid: cb7eb903f67e4d44a8c4cf07a2dd4433,
         type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
-        type: 3}
-  - roomSet: ship
-    generationData:
-      randomSeed: 0
-      scopeData:
-      - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
-        forbidExtraRooms: 0
-        forbidSpecialRooms: 0
-      - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
-        forbidExtraRooms: 0
-        forbidSpecialRooms: 0
-      - criticalPathMinRooms: 2
-        criticalPathMaxRooms: 4
-        forbidExtraRooms: 0
-        forbidSpecialRooms: 0
-      minSpecialRooms: 0
-      maxSpecialRooms: 0
-      numExtraRoomsPlacedBeforeSpecialRooms: 8
-      numExtraRoomsPlacedAfterSpecialRooms: 15
-      enforceTwoTileHighWalls: 0
-      fillEmptyCellsWithWalls: 0
-    enemyData:
-      minEnemies: 15
-      maxEnemies: 20
-      commonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
-        type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
-        type: 3}
-      rareEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
-        type: 3}
-      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9e115e3726c6e2247b2d25d8ae4f5c83,
         type: 3}
   - roomSet: boss3
     generationData:
