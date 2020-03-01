@@ -48,7 +48,6 @@ public class KillableMap : MonoBehaviour
     {
         if (killable.killableMapIndex != -1)
         {
-            Debug.LogError("Re-registering a killable for some reason");
             return;
         }
 
@@ -60,7 +59,6 @@ public class KillableMap : MonoBehaviour
     {
         if (killable.killableMapIndex == -1)
         {
-            Debug.LogError("Trying to double-unregister a killable for some reason");
             return;
         }
 
