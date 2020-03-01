@@ -210,7 +210,7 @@ public class PlayerController : CharacterComponentBase
         if (transitioning)
             return;
 
-        MinimapCamera minimapCamera = GameObject.FindObjectOfType<MinimapCamera>();
+        MinimapCamera minimapCamera = Game.instance.minimapCamera;
         if (minimapCamera.showingWholeMap)
             return;
 

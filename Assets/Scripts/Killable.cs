@@ -44,10 +44,31 @@ public class Killable : MonoBehaviour
     public bool isDead { get; private set; }
     public bool isReviving { get; private set; }
 
+    // Performance optimization
+    private int mKillableMapIndex = -1;
+    public int killableMapIndex
+    {
+        get { return mKillableMapIndex; }
+        set { mKillableMapIndex = value; }
+    }
+
     private void Start()
     {
         mEnemy = GetComponent<Enemy>();
         mMovement = GetComponent<SimpleMovement>();
+
+        if (KillableMap.instance != null)
+        {
+            KillableMap.instance.RegisterKillable(this);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (KillableMap.instance != null)
+        {
+            KillableMap.instance.UnregisterKillable(this);
+        }
     }
 
     private bool CanTakeDamage()

@@ -252,6 +252,18 @@ public class Game : MonoBehaviour
 
     public bool luckyPennyUsed { get; set; }
 
+    private MinimapCamera mMinimapCamera;
+    public MinimapCamera minimapCamera
+    {
+        get
+        {
+            if (mMinimapCamera == null)
+                mMinimapCamera = GameObject.FindObjectOfType<MinimapCamera>();
+
+            return mMinimapCamera;
+        }
+    }
+
     public void EnterDungeon(DungeonData dungeonData, string entranceId)
     {
         dungeonEntranceId = entranceId;

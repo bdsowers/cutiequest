@@ -44,6 +44,34 @@ public class KillableMap : MonoBehaviour
         return mMap[x, y];
     }
 
+    public void RegisterKillable(Killable killable)
+    {
+        if (killable.killableMapIndex != -1)
+        {
+            Debug.LogError("Re-registering a killable for some reason");
+            return;
+        }
+
+        mAllKillables.Add(killable);
+        killable.killableMapIndex = mAllKillables.Count - 1;
+    }
+
+    public void UnregisterKillable(Killable killable)
+    {
+        if (killable.killableMapIndex == -1)
+        {
+            Debug.LogError("Trying to double-unregister a killable for some reason");
+            return;
+        }
+
+        // Pop & Swap
+        Killable last = mAllKillables[mAllKillables.Count - 1];
+        int removeIndex = killable.killableMapIndex;
+        mAllKillables[removeIndex] = last;
+        killable.killableMapIndex = -1;
+        mAllKillables.RemoveAt(mAllKillables.Count - 1);
+    }
+
     private void Update()
     {
         if (mMap == null)
@@ -59,9 +87,6 @@ public class KillableMap : MonoBehaviour
             }
         }
 
-        mAllKillables.Clear();
-
-        Game.instance.levelGenerator.GetComponentsInChildren<Killable>(mAllKillables);
         for (int i = 0; i < mAllKillables.Count; ++i)
         {
             Vector3 worldPosition = mAllKillables[i].transform.position;
