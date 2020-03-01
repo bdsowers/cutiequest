@@ -32,6 +32,8 @@ public class CharacterStatistics : MonoBehaviour
     [SerializeField]
     private int _luck;
 
+    private List<Item> mEquippedItems = new List<Item>();
+
     public delegate void CharacterStatisticsChanged(CharacterStatistics stats);
     public event CharacterStatisticsChanged onCharacterStatisticsChanged;
 
@@ -138,8 +140,19 @@ public class CharacterStatistics : MonoBehaviour
             return CharacterStatType.MaxHealth;
     }
 
+    private void Update()
+    {
+        mEquippedItems.Clear();
+        GetComponentsInChildren<Item>(mEquippedItems);
+    }
+
     public bool IsItemEquipped<T>()
     {
-        return GetComponentInChildren<T>() != null;
+        for (int i = 0; i < mEquippedItems.Count; ++i)
+        {
+            if (mEquippedItems[i] is T)
+                return true;
+        }
+        return false;
     }
 }
