@@ -12,6 +12,9 @@ public class BuffStatsDialog : Dialog
     public Text speedCostLabel;
     public Text luckCostLabel;
 
+    private int mHealthPerLevel = 15;
+    private int mStartingHealth = 100;
+
     public void ShowDialog()
     {
         maxHealthCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.MaxHealth)).ToString();
@@ -28,7 +31,7 @@ public class BuffStatsDialog : Dialog
     {
         int level = Game.instance.playerStats.BaseStatValue(statType);
         if (statType == CharacterStatType.MaxHealth)
-            level = (level - 90) / 10;
+            level = (level - mStartingHealth + mHealthPerLevel) / mHealthPerLevel;
 
         int cost = Mathf.RoundToInt(Mathf.Pow(2, level));
         return cost;
@@ -48,7 +51,7 @@ public class BuffStatsDialog : Dialog
 
             if (statSelected == CharacterStatType.MaxHealth)
             {
-                Game.instance.playerStats.ChangeBaseStat(statSelected, currentLevel + 15);
+                Game.instance.playerStats.ChangeBaseStat(statSelected, currentLevel + mHealthPerLevel);
                 Game.instance.playerData.health = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject);
             }
             else
