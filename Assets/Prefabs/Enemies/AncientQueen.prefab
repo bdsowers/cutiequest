@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 130
   deathResponse: 0
   showNumberPopups: 1
   deathEffect: CFX2_EnemyDeathSkull
@@ -117,11 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32888ebe8d122144879ed3ba223929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _maxHealth: 130
   _strength: 3
   _defense: 0
-  _magic: 4
-  _speed: 1
+  _magic: 11
+  _speed: 7
   _luck: 1
 --- !u!114 &2827330309182959903
 MonoBehaviour:
@@ -141,8 +141,8 @@ MonoBehaviour:
     amount: 1
   heartDropData:
   - itemName: 
-    rate: 25
-    amount: 1
+    rate: 50
+    amount: 24
   arbitraryDrops: []
   ignoreGoldDigger: 0
   scatter: 0
@@ -245,7 +245,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4569414620403578163}
+  - {fileID: 4568511131227009108}
   - {fileID: 9119908794363412212}
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5d192ff58055741beb3d8e0e2466e6, type: 3}
---- !u!4 &4569414620403578163 stripped
+--- !u!4 &4568511131227009108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4308745711888484, guid: ad5d192ff58055741beb3d8e0e2466e6,
     type: 3}

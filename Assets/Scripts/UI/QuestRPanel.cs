@@ -306,9 +306,9 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private string ShortStatBoostDisplay(CharacterStatData statData, CharacterData characterData)
     {
         int level = 0;
-        if (characterData.statBoostAmount <= 2)
+        if (characterData.statBoostAmount == 1)
             level = 1;
-        else if (characterData.statBoostAmount <= 5)
+        else if (characterData.statBoostAmount == 2)
             level = 2;
         else
             level = 3;

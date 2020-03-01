@@ -87,7 +87,7 @@ public class CompanionBuilder : MonoBehaviour
         // Look at the player's current level in that area
         int baseLevel = Game.instance.avatar.GetComponent<CharacterStatistics>().BaseStatValue(statType);
 
-        return baseLevel / 6;
+        return baseLevel / 5;
     }
 
     private CharacterModelData PlayerModel()
