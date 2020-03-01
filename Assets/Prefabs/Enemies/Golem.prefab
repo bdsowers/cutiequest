@@ -169,15 +169,15 @@ MonoBehaviour:
   orientToDirection: 0
   randomOrientation: 0
   showTargetArea: 1
-  patternString: '30103
+  patternString: '20102
 
-    03130
+    02120
 
-    22122
+    11111
 
-    03130
+    02120
 
-    30103
+    20102
 
 '
   castSpeed: 2
