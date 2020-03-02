@@ -461,11 +461,11 @@ animation trigger: finale_begin
 
 	change_speaker Character_Mystic_01
 	typewriter text: "Don't be silly, we've launched already. We're in deep space by now.", keep_open: true
-	typewriter text: "Let me just go and grab me kids."
+	typewriter text: "Let me just go and grab my kids."
 
 	change_speaker follower
 	typewriter text: "You ever jumped out of a moving spaceship before?", keep_open: true
-	typewriter text: "LET'S BOOGY!"
+	typewriter text: "LET'S BOOGIE!"
 
 	change_scene Finale
 }
