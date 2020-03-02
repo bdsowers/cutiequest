@@ -25,7 +25,8 @@ public class Mansplain : MonoBehaviour
     void Update()
     {
         // Only update this if the parent enemy is revealed
-        if (parentEnemy != null && parentEnemy.commonComponents.revealWhenAvatarIsClose.fullyRevealed);
+        if (parentEnemy != null && !parentEnemy.commonComponents.revealWhenAvatarIsClose.fullyRevealed)
+            return;
 
         mChangeTextTimer -= Time.deltaTime;
         if (mChangeTextTimer <= 0f)
