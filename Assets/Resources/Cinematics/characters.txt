@@ -22,7 +22,7 @@ animation trigger: stylist_talk
 animation trigger: stylist_success
 {
 	change_speaker Chr_Fantasy_Bard_01
-	typewriter "Hot hot hot! Check out QuestR for new potential matches. ;)"
+	typewriter "Hot hot hot! Check out Questers Only for new potential matches. ;)"
 }
 
 animation trigger: stylist_fail
