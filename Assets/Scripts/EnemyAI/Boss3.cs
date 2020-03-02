@@ -38,6 +38,21 @@ public abstract class Boss3 : EnemyAI
         }
     }
 
+    private void FindSubBosses()
+    {
+        if (subBosses.Count > 0)
+            return;
+
+        GameObject[] allEnemiesInScene = GameObject.FindGameObjectsWithTag("Boss3");
+        for (int i = 0; i < allEnemiesInScene.Length; ++i)
+        {
+            Boss3 comp = allEnemiesInScene[i].GetComponentInChildren<Boss3>(true);
+            subBosses.Add(comp);
+        }
+
+        mIsPrimary = (gameObject == subBosses[0].gameObject);
+    }
+
     protected virtual void Start()
     {
         killable.onDeath += OnDeath;
@@ -49,14 +64,7 @@ public abstract class Boss3 : EnemyAI
         Game.instance.hud.bossHealth.transform.localScale = Vector3.zero;
         Game.instance.hud.bossHealth.transform.DOScale(1f, 0.5f);
 
-        GameObject[] allEnemiesInScene = GameObject.FindGameObjectsWithTag("Boss3");
-        for (int i = 0; i < allEnemiesInScene.Length; ++i)
-        {
-            Boss3 comp = allEnemiesInScene[i].GetComponentInChildren<Boss3>(true);
-            subBosses.Add(comp);
-        }
-
-        mIsPrimary = (this == subBosses[0]);
+        FindSubBosses();
 
         totalHealth = 0;
         for (int i = 0; i < subBosses.Count; ++i)
@@ -100,6 +108,8 @@ public abstract class Boss3 : EnemyAI
 
     private void OnEnable()
     {
+        FindSubBosses();
+
         if (!mIsPrimary) return;
 
         // Reveal the whole map when this boss becomes active
@@ -145,7 +155,7 @@ public abstract class Boss3 : EnemyAI
         mapPos = generator.FindEmptyNearbyPosition(mapPos);
         Vector3 worldPos = MapCoordinateHelper.MapToWorldCoords(mapPos, 0.4f);
 
-        GameObject exit = PrefabManager.instance.InstantiatePrefabByName("DungeonExit");
+        GameObject exit = PrefabManager.instance.InstantiatePrefabByName("Exit");
         exit.transform.position = worldPos;
         exit.GetComponent<RevealWhenAvatarIsClose>().Reveal();
     }

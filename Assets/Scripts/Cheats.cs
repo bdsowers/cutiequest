@@ -223,6 +223,11 @@ public class Cheats : MonoBehaviour
         {
             UnlockAllDungeons();
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            KillEnemies();
+        }
     }
 
     void UnlockAllNPCS()
@@ -256,6 +261,18 @@ public class Cheats : MonoBehaviour
         Game.instance.saveManager.LoadTestingBackup();
     }
 
+    void KillEnemies()
+    {
+        Killable[] allKillables = GameObject.FindObjectsOfType<Killable>();
+        for (int i = 0; i < allKillables.Length; ++i)
+        {
+            if (allKillables[i].gameObject != Game.instance.avatar.gameObject)
+            {
+                allKillables[i].TakeDamage(null, 99999999, DamageReason.ForceKill);
+            }
+        }
+    }
+
     void PopulateCheatsDialog()
     {
         CheatsDialog dialog = Game.instance.hud.cheatsDialog;
@@ -281,5 +298,6 @@ public class Cheats : MonoBehaviour
         dialog.AddButton("Test Item", TestSpecificItem, "");
         dialog.AddButton("Save Backup", CreateTestingBackup, "");
         dialog.AddButton("Load Backup", LoadTestingBackup, "");
+        dialog.AddButton("Kill Enemies", KillEnemies, "B");
     }
 }

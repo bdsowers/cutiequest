@@ -399,3 +399,38 @@ animation trigger: hub_tutorial
 	questr_tutorial false
 	disable tutorial_overlay
 }
+
+animation trigger: finale_begin
+{
+	change_speaker Character_Mystic_01
+	typewriter text: "Good, you're both here. We're ready to begin.", keep_open: true
+	typewriter text: "Boneta, the rings, if you please."
+
+	spawn_prefab prefab: Boneta, x: 12, y: 7
+	wait_seconds 1
+	change_speaker Chr_Dungeon_Skeleton_01
+	typewriter text: "M'lord, here you are."
+	remove_npc char_boneta
+
+	change_speaker follower
+	typewriter text: "Uhhhh say what now?"
+
+	change_speaker Character_Mystic_01
+	typewriter text: "Fabulous. Now, do you take this person to be your betrothed..."
+
+	change_speaker follower
+	typewriter text: "Woah woah woah woah"
+
+	change_speaker Character_Mystic_01
+	typewriter text: "... in sickness and in health ..."
+
+	change_speaker follower
+	typewriter text: "Wait wait wait wait"
+
+	change_speaker Character_Mystic_01
+	typewriter text: "... for as long as you -"
+
+	change_speaker follower
+	camera_shake intensity: 1, speed: 5, seconds: 2
+	typewriter text: "STOPPPPP!"
+}

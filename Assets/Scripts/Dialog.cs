@@ -11,7 +11,7 @@ public class Dialog : MonoBehaviour
 
     public virtual void OnDisable()
     {
-        Game.instance.dialogManager.DialogClosed(this);
+        if (Game.instance.dialogManager != null) Game.instance.dialogManager.DialogClosed(this);
     }
 
     public virtual void OnDestroy()

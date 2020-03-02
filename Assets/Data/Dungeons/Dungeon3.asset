@@ -188,9 +188,9 @@ MonoBehaviour:
     enemyData:
       minEnemies: 0
       maxEnemies: 0
-      commonEnemy: {fileID: 2738750450090089171, guid: 7563a90aa0c8a2040b749557034d341a,
+      commonEnemy: {fileID: 5073518052470053920, guid: 439779593303c154b80d821550062cdb,
         type: 3}
-      uncommonEnemy: {fileID: 2738750450090089171, guid: 999d7ca2c5fb02743ae184a2fdc9c48b,
+      uncommonEnemy: {fileID: 5073518052470053920, guid: a1e9aacdbc6203545973817424a658b9,
         type: 3}
       rareEnemy: {fileID: 2738750450090089171, guid: d8764e0df38a21b4eb212f78e7f4220c,
         type: 3}

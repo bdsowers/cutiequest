@@ -5,6 +5,7 @@ using UnityEngine;
 public class CinematicActionChangeSpeaker : CinematicAction
 {
     private string mSpeakerModel;
+    private bool mUseSpeakerMaterial;
 
     public override string actionName
     {
@@ -19,6 +20,13 @@ public class CinematicActionChangeSpeaker : CinematicAction
     public override void InterpretParameters(CinematicDataProvider dataProvider)
     {
         mSpeakerModel = dataProvider.GetStringData(mParameters, "speaker_model");
+        mUseSpeakerMaterial = false;
+
+        if (mSpeakerModel == "follower")
+        {
+            mSpeakerModel = Game.instance.followerData.model;
+            mUseSpeakerMaterial = true;
+        }
     }
 
     public override IEnumerator PlayInternal(CinematicDirector player)
@@ -35,7 +43,9 @@ public class CinematicActionChangeSpeaker : CinematicAction
         {
             CharacterModel model = GameObject.Find("CharacterImageCapture").GetComponentInChildren<CharacterModel>();
             model.transform.localPosition = new Vector3(0f, 0f, 0.5f);
-            model.ChangeModel(mSpeakerModel);
+
+            Material material = (mUseSpeakerMaterial ? Game.instance.followerData.material : null);
+            model.ChangeModel(mSpeakerModel, material, false);
         }
 
         yield break;

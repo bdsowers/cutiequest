@@ -14,10 +14,8 @@ GameObject:
   - component: {fileID: 16126872339708905}
   - component: {fileID: 4427058915879442526}
   - component: {fileID: 4763420820621385446}
-  - component: {fileID: 3506970785667796604}
-  - component: {fileID: 9120821296256246831}
   m_Layer: 0
-  m_Name: Preacher
+  m_Name: Boneta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8741465f27a1f744ab6b001db34e2881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinematicId: char_preacher
+  cinematicId: char_boneta
 --- !u!114 &4763420820621385446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,41 +105,6 @@ MonoBehaviour:
   subMesh: {fileID: 0}
   collisionIgnoreList: 
   collisionIdentity: 4
---- !u!114 &3506970785667796604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5073518052470053920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f225ef49ee36dd541932a7c3a5c4fdbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMeleeController: {fileID: 0}
-  enemyProjectileController: {fileID: 0}
-  activationCinematicEvent: 
-  closeCinematicEvent: finale_begin
---- !u!114 &9120821296256246831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5073518052470053920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42824aafe372a9f4796dbbe8cf4b4821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100000
-  deathResponse: 0
-  showNumberPopups: 0
-  deathEffect: CFX2_EnemyDeathSkull
-  deathEffectScale: 0.75
-  allowZeroDamage: 0
-  invulnerable: 1
 --- !u!1 &5073518053295189686
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 5073518053295189686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 5073518052470053921}
   m_RootOrder: 0
@@ -185,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fa8c23fc6b24041a06e36602f0eecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelName: Character_Mystic_01
+  modelName: Chr_Dungeon_Skeleton_01
   animatorController: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
   scale: 1
   rotation: 180
