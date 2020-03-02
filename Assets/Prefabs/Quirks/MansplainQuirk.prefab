@@ -79,6 +79,7 @@ MonoBehaviour:
   description: Constantly correcting you. Won't shut the hell up.
   icon: {fileID: 21300000, guid: 5b65888be95613241a59bb7bf5620d1d, type: 3}
   requiredLevel: 1
+  requiredScoutLevel: 0
   mansplainCanvas: {fileID: 6292129904788664200}
 --- !u!1 &856810096776967386
 GameObject:
@@ -305,7 +306,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Well, actually, this is a test to see how this does.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

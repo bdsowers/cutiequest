@@ -8,11 +8,24 @@ public class Mansplain : MonoBehaviour
     public Typewriter typewriter;
 
     private float mChangeTextTimer = 0f;
+    private Enemy mParentEnemy;
+
+    private Enemy parentEnemy
+    {
+        get
+        {
+            if (mParentEnemy == null)
+                mParentEnemy = GetComponentInParent<Enemy>();
+
+            return mParentEnemy;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // todo PRERELEASE - only do this if this enemy has been revealed
+        // Only update this if the parent enemy is revealed
+        if (parentEnemy != null && parentEnemy.commonComponents.revealWhenAvatarIsClose.fullyRevealed);
 
         mChangeTextTimer -= Time.deltaTime;
         if (mChangeTextTimer <= 0f)

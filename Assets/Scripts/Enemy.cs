@@ -13,6 +13,11 @@ public class Enemy : CharacterComponentBase
 
     public bool isBoss;
 
+    public bool activated
+    {
+        get { return mActivated; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

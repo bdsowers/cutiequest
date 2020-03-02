@@ -21,6 +21,7 @@ public class CharacterComponentBase : MonoBehaviour
         public SimpleAttack simpleAttack { get; private set; }
         public Killable killable { get; private set; }
         public CharacterModel characterModel { get; private set; }
+        public RevealWhenAvatarIsClose revealWhenAvatarIsClose { get; private set; }
 
         // note bdsowers - Animator changes more frequently than the others, so we need
         // a guard in case it becomes null
@@ -43,13 +44,14 @@ public class CharacterComponentBase : MonoBehaviour
             simpleAttack = root.GetComponentInChildren<SimpleAttack>();
             killable = root.GetComponentInChildren<Killable>();
             characterModel = root.GetComponentInChildren<CharacterModel>();
+            revealWhenAvatarIsClose = root.GetComponentInChildren<RevealWhenAvatarIsClose>();
         }
     }
 
     private bool mComponentsCached;
     private GameObject mCharacterRoot;
     private CommonCharacterComponents mCommonComponents;
-    
+
     public GameObject characterRoot
     {
         get
