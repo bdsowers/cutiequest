@@ -599,7 +599,8 @@ public class Game : MonoBehaviour
 
     public void RefreshInventory()
     {
-        inventoryDisplay.Refresh();
+        if (inventoryDisplay != null)
+            inventoryDisplay.Refresh();
     }
 
     public void RunEnded(bool success)

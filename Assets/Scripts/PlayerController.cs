@@ -27,6 +27,8 @@ public class PlayerController : CharacterComponentBase
 
     public bool transitioning { get; set; }
 
+    public bool finale;
+
     public CharacterData characterData
     {
         get; private set;
@@ -133,6 +135,9 @@ public class PlayerController : CharacterComponentBase
 
     public void PlaceFollowerInCorrectPosition()
     {
+        if (finale)
+            return;
+
         follower.transform.position = transform.position + new Vector3(-0.25f, 0f, 0.25f);
     }
 
@@ -201,6 +206,8 @@ public class PlayerController : CharacterComponentBase
     // Update is called once per frame
     void Update()
     {
+        if (finale)
+            return;
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
         if (Game.instance.transitionManager.isTransitioning)

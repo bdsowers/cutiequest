@@ -404,7 +404,7 @@ animation trigger: finale_begin
 {
 	change_speaker Character_Mystic_01
 	typewriter text: "Good, you're both here. We're ready to begin.", keep_open: true
-	typewriter text: "We've been monitoring your use of your advanced Questers Only app, and we rushed to your planet to be a part of this beautiful union."
+	typewriter text: "We've been monitoring your use of your advanced Questers Only app, and we rushed to your planet to be a part of this beautiful union.", keep_open: true
 	typewriter text: "Boneta, the rings, if you please."
 
 	spawn_prefab prefab: Boneta, x: 12, y: 7
@@ -440,7 +440,7 @@ animation trigger: finale_begin
 	change_speaker follower
 	camera_shake intensity: 1, speed: 5, seconds: 2
 	typewriter text: "STOPPPPP!", keep_open: true
-	typewriter text: "I just met this persona today. And if I'm being honest, I was only on Questers Only to make out.", keep_open: true
+	typewriter text: "I just met this person today. And if I'm being honest, I was only on Questers Only to make out.", keep_open: true
 	typewriter text: "I'm not about to marry this rando!"
 
 	change_speaker Character_Mystic_01
@@ -464,6 +464,20 @@ animation trigger: finale_begin
 	typewriter text: "Let me just go and grab me kids."
 
 	change_speaker follower
-	typewriter text: "You ever jumped out of a spaceship before?", keep_open: true
+	typewriter text: "You ever jumped out of a moving spaceship before?", keep_open: true
 	typewriter text: "LET'S BOOGY!"
+
+	change_scene Finale
+}
+
+animation trigger: finale_end
+{
+	wait_seconds 2
+	change_speaker none
+	typewriter text: "THANK YOU FOR PLAYING HEROES SWIPE RIGHT!", keep_open: true
+	typewriter text: "A game by Brian Sowers - @bdsowers\nand Andrea Donar - @andedonar", keep_open: true
+	typewriter text: "We hope you enjoyed!"
+
+	wait_seconds 2
+	change_scene Title
 }
