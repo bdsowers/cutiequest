@@ -21,7 +21,7 @@ public class BuildSystem : MonoBehaviour
     public static void SteamBuild()
     {
         // TODO BDSOWERS - auto-send to Steam
-
+        // TODO PRERELEASE - Switch to Release mode
         string outputPath = BuildPath(mSteamBuildLocation);
 
         BuildOptions options = BuildOptions.None;
