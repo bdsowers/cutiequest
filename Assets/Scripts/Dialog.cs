@@ -16,7 +16,7 @@ public class Dialog : MonoBehaviour
 
     public virtual void OnDestroy()
     {
-        Game.instance.dialogManager.DialogClosed(this);
+        if (Game.instance.dialogManager != null) Game.instance.dialogManager.DialogClosed(this);
     }
 
     // Update is called once per frame
