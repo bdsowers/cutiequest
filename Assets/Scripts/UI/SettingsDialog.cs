@@ -29,12 +29,16 @@ public class SettingsDialog : Dialog
     private Resolution[] mAvailableResolutions;
 
     private bool mScreenSettingsChanged = false;
+    private bool mDeferredUpdate = false;
 
     public override void OnEnable()
     {
         base.OnEnable();
 
+        mDeferredUpdate = false;
+
         buttonSet.GetComponent<ButtonSet>().ForceUnfocus();
+        Game.instance.focusFixer.ClearSelection();
 
         mScreenSettingsChanged = false;
         mCurrentSelection = 0;
@@ -51,6 +55,13 @@ public class SettingsDialog : Dialog
     public override void Update()
     {
         base.Update();
+
+        if (!mDeferredUpdate)
+        {
+            mDeferredUpdate = true;
+            buttonSet.GetComponent<ButtonSet>().ForceUnfocus();
+            UpdateVisuals();
+        }
 
         if (Game.instance.actionSet.MoveDown.WasPressed)
         {

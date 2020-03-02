@@ -9,6 +9,11 @@ public class FocusFixer : MonoBehaviour
 {
     private GameObject mLastSelection;
 
+    public void ClearSelection()
+    {
+        mLastSelection = null;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

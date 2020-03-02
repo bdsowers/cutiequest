@@ -69,6 +69,18 @@ public class Game : MonoBehaviour
         get { return mActiveScene; }
     }
 
+    private FocusFixer mFocusFixer;
+    public FocusFixer focusFixer
+    {
+        get
+        {
+            if (mFocusFixer == null)
+                mFocusFixer = GetComponent<FocusFixer>();
+
+            return mFocusFixer;
+        }
+    }
+
     public static Game instance
     {
         get { return mInstance; }
