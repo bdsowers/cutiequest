@@ -23,9 +23,9 @@ public class CinematicActionMoveCamera : CinematicAction
     public override IEnumerator PlayInternal(CinematicDirector player)
     {
         GameObject target = player.objectMap.GetObjectByName(mTargetTransform);
-        Quaternion currentRotation = Camera.main.transform.rotation;
-        Vector3 currentPosition = Camera.main.transform.position;
-        FollowCamera follow = Camera.main.GetComponent<FollowCamera>();
+        Quaternion currentRotation = FollowCamera.main.transform.rotation;
+        Vector3 currentPosition = FollowCamera.main.transform.position;
+        FollowCamera follow = FollowCamera.main;
         follow.enabled = false;
 
         float time = 0f;
@@ -33,16 +33,16 @@ public class CinematicActionMoveCamera : CinematicAction
         {
             Quaternion rotation = Quaternion.Slerp(currentRotation, target.transform.rotation, time);
             Vector3 position = Vector3.Lerp(currentPosition, target.transform.position, time);
-            Camera.main.transform.rotation = rotation;
-            Camera.main.transform.position = position;
+            FollowCamera.main.transform.rotation = rotation;
+            FollowCamera.main.transform.position = position;
 
             time += Time.deltaTime / mTime;
 
             yield return null;
         }
 
-        Camera.main.transform.rotation = target.transform.rotation;
-        Camera.main.transform.position = target.transform.position;
+        FollowCamera.main.transform.rotation = target.transform.rotation;
+        FollowCamera.main.transform.position = target.transform.position;
 
         yield return new WaitForSeconds(4f);
 
@@ -51,16 +51,16 @@ public class CinematicActionMoveCamera : CinematicAction
         {
             Quaternion rotation = Quaternion.Slerp(currentRotation, target.transform.rotation, time);
             Vector3 position = Vector3.Lerp(currentPosition, target.transform.position, time);
-            Camera.main.transform.rotation = rotation;
-            Camera.main.transform.position = position;
+            FollowCamera.main.transform.rotation = rotation;
+            FollowCamera.main.transform.position = position;
 
             time -= Time.deltaTime / mTime;
 
             yield return null;
         }
 
-        Camera.main.transform.rotation = currentRotation;
-        Camera.main.transform.position = currentPosition;
+        FollowCamera.main.transform.rotation = currentRotation;
+        FollowCamera.main.transform.position = currentPosition;
         follow.enabled = true;
 
         yield break;

@@ -33,6 +33,8 @@ public class OldTimeyQuirk : Quirk
         mGrain.lumContrib.Override(1f);
 
         mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mGrayscale, mGrain);
+
+        VFXVolumeCreated();
     }
 
     // Update is called once per frame
@@ -62,5 +64,7 @@ public class OldTimeyQuirk : Quirk
 
         RuntimeUtilities.DestroyVolume(mVolume, true, true);
         mVolume = null;
+
+        VFXVolumeDestroyed();
     }
 }

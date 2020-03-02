@@ -21,6 +21,8 @@ public class Cowfolk : Quirk
         mSepia.enabled.Override(true);
 
         mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mSepia);
+
+        VFXVolumeCreated();
     }
 
     public override void OnDisable()
@@ -42,5 +44,7 @@ public class Cowfolk : Quirk
 
         RuntimeUtilities.DestroyVolume(mVolume, true, true);
         mVolume = null;
+
+        VFXVolumeDestroyed();
     }
 }

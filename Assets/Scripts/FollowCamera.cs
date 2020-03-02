@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class FollowCamera : MonoBehaviour
 {
@@ -10,6 +11,21 @@ public class FollowCamera : MonoBehaviour
     public bool trackY = true;
 
     public Vector3 animationOffset;
+
+    public PostProcessLayer postProcessLayer;
+
+    private static FollowCamera mInstance;
+
+    public static FollowCamera main
+    {
+        get
+        {
+            if (mInstance == null)
+                mInstance = GameObject.FindObjectOfType<FollowCamera>();
+
+            return mInstance;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

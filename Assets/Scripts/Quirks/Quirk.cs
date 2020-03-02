@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 /// <summary>
 /// Base class for all Quirks.
@@ -39,5 +40,18 @@ public class Quirk : MonoBehaviour
     public virtual void DestroyVolume()
     {
         // Generally does nothing, but some quirks have vision VFX setup that may need to be destroyed
+    }
+
+    // These two must be called AFTER creating/destroying VFX volumes
+    public void VFXVolumeCreated()
+    {
+        FollowCamera.main.postProcessLayer.enabled = true;
+    }
+
+    public void VFXVolumeDestroyed()
+    {
+        // TODO bdsowers - disable post process layer if possible
+        // This isn't really urgent; this will happen automatically between runs, and we don't
+        // really disable VFX mid-run.
     }
 }

@@ -55,6 +55,8 @@ public class TipsyQuirk : Quirk
         }
 
         mLensDistortion.intensity.value = mIntensity;
+
+        VFXVolumeCreated();
     }
 
     public override void OnDisable()
@@ -78,5 +80,7 @@ public class TipsyQuirk : Quirk
 
         RuntimeUtilities.DestroyVolume(mVolume, true, true);
         mVolume = null;
+
+        VFXVolumeDestroyed();
     }
 }

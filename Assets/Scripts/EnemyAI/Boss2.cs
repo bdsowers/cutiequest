@@ -211,7 +211,7 @@ public class Boss2 : EnemyAI
             if (mSimpleAttack.CanAttack(mChargeDirection))
             {
                 mSimpleAttack.Attack(mChargeDirection);
-                Camera.main.GetComponent<FollowCamera>().SimpleShake();
+                FollowCamera.main.SimpleShake();
 
                 SwitchState();
             }
@@ -224,7 +224,7 @@ public class Boss2 : EnemyAI
                 mStunTimer = 0f;
                 mCurrentState = AIState.Stun;
 
-                Camera.main.GetComponent<FollowCamera>().SimpleShake();
+                FollowCamera.main.SimpleShake();
             }
         }
         else if (mCurrentState == AIState.ForwardCast)

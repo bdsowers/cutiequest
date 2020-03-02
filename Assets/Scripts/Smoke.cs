@@ -19,7 +19,7 @@ public class Smoke : MonoBehaviour
         pos.y = mInDungeon ? 2.5f : 3.5f;
         transform.position = pos;
 
-        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
-            Camera.main.transform.rotation * Vector3.up);
+        transform.LookAt(transform.position + FollowCamera.main.transform.rotation * Vector3.forward,
+            FollowCamera.main.transform.rotation * Vector3.up);
     }
 }

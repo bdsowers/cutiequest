@@ -32,6 +32,8 @@ public class SketchyQuirk : Quirk
         mSketch.blendMode.Override(Sketch.SketchMode.Add);
 
         mVolume = PostProcessManager.instance.QuickVolume(LayerMask.NameToLayer("VFXVolume"), 100f, mEdgeDetection, mSketch);
+
+        VFXVolumeCreated();
     }
 
     public override void OnDisable()
@@ -55,5 +57,7 @@ public class SketchyQuirk : Quirk
 
         RuntimeUtilities.DestroyVolume(mVolume, true, true);
         mVolume = null;
+
+        VFXVolumeDestroyed();
     }
 }

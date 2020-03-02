@@ -104,7 +104,7 @@ public class RAM : EnemyAI
             if (mSimpleAttack.CanAttack(mChargeDirection))
             {
                 mSimpleAttack.Attack(mChargeDirection);
-                Camera.main.GetComponent<FollowCamera>().SimpleShake();
+                FollowCamera.main.SimpleShake();
 
                 mCurrentState = AIState.Running;
             }
@@ -117,7 +117,7 @@ public class RAM : EnemyAI
                 mStunTimer = 0f;
                 mCurrentState = AIState.Stun;
 
-                Camera.main.GetComponent<FollowCamera>().SimpleShake();
+                FollowCamera.main.SimpleShake();
             }
         }
         else if (mCurrentState == AIState.Running)
