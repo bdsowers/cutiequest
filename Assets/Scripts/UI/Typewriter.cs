@@ -81,7 +81,7 @@ public class Typewriter : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         // Glyphs require a way to type forward that isn't as nice when word wrapping happens
-        bool useFancyType = !(text.Contains("<"));
+        bool useFancyType = !(text.Contains("<")) && mLabel.richText;
 
         for (int i = 0; i <= text.Length; ++i)
         {
