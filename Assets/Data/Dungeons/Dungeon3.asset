@@ -171,6 +171,31 @@ MonoBehaviour:
         type: 3}
       scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
         type: 3}
+  - roomSet: finale
+    generationData:
+      randomSeed: 0
+      scopeData:
+      - criticalPathMinRooms: 1
+        criticalPathMaxRooms: 1
+        forbidExtraRooms: 0
+        forbidSpecialRooms: 0
+      minSpecialRooms: 0
+      maxSpecialRooms: 0
+      numExtraRoomsPlacedBeforeSpecialRooms: 0
+      numExtraRoomsPlacedAfterSpecialRooms: 0
+      enforceTwoTileHighWalls: 0
+      fillEmptyCellsWithWalls: 0
+    enemyData:
+      minEnemies: 0
+      maxEnemies: 0
+      commonEnemy: {fileID: 2738750450090089171, guid: 7563a90aa0c8a2040b749557034d341a,
+        type: 3}
+      uncommonEnemy: {fileID: 2738750450090089171, guid: 999d7ca2c5fb02743ae184a2fdc9c48b,
+        type: 3}
+      rareEnemy: {fileID: 2738750450090089171, guid: d8764e0df38a21b4eb212f78e7f4220c,
+        type: 3}
+      scaryEnemy: {fileID: 2738750450090089171, guid: 9872d188824b7664d96f358ae70293dd,
+        type: 3}
   biomeData:
     floorPrefabs:
     - ShipFloor
