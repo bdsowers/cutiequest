@@ -24,10 +24,8 @@ public class DirectionallyChallengedQuirk : Quirk
     {
         if (mMinimapRawImage == null)
             return;
-
-        GameObject fullMap = CinematicId.FindObjectWithId("full_map_image");
-        if (fullMap != null)
-            fullMap.transform.rotation = mMinimapRawImage.transform.rotation;
+        if (!Game.instance.InDungeon())
+            return;
 
         mTimer -= Time.deltaTime;
         if (mTimer < 0f)

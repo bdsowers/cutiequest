@@ -19,12 +19,12 @@ public class ScreenTransitionManager : MonoBehaviour
 
     public void TransitionToScreen(string name)
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon" &&
+        if (Game.instance.activeScene == "Dungeon" &&
             name == "Dungeon")
         {
             StartCoroutine(TransitionToNextDungeonLevel());
         }
-        else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon" &&
+        else if (Game.instance.activeScene == "Dungeon" &&
             name == "HUB")
         {
             StartCoroutine(DeathTransition());

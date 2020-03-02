@@ -63,6 +63,12 @@ public class Game : MonoBehaviour
     private bool mClosingGame = false;
     private int mHubEntriesForRatingDialog = 0;
 
+    private string mActiveScene;
+    public string activeScene
+    {
+        get { return mActiveScene; }
+    }
+
     public static Game instance
     {
         get { return mInstance; }
@@ -288,17 +294,17 @@ public class Game : MonoBehaviour
 
     public bool InDungeon()
     {
-        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Dungeon";
+        return mActiveScene == "Dungeon";
     }
 
     public bool InPreview()
     {
-        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Preview";
+        return mActiveScene == "Preview";
     }
 
     public bool InTitle()
     {
-        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Title";
+        return mActiveScene == "Title";
     }
 
     public bool finishedTutorial { get; set; }
@@ -339,6 +345,8 @@ public class Game : MonoBehaviour
             return;
         }
 
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnActiveSceneChanged;
+
         mInstance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -358,6 +366,12 @@ public class Game : MonoBehaviour
 
         playerData.onPlayerDataChanged += OnPlayerDataChanged;
         playerStats.onCharacterStatisticsChanged += OnPlayerStatsChanged;
+    }
+
+    private void OnActiveSceneChanged(UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
+    {
+        mActiveScene = arg1.name;
+        Debug.Log("Switched to scene " + mActiveScene);
     }
 
     private void OnPlayerStatsChanged(CharacterStatistics stats)
