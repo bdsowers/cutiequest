@@ -17,12 +17,16 @@ public class ShrineGuillotine : Shrine
 
                 DropsItems.suppressAllItemDrops = true;
 
-                Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
-                for (int i = 0; i < enemies.Length; ++i)
+                try
                 {
-                    Killable killable = enemies[i].GetComponent<Killable>();
-                    killable.TakeDamage(gameObject, killable.health, DamageReason.ForceKill);
+                    Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+                    for (int i = 0; i < enemies.Length; ++i)
+                    {
+                        Killable killable = enemies[i].GetComponent<Killable>();
+                        killable.TakeDamage(gameObject, killable.health, DamageReason.ForceKill);
+                    }
                 }
+                catch (System.Exception) { }
 
                 DropsItems.suppressAllItemDrops = false;
             }
