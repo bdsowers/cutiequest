@@ -86,8 +86,6 @@ public class LevelGenerator : MonoBehaviour
 
         Game.instance.soundManager.PlayRandomMusicInCategory("DungeonMusic");
 
-        // todo bdsowers - investigate this a bit further maybe?
-        // Force a 'dirty' update for the player to try & fix a ui bug
         Game.instance.playerData.MarkDirty();
 
         yield break;
@@ -129,7 +127,10 @@ public class LevelGenerator : MonoBehaviour
             RandomDungeonNetwork.RandomDungeonNetworkNode deadEnd = deadEnds.Sample();
             Vector2Int pos = deadEnd.emptyPositions.Sample();
 
-            PlacePointOfInterest(pos);
+            if (collisionMap.SpaceMarking(pos.x, pos.y) == 0)
+            {
+                PlacePointOfInterest(pos);
+            }
 
             deadEnds.Remove(deadEnd);
         }
