@@ -82,12 +82,7 @@ public class SpellTarget : MonoBehaviour
             yield return null;
         }
 
-        bool damageDealt = DealDamage();
-
-        if (damageDealt || !hideEffectIfNoHit)
-        {
-            PlayEffect();
-        }
+        StartCoroutine(DealDamageCoroutine());
 
         yield return new WaitForSeconds(0.35f);
 
@@ -108,19 +103,49 @@ public class SpellTarget : MonoBehaviour
         }
     }
 
-    private bool DealDamage()
+    // To prevent spells being erroneously 'missed' when an enemy is moving at just
+    // the right time, apply damage over time for a short time window.
+    // This only applies to enemies - the player can only be hit on a particular frame.
+    private IEnumerator DealDamageCoroutine()
     {
-        // todo bdsowers - this is perhaps  a little too precise and misses some hits
+        float time = 0.2f;
+        bool canHitPlayer = true;
 
+        while (time > 0f)
+        {
+            bool damaged = DealDamage(canHitPlayer);
+            if (damaged)
+                time = -1f;
+
+            time -= Time.deltaTime;
+            canHitPlayer = false;
+
+            yield return null;
+        }
+    }
+
+    private bool DealDamage(bool canHitPlayer)
+    {
         // See if a targetable entity is in the same space as us
         // Targetable in this case = someone not currently on the same layer as us
         Killable targetKillable = KillableMap.instance.KillableAtWorldPosition(transform.position);
         if (targetKillable != null && targetKillable.gameObject.layer != gameObject.layer)
         {
+            if (!canHitPlayer && targetKillable.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                return false;
+            }
+
             int defense = targetKillable.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Defense, targetKillable.gameObject);
             int damage = strength * 4 - defense * 2;
 
             targetKillable.TakeDamage(null, damage, DamageReason.Spell);
+
+            if (!hideEffectIfNoHit)
+            {
+                PlayEffect();
+            }
+
             return true;
         }
 
