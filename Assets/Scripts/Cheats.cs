@@ -128,7 +128,7 @@ public class Cheats : MonoBehaviour
             ResetGame();
         }
 
-#if (RELEASE || DISABLE_CHEATS) && !UNITY_EDITOR
+#if DISABLE_CHEATS
         return;
 #endif
         if (Input.GetKeyDown(KeyCode.C))

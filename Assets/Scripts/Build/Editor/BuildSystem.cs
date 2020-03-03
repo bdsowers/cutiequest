@@ -29,6 +29,7 @@ public class BuildSystem : MonoBehaviour
         options |= BuildOptions.AllowDebugging;
 
         List<string> flags = new List<string>();
+        flags.Add("RELEASE");
         flags.Add("DISABLE_CHEATS");
 
         Build(outputPath, options, flags);
