@@ -89,7 +89,7 @@ public class ActivationPlate : MonoBehaviour
             Game.instance.MakeShopKeeperEnemy();
         }
 
-        if (Game.instance.actionSet.Activate.WasPressed)
+        if (Game.instance.actionSet.Activate.WasPressed && Game.instance.CanOpenUI())
         {
             if (CanBeActivated())
             {

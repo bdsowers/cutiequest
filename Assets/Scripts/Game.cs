@@ -439,7 +439,7 @@ public class Game : MonoBehaviour
     {
         mActionSet.DetectController();
 
-        if (Game.instance.actionSet.Pause.WasPressed && !InTitle())
+        if (Game.instance.actionSet.Pause.WasPressed && !InTitle() && CanOpenUI())
         {
             // In some control schemes, pause & close are the same button (Escape)
             // Make sure these don't overlap
@@ -633,5 +633,17 @@ public class Game : MonoBehaviour
         {
             Game.instance.playerData.attractiveness = maxAttractiveness;
         }
+    }
+
+    public bool CanOpenUI()
+    {
+        if (transitionManager != null && transitionManager.isTransitioning)
+            return false;
+        if (Game.instance.avatar != null && Game.instance.avatar.transitioning)
+            return false;
+        if (cinematicDirector != null && cinematicDirector.IsCinematicPlaying())
+            return false;
+
+        return true;
     }
 }

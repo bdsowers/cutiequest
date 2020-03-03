@@ -26,7 +26,7 @@ public class PhoneButton : MonoBehaviour
         if (Game.instance.cinematicDirector.IsCinematicPlaying())
             return;
 
-        if (Game.instance.actionSet.ToggleMap.WasPressed)
+        if (Game.instance.actionSet.ToggleMap.WasPressed && Game.instance.CanOpenUI())
         {
             if (Game.instance.dialogManager != null && !Game.instance.dialogManager.AnyDialogsOpen())
             {
