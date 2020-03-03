@@ -16,6 +16,10 @@ public class PurchasePrompt : MonoBehaviour
 
     private Item mCurrentItem = null;
 
+    public Text buy;
+    public Text notEnoughMoney;
+    public Text notEnoughMoneyShadow;
+
     public void ShowForItem(Item item)
     {
         if (item == mCurrentItem)
@@ -25,8 +29,8 @@ public class PurchasePrompt : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        title.text = LocalizedText.Get(item.friendlyName);
-        description.text = LocalizedText.Get(item.description);
+        title.text = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(item.friendlyName));
+        description.text = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(item.description));
         cost.text = BadAtMathQuirk.ApplyQuirkIfPresent(item.Cost()).ToString();
         image.sprite = item.GetComponentInChildren<SpriteRenderer>().sprite;
 
@@ -38,6 +42,13 @@ public class PurchasePrompt : MonoBehaviour
         bool enoughMoney = Game.instance.playerData.numCoins >= item.Cost();
         purchaseContainer.SetActive(enoughMoney);
         notEnoughMoneyContainer.SetActive(!enoughMoney);
+
+        if (Game.instance.quirkRegistry.IsQuirkActive<PigLatinQuirk>())
+        {
+            buy.text = PigLatinQuirk.ApplyQuirkIfPresent("BUY");
+            notEnoughMoney.text = PigLatinQuirk.ApplyQuirkIfPresent("Not Enough Money");
+            notEnoughMoneyShadow.text = PigLatinQuirk.ApplyQuirkIfPresent("Not Enough Money");
+        }
     }
 
     public void Hide()

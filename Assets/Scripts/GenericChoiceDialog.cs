@@ -20,16 +20,16 @@ public class GenericChoiceDialog : Dialog
 
     private List<GameObject> mButtons = new List<GameObject>();
 
-    public void Show(string text, List<DialogButton> buttons)
+    public void Show(string text, List<DialogButton> buttons, bool important = false)
     {
         Clear();
 
-        label.text = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(text));
+        label.text = important ? LocalizedText.Get(text) : PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(text));
 
         for (int i = 0; i < buttons.Count; ++i)
         {
             GameObject newButton = GameObject.Instantiate(buttonTemplate, buttonTemplate.transform.parent);
-            newButton.transform.GetChild(0).GetComponentInChildren<Text>().text = PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(buttons[i].text));
+            newButton.transform.GetChild(0).GetComponentInChildren<Text>().text = important ? LocalizedText.Get(buttons[i].text) : PigLatinQuirk.ApplyQuirkIfPresent(LocalizedText.Get(buttons[i].text));
             newButton.name = buttons[i].name;
             newButton.transform.GetChild(0).GetComponentInChildren<Image>().sprite = buttons[i].icon;
             newButton.transform.GetChild(0).GetComponentInChildren<Image>().gameObject.SetActive(buttons[i].icon != null);

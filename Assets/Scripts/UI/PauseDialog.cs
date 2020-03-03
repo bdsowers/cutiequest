@@ -53,7 +53,7 @@ public class PauseDialog : Dialog
         no.name = "button_no";
         no.text = "No";
 
-        genericChoiceDialog.Show("Are you sure you want to quit?", new List<DialogButton>() { yes, no });
+        genericChoiceDialog.Show("Are you sure you want to quit?", new List<DialogButton>() { yes, no }, true);
         genericChoiceDialog.onDialogButtonPressed += OnQuitDialogButtonPressed;
     }
 
