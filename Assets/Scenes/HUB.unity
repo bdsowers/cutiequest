@@ -9655,7 +9655,6 @@ GameObject:
   - component: {fileID: 1196203986}
   - component: {fileID: 1196203987}
   - component: {fileID: 1196203988}
-  - component: {fileID: 1196203990}
   - component: {fileID: 1196203989}
   - component: {fileID: 1196203991}
   - component: {fileID: 1196203992}
@@ -9769,24 +9768,6 @@ MonoBehaviour:
   - {fileID: 1985985782}
   disabledObjects: []
   requiredFlag: stylist
-  whenEvaluated: 1
---- !u!114 &1196203990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196203983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6035197150e663746b0f1963ac02190a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2062298694}
-  - {fileID: 289741471}
-  disabledObjects: []
-  requiredFlag: trainer
   whenEvaluated: 1
 --- !u!114 &1196203991
 MonoBehaviour:
@@ -16283,12 +16264,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &2062298694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 289324606603283205, guid: b10e3efc842659b4f8af76debf925f16,
-    type: 3}
-  m_PrefabInstance: {fileID: 1964781095}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2065952957
 GameObject:
   m_ObjectHideFlags: 0

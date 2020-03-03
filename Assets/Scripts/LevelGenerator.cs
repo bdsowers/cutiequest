@@ -174,7 +174,6 @@ public class LevelGenerator : MonoBehaviour
         List<string> highPriorityNPCFlags = new List<string>()
         {
             "punkypeter",
-            "trainer",
         };
 
         foreach(string flag in highPriorityNPCFlags)
@@ -192,7 +191,6 @@ public class LevelGenerator : MonoBehaviour
     {
         Dictionary<string, string> priorityNPCMap = new Dictionary<string, string>()
         {
-            {"trainer", "Trainer"},
             {"punkypeter", "PunkyPeter" },
         };
 
