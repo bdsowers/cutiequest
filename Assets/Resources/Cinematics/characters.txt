@@ -219,6 +219,8 @@ animation trigger: Hub_Reload
 
 animation id: reveal_cave_biome, trigger: reveal_cave_biome
 {
+	wait_seconds 0.5
+
 	move_camera target: cave_reveal_transform, time: 2
 	wait_seconds 3
 
@@ -229,6 +231,8 @@ animation id: reveal_cave_biome, trigger: reveal_cave_biome
 
 animation id: reveal_scifi_biome, trigger: reveal_scifi_biome
 {
+	wait_seconds 0.5
+
 	move_camera target: scifi_reveal_transform, time: 2
 	wait_seconds 3
 
