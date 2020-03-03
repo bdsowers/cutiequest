@@ -86,7 +86,7 @@ public class EnemySummoner : EnemyAI
     {
         // Don't allow too many enemies... this number was picked pretty arbitrarily based
         // on balance though.
-        return Game.instance.enemyDirector.NumEnemies < 80;
+        return Game.instance.enemyDirector.NumEnemies < 72;
     }
 
     public override bool CanUpdateAI()
