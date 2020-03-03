@@ -179,8 +179,9 @@ public class QuestR : Dialog
         matchView.SetActive(true);
         standardView.SetActive(false);
 
-        rigModel1.ChangeModel(Game.instance.playerData.model);
-        rigModel2.ChangeModel(characterData);
+        Material material = Game.instance.companionBuilder.MaterialByName(Game.instance.playerData.material);
+        rigModel1.ChangeModel(Game.instance.playerData.model, material, false);
+        rigModel2.ChangeModel(characterData, false);
 
         Game.instance.soundManager.PlaySound("confirm_special");
 
@@ -220,9 +221,12 @@ public class QuestR : Dialog
         }
 
         // Ensure the panels are setup if we have to swap out images to display current
-        // character details
-        panel1.ReestablishModels();
-        panel2.ReestablishModels();
+        // character details; don't allow this on match view, since it conflicts.
+        if (!matchView.activeSelf)
+        {
+            panel1.ReestablishModels();
+            panel2.ReestablishModels();
+        }
 
         // If we switch to personal view, show the personal character ...
         if (personalContainer.gameObject.activeSelf)
