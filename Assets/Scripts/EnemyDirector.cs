@@ -8,6 +8,11 @@ public class EnemyDirector : MonoBehaviour
 
     private bool mUpdatingEnemies = false;
 
+    public int NumEnemies
+    {
+        get { return mEnemies.Count; }
+    }
+
     private void Awake()
     {
         mUpdatingEnemies = false;

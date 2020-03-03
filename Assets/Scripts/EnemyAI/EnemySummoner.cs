@@ -37,7 +37,7 @@ public class EnemySummoner : EnemyAI
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
         // todo PRERELEASE - this logic will need some refinement
-        if (Random.Range(0, 2) == 0)
+        if (Random.Range(0, 2) == 0 && SummonAllowed())
         {
             // Summoners try to keep their distance, but will also summon when appropriate.
 
@@ -80,6 +80,13 @@ public class EnemySummoner : EnemyAI
         mSummonCooldownTimer = cooldown;
 
         mSummoner.CastSummon();
+    }
+
+    private bool SummonAllowed()
+    {
+        // Don't allow too many enemies... this number was picked pretty arbitrarily based
+        // on balance though.
+        return Game.instance.enemyDirector.NumEnemies < 80;
     }
 
     public override bool CanUpdateAI()
