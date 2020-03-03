@@ -25,8 +25,13 @@ public class DropsItems : MonoBehaviour
     // Only allow a single drop, even if something else tries to override this
     private bool mDropped = false;
 
+    public static bool suppressAllItemDrops = false;
+
     public void Drop()
     {
+        if (suppressAllItemDrops)
+            return;
+
         if (mDropped)
             return;
 
@@ -42,7 +47,7 @@ public class DropsItems : MonoBehaviour
     {
         int numCoinsToDrop = NumCurrencyToDrop(coinDropData);
         int numHeartsToDrop = NumCurrencyToDrop(heartDropData);
-        
+
         if (Game.instance.quirkRegistry.IsQuirkActive<GoldDiggerQuirk>() && !ignoreGoldDigger)
         {
             numCoinsToDrop += numHeartsToDrop * 3;
@@ -81,7 +86,7 @@ public class DropsItems : MonoBehaviour
             GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName));
             Vector3 sourcePosition = transform.position;
             Vector3 endPosition = transform.position + VectorHelper.RandomNormalizedXZVector3() * Random.Range(0.1f, 0.3f);
-            
+
             if (scatter)
             {
                 if (emptySurroundingPositions == null)

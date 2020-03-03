@@ -15,12 +15,16 @@ public class ShrineGuillotine : Shrine
             {
                 NumberPopupGenerator.instance.GeneratePopup(gameObject, "All enemies destroyed", NumberPopupReason.Good);
 
+                DropsItems.suppressAllItemDrops = true;
+
                 Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
                 for (int i = 0; i < enemies.Length; ++i)
                 {
                     Killable killable = enemies[i].GetComponent<Killable>();
                     killable.TakeDamage(gameObject, killable.health, DamageReason.ForceKill);
                 }
+
+                DropsItems.suppressAllItemDrops = false;
             }
             else
             {
