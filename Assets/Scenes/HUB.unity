@@ -17086,14 +17086,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 940976875, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 940976875, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 7028433053212502057, guid: c61028de0690a04489e563a5c9c1627d,
         type: 3}
       propertyPath: m_Material
@@ -17106,6 +17098,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -569485785187502874, guid: ef24f683a096bce44b2851f5e5b86c09,
         type: 2}
+    - target: {fileID: 3094726170367251992, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094726170367251992, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094726170367251992, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094726170367251992, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094726170367251992, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
 --- !u!224 &2135044085 stripped

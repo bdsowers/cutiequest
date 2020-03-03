@@ -32,7 +32,7 @@ public class CharacterStatistics : MonoBehaviour
     [SerializeField]
     private int _luck;
 
-    private List<Item> mEquippedItems = new List<Item>();
+    private List<MonoBehaviour> mEquippedItems = new List<MonoBehaviour>();
 
     public delegate void CharacterStatisticsChanged(CharacterStatistics stats);
     public event CharacterStatisticsChanged onCharacterStatisticsChanged;
@@ -143,7 +143,7 @@ public class CharacterStatistics : MonoBehaviour
     private void Update()
     {
         mEquippedItems.Clear();
-        GetComponentsInChildren<Item>(mEquippedItems);
+        GetComponentsInChildren<MonoBehaviour>(mEquippedItems);
     }
 
     public bool IsItemEquipped<T>()
