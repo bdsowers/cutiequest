@@ -33,11 +33,13 @@ public class CompanionBuilder : MonoBehaviour
 
         randomCharacter.age = GenerateCharacterAge();
 
-        List<string> taglines = LocalizedText.GetKeysInList("[NEUTRAL_TAGLINE]");
-        taglines.AddRange(LocalizedText.GetKeysInList("[" + gender + "_TAGLINE]"));
+        List<string> taglines = new List<string>();
+        LocalizedText.GetKeysInListCopy("[NEUTRAL_TAGLINE]", taglines);
+        LocalizedText.GetKeysInListCopy("[" + gender + "_TAGLINE]", taglines);
 
-        List<string> bios = LocalizedText.GetKeysInList("[NEUTRAL_BIO]");
-        bios.AddRange(LocalizedText.GetKeysInList("[" + gender + "_BIO]"));
+        List<string> bios = new List<string>();
+        LocalizedText.GetKeysInListCopy("[NEUTRAL_BIO]", bios);
+        LocalizedText.GetKeysInListCopy("[" + gender + "_BIO]", bios);
 
         // These are parallel arrays
         int bioAndTaglinePosition = bios.SamplePosition(previouslyUsedBios);

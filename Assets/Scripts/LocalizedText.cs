@@ -92,7 +92,7 @@ public class LocalizedText
                 value = value.Replace("<<", "\"");
 
                 mStringTable.Add(key, value);
-                
+
                 string listName;
                 int listNumber;
                 if (BelongsToList(key, out listName, out listNumber))
@@ -126,11 +126,11 @@ public class LocalizedText
             return false;
 
         string substr = str.Substring(lastUnderscore + 1);
-        
+
         bool endsWithBracket = substr.EndsWith("]");
         if (endsWithBracket)
             substr = substr.Substring(0, substr.Length - 1);
-       
+
         if (int.TryParse(substr, out listNumber))
         {
             listName = str.Substring(0, lastUnderscore) + (endsWithBracket ? "]" : "");
@@ -190,6 +190,22 @@ public class LocalizedText
         else
         {
             return new List<string>();
+        }
+    }
+
+    public static void GetKeysInListCopy(string listName, List<string> results)
+    {
+        if (mInstance == null)
+            mInstance = new LocalizedText();
+
+        if (mInstance.mLists.ContainsKey(listName))
+        {
+            List<string> res = mInstance.mLists[listName];
+
+            for (int i = 0; i < res.Count; ++i)
+            {
+                results.Add(res[i]);
+            }
         }
     }
 
