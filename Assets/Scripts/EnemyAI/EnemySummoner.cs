@@ -71,7 +71,7 @@ public class EnemySummoner : EnemyAI
 
     private void Update()
     {
-        if (mSummonCooldownTimer > 0f)
+        if (mSummonCooldownTimer > 0f && parentEnemy.activated)
             mSummonCooldownTimer -= Time.deltaTime;
     }
 

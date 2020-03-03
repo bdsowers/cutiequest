@@ -8,6 +8,20 @@ public abstract class EnemyAI : MonoBehaviour
     public abstract bool CanUpdateAI();
     public abstract void AIStructureChanged();
 
+    private Enemy mParentEnemy;
+    public Enemy parentEnemy
+    {
+        get
+        {
+            if (mParentEnemy == null)
+            {
+                mParentEnemy = GetComponentInParent<Enemy>();
+            }
+
+            return mParentEnemy;
+        }
+    }
+
     protected Vector3 OrthogonalDirection(Transform source, Transform target, bool useLargeAxis)
     {
         Vector3 direction = target.position - source.position;
