@@ -37,6 +37,8 @@ public class PlayerController : CharacterComponentBase
     // Start is called before the first frame update
     void Start()
     {
+        direction = new Vector3(0, 0, -1);
+
         characterData = ScriptableObject.CreateInstance<CharacterData>();
         characterData.model = Game.instance.playerData.model;
         characterData.material = Game.instance.companionBuilder.MaterialByName(Game.instance.playerData.material);
