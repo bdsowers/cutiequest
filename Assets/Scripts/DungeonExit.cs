@@ -23,6 +23,6 @@ public class DungeonExit : MonoBehaviour
     {
         Game.instance.RunEnded(true);
 
-        Game.instance.transitionManager.TransitionToScreen("HUB");
+        Game.instance.transitionManager.TransitionToScreen("HUB", "success");
     }
 }

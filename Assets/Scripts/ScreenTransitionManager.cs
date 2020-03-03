@@ -17,7 +17,7 @@ public class ScreenTransitionManager : MonoBehaviour
 
     private GameObject mCharacterImageCapture;
 
-    public void TransitionToScreen(string name)
+    public void TransitionToScreen(string name, string extraData = null)
     {
         if (Game.instance.activeScene == "Dungeon" &&
             name == "Dungeon")
@@ -27,7 +27,7 @@ public class ScreenTransitionManager : MonoBehaviour
         else if (Game.instance.activeScene == "Dungeon" &&
             name == "HUB")
         {
-            StartCoroutine(DeathTransition());
+            StartCoroutine(DeathTransition(extraData));
         }
         else
         {
@@ -153,7 +153,7 @@ public class ScreenTransitionManager : MonoBehaviour
         yield break;
     }
 
-    private IEnumerator DeathTransition()
+    private IEnumerator DeathTransition(string extraData)
     {
         isTransitioning = true;
 
@@ -170,7 +170,12 @@ public class ScreenTransitionManager : MonoBehaviour
         deathSpeakerImage.gameObject.SetActive(true);
         StartCoroutine(FadeDeathSpeaker(new Color(0, 0, 0, 0), new Color(1, 1, 1, 1)));
 
-        string msg = LocalizedText.Get(LocalizedText.GetKeysInList("[BREAKUP]").Sample());
+        string msg = null;
+        if (extraData == "success")
+            msg = LocalizedText.Get(LocalizedText.GetKeysInList("[DUNGEON_SUCCESS]").Sample());
+        else
+            msg = LocalizedText.Get(LocalizedText.GetKeysInList("[BREAKUP]").Sample());
+
         if (!Game.instance.finishedTutorial)
         {
             msg = LocalizedText.Get("[BREAKUP_1]");
