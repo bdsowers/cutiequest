@@ -94,6 +94,16 @@ public class SimpleAttack : CharacterComponentBase
 
         Vector3 startPosition = subMesh.transform.position;
         Vector3 hitPosition = startPosition + (target.transform.position - startPosition) * 0.7f;
+
+        // Before we actually start playing the attack animation, ensure the target is still there;
+        // there can be some lag before we start the attack animation, and the enemy may
+        // have teleported out of the way.
+        if (TargetInDirection(direction) != target)
+        {
+            mIsAttacking = false;
+            yield break;
+        }
+
         bool damageDone = false;
 
         float time = 0f;
@@ -106,8 +116,15 @@ public class SimpleAttack : CharacterComponentBase
 
             if (time > 0.6f && !damageDone)
             {
-                DealDamage(target);
-                damageDone = true;
+                // Ensure the target is still in an attackable position - some enemies can
+                // teleport away very erratically, and killing them post-teleport looks awkward
+                // But this shouldn't apply to enemies that are just running - they still get stitches
+                if (Vector3.Distance(target.transform.position, hitPosition) < 1.5f)
+                {
+                    DealDamage(target);
+
+                    damageDone = true;
+                }
             }
 
             yield return null;
