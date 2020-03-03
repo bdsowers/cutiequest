@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BadAtMathQuirk : Quirk
 {
-    public static int ApplyQuirkIfPresent(int cost)
+    public static int ApplyQuirkIfPresent(int cost, int maxDigits = 3)
     {
         if (Game.instance.quirkRegistry.IsQuirkActive<BadAtMathQuirk>())
         {
-            return Random.Range(1, 999);
+            if (maxDigits == 2)
+                return Random.Range(1, 99);
+            else
+                return Random.Range(1, 999);
         }
 
         return cost;
