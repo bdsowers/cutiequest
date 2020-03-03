@@ -85,7 +85,7 @@ public class Cheats : MonoBehaviour
 
     public void AddHearts()
     {
-        Game.instance.playerData.numHearts += 2;
+        Game.instance.playerData.numHearts += 20;
     }
 
     public void NoDamage()

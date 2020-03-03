@@ -16018,6 +16018,8 @@ MonoBehaviour:
   magicCostLabel: {fileID: 1382201203}
   speedCostLabel: {fileID: 1418471938}
   luckCostLabel: {fileID: 1337399409}
+  speedButton: {fileID: 144526122}
+  speedButtonGem: {fileID: 1127631953}
 --- !u!1 &2004206734
 GameObject:
   m_ObjectHideFlags: 0

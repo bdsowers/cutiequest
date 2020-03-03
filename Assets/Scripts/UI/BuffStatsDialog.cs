@@ -12,6 +12,9 @@ public class BuffStatsDialog : Dialog
     public Text speedCostLabel;
     public Text luckCostLabel;
 
+    public Button speedButton;
+    public Image speedButtonGem;
+
     private int mHealthPerLevel = 15;
     private int mStartingHealth = 100;
 
@@ -24,7 +27,23 @@ public class BuffStatsDialog : Dialog
         speedCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Speed)).ToString();
         luckCostLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(UpgradeCost(CharacterStatType.Luck)).ToString();
 
+        EnforceMaxSpeed();
+
         gameObject.SetActive(true);
+    }
+
+    // Speed is the only stat that can be maxed out
+    // It's strange, but having an ultra-fast character is stranger
+    private void EnforceMaxSpeed()
+    {
+        int level = Game.instance.playerStats.BaseStatValue(CharacterStatType.Speed);
+
+        if (level >= 10)
+        {
+            speedCostLabel.text = PigLatinQuirk.ApplyQuirkIfPresent("MAX");
+            speedButton.interactable = false;
+            speedButtonGem.gameObject.SetActive(false);
+        }
     }
 
     private int UpgradeCost(CharacterStatType statType)
