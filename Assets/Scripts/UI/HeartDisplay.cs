@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HeartDisplay : MonoBehaviour
 {
-    public Text amountLabel;
-    
+    public TextMeshProUGUI amountLabel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,6 @@ public class HeartDisplay : MonoBehaviour
 
     private void UpdateLabel()
     {
-        amountLabel.text = BadAtMathQuirk.ApplyQuirkIfPresent(Game.instance.playerData.numHearts).ToString();
+        amountLabel.SetText(BadAtMathQuirk.ApplyQuirkIfPresent(Game.instance.playerData.numHearts).ToString());
     }
 }
