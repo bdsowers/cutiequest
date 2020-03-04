@@ -91,6 +91,7 @@ public class SpikeTrap : PlacedTrap
             {
                 GameObject trapObj = levelGenerator.PlaceMapPrefab("SpikeTrap", pos.x, pos.y);
                 SpikeTrap spikes = trapObj.GetComponent<SpikeTrap>();
+                levelGenerator.ClearFloorDecorations(pos);
 
                 if (!uniform)
                     spikes.timeOffset = 0.25f * spikeNum * direction;

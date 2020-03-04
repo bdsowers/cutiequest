@@ -8,6 +8,10 @@ public class FloorTile : MonoBehaviour
 
     public void RemoveDecorations()
     {
+        // Should never happen, but for sanity's sake...
+        if (removableDecroations == null)
+            return;
+
         for (int i = 0; i < removableDecroations.Count; ++i)
         {
             removableDecroations[i].SetActive(false);

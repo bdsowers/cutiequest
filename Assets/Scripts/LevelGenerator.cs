@@ -34,6 +34,8 @@ public class LevelGenerator : MonoBehaviour
 
     private List<Item> mPreviouslyUsedItems = new List<Item>();
 
+    private Dictionary<Vector2Int, GameObject> mFloorTiles = new Dictionary<Vector2Int, GameObject>();
+
     private IEnumerator Start()
     {
         mDungeonGenerator = new RandomDungeonGenerator();
@@ -295,7 +297,7 @@ public class LevelGenerator : MonoBehaviour
         return CurrentDungeonFloorData().generationData.scopeData[0].criticalPathMaxRooms == 1;
     }
 
-    public GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = WALKABLEMAP_DONT_MARK, float yOffset = 0f)
+    public GameObject PlaceMapPrefab(string prefabName, int tileX, int tileY, int collisionMapMark = WALKABLEMAP_DONT_MARK, float yOffset = 0f, bool floor = false)
     {
         GameObject newItem = GameObject.Instantiate(PrefabManager.instance.PrefabByName(prefabName), transform);
         newItem.transform.SetParent(transform);
@@ -309,6 +311,15 @@ public class LevelGenerator : MonoBehaviour
         else if (collisionMapMark != WALKABLEMAP_DONT_MARK)
         {
             mCollisionMap.MarkSpace(tileX, tileY, collisionMapMark);
+        }
+
+        if (floor)
+        {
+            mFloorTiles.Add(new Vector2Int(tileX, tileY), newItem);
+        }
+        else
+        {
+            ClearFloorDecorations(tileX, tileY);
         }
 
         return newItem;
@@ -377,7 +388,7 @@ public class LevelGenerator : MonoBehaviour
                     dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE ||
                     dungeon.TileType(x,y) == AVATAR_POSITION)
                 {
-                    PlaceMapPrefab(biomeData.floorPrefabs.Sample(), x, y);
+                    PlaceMapPrefab(biomeData.floorPrefabs.Sample(), x, y, -1, 0, true);
                 }
                 else if (dungeon.TileType(x,y) == SHOP_PEDESTAL)
                 {
@@ -534,6 +545,7 @@ public class LevelGenerator : MonoBehaviour
 
         GameObject exit = GameObject.Instantiate(PrefabManager.instance.PrefabByName("Exit"), transform);
         exit.transform.position = MapCoordinateHelper.MapToWorldCoords(pos, 0.4f);
+        ClearFloorDecorations(pos);
     }
 
     private string ChooseEnemy(DungeonFloorData floorData)
@@ -775,5 +787,23 @@ public class LevelGenerator : MonoBehaviour
         {
             ghosted.SpawnGhosts(mDungeon, mCollisionMap, mAvatarStartPosition);
         }
+    }
+
+    public void ClearFloorDecorations(Vector2Int pos)
+    {
+        GameObject floorTile = null;
+        if (mFloorTiles.TryGetValue(pos, out floorTile))
+        {
+            FloorTile ft = floorTile.GetComponent<FloorTile>();
+            if (ft != null)
+            {
+                ft.RemoveDecorations();
+            }
+        }
+    }
+
+    public void ClearFloorDecorations(int x, int y)
+    {
+        ClearFloorDecorations(new Vector2Int(x, y));
     }
 }

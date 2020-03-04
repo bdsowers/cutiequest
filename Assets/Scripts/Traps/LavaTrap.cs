@@ -70,6 +70,7 @@ public class LavaTrap : PlacedTrap
             {
                 GameObject trapObj = levelGenerator.PlaceMapPrefab("LavaTrap", pos.x, pos.y);
                 LavaTrap razers = trapObj.GetComponent<LavaTrap>();
+                levelGenerator.ClearFloorDecorations(pos);
             }
         }
     }
