@@ -13,7 +13,7 @@ public class BlinkSpell : Spell
 
         // Find a walkable tile nearby that is empty and move there immediately, then play an effect.
         CollisionMap collisionMap = GameObject.FindObjectOfType<CollisionMap>();
-        
+
         int x = Mathf.RoundToInt(Game.instance.avatar.transform.position.x);
         int y = Mathf.RoundToInt(Game.instance.avatar.transform.position.z);
         y = -y;
@@ -36,10 +36,10 @@ public class BlinkSpell : Spell
         if (viablePositions.Count == 0)
             return;
 
-        
+
         Vector2Int pos = viablePositions.Sample();
 
-        collisionMap.MarkSpace(x, y, 0);
+        collisionMap.RemoveMarking(Game.instance.avatar.commonComponents.simpleMovement.uniqueCollisionIdentity);
         collisionMap.MarkSpace(pos.x, pos.y, Game.instance.avatar.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
 
         Game.instance.avatar.transform.position = new Vector3(pos.x, 0, -pos.y);
