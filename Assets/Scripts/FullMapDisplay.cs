@@ -51,7 +51,7 @@ public class FullMapDisplay : MonoBehaviour
 
     private void Teleport()
     {
-        if (mInterestingDisplays.Count <= 1 || mSelectedDisplay == -1)
+        if (mInterestingDisplays.Count < 1 || mSelectedDisplay == -1)
             return;
 
         MapDisplay targetDisplay = mInterestingDisplays[mSelectedDisplay];
