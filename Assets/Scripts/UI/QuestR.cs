@@ -127,6 +127,9 @@ public class QuestR : Dialog
 
         if (prev != mSelectedTab)
         {
+            panel1.ResetPositions();
+            panel2.ResetPositions();
+
             UpdateTabVisuals();
         }
     }

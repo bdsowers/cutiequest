@@ -209,6 +209,11 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         yield break;
     }
 
+    public void ResetPositions()
+    {
+        transform.localPosition = Vector3.zero;
+    }
+
     public void Swap()
     {
         transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
