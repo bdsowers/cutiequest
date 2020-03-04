@@ -17,7 +17,10 @@ public class FaceBlindQuirk : Quirk
         if (enemy.isBoss)
             return;
 
-        enemy.GetComponentInChildren<CharacterModel>().ChangeModel(PrefabManager.instance.characterPrefabs.Sample().name);
+        if (enemy != null && enemy.commonComponents.characterModel != null)
+        {
+            enemy.commonComponents.characterModel.ChangeModel(PrefabManager.instance.characterPrefabs.Sample().name);
+        }
     }
 
     public override void OnDestroy()
