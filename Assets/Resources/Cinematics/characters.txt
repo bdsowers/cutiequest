@@ -23,24 +23,32 @@ animation trigger: stylist_success
 {
 	change_speaker Chr_Fantasy_Bard_01
 	typewriter "Hot hot hot! Check out Questers Only for new potential matches. ;)"
+
+	wait_seconds 0.5
 }
 
 animation trigger: stylist_fail
 {
 	change_speaker Chr_Fantasy_Bard_01
 	typewriter "You trying to put the hustle on me?! Get outta here! Go on, get!"
+
+	wait_seconds 0.5
 }
 
 animation trigger: trainer_success
 {
 	change_speaker Chr_Vikings_ShieldMaiden_01
 	typewriter "Lookin swoll! Go flex your new muscles by beating up some goblins."
+
+	wait_seconds 0.5
 }
 
 animation trigger: trainer_fail
 {
 	change_speaker Chr_Vikings_ShieldMaiden_01
 	typewriter "I oughtta beat you within an inch of your life for wasting my time."
+
+
 }
 
 animation trigger: activate_shrine
@@ -273,12 +281,16 @@ animation trigger: punkypeter_success
 
 	change_speaker MiniCharacter_PunkGuy_01
 	typewriter "Now go, ye, unto that dungeon, and be excellent!"
+
+	wait_seconds 0.5
 }
 
 animation trigger: punkypeter_fail
 {
 	change_speaker MiniCharacter_PunkGuy_01
 	typewriter "Ahem, I think you'll need a few more gems plz thx."
+
+	wait_seconds 0.5
 }
 
 animation trigger: Hub_HotDogMan
@@ -293,12 +305,16 @@ animation trigger: hotdogman_success
 {
 	change_speaker MiniCharacter_HotdogMan_01
 	random_joke
+
+	wait_seconds 0.5
 }
 
 animation trigger: hotdogman_fail
 {
 	change_speaker MiniCharacter_HotdogMan_01
 	typewriter text: "Seriously? Get out of here. GO ON! GIT!!!"
+
+	wait_seconds 0.5
 }
 
 animation trigger: Hub_Tourist
@@ -312,12 +328,16 @@ animation trigger: tourist_success
 {
 	change_speaker MiniCharacter_SummerGirl_01
 	random_joke type: TOURIST
+
+	wait_seconds 0.5
 }
 
 animation trigger: tourist_fail
 {
 	change_speaker MiniCharacter_SummerGirl_01
 	typewriter text: "Sorry, you gotta pay for this wit."
+
+	wait_seconds 0.5
 }
 
 animation trigger: Hub_Bruiser
@@ -345,12 +365,16 @@ animation trigger: bruiser_success
 	typewriter text: "HAHAHAHAHAHAHAHAHAHAHA", keep_open: true
 	typewriter text: "Er, yea. Good luck."
 	set key: bruiser_active, value: true
+
+	wait_seconds 0.5
 }
 
 animation trigger: bruiser_fail
 {
 	change_speaker MiniCharacter_Female_Jacket_01
 	typewriter text: "Oy! My services come at a cost, and you don't have the scratch."
+
+	wait_seconds 0.5
 }
 
 animation trigger: Hub_Beats
@@ -375,6 +399,8 @@ animation trigger: beats_success
 	change_speaker MiniCharacter_GamerGirl_01
 	typewriter text: "Righteous! Press [ACTION_DANCE] at any time to start dancing."
 	set_saved_flag dance_purchased
+
+	wait_seconds 0.5
 }
 
 animation trigger: beats_fail
