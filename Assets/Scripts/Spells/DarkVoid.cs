@@ -10,9 +10,8 @@ public class DarkVoid : Spell
 
         int strength = caster.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Magic, caster);
         strength = Mathf.Max(strength, 1);
+        strength *= 2;
 
         caster.GetComponentInChildren<SpellCaster>().CastSpell(strength);
-
-        // todo bdsowers - find other traps and destroy them
     }
 }
