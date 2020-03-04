@@ -24,7 +24,7 @@ public class ActionGlyph : MonoBehaviour
         UpdateGlyph();
     }
 
-    void Update()
+    void LateUpdate()
     {
         UpdateGlyph();
     }

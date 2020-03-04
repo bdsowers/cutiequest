@@ -58,13 +58,28 @@ public class BasicActionSet : PlayerActionSet
         Dance = CreatePlayerAction("Dance");
     }
 
+    private bool mKeyboardOverride;
     public void DetectController()
     {
         InputDevice device = (InputManager.ActiveDevice.Name == "None" ? null : InputManager.ActiveDevice);
 
-        // InControl won't 'switch back' to keyboard as the primary device wants it detects something
-        // else is running the show.
-        if (Input.anyKeyDown)
+        // InControl won't 'switch back' to keyboard as the active device once it detects something
+        // else is running the show. We need special accomodations for that.
+        // The logic is as follows:
+        // Unity's Input.anyKey responds to both controllers & keyboard
+        // InputManager.AnyKeyIsPressed responds only to keyboard keys
+        // If Unity detects input, it may be a controller, so turn off the keyboard override until
+        // proven otherwise.
+        if (Input.anyKey || Mathf.Abs(Move.X) > 0.1f || Mathf.Abs(Move.Y) > 0.1f)
+        {
+            mKeyboardOverride = false;
+        }
+        if (InputManager.AnyKeyIsPressed)
+        {
+            mKeyboardOverride = true;
+        }
+
+        if (mKeyboardOverride)
         {
             device = null;
         }
