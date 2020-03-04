@@ -23,7 +23,11 @@ public class UnlockDialog : Dialog
     {
         if (Game.instance.actionSet.CloseMenu.WasPressed || Game.instance.actionSet.Activate.WasPressed)
         {
-            Close();
+            // Only allow closing if we're actually sized appropriately to prevent early closes
+            if (transform.localScale.x > 0.8f)
+            {
+                Close();
+            }
         }
     }
 

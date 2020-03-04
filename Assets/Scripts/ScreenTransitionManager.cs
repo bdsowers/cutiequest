@@ -262,6 +262,9 @@ public class ScreenTransitionManager : MonoBehaviour
 
             while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
                 yield return null;
+
+            // Add a small time delay to prevent early closing
+            yield return new WaitForSeconds(0.2f);
         }
 
         for (int i = 0; i < unlockedSpells.Count; ++i)
@@ -270,6 +273,9 @@ public class ScreenTransitionManager : MonoBehaviour
 
             while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
                 yield return null;
+
+            // Add a small time delay to prevent early closing
+            yield return new WaitForSeconds(0.2f);
         }
 
         for (int i = 0; i < unlockedItems.Count; ++i)
@@ -278,6 +284,9 @@ public class ScreenTransitionManager : MonoBehaviour
 
             while (Game.instance.hud.unlockDialog.gameObject.activeSelf)
                 yield return null;
+
+            // Add a small time delay to prevent early closing
+            yield return new WaitForSeconds(0.2f);
         }
 
         // TODO bdsowers : HACK!
