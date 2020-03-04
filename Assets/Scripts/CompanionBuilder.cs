@@ -9,7 +9,7 @@ public class CompanionBuilder : MonoBehaviour
 
     // todo - once we have more content, actually bump this number up
     // todo - revisit the reuse window, since gendering throws things off a bit.
-    private const int TEXT_REUSE_WINDOW_SIZE = 6;
+    private const int TEXT_REUSE_WINDOW_SIZE = 15;
 
     private List<Quirk> previouslyUsedQuirks = new List<Quirk>();
     private List<Spell> previouslyUsedSpells = new List<Spell>();
@@ -35,14 +35,31 @@ public class CompanionBuilder : MonoBehaviour
 
         List<string> taglines = new List<string>();
         LocalizedText.GetKeysInListCopy("[NEUTRAL_TAGLINE]", taglines);
-        LocalizedText.GetKeysInListCopy("[" + gender + "_TAGLINE]", taglines);
+        LocalizedText.GetKeysInListCopy("[MALE_TAGLINE]", taglines);
+        LocalizedText.GetKeysInListCopy("[FEMALE_TAGLINE]", taglines);
 
         List<string> bios = new List<string>();
         LocalizedText.GetKeysInListCopy("[NEUTRAL_BIO]", bios);
-        LocalizedText.GetKeysInListCopy("[" + gender + "_BIO]", bios);
+        LocalizedText.GetKeysInListCopy("[MALE_BIO]", bios);
+        LocalizedText.GetKeysInListCopy("[FEMALE_BIO]", bios);
 
-        // These are parallel arrays
-        int bioAndTaglinePosition = bios.SamplePosition(previouslyUsedBios);
+        // To get our repetition guards to work properly, things need to maintain positions.
+        // But we still want to support gendered text, so create a temporary ignore list
+        // that contains the previously used positions plus any gender-invalid positions
+        List<int> ignoreList = new List<int>(previouslyUsedBios);
+        string invalid = "[MALE";
+        if (genderNum == 0)
+            invalid = "[FEMALE";
+
+        for (int i = 0; i < bios.Count; ++i)
+        {
+            if (bios[i].StartsWith(invalid))
+            {
+                ignoreList.Add(i);
+            }
+        }
+
+        int bioAndTaglinePosition = bios.SamplePosition(ignoreList);
 
         randomCharacter.bio = bios[bioAndTaglinePosition];
         randomCharacter.characterName = LocalizedText.GetKeysInList("[" + gender + "_NAME]").Sample((genderNum == 0 ? previouslyUsedMaleNames : previouslyUsedFemaleNames));
