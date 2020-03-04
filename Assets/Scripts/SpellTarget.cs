@@ -83,6 +83,10 @@ public class SpellTarget : MonoBehaviour
         }
 
         StartCoroutine(DealDamageCoroutine());
+        if (!hideEffectIfNoHit)
+        {
+            PlayEffect();
+        }
 
         yield return new WaitForSeconds(0.35f);
 
@@ -141,7 +145,7 @@ public class SpellTarget : MonoBehaviour
 
             targetKillable.TakeDamage(null, damage, DamageReason.Spell);
 
-            if (!hideEffectIfNoHit)
+            if (hideEffectIfNoHit)
             {
                 PlayEffect();
             }
