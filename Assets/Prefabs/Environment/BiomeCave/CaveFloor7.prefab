@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 6241106450043950469}
   - component: {fileID: 867310460533836142}
   - component: {fileID: 745156349244226055}
+  - component: {fileID: 2728331346546770166}
   m_Layer: 11
   m_Name: CaveFloor7
   m_TagString: Untagged
@@ -155,6 +156,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 0
+--- !u!114 &2728331346546770166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791090138005552656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6442f9a851210845b8c642dbcf3dbca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removableDecroations:
+  - {fileID: 1158626409742831981}
+  - {fileID: 2797743722146542065}
+  - {fileID: 6110734418466546181}
 --- !u!1001 &1158626409742637773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +241,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d40c4278058cb740a3d4b039105082c, type: 3}
+--- !u!1 &1158626409742831981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199584, guid: 3d40c4278058cb740a3d4b039105082c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1158626409742637773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1158626409743036389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 406824, guid: 3d40c4278058cb740a3d4b039105082c,
@@ -299,6 +322,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d40c4278058cb740a3d4b039105082c, type: 3}
+--- !u!1 &2797743722146542065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199584, guid: 3d40c4278058cb740a3d4b039105082c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2797743722146347601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2797743722146205561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 406824, guid: 3d40c4278058cb740a3d4b039105082c,
@@ -374,6 +403,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d40c4278058cb740a3d4b039105082c, type: 3}
+--- !u!1 &6110734418466546181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199584, guid: 3d40c4278058cb740a3d4b039105082c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6110734418466351525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6110734418466741389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 406824, guid: 3d40c4278058cb740a3d4b039105082c,

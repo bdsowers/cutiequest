@@ -66,6 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -102,6 +103,7 @@ GameObject:
   - component: {fileID: 6241106450043950469}
   - component: {fileID: 867310460533836142}
   - component: {fileID: 7837840079238771851}
+  - component: {fileID: 120006748351969517}
   m_Layer: 11
   m_Name: ForestFloor7
   m_TagString: Untagged
@@ -152,6 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 0
+--- !u!114 &120006748351969517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791090138005552656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6442f9a851210845b8c642dbcf3dbca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removableDecroations:
+  - {fileID: 3732947404307630898}
 --- !u!1001 &3732947404307605886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,6 +237,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ad607532c614c54ebd43e913aaf8857, type: 3}
+--- !u!1 &3732947404307630898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107084, guid: 9ad607532c614c54ebd43e913aaf8857,
+    type: 3}
+  m_PrefabInstance: {fileID: 3732947404307605886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3732947404308011466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 422068, guid: 9ad607532c614c54ebd43e913aaf8857,

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 6241106450043950469}
   - component: {fileID: 867310460533836142}
   - component: {fileID: 8419308948840366080}
+  - component: {fileID: -5800065273326618930}
   m_Layer: 11
   m_Name: CaveFloor6
   m_TagString: Untagged
@@ -153,6 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayType: 0
+--- !u!114 &-5800065273326618930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791090138005552656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6442f9a851210845b8c642dbcf3dbca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removableDecroations:
+  - {fileID: 5309964502703589590}
 --- !u!1001 &5309964502703724200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,6 +237,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a1ff74e5e238140a000e829c164d57, type: 3}
+--- !u!1 &5309964502703589590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 138878, guid: 69a1ff74e5e238140a000e829c164d57,
+    type: 3}
+  m_PrefabInstance: {fileID: 5309964502703724200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5309964502703358470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496814, guid: 69a1ff74e5e238140a000e829c164d57,
