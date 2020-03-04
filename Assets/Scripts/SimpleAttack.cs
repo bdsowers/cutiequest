@@ -98,7 +98,7 @@ public class SimpleAttack : CharacterComponentBase
         // Before we actually start playing the attack animation, ensure the target is still there;
         // there can be some lag before we start the attack animation, and the enemy may
         // have teleported out of the way.
-        if (TargetInDirection(direction) != target)
+        if (Vector3.Distance(transform.position, hitPosition) > 1.5f)
         {
             mIsAttacking = false;
             yield break;
@@ -119,7 +119,9 @@ public class SimpleAttack : CharacterComponentBase
                 // Ensure the target is still in an attackable position - some enemies can
                 // teleport away very erratically, and killing them post-teleport looks awkward
                 // But this shouldn't apply to enemies that are just running - they still get stitches
-                if (target != null && Vector3.Distance(target.transform.position, hitPosition) < 1.5f)
+                if (target != null &&
+                    Vector3.Distance(transform.position, hitPosition) < 1.5f &&
+                    Vector3.Distance(target.transform.position, hitPosition) < 1.5f)
                 {
                     DealDamage(target);
 
