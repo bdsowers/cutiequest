@@ -350,7 +350,28 @@ public class LevelGenerator : MonoBehaviour
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALL_TILE)
                 {
-                    PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, WALKABLEMAP_STATIC_MARK);
+                    // In the space level, we actually have requirements for what wall tiles
+                    // can be placed where; otherwise we get weird decoration clipping
+                    if (Game.instance.currentDungeonData.dungeonNum == 3)
+                    {
+                        bool hasForwardTile = (y + 1 < dungeon.height);
+                        char forwardTile = hasForwardTile ? dungeon.TileType(x, y + 1) : RandomDungeonTileData.EMPTY_TILE;
+                        if (forwardTile != RandomDungeonTileData.WALKABLE_TILE &&
+                            forwardTile != RandomDungeonTileData.EXIT_TILE &&
+                            forwardTile != RandomDungeonTileData.EMPTY_TILE)
+                        {
+                            int wall = Random.Range(0, 2);
+                            PlaceMapPrefab(biomeData.wallPrefabs[wall], x, y, WALKABLEMAP_STATIC_MARK);
+                        }
+                        else
+                        {
+                            PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, WALKABLEMAP_STATIC_MARK);
+                        }
+                    }
+                    else
+                    {
+                        PlaceMapPrefab(biomeData.wallPrefabs.Sample(), x, y, WALKABLEMAP_STATIC_MARK);
+                    }
                 }
                 else if (dungeon.TileType(x, y) == RandomDungeonTileData.WALKABLE_TILE ||
                     dungeon.TileType(x, y) == RandomDungeonTileData.EXIT_TILE ||

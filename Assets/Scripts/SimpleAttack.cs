@@ -119,7 +119,7 @@ public class SimpleAttack : CharacterComponentBase
                 // Ensure the target is still in an attackable position - some enemies can
                 // teleport away very erratically, and killing them post-teleport looks awkward
                 // But this shouldn't apply to enemies that are just running - they still get stitches
-                if (Vector3.Distance(target.transform.position, hitPosition) < 1.5f)
+                if (target != null && Vector3.Distance(target.transform.position, hitPosition) < 1.5f)
                 {
                     DealDamage(target);
 
