@@ -16,6 +16,8 @@ public class DungeonEntrance : MonoBehaviour
     private bool mIsDoorOpen = true;
     private bool mIsAnimating = false;
 
+    private bool mEntering = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<PlayerController>() != null)
@@ -34,8 +36,10 @@ public class DungeonEntrance : MonoBehaviour
 
     private void EnterDungeon()
     {
-        // todo bdsowers - if the player has hearts left, we need to ask them if they really
-        // want to dungeon dive before entering and resetting their hearts.
+        if (mEntering) return;
+
+        mEntering = true;
+
         Game.instance.EnterDungeon(dungeonData, entranceId);
 
         Game.instance.transitionManager.TransitionToScreen("Dungeon");
