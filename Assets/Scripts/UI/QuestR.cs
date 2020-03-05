@@ -139,7 +139,7 @@ public class QuestR : Dialog
         if (panel1.isAnimating || panel2.isAnimating)
             return;
 
-        if (Game.instance.actionSet.CloseMenu.WasPressed)
+        if (Game.instance.actionSet.CloseMenu.WasPressed && !mTutorialMode)
         {
             Close();
         }
