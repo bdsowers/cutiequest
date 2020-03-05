@@ -206,6 +206,8 @@ animation trigger: Hub_Reload
 	set key: item_purchased, value: false
 	set key: bruiser_active, value: false
 
+	play reveal_cave_biome
+
 	flag_set boss1_defeated
 	{
 		flag_unset cave_biome_revealed
