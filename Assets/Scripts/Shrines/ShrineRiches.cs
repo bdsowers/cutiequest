@@ -13,8 +13,8 @@ public class ShrineRiches : Shrine
             NumberPopupGenerator.instance.GeneratePopup(gameObject, Game.instance.playerData.numCoins, NumberPopupReason.RemoveCoins);
             Game.instance.playerData.numCoins = 0;
 
-            CharacterStatModifier followerMod = Game.instance.avatar.follower.GetComponentInChildren<CharacterStatModifier>();
-            followerMod.SetRelativeModification(followerMod.statType, followerMod.modification * 2);
+            CharacterData followerData = Game.instance.characterDataList.CharacterWithUID(Game.instance.playerData.followerUid);
+            followerData.statBoostAmount *= 2;
         }
 
         yield break;
