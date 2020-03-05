@@ -18,6 +18,8 @@ public class DungeonEntrance : MonoBehaviour
 
     private bool mEntering = false;
 
+    public bool freezeFollowerWhenEntering;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<PlayerController>() != null)
@@ -43,6 +45,9 @@ public class DungeonEntrance : MonoBehaviour
         Game.instance.EnterDungeon(dungeonData, entranceId);
 
         Game.instance.transitionManager.TransitionToScreen("Dungeon");
+
+        if (Game.instance.avatar != null && Game.instance.avatar.follower != null && freezeFollowerWhenEntering)
+            Game.instance.avatar.follower.Freeze();
     }
 
     private void Update()
@@ -50,7 +55,11 @@ public class DungeonEntrance : MonoBehaviour
         if (mEntering && Game.instance.avatar != null)
         {
             Game.instance.avatar.transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 2f;
-            Game.instance.avatar.follower.transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 2f;
+
+            if (!freezeFollowerWhenEntering && Game.instance.avatar.follower != null)
+            {
+                Game.instance.avatar.follower.transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 2f;
+            }
         }
 
         if (mActive && Game.instance.followerData == null)

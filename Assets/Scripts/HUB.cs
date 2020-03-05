@@ -58,7 +58,7 @@ public class HUB : MonoBehaviour
 
         avatar.transform.position = entrance.transform.position + new Vector3(0f, 0f, -4f);
         Vector3 roundedPos = avatar.transform.position;
-        roundedPos.x = Mathf.RoundToInt(roundedPos.x);
+        roundedPos.x = Mathf.FloorToInt(roundedPos.x);
         roundedPos.z = Mathf.RoundToInt(roundedPos.z);
         avatar.transform.position = roundedPos;
 

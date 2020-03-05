@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Follower : CharacterComponentBase
 {
+    private bool mFrozen;
+    private Vector3 mFreezePosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,20 @@ public class Follower : CharacterComponentBase
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void Freeze()
+    {
+        mFrozen = true;
+        mFreezePosition = transform.position;
+    }
+
+    private void LateUpdate()
+    {
+        if (mFrozen)
+        {
+            transform.position = mFreezePosition;
+        }
     }
 }

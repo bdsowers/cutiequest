@@ -505,6 +505,7 @@ MonoBehaviour:
   dungeonData: {fileID: 11400000, guid: cb3f33d7f0fe87a4db68958c2f83080d, type: 2}
   visualDungeonEntrance: {fileID: 363395287}
   entranceId: scifi
+  freezeFollowerWhenEntering: 1
 --- !u!65 &46659763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -516,8 +517,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4312249, y: 1.5240047, z: 2.689271}
-  m_Center: {x: -0.092670165, y: 0.2620024, z: 0.42682767}
+  m_Size: {x: 0.4312249, y: 1.8621964, z: 2.689271}
+  m_Center: {x: -0.092670165, y: 0.43109834, z: 0.42682767}
 --- !u!4 &46886608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 440276, guid: 247e09e89c199dd46b07af0a0a46b8ac,
@@ -2563,6 +2564,7 @@ MonoBehaviour:
   dungeonData: {fileID: 11400000, guid: ee202326197233b43a05dbee19d6576f, type: 2}
   visualDungeonEntrance: {fileID: 308676464}
   entranceId: cave
+  freezeFollowerWhenEntering: 0
 --- !u!65 &301101098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14085,6 +14087,7 @@ MonoBehaviour:
   dungeonData: {fileID: 11400000, guid: cbc0275fa96441b4780bb4234a33b441, type: 2}
   visualDungeonEntrance: {fileID: 1278046677}
   entranceId: forest
+  freezeFollowerWhenEntering: 0
 --- !u!65 &1758673828
 BoxCollider:
   m_ObjectHideFlags: 0
