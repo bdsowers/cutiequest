@@ -121,7 +121,7 @@ MonoBehaviour:
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
-  invulnerable: 0
+  invulnerable: 1
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   activationRange: 3
   enemyAIController: {fileID: 2067319743780828290}
   activationCinematicEvent: boss2_intro
+  killable: {fileID: 2738750450090089172}
 --- !u!114 &2067319743780828290
 MonoBehaviour:
   m_ObjectHideFlags: 0

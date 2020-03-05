@@ -7,6 +7,7 @@ public class EnemyActivateWhenClose : MonoBehaviour
     public float activationRange;
     public EnemyAI enemyAIController;
     public string activationCinematicEvent;
+    public Killable killable;
 
     private bool mActivated;
 
@@ -27,6 +28,11 @@ public class EnemyActivateWhenClose : MonoBehaviour
         mActivated = true;
 
         enemyAIController.enabled = true;
+
+        if (killable != null)
+        {
+            killable.invulnerable = false;
+        }
 
         if (!string.IsNullOrEmpty(activationCinematicEvent))
         {

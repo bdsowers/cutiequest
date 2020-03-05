@@ -287,6 +287,7 @@ MonoBehaviour:
   deathEffect: CFX2_EnemyDeathSkull
   deathEffectScale: 0.75
   allowZeroDamage: 0
+  invulnerable: 1
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +368,7 @@ MonoBehaviour:
   activationRange: 3
   enemyAIController: {fileID: 97767842010143280}
   activationCinematicEvent: boss1_intro
+  killable: {fileID: 2738750450090089172}
 --- !u!114 &97767842010143280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +517,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 195d7725a0f0bc2499a48869c45b6a3b,
     type: 3}
   throwSpeed: 1.5
+  numThrows: 1
 --- !u!1 &5269654163064883394
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +825,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 3ed8f513575856c4ba6047944fdc2194,
     type: 3}
   throwSpeed: 1
+  numThrows: 1
 --- !u!1 &8966716619527775347
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +905,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8135455753806573312, guid: 195d7725a0f0bc2499a48869c45b6a3b,
     type: 3}
   throwSpeed: 1.5
+  numThrows: 1
 --- !u!1001 &8013688125905659987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,16 +916,6 @@ PrefabInstance:
     - target: {fileID: 1652301575089508, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
       propertyPath: m_Name
       value: Chr_Dungeon_RockGolem_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
-    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4162035762347246, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -977,6 +972,16 @@ PrefabInstance:
     - target: {fileID: 4162035762347246, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
+    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
