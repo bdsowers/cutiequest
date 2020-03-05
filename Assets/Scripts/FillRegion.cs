@@ -11,6 +11,10 @@ public class FillRegion : MonoBehaviour
     public float heightDeviation;
     public bool randomRotation = true;
 
+    public bool fillGradually { get; set; }
+
+    private BoxCollider mBoxCollider;
+
     List<float> CreateYValuesToAvoidFighting()
     {
         List<float> validValues = new List<float>();
@@ -38,8 +42,23 @@ public class FillRegion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 min = GetComponent<BoxCollider>().bounds.min;
-        Vector3 max = GetComponent<BoxCollider>().bounds.max;
+        mBoxCollider = GetComponent<BoxCollider>();
+
+        if (fillGradually)
+        {
+            StartCoroutine(FillWithPrefabsCoroutine());
+        }
+        else
+        {
+            FillWithPrefabs();
+        }
+    }
+
+    void FillWithPrefabs()
+    {
+        Vector3 min = mBoxCollider.bounds.min;
+        Vector3 max = mBoxCollider.bounds.max;
+        mBoxCollider.enabled = false;
 
         int yIndex = 0;
         List<float> yValues = CreateYValuesToAvoidFighting();
@@ -58,8 +77,45 @@ public class FillRegion : MonoBehaviour
                 }
             }
         }
+    }
 
-        GetComponent<BoxCollider>().enabled = false;
+    IEnumerator FillWithPrefabsCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Vector3 min = mBoxCollider.bounds.min;
+        Vector3 max = mBoxCollider.bounds.max;
+        mBoxCollider.enabled = false;
+
+        int yIndex = 0;
+        List<float> yValues = CreateYValuesToAvoidFighting();
+        List<Vector3> positions = new List<Vector3>();
+
+        for (float x = min.x; x < max.x; x += separation.x)
+        {
+            for (float z = min.z; z < max.z; z += separation.y)
+            {
+                positions.Add(new Vector3(x, transform.position.y + yValues[yIndex++], z));
+            }
+        }
+
+        positions.Shuffle();
+
+        for (int i = 0; i < positions.Count; ++i)
+        {
+            GameObject obj = GameObject.Instantiate(fillPrefabs.Sample(), transform);
+            obj.transform.localScale = new Vector3(scale.x, 1f, scale.y);
+            obj.transform.localPosition = positions[i];
+
+            if (randomRotation)
+            {
+                obj.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+            }
+
+            yield return null;
+        }
+
+        yield break;
     }
 
     // Update is called once per frame

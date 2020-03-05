@@ -5450,7 +5450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &634477492
 Transform:
   m_ObjectHideFlags: 0
@@ -9910,6 +9910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 1530826593}
+  - {fileID: 634477491}
   disabledObjects: []
   requiredFlag: cave_biome_revealed
   whenEvaluated: 1
@@ -11846,6 +11847,8 @@ MonoBehaviour:
     gameObject: {fileID: 1912379587}
   - name: scifi_dungeon_inner2
     gameObject: {fileID: 280440551}
+  - name: road3
+    gameObject: {fileID: 634477491}
 --- !u!4 &1422393245
 Transform:
   m_ObjectHideFlags: 0
