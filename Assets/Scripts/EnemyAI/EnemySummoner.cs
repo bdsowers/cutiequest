@@ -84,9 +84,16 @@ public class EnemySummoner : EnemyAI
 
     private bool SummonAllowed()
     {
-        // Don't allow too many enemies... this number was picked pretty arbitrarily based
-        // on balance though.
-        return Game.instance.enemyDirector.NumEnemies < 72;
+        // Don't allow too many enemies.
+        // Also don't allow a single summoner to have too many enemies out at once.
+        // These numbers are fairly arbitrary, but 3 summoners can make this game crazy fast.
+        if (mSummoner.LivingSummonedEntities() > 4)
+            return false;
+
+        if (Game.instance.enemyDirector.NumEnemies > 72)
+            return false;
+
+        return true;
     }
 
     public override bool CanUpdateAI()

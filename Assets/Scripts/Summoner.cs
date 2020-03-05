@@ -17,9 +17,26 @@ public class Summoner : CharacterComponentBase
     private CollisionMap mCollisionMap;
     public float castSpeed = 4f;
 
+    private int mNumLivingSummonedEnemies;
+
+    private List<GameObject> mSummonedEntities = new List<GameObject>();
+
     private void Start()
     {
         mCollisionMap = GameObject.FindObjectOfType<CollisionMap>();
+    }
+
+    public int LivingSummonedEntities()
+    {
+        int sum = 0;
+        for (int i = 0; i < mSummonedEntities.Count; ++i)
+        {
+            if (mSummonedEntities[i] != null)
+            {
+                sum++;
+            }
+        }
+        return sum;
     }
 
     public void CastSummon()
@@ -77,6 +94,9 @@ public class Summoner : CharacterComponentBase
 
     private void Summon(List<Vector2Int> locations)
     {
+        // Clear out the list of entities so it doesn't grow unbounded
+        ClearDeadSummonedEntities();
+
         for (int i = 0; i < locations.Count; ++i)
         {
             SummonEnemy(locations[i]);
@@ -96,6 +116,13 @@ public class Summoner : CharacterComponentBase
         Vector3 pos = MapCoordinateHelper.MapToWorldCoords(pos2);
         newEnemy.transform.position = pos;
         mCollisionMap.MarkSpace(mapPos.x, mapPos.y, newEnemy.GetComponent<SimpleMovement>().uniqueCollisionIdentity);
+
+        mSummonedEntities.Add(newEnemy);
+    }
+
+    private void ClearDeadSummonedEntities()
+    {
+        mSummonedEntities.RemoveAll(i => i == null);
     }
 
     private List<Vector2Int> WalkablePositionsInRange(int originX, int originY)
