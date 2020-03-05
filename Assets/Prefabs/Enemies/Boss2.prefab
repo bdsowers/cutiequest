@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3250
-  _strength: 28
+  _strength: 30
   _defense: 0
   _magic: 10
   _speed: 10
