@@ -11,7 +11,7 @@ public class InputPatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Game.instance != null)
-            InputManager.ClearInputState();
+        if (Game.instance != null && Game.instance.actionSet != null)
+            Game.instance.actionSet.ClearAxisState();
     }
 }
