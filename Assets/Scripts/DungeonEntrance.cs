@@ -47,6 +47,12 @@ public class DungeonEntrance : MonoBehaviour
 
     private void Update()
     {
+        if (mEntering && Game.instance.avatar != null)
+        {
+            Game.instance.avatar.transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 2f;
+            Game.instance.avatar.follower.transform.position += new Vector3(0, 0, 1) * Time.deltaTime * 2f;
+        }
+
         if (mActive && Game.instance.followerData == null)
         {
             mActive = false;
