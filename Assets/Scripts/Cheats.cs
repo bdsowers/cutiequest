@@ -5,8 +5,6 @@ using ArrayExtensions;
 
 public class Cheats : MonoBehaviour
 {
-    private bool mDialogPopulated;
-
     public static int forceTestItemGeneration { get; private set; }
 
     // Start is called before the first frame update
@@ -134,9 +132,10 @@ public class Cheats : MonoBehaviour
 #endif
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (!mDialogPopulated)
+            CheatsDialog dialog = Game.instance.hud.cheatsDialog;
+            if (dialog.needsBuilding)
             {
-                mDialogPopulated = true;
+                dialog.needsBuilding = false;
                 PopulateCheatsDialog();
             }
 
