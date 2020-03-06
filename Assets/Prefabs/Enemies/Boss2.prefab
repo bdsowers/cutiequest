@@ -265,9 +265,10 @@ MonoBehaviour:
 
     99999999999'
   castSpeed: 5
-  effectName: CFX2_RockHit
+  effectName: CFX3_Hit_Electric_A_Ground
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
+  dontCastOnWalls: 1
 --- !u!114 &860771789016260830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,9 +312,10 @@ MonoBehaviour:
 
     00000'
   castSpeed: 3
-  effectName: CFX2_RockHit
+  effectName: CFX3_Hit_Electric_A_Ground
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
+  dontCastOnWalls: 1
 --- !u!1 &7519224713004977550
 GameObject:
   m_ObjectHideFlags: 0

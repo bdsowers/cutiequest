@@ -27,6 +27,8 @@ public class SpellCaster : CharacterComponentBase
 
     public bool hideEffectIfNoHit;
 
+    public bool dontCastOnWalls;
+
     private GameObject target
     {
         get
@@ -45,7 +47,7 @@ public class SpellCaster : CharacterComponentBase
     {
         string[] lines = str.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
         int[,] result = new int[lines[0].Length, lines.Length];
-        
+
         for (int x = 0; x < lines[0].Length; ++x)
         {
             for (int y = 0; y < lines.Length; ++y)
@@ -122,8 +124,8 @@ public class SpellCaster : CharacterComponentBase
 
     public IEnumerator CastSpellCoroutine(int strength)
     {
-        
-        if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>() && 
+
+        if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>() &&
             commonComponents != null && commonComponents.animator != null)
         {
            commonComponents.animator.Play("Spell");
@@ -243,14 +245,15 @@ public class SpellCaster : CharacterComponentBase
 
             // convert the target position to map coordinates
             Vector2Int mapCoords = MapCoordinateHelper.WorldToMapCoords(target.position);
-            
+
             if (!Game.instance.levelGenerator.dungeon.IsPositionInBounds(mapCoords) ||
-                Game.instance.levelGenerator.dungeon.TileType(mapCoords) == OMM.RDG.RandomDungeonTileData.EMPTY_TILE)
+                Game.instance.levelGenerator.dungeon.TileType(mapCoords) == OMM.RDG.RandomDungeonTileData.EMPTY_TILE ||
+                (dontCastOnWalls && Game.instance.levelGenerator.dungeon.TileType(mapCoords) == OMM.RDG.RandomDungeonTileData.WALL_TILE))
             {
                 Destroy(target.gameObject);
             }
         }
-        
+
         return partFound;
     }
 
