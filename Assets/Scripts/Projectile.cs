@@ -46,6 +46,8 @@ public class Projectile : MonoBehaviour
             if (destroyOnEnemyHit)
             {
                 Destroy(gameObject);
+
+                PlayHitVFX();
             }
         }
         else
@@ -53,7 +55,16 @@ public class Projectile : MonoBehaviour
             if (destroyOnEnvironmentHit)
             {
                 Destroy(gameObject);
+
+                PlayHitVFX();
             }
         }
+    }
+
+    void PlayHitVFX()
+    {
+        GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX_Poof");
+        vfx.transform.position = transform.position;
+        vfx.transform.localScale = Vector3.one * 0.35f;
     }
 }
