@@ -7,12 +7,12 @@ public class Cheats : MonoBehaviour
 {
     private bool mDialogPopulated;
 
-    public static bool forceTestItemGeneration { get; private set; }
+    public static int forceTestItemGeneration { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        forceTestItemGeneration = -1;
     }
 
     private void SkipTutorial()
@@ -162,7 +162,7 @@ public class Cheats : MonoBehaviour
 
     void TestSpecificItem()
     {
-        forceTestItemGeneration = true;
+        forceTestItemGeneration = (forceTestItemGeneration + 1) % (PrefabManager.instance.itemPrefabs.Length);
     }
 
     void CloseCheatDialog()

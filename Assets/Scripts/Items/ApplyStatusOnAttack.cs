@@ -41,7 +41,7 @@ public class ApplyStatusOnAttack : MonoBehaviour
         int luck = Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.Luck, Game.instance.avatar.gameObject);
 
         // Guarantee status effect if we're testing items
-        if (Cheats.forceTestItemGeneration) val = 0;
+        if (Cheats.forceTestItemGeneration >= 0) val = 0;
 
         if (val - luck / 4 < chance)
         {

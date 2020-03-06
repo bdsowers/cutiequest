@@ -467,7 +467,7 @@ public class LevelGenerator : MonoBehaviour
         List<Item> items = Game.instance.companionBuilder.ItemsInLevel(Game.instance.playerData.attractiveness, -1, Game.instance.playerData.scoutLevel, -1);
         Item item = items.Sample(mPreviouslyUsedItems);
 
-        if (Cheats.forceTestItemGeneration) item = PrefabManager.instance.itemPrefabs[PrefabManager.instance.itemPrefabs.Length - 1].GetComponent<Item>();
+        if (Cheats.forceTestItemGeneration >= 0) item = PrefabManager.instance.itemPrefabs[Cheats.forceTestItemGeneration].GetComponent<Item>();
 
         mPreviouslyUsedItems.Add(item);
         return item.name;
