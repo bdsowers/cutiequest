@@ -8408,6 +8408,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.998448, y: 3.2885613, z: 23.000887}
   m_Center: {x: -2.6383297, y: 1.6442807, z: -8.43172}
+--- !u!1 &1024378050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4239316676634313684, guid: c61028de0690a04489e563a5c9c1627d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2135044084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1044082895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11757,6 +11763,8 @@ MonoBehaviour:
     gameObject: {fileID: 280440551}
   - name: road3
     gameObject: {fileID: 634477491}
+  - name: tumbleweed
+    gameObject: {fileID: 1024378050}
 --- !u!4 &1422393245
 Transform:
   m_ObjectHideFlags: 0
@@ -17501,6 +17509,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -569485785187502874, guid: ef24f683a096bce44b2851f5e5b86c09,
         type: 2}
+    - target: {fileID: 2205207541604700111, guid: c61028de0690a04489e563a5c9c1627d,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61028de0690a04489e563a5c9c1627d, type: 3}
 --- !u!224 &2135044085 stripped
