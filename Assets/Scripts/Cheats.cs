@@ -143,91 +143,9 @@ public class Cheats : MonoBehaviour
             Game.instance.hud.cheatsDialog.gameObject.SetActive(true);
         }
 
-        // Cinematic testing cheat
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            Game.instance.cinematicDirector.dataProvider.SetData("boss1_defeated", "true");
-            Game.instance.cinematicDirector.PostCinematicEvent("Hub_Reload");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SkipTutorial();
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            RevealMap();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TeleportToDungeonExit();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            AddCoins();
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            AddHearts();
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            ClearSavedFlags();
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            KillAvatar();
-        }
-
         if (Input.GetKeyDown(KeyCode.S))
         {
             TakeScreenshot();
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            SkipToBoss();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            NoDamage();
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            ResetAttractiveness();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Slash))
-        {
-            EnterDebugDungeon();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Backslash))
-        {
-            BuildFullCompanionSet();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            EnterPreview();
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            UnlockAllDungeons();
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            KillEnemies();
         }
     }
 
@@ -279,26 +197,21 @@ public class Cheats : MonoBehaviour
         CheatsDialog dialog = Game.instance.hud.cheatsDialog;
 
         dialog.AddButton("Close", CloseCheatDialog, "");
-        dialog.AddButton("Unlock Dungeons", UnlockAllDungeons, "T");
-        dialog.AddButton("Skip Tutorial", SkipTutorial, "Q");
-        dialog.AddButton("Reveal Map", RevealMap, "W");
-        dialog.AddButton("Dungeon Exit", TeleportToDungeonExit, "R");
-        dialog.AddButton("Add Coins", AddCoins, "Y");
-        dialog.AddButton("Add Hearts", AddHearts, "U");
-        dialog.AddButton("Clear Flags", ClearSavedFlags, "O");
-        dialog.AddButton("Kill Avatar", KillAvatar, "A");
-        dialog.AddButton("Screenshot", TakeScreenshot, "S");
-        dialog.AddButton("Skip to Boss", SkipToBoss, "H");
-        dialog.AddButton("No Damage", NoDamage, "F");
-        dialog.AddButton("Reset Attract", ResetAttractiveness, "G");
-        dialog.AddButton("Debug Dungeon", EnterDebugDungeon, "/");
-        dialog.AddButton("Companions", BuildFullCompanionSet, "\\");
-        dialog.AddButton("Preview", EnterPreview, "P");
-        dialog.AddButton("Reset Game", ResetGame, "APM");
+        dialog.AddButton("Unlock Dungeons", UnlockAllDungeons, "");
+        dialog.AddButton("Reveal Map", RevealMap, "");
+        dialog.AddButton("Dungeon Exit", TeleportToDungeonExit, "");
+        dialog.AddButton("Add Coins", AddCoins, "");
+        dialog.AddButton("Add Hearts", AddHearts, "");
+        dialog.AddButton("Kill Avatar", KillAvatar, "");
+        dialog.AddButton("Skip to Boss", SkipToBoss, "");
+        dialog.AddButton("No Damage", NoDamage, "");
+        dialog.AddButton("Debug Dungeon", EnterDebugDungeon, "");
+        dialog.AddButton("Companions", BuildFullCompanionSet, "");
+        dialog.AddButton("Reset Game", ResetGame, "");
         dialog.AddButton("Unlock NPCS", UnlockAllNPCS, "");
         dialog.AddButton("Test Item", TestSpecificItem, "");
         dialog.AddButton("Save Backup", CreateTestingBackup, "");
         dialog.AddButton("Load Backup", LoadTestingBackup, "");
-        dialog.AddButton("Kill Enemies", KillEnemies, "B");
+        dialog.AddButton("Kill Enemies", KillEnemies, "");
     }
 }
