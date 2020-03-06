@@ -29,6 +29,8 @@ animation trigger: stylist_success
 
 animation trigger: stylist_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker Chr_Fantasy_Bard_01
 	typewriter "You trying to put the hustle on me?! Get outta here! Go on, get!"
 
@@ -45,10 +47,12 @@ animation trigger: trainer_success
 
 animation trigger: trainer_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker Chr_Vikings_ShieldMaiden_01
 	typewriter "I oughtta beat you within an inch of your life for wasting my time."
 
-
+	wait_seconds 0.3
 }
 
 animation trigger: activate_shrine
@@ -290,6 +294,8 @@ animation trigger: punkypeter_success
 
 animation trigger: punkypeter_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker MiniCharacter_PunkGuy_01
 	typewriter "Ahem, I think you'll need a few more gems plz thx."
 
@@ -314,6 +320,8 @@ animation trigger: hotdogman_success
 
 animation trigger: hotdogman_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker MiniCharacter_HotdogMan_01
 	typewriter text: "Seriously? Get out of here. GO ON! GIT!!!"
 
@@ -337,6 +345,8 @@ animation trigger: tourist_success
 
 animation trigger: tourist_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker MiniCharacter_SummerGirl_01
 	typewriter text: "Sorry, you gotta pay for this wit."
 
@@ -374,6 +384,8 @@ animation trigger: bruiser_success
 
 animation trigger: bruiser_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker MiniCharacter_Female_Jacket_01
 	typewriter text: "Oy! My services come at a cost, and you don't have the scratch."
 
@@ -408,8 +420,12 @@ animation trigger: beats_success
 
 animation trigger: beats_fail
 {
+	show_popup "Not Enough Gems!"
+
 	change_speaker MiniCharacter_GamerGirl_01
 	typewriter text: "If you wanna learn these moves, I gotta get paid."
+
+	wait_seconds 0.3
 }
 
 animation trigger: hub_tutorial
