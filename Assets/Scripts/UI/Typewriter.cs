@@ -109,6 +109,14 @@ public class Typewriter : MonoBehaviour
                     stringBuilder.Append(invisible);
                     stringBuilder.Append("</color>");
                 }
+                else if (useFancyType)
+                {
+                    // Trying to combat a bug where auto-fitting text boxes sometimes 'wiggle' a bit at the end.
+                    // Make sure that color code is always there, even if it's invisible so the text
+                    // length is always the same.
+                    stringBuilder.Append("<color=#00000000>");
+                    stringBuilder.Append("</color>");
+                }
             }
 
             mLabel.SetText(stringBuilder.ToString());
