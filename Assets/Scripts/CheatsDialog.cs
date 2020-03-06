@@ -8,7 +8,7 @@ public class CheatsDialog : Dialog
     public Button cheatButtonTemplate;
     private Button mPrevButton;
 
-    public bool needsBuilding { get; set; }
+    public bool hasBeenPopulated { get; set; }
 
     public void AddButton(string text, System.Action listener, string keyboardKey)
     {

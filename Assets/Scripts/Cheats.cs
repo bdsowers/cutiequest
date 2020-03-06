@@ -133,9 +133,9 @@ public class Cheats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             CheatsDialog dialog = Game.instance.hud.cheatsDialog;
-            if (dialog.needsBuilding)
+            if (!dialog.hasBeenPopulated)
             {
-                dialog.needsBuilding = false;
+                dialog.hasBeenPopulated = true;
                 PopulateCheatsDialog();
             }
 
