@@ -146,8 +146,13 @@ public class Killable : MonoBehaviour
 
         if (GetComponent<PlayerController>() != null)
         {
-            HitFlash hitFlash = GameObject.FindObjectOfType<HitFlash>();
-            hitFlash.Flash();
+            // TODO bdsowers : The hit flash is wonky on Mac; disabling for now,
+            // but we should fix it properly
+            if (Application.platform != RuntimePlatform.OSXPlayer)
+            {
+                HitFlash hitFlash = GameObject.FindObjectOfType<HitFlash>();
+                hitFlash.Flash();
+            }
         }
     }
 
