@@ -247,11 +247,6 @@ public class ScreenTransitionManager : MonoBehaviour
 
     private IEnumerator ShowUnlocks()
     {
-        // Gather all the spells and quirks that are unlocked by this run and show the appropriate dialog for them.
-        if (Game.instance.attractivenessWhenDungeonEntered == Game.instance.playerData.attractiveness ||
-            !Game.instance.finishedTutorial)
-            yield break;
-
         List<Quirk> unlockedQuirks = Game.instance.companionBuilder.QuirksInLevel(Game.instance.playerData.attractiveness, Game.instance.attractivenessWhenDungeonEntered + 1, Game.instance.playerData.scoutLevel, Game.instance.playerData.scoutLevel);
         List<Spell> unlockedSpells = Game.instance.companionBuilder.SpellsInLevel(Game.instance.playerData.attractiveness, Game.instance.attractivenessWhenDungeonEntered + 1, Game.instance.playerData.scoutLevel, Game.instance.playerData.scoutLevel);
         List<Item> unlockedItems = Game.instance.companionBuilder.ItemsInLevel(Game.instance.playerData.attractiveness, Game.instance.attractivenessWhenDungeonEntered + 1, Game.instance.playerData.scoutLevel, Game.instance.playerData.scoutLevel);
