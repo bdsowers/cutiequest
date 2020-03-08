@@ -21,7 +21,7 @@ public class LevelExit : MonoBehaviour
             Invoke("Transition", 0.5f);
         }
     }
-    
+
     private bool CheckCompletionistQuirk()
     {
         if (Game.instance.quirkRegistry.IsQuirkActive<CompletionistQuirk>())
@@ -42,6 +42,8 @@ public class LevelExit : MonoBehaviour
 
     private void Transition()
     {
+        Game.instance.soundManager.PlaySound("warp");
+
         Game.instance.currentDungeonFloor++;
 
         Game.instance.transitionManager.TransitionToScreen("Dungeon");

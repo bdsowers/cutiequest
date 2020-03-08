@@ -42,6 +42,8 @@ public class DungeonEntrance : MonoBehaviour
 
         mEntering = true;
 
+        Game.instance.soundManager.PlaySound("warp");
+
         Game.instance.EnterDungeon(dungeonData, entranceId);
 
         Game.instance.transitionManager.TransitionToScreen("Dungeon");

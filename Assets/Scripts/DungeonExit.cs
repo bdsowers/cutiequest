@@ -21,6 +21,8 @@ public class DungeonExit : MonoBehaviour
 
     private void Transition()
     {
+        Game.instance.soundManager.PlaySound("warp");
+
         Game.instance.RunEnded(true);
 
         Game.instance.transitionManager.TransitionToScreen("HUB", "success");
