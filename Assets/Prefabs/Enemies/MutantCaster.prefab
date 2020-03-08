@@ -190,7 +190,7 @@ MonoBehaviour:
   effectName: Explosion
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
-  dontCastOnWalls: 0
+  dontCastOnWalls: 1
   castSFX: 
   triggerSFX: fire
 --- !u!114 &7518466631562494547
