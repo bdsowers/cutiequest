@@ -134,7 +134,9 @@ public class SoundManager : MonoBehaviour
     {
         nextMusic.Play();
 
-        prevMusic.volume = 1f * MusicVolume;
+        float globalModifier = 0.75f;
+
+        prevMusic.volume = MusicVolume * globalModifier;
         nextMusic.volume = 0f;
 
         float t = 0f;
@@ -142,15 +144,15 @@ public class SoundManager : MonoBehaviour
         {
             t += Time.deltaTime;
 
-            prevMusic.volume = (1f - t) * MusicVolume;
-            nextMusic.volume = t * MusicVolume;
+            prevMusic.volume = (1f - t) * MusicVolume * globalModifier;
+            nextMusic.volume = t * MusicVolume * globalModifier;
             yield return null;
         }
 
         prevMusic.volume = 0f;
         prevMusic.Stop();
 
-        nextMusic.volume = MusicVolume;
+        nextMusic.volume = MusicVolume * globalModifier;
 
         yield break;
     }
