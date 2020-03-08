@@ -32,7 +32,7 @@ public class Mansplain : MonoBehaviour
         if (mChangeTextTimer <= 0f)
         {
             string message = LocalizedText.Get(LocalizedText.GetKeysInList("[MANSPLAIN]").Sample());
-            typewriter.ShowText(message, 1f);
+            typewriter.ShowText(message, 1f, false);
 
             mChangeTextTimer = Random.Range(3f, 10f);
         }

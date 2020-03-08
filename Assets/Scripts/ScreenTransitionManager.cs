@@ -180,7 +180,7 @@ public class ScreenTransitionManager : MonoBehaviour
         {
             msg = LocalizedText.Get("[BREAKUP_1]");
         }
-        yield return deathMessage.ShowTextCoroutine(msg, 1f);
+        yield return deathMessage.ShowTextCoroutine(msg, 1f, false);
         yield return new WaitForSeconds(1f);
 
         deathMessage.GetComponentInChildren<TextMeshProUGUI>().CrossFadeAlpha(0f, 0.5f, false);

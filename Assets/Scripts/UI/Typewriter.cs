@@ -35,13 +35,13 @@ public class Typewriter : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void ShowText(string text, float speed)
+    public void ShowText(string text, float speed, bool sound = true)
     {
         gameObject.SetActive(true);
 
         StopAllCoroutines();
 
-        StartCoroutine(ShowTextCoroutine(text, speed));
+        StartCoroutine(ShowTextCoroutine(text, speed, sound));
     }
 
     public void ForceFinish()
@@ -51,9 +51,10 @@ public class Typewriter : MonoBehaviour
         mIsAnimating = false;
     }
 
-    public IEnumerator ShowTextCoroutine(string text, float speed)
+    public IEnumerator ShowTextCoroutine(string text, float speed, bool sound = true)
     {
-        Game.instance.soundManager.PlaySound("speak");
+        if (sound)
+            Game.instance.soundManager.PlaySound("speak");
 
         mIsAnimating = true;
         mTargetText = text;
