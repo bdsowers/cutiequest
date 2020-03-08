@@ -29,6 +29,8 @@ public class EnemyActivateWhenClose : MonoBehaviour
 
         enemyAIController.enabled = true;
 
+        Game.instance.soundManager.PlaySound("boss_intro");
+
         if (killable != null)
         {
             killable.invulnerable = false;

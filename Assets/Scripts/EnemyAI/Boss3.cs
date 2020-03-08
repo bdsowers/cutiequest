@@ -135,6 +135,8 @@ public abstract class Boss3 : EnemyAI
 
     private void OnDeath(Killable entity)
     {
+        Game.instance.soundManager.PlaySound("boss_intro");
+
         if (AllBossesDead())
         {
             // Kill all the enemies, make the player invulnerable

@@ -104,7 +104,13 @@ public class PlayerController : CharacterComponentBase
 
         commonComponents.animator.Play("Death");
 
+        Invoke("DeathSFX", 0.75f);
         Invoke("TransitionAfterDelay", 2.5f);
+    }
+
+    void DeathSFX()
+    {
+        Game.instance.soundManager.PlaySound("death");
     }
 
     void TransitionAfterDelay()

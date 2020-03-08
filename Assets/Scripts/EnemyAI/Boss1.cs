@@ -65,6 +65,7 @@ public class Boss1 : EnemyAI
         }
 
         Game.instance.cinematicDirector.PostCinematicEvent("boss1_death");
+        Game.instance.soundManager.PlaySound("boss_intro");
 
         Invoke("SpawnTeleporter", 3f);
     }

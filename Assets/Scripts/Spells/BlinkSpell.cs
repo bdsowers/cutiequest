@@ -48,5 +48,7 @@ public class BlinkSpell : Spell
         GameObject effect = PrefabManager.instance.InstantiatePrefabByName("CFX2_WWExplosion_C");
         effect.transform.position = Game.instance.avatar.transform.position;
         effect.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
+
+        Game.instance.soundManager.PlaySound("teleport");
     }
 }

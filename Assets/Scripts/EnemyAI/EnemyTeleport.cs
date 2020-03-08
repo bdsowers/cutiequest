@@ -92,6 +92,8 @@ public class EnemyTeleport : MonoBehaviour
         effect2.AddComponent<DestroyAfterTimeElapsed>().time = 2f;
         effect2.transform.localScale = Vector3.one * 0.75f;
         Speedup(effect2);
+
+        Game.instance.soundManager.PlaySound("teleport");
     }
 
     void Speedup(GameObject parent)

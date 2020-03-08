@@ -13,6 +13,8 @@ public class EnemyActivateWhenHit : MonoBehaviour
     public string closeCinematicEvent;
     private bool mCloseCinematicEventFired;
 
+    public bool playSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class EnemyActivateWhenHit : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(activationCinematicEvent) && !mActivationCinematicEventFired)
         {
+            if (playSound)
+                Game.instance.soundManager.PlaySound("boss_intro");
+
             mActivationCinematicEventFired = true;
             Game.instance.cinematicDirector.PostCinematicEvent(activationCinematicEvent);
 
