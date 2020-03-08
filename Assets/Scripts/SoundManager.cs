@@ -120,11 +120,16 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private bool coroutineInProgress = false;
     private IEnumerator ChangeMusicCoroutine(AudioSource prevMusic, AudioSource nextMusic)
     {
+        if (coroutineInProgress)
+            Debug.LogError("Trying to play music while switching music, which may be an issue");
+
+        coroutineInProgress = true;
         nextMusic.Play();
 
-        prevMusic.volume = 1f;
+        prevMusic.volume = 1f * MusicVolume;
         nextMusic.volume = 0f;
 
         float t = 0f;
@@ -142,6 +147,7 @@ public class SoundManager : MonoBehaviour
 
         nextMusic.volume = MusicVolume;
 
+        coroutineInProgress = false;
         yield break;
     }
 
