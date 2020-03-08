@@ -9735,6 +9735,7 @@ GameObject:
   - component: {fileID: 1196203992}
   - component: {fileID: 1196203993}
   - component: {fileID: 1196203990}
+  - component: {fileID: 1196203994}
   m_Layer: 0
   m_Name: FlagEvaluator
   m_TagString: Untagged
@@ -9919,6 +9920,23 @@ MonoBehaviour:
   - {fileID: 1657705063}
   disabledObjects: []
   requiredFlag: bruiser
+  whenEvaluated: 1
+--- !u!114 &1196203994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196203983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6035197150e663746b0f1963ac02190a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects: []
+  disabledObjects:
+  - {fileID: 1541394237}
+  requiredFlag: boss2_defeated
   whenEvaluated: 1
 --- !u!1001 &1222021025
 PrefabInstance:
