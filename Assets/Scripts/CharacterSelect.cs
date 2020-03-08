@@ -25,11 +25,11 @@ public class CharacterSelect : MonoBehaviour
             selectableCharacters[i].transform.DOScale(Vector3.one, 0.5f);
         }
 
-        ChangeCharacterSelection(2);
+        ChangeCharacterSelection(2, true);
     }
 
     // Update is called once per frame
-    void ChangeCharacterSelection(int newSelection)
+    void ChangeCharacterSelection(int newSelection, bool first = false)
     {
         if (mCurrentSelection != -1)
         {
@@ -41,6 +41,9 @@ public class CharacterSelect : MonoBehaviour
         selectableCharacters[mCurrentSelection].transform.DOScale(1.4f, 0.5f);
 
         selectableCharacters[mCurrentSelection].GetComponentInChildren<Animator>().speed = 1f;
+
+        if (!first)
+            Game.instance.soundManager.PlaySound("button_select");
     }
 
     void Update()
@@ -76,6 +79,8 @@ public class CharacterSelect : MonoBehaviour
             Game.instance.playerData.material = materialName;
             Game.instance.dungeonEntranceId = "forest";
             Game.instance.transitionManager.TransitionToScreen("Dungeon");
+
+            Game.instance.soundManager.PlaySound("confirm_special");
         }
     }
 }

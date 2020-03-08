@@ -53,6 +53,8 @@ public class Typewriter : MonoBehaviour
 
     public IEnumerator ShowTextCoroutine(string text, float speed)
     {
+        Game.instance.soundManager.PlaySound("speak");
+
         mIsAnimating = true;
         mTargetText = text;
 

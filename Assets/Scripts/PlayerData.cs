@@ -172,4 +172,21 @@ public class PlayerData
             onPlayerDataChanged(this);
         }
     }
+
+    // Not really, this is just so SFX aren't strange
+    // 0 -> male
+    // 1 -> female
+    public int Gender()
+    {
+        if (mModel == null)
+            return 0;
+
+        if (mModel == "Chr_Dungeon_SkeletonKnight_01" || mModel == "Chr_Adventure_Warrior_01" || mModel == "Chr_Fantasy_Sorcerer_01")
+            return 0;
+
+        if (mModel == "Chr_Fantasy_Druid_01" || mModel == "Chr_Dungeon_KnightFemale_01")
+            return 1;
+
+        return 0;
+    }
 }

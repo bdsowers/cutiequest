@@ -153,6 +153,15 @@ public class Killable : MonoBehaviour
                 HitFlash hitFlash = GameObject.FindObjectOfType<HitFlash>();
                 hitFlash.Flash();
             }
+
+            if (Game.instance.playerData.Gender() == 0)
+            {
+                Game.instance.soundManager.PlaySound("male_hit");
+            }
+            else
+            {
+                Game.instance.soundManager.PlaySound("female_hit");
+            }
         }
     }
 

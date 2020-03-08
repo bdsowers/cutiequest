@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ButtonSoundPlayer : MonoBehaviour, ISelectHandler
 {
+    public static bool suppressSound = false;
+
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnClick);
@@ -23,6 +25,7 @@ public class ButtonSoundPlayer : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        Game.instance.soundManager.PlaySound("button_select");
+        if (!suppressSound)
+            Game.instance.soundManager.PlaySound("button_select");
     }
 }

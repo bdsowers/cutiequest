@@ -46,12 +46,16 @@ public class ButtonSet : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         yield return null;
 
+        ButtonSoundPlayer.suppressSound = true;
+
         if (buttons.Count > 0)
         {
             Button button = FirstAvailableButton();
             button.Select();
             EventSystem.current.SetSelectedGameObject(button.gameObject);
         }
+
+        ButtonSoundPlayer.suppressSound = false;
 
         yield break;
     }
