@@ -127,10 +127,7 @@ public class SpellCaster : CharacterComponentBase
 
     public IEnumerator CastSpellCoroutine(int strength)
     {
-        if (!string.IsNullOrEmpty(castSFX))
-        {
-            Game.instance.soundManager.PlaySound(castSFX);
-        }
+        Game.instance.soundManager.PlaySound("cast");
 
         if (characterRoot != null && !Game.instance.quirkRegistry.IsQuirkActive<DancePartyQuirk>() &&
             commonComponents != null && commonComponents.animator != null)

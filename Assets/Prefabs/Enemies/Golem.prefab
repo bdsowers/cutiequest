@@ -184,6 +184,9 @@ MonoBehaviour:
   effectName: Explosion
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
+  dontCastOnWalls: 0
+  castSFX: 
+  triggerSFX: fire
 --- !u!114 &7518466631562494547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +254,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4931078367216189230}
+  - {fileID: 4926941758077320102}
   - {fileID: 924151010901335547}
   m_Father: {fileID: 2738750450090089180}
   m_RootOrder: 0
@@ -856,7 +859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e77aa60f5941c4fac8214300600242, type: 3}
---- !u!4 &4931078367216189230 stripped
+--- !u!4 &4926941758077320102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4141632177056838, guid: 66e77aa60f5941c4fac8214300600242,
     type: 3}

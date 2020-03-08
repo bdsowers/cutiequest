@@ -106,7 +106,7 @@ public class SimpleAttack : CharacterComponentBase
 
         bool damageDone = false;
 
-        if (noDamage)
+        if (gameObject.layer == mPlayerLayer || noDamage)
             Game.instance.soundManager.PlaySound("enemy_hit");
 
         float time = 0f;

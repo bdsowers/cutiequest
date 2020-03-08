@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour
         }
 
         mMaxFrequencies.Add("boing", 0.2f);
+        mMaxFrequencies.Add("fire", 0.2f);
     }
 
     // Update is called once per frame
@@ -99,7 +100,7 @@ public class SoundManager : MonoBehaviour
 
         mAudioSourceMap[soundName].pitch = 1f + Random.Range(-0.1f, 0.1f);
         mAudioSourceMap[soundName].volume = SFXVolume;
-        mAudioSourceMap[soundName].Play();
+        mAudioSourceMap[soundName].PlayOneShot(mAudioSourceMap[soundName].clip);
     }
 
     public void PlayRandomMusicInCategory(string categoryName)
