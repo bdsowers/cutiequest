@@ -6,7 +6,7 @@ using System.IO;
 
 public class BuildSystem : MonoBehaviour
 {
-    private static string mSteamBuildLocation = "Steam/sdk/tools/ContentBuilder/content/HeroesSwipeRight.exe";
+    private static string mSteamBuildLocation = "Steam/sdk/tools/ContentBuilder/content/Win/HeroesSwipeRight.exe";
     private static string mConventionBuildLocation = "Build/convention/HeroesSwipeRight.exe";
     private static string mSocialMediaBuildLocation = "Build/socialmedia/HeroesSwipeRight.exe";
 
