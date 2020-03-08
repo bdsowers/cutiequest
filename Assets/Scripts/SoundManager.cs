@@ -42,6 +42,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private float mMusicVolumeModifier = 0.75f;
+    private bool mTransitioningMusic = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +71,11 @@ public class SoundManager : MonoBehaviour
             {
                 mFrequencyTrackers[mAudioSourceNames[i]] -= Time.deltaTime;
             }
+        }
+
+        if (mCurrentMusic != null && !mTransitioningMusic)
+        {
+            mCurrentMusic.volume = MusicVolume * mMusicVolumeModifier;
         }
     }
 
@@ -132,11 +140,11 @@ public class SoundManager : MonoBehaviour
 
     private IEnumerator ChangeMusicCoroutine(AudioSource prevMusic, AudioSource nextMusic)
     {
+        mTransitioningMusic = true;
+
         nextMusic.Play();
 
-        float globalModifier = 0.75f;
-
-        prevMusic.volume = MusicVolume * globalModifier;
+        prevMusic.volume = MusicVolume * mMusicVolumeModifier;
         nextMusic.volume = 0f;
 
         float t = 0f;
@@ -144,15 +152,17 @@ public class SoundManager : MonoBehaviour
         {
             t += Time.deltaTime;
 
-            prevMusic.volume = (1f - t) * MusicVolume * globalModifier;
-            nextMusic.volume = t * MusicVolume * globalModifier;
+            prevMusic.volume = (1f - t) * MusicVolume * mMusicVolumeModifier;
+            nextMusic.volume = t * MusicVolume * mMusicVolumeModifier;
             yield return null;
         }
 
         prevMusic.volume = 0f;
         prevMusic.Stop();
 
-        nextMusic.volume = MusicVolume * globalModifier;
+        nextMusic.volume = MusicVolume * mMusicVolumeModifier;
+
+        mTransitioningMusic = false;
 
         yield break;
     }
