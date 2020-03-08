@@ -42,7 +42,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private float mMusicVolumeModifier = 0.75f;
+    private float mMusicVolumeModifier = 0.45f;
     private bool mTransitioningMusic = false;
 
     // Start is called before the first frame update
