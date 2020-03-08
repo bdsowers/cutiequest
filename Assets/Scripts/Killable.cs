@@ -163,10 +163,6 @@ public class Killable : MonoBehaviour
                 Game.instance.soundManager.PlaySound("female_hit");
             }
         }
-        else
-        {
-            Game.instance.soundManager.PlaySound("enemy_hit");
-        }
     }
 
     private void HandleDeath()

@@ -106,6 +106,9 @@ public class SimpleAttack : CharacterComponentBase
 
         bool damageDone = false;
 
+        if (noDamage)
+            Game.instance.soundManager.PlaySound("enemy_hit");
+
         float time = 0f;
         while (time < 1f)
         {
@@ -145,9 +148,6 @@ public class SimpleAttack : CharacterComponentBase
 
     private void DealDamage(GameObject target, bool canPierce = true)
     {
-        if (noDamage)
-            Game.instance.soundManager.PlaySound("enemy_hit");
-
         if (noDamage)
             return;
         if (target == null)

@@ -52,6 +52,8 @@ public class Enemy : CharacterComponentBase
 
     private void OnDeath(Killable entity)
     {
+        Game.instance.soundManager.PlaySound("enemy_death");
+
         commonComponents.simpleMovement.ClearSpaceMarking();
 
         DropsItems[] di = GetComponentsInChildren<DropsItems>();
