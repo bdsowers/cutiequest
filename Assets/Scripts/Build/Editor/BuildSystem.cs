@@ -25,8 +25,6 @@ public class BuildSystem : MonoBehaviour
         string outputPath = BuildPath(mSteamBuildLocation);
 
         BuildOptions options = BuildOptions.None;
-        options |= BuildOptions.Development;
-        options |= BuildOptions.AllowDebugging;
 
         List<string> flags = new List<string>();
         flags.Add("RELEASE");
