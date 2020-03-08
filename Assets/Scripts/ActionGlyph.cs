@@ -38,6 +38,11 @@ public class ActionGlyph : MonoBehaviour
             adjustedScale.x *= 2;
         }
 
+        if (Game.instance.actionGlyphMapper.GlyphIsBigger(actionGlyphType))
+        {
+            adjustedScale *= 1.4f;
+        }
+
         if (mSpriteRenderer != null)
         {
             mSpriteRenderer.sprite = Game.instance.actionGlyphMapper.SpriteForAction(actionGlyphType);

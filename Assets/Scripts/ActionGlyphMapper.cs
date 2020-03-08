@@ -111,4 +111,10 @@ public class ActionGlyphMapper : MonoBehaviour
     {
         return DeviceID() == "Keyboard" && glyphType == ActionGlyphType.Spell;
     }
+
+    public bool GlyphIsBigger(ActionGlyphType glyphType)
+    {
+        return DeviceID() == "Generic";
+    }
+
 }
