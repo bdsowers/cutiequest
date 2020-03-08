@@ -19,6 +19,8 @@ public class ScreenTransitionManager : MonoBehaviour
 
     public void TransitionToScreen(string name, string extraData = null)
     {
+        StopAllCoroutines();
+
         if (Game.instance.activeScene == "Dungeon" &&
             name == "Dungeon")
         {

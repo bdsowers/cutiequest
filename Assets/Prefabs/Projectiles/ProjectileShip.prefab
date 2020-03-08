@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnEnemyHit: 0
   destroyOnEnvironmentHit: 0
+  sound: throw
 --- !u!114 &5327465987836264364
 MonoBehaviour:
   m_ObjectHideFlags: 0

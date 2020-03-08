@@ -74,6 +74,7 @@ public class Cheats : MonoBehaviour
         Game.instance.playerData.SetFlag("cave_biome_revealed");
         Game.instance.playerData.SetFlag("scifi_biome_revealed");
         Game.instance.playerData.SetFlag("boss1_defeated");
+        Game.instance.playerData.SetFlag("boss2_defeated");
         Game.instance.saveManager.TriggerSave();
     }
 
