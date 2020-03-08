@@ -62,6 +62,7 @@ public class SoundManager : MonoBehaviour
         mMaxFrequencies.Add("boing", 0.2f);
         mMaxFrequencies.Add("fire", 0.2f);
         mMaxFrequencies.Add("electric", 0.1f);
+        mMaxFrequencies.Add("collect", 0.1f);
     }
 
     // Update is called once per frame
