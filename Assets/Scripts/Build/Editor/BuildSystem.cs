@@ -7,6 +7,7 @@ using System.IO;
 public class BuildSystem : MonoBehaviour
 {
     private static string mSteamBuildLocation = "Steam/sdk/tools/ContentBuilder/content/Win/HeroesSwipeRight.exe";
+    private static string mSteamBuildLocationMac = "Steam/sdk/tools/ContentBuilder/content/Mac/HeroesSwipeRight.app";
     private static string mConventionBuildLocation = "Build/convention/HeroesSwipeRight.exe";
     private static string mSocialMediaBuildLocation = "Build/socialmedia/HeroesSwipeRight.exe";
 
@@ -30,7 +31,7 @@ public class BuildSystem : MonoBehaviour
         flags.Add("RELEASE");
         flags.Add("DISABLE_CHEATS");
 
-        Build(outputPath, options, flags);
+        Build(outputPath, options, flags, BuildTarget.StandaloneWindows, BuildTargetGroup.Standalone);
     }
 
     public static void ConventionBuild()
@@ -45,7 +46,7 @@ public class BuildSystem : MonoBehaviour
         flags.Add("DEMO");
         flags.Add("DISABLE_CHEATS");
 
-        Build(outputPath, options, flags);
+        Build(outputPath, options, flags, BuildTarget.StandaloneWindows, BuildTargetGroup.Standalone);
     }
 
     public static void SocialMediaBuild()
@@ -59,22 +60,22 @@ public class BuildSystem : MonoBehaviour
 
         List<string> flags = new List<string>();
 
-        Build(outputPath, options, flags);
+        Build(outputPath, options, flags, BuildTarget.StandaloneWindows, BuildTargetGroup.Standalone);
     }
 
-    public static void Build(string outputPath, BuildOptions options, List<string> flags)
+    public static void Build(string outputPath, BuildOptions options, List<string> flags, BuildTarget target, BuildTargetGroup group)
     {
         UpdateBuildNumber();
 
-        string cacheSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone);
+        string cacheSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(group);
         string newSymbols = ConstructPreprocessorList(flags);
         Debug.Log(newSymbols);
-        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, newSymbols);
+        PlayerSettings.SetScriptingDefineSymbolsForGroup(group, newSymbols);
 
-        BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, outputPath, BuildTarget.StandaloneWindows, options);
+        BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, outputPath, target, options);
         Debug.Log("Build Complete: " + outputPath);
 
-        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, cacheSymbols);
+        PlayerSettings.SetScriptingDefineSymbolsForGroup(group, cacheSymbols);
     }
 
     private static string ConstructPreprocessorList(List<string> flags)
