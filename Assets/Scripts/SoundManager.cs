@@ -99,7 +99,14 @@ public class SoundManager : MonoBehaviour
         // todo bdsowers - some ugly garbage generation herein
         Transform child = transform.Find(categoryName);
         AudioSource[] sources = child.GetComponentsInChildren<AudioSource>();
-        PlayMusic(sources.Sample().name);
+
+        string newMusic = sources.Sample().name;
+        while (mCurrentMusic != null && mCurrentMusic.name == newMusic)
+        {
+            newMusic = sources.Sample().name;
+        }
+
+        PlayMusic(newMusic);
     }
 
     public void PlayMusic(string musicName)
