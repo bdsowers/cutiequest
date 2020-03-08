@@ -111,6 +111,9 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusic(string musicName)
     {
+        if (mCurrentMusic != null && musicName == mCurrentMusic.name)
+            return;
+
         if (mCurrentMusic != null)
         {
             AudioSource prevMusic = mCurrentMusic;
