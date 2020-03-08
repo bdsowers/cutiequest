@@ -43,6 +43,7 @@ public class BuildSystem : MonoBehaviour
 
         List<string> flags = new List<string>();
         flags.Add("DEMO");
+        flags.Add("DISABLE_CHEATS");
 
         Build(outputPath, options, flags);
     }
