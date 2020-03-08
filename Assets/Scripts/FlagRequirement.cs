@@ -54,7 +54,7 @@ public class FlagRequirement : MonoBehaviour
 
         for (int i = 0; i < disabledObjects.Length; ++i)
         {
-            if (!shouldBeActive)
+            if (shouldBeActive)
             {
                 disabledObjects[i].SetActive(false);
             }

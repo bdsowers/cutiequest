@@ -189,6 +189,9 @@ public class Boss2 : EnemyAI
 
             // If we're going into the charging state, get ready to head toward the player ...
             mChargeDirection = TowardPlayer();
+
+            if (mCurrentState == AIState.Charging)
+                Game.instance.soundManager.PlaySound("boss2_charge");
         }
         else if (mCurrentState == AIState.Teleporting)
         {
@@ -224,6 +227,7 @@ public class Boss2 : EnemyAI
             {
                 mStunTimer = 0f;
                 mCurrentState = AIState.Stun;
+                Game.instance.soundManager.PlaySound("boss2_smash");
 
                 FollowCamera.main.SimpleShake();
             }
