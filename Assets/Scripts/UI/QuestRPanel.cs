@@ -180,6 +180,8 @@ public class QuestRPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     IEnumerator FlyToPosition(Vector3 endPosition, bool swapAfter, bool accepted)
     {
+        Game.instance.soundManager.PlaySound("swipe");
+
         Vector3 startPosition = transform.localPosition;
         mIsQuestPanelAnimating = true;
 

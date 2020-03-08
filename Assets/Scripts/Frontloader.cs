@@ -33,6 +33,8 @@ public class Frontloader : MonoBehaviour
             yield return null;
         }
 
+        Game.instance.soundManager.PlaySound("omm");
+
         logo.transform.rotation = Quaternion.identity;
 
         yield break;

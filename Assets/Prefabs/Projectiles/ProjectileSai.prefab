@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnEnemyHit: 1
   destroyOnEnvironmentHit: 1
+  sound: throw
 --- !u!1001 &852140282861379758
 PrefabInstance:
   m_ObjectHideFlags: 0

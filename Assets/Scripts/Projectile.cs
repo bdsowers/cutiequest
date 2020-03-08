@@ -7,8 +7,15 @@ public class Projectile : MonoBehaviour
     public int strength { get; set; }
     public bool destroyOnEnemyHit = true;
     public bool destroyOnEnvironmentHit = true;
+    public string sound;
 
     private List<Killable> mEnemiesHit = new List<Killable>();
+
+    private void Start()
+    {
+        if (!string.IsNullOrEmpty(sound))
+            Game.instance.soundManager.PlaySound(sound);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

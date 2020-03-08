@@ -65,6 +65,9 @@ MonoBehaviour:
   effectName: CFX2_RockHit
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
+  dontCastOnWalls: 0
+  castSFX: 
+  triggerSFX: explosion
 --- !u!114 &1498767462656867167
 MonoBehaviour:
   m_ObjectHideFlags: 0

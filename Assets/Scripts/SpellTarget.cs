@@ -20,6 +20,8 @@ public class SpellTarget : MonoBehaviour
 
     public bool hideEffectIfNoHit { get; set; }
 
+    public string triggerSFX { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,11 @@ public class SpellTarget : MonoBehaviour
         if (!hideEffectIfNoHit)
         {
             PlayEffect();
+        }
+
+        if (!string.IsNullOrEmpty(triggerSFX))
+        {
+            Game.instance.soundManager.PlaySound(triggerSFX);
         }
 
         yield return new WaitForSeconds(0.35f);

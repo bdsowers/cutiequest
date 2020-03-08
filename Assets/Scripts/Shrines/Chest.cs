@@ -21,6 +21,8 @@ public class Chest : Shrine
 
     private IEnumerator PlayOpenSequence()
     {
+        Game.instance.soundManager.PlaySound("chest");
+
         float time = 0f;
         while (time < 1f)
         {
