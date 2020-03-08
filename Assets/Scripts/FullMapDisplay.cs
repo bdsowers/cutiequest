@@ -15,13 +15,14 @@ public class FullMapDisplay : MonoBehaviour
 
     private float mReselectDelay = 0f;
     private string mNormalControlMsg;
+    private string mPreviousDeviceID;
 
     private void OnEnable()
     {
         if (mNormalControlMsg == null)
             mNormalControlMsg = normalControls.GetComponent<TextMeshProUGUI>().text;
 
-        normalControls.GetComponent<TextMeshProUGUI>().SetText(ActionGlyphMapper.ReplaceActionCodesWithGlyphs(mNormalControlMsg));
+        UpdateControlDisplay();
 
         mInterestingDisplays = InterestingMapDisplays();
         SelectClosestMapDisplay();
@@ -74,8 +75,19 @@ public class FullMapDisplay : MonoBehaviour
         }
     }
 
+    void UpdateControlDisplay()
+    {
+        if (ActionGlyphMapper.DeviceID() != mPreviousDeviceID)
+        {
+            mPreviousDeviceID = ActionGlyphMapper.DeviceID();
+            normalControls.GetComponent<TextMeshProUGUI>().SetText(ActionGlyphMapper.ReplaceActionCodesWithGlyphs(mNormalControlMsg));
+        }
+    }
+
     private void Update()
     {
+        UpdateControlDisplay();
+
         if (mReselectDelay > 0f)
             mReselectDelay -= Time.deltaTime;
 

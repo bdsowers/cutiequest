@@ -88,7 +88,7 @@ public class ActionGlyphMapper : MonoBehaviour
             return "Joystick";
     }
 
-    private static string DeviceID()
+    public static string DeviceID()
     {
         // Keyboard
         if (Game.instance.actionSet.boundDevice == null)
