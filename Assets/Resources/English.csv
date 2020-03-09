@@ -54,8 +54,7 @@ Not using a name generator here - going for standard human-sounding names.",,,
 [MALE_NAME_51],Brian,,
 [MALE_NAME_52],Walt,,
 [MALE_NAME_53],Sven,,
-[MALE_NAME_54],"Finneas
-",,
+[MALE_NAME_54],Finneas,,
 [MALE_NAME_55],Oliver,,
 [MALE_NAME_56],Stanley,,
 [MALE_NAME_57],Trevor,,
@@ -65,18 +64,15 @@ Not using a name generator here - going for standard human-sounding names.",,,
 [MALE_NAME_61],Delbert,,
 [MALE_NAME_62],Everett,,
 [MALE_NAME_63],Floyd,,
-[MALE_NAME_64],"Lorenzo
-",,
-[MALE_NAME_65],"Neville
-",,
+[MALE_NAME_64],Lorenzo,,
+[MALE_NAME_65],Neville,,
 [MALE_NAME_66],Quentin,,
 [MALE_NAME_67],Russell,,
 [MALE_NAME_68],Terry,,
 [MALE_NAME_69],Griffin,,
 [MALE_NAME_70],Travis,,
 [MALE_NAME_71],Justin,,
-[MALE_NAME_72],"Wayne
-",,
+[MALE_NAME_72],Wayne,,
 [MALE_NAME_73],Theo,,
 [MALE_NAME_74],Silas,,
 [MALE_NAME_75],Rene,,
@@ -178,8 +174,7 @@ I promise I'm not boring. Hehe lol.",,
 [MALE_BIO_3],"Chivarly isn't dead.
 I'll treat you like royalty.
 But I also don't take off my suit of armor or get off my horse.
-There are trade-offs, you know.
-",,
+There are trade-offs, you know.",,
 [MALE_TAGLINE_4],"Gentleman at a luncheon, freak in the dungeon.",,
 [MALE_BIO_4],"I'll wear a suit when we're out in public, but when we're questing for loot alone, all rules are out the window.
 It's gonna get... real weird. Swipe right if you're into that.",,
@@ -300,10 +295,8 @@ It's a fair question.
 When you find out, if you could just tell @bdsowers on Twitter... he'd love to know too.",,
 [NEUTRAL_TAGLINE_29],Not here for hook-ups,,
 [NEUTRAL_BIO_29],"I mean hooks aren't even good weapons.  What are you going to do, catch a skeleton's femur and pull it away?  Actually, that doesn't sound too bad...",,
-[NEUTRAL_TAGLINE_30],"6' 9""
-",,
-[NEUTRAL_BIO_30],"I don't fit in airline seats or in door frames but I guess people like tall adventures so I've got that going for me.
-",,
+[NEUTRAL_TAGLINE_30],"6' 9""",,
+[NEUTRAL_BIO_30],I don't fit in airline seats or in door frames but I guess people like tall adventures so I've got that going for me.,,
 [NEUTRAL_TAGLINE_31],This app sucks,,
 [NEUTRAL_BIO_31],"All the adventurers on here are lame, going to delete this app.  Hit me up tho.",,
 [NEUTRAL_TAGLINE_32],Must love dogs.,,
