@@ -16,6 +16,8 @@ public class Frontloader : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
 
         Game.instance.transitionManager.TransitionToScreen("Title");
+
+        Game.instance.soundManager.PlayRandomMusicInCategory("TitleMusic");
     }
 
     public IEnumerator PlayLogoAnimation()
