@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 295790257}
   - component: {fileID: 295790256}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,8 +237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -526.5, y: -3}
-  m_SizeDelta: {x: 447, y: 281.5}
+  m_AnchoredPosition: {x: -13, y: -223}
+  m_SizeDelta: {x: 447, y: 613.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295790256
 MonoBehaviour:
@@ -260,10 +260,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -286,7 +286,11 @@ MonoBehaviour:
     Lauren Warner
 
 
-    Sound by
+    <b>Special Thanks</b>
+
+    Sami Moore
+
+    Lauren Kelly
 
 '
 --- !u!222 &295790257
@@ -297,6 +301,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295790254}
   m_CullTransparentMesh: 0
+--- !u!1 &359168848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359168849}
+  m_Layer: 5
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &359168849
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359168848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2007088350}
+  - {fileID: 1255766806}
+  - {fileID: 641022150}
+  m_Father: {fileID: 1485535413}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: -262}
+  m_SizeDelta: {x: 550, y: 613.65}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &369378118
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a4ee3ad8dab1747aabc2d6d51c8b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &535870730
+--- !u!1 &641022149
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,42 +524,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 535870731}
-  - component: {fileID: 535870733}
-  - component: {fileID: 535870732}
+  - component: {fileID: 641022150}
+  - component: {fileID: 641022152}
+  - component: {fileID: 641022151}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Text (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &535870731
+  m_IsActive: 1
+--- !u!224 &641022150
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535870730}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 641022149}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1485535413}
-  m_RootOrder: 6
+  m_Father: {fileID: 359168849}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 75}
-  m_SizeDelta: {x: 1500, y: 86.9}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 107, y: -70}
+  m_SizeDelta: {x: 288, y: 248.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &535870732
+--- !u!114 &641022151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535870730}
+  m_GameObject: {fileID: 641022149}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -531,25 +573,35 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Special thanks to Lauren Kelly and Samantha Moore
---- !u!222 &535870733
+  m_Text: 'On my Way
+
+    Crossing the Chasm
+
+    Moonlight Hall
+
+    Wagon Wheel
+
+    Frog Legs Rag
+
+    Plain Loafer'
+--- !u!222 &641022152
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535870730}
+  m_GameObject: {fileID: 641022149}
   m_CullTransparentMesh: 0
 --- !u!1 &686185767
 GameObject:
@@ -692,7 +744,7 @@ GameObject:
   - component: {fileID: 1083756146}
   - component: {fileID: 1083756145}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,12 +762,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1485535413}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -526.5, y: -295.3}
-  m_SizeDelta: {x: 481.7, y: 252.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 300, y: -266.27}
+  m_SizeDelta: {x: 550, y: 605.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083756145
 MonoBehaviour:
@@ -740,7 +792,7 @@ MonoBehaviour:
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -750,14 +802,27 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '<b>SFX</b>
 
-    Thanks to freesound.org for all SFX
+    All SFX from freesound.org
+
+
+    License: https://creativecommons.org/licenses/by/3.0/
 
 
     Male Grunt by Cigaro30
 
     Retro Coin Collect by DrMinky
 
-    Chest Opening by ZapSplat Sounds'
+    Chest Opening by ZapSplat Sounds
+
+
+    Other SFX were Creative Commons 0
+
+
+    License:
+
+    https://creativecommons.org/publicdomain/zero/1.0/
+
+'
 --- !u!222 &1083756146
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -842,6 +907,95 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107541048}
+  m_CullTransparentMesh: 0
+--- !u!1 &1255766805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255766806}
+  - component: {fileID: 1255766808}
+  - component: {fileID: 1255766807}
+  m_Layer: 5
+  m_Name: Text (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1255766806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255766805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 359168849}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -102, y: -70}
+  m_SizeDelta: {x: 288, y: 248.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1255766807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255766805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Fretless
+
+    Wholesome
+
+    Midnight Tale
+
+    Cheery Monday
+
+    Snow Queen
+
+    Crowd Hammer
+
+    Master of the Feast'
+--- !u!222 &1255766808
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255766805}
   m_CullTransparentMesh: 0
 --- !u!1001 &1439268339
 PrefabInstance:
@@ -1048,9 +1202,8 @@ RectTransform:
   - {fileID: 1966817489}
   - {fileID: 2051807504}
   - {fileID: 295790255}
-  - {fileID: 535870731}
   - {fileID: 1083756144}
-  - {fileID: 2007088350}
+  - {fileID: 359168849}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1230,17 +1383,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007088349}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1485535413}
-  m_RootOrder: 8
+  m_Father: {fileID: 359168849}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 454.8, y: -153.9}
-  m_SizeDelta: {x: 590.4, y: 709}
+  m_AnchoredPosition: {x: 0.8668213, y: 150}
+  m_SizeDelta: {x: 500, y: 303.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007088351
 MonoBehaviour:
@@ -1265,7 +1418,7 @@ MonoBehaviour:
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -1275,40 +1428,12 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '<b>Music</b>
 
-    All music by Incompetech
-
-    Kevin MacLeod
+    Kevin MacLeod - Incompetech
 
     https://incompetech.filmmusic.io/
 
-    License: http://creativecommons.org/licenses/by/4.0/
 
-
-    Fretless
-
-    Wholesome
-
-    Midnight Tale
-
-    Cheery Monday
-
-    Snow Queen
-
-    Crowd Hammer
-
-    Master of the Feast
-
-    On my Way
-
-    Crossing the Chasm
-
-    Moonlight Hall
-
-    Wagon Wheel
-
-    Frog Legs Rag
-
-    Plain Loafer'
+    License: http://creativecommons.org/licenses/by/4.0/'
 --- !u!222 &2007088352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1592,7 +1717,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
