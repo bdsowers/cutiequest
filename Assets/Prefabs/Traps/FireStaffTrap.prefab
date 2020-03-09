@@ -53,6 +53,9 @@ MonoBehaviour:
   effectName: CFX4 Fire
   effectOffset: {x: 0, y: 0, z: 0}
   hideEffectIfNoHit: 0
+  dontCastOnWalls: 0
+  castSFX: 
+  triggerSFX: fire
 --- !u!1 &8550327212465167450
 GameObject:
   m_ObjectHideFlags: 0
