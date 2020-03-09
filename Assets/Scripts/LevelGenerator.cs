@@ -82,9 +82,8 @@ public class LevelGenerator : MonoBehaviour
 
             PlaceHearts();
             PlaceExit();
+            QuirkSpecificSpawns();
         }
-
-        QuirkSpecificSpawns();
 
         if (Game.instance.currentDungeonFloor == 5)
         {
