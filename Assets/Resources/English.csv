@@ -51,6 +51,35 @@ Not using a name generator here - going for standard human-sounding names.",,,
 [MALE_NAME_48],Ludwig,,
 [MALE_NAME_49],Borscht,,
 [MALE_NAME_50],Zazi,,
+[MALE_NAME_51],Brian,,
+[MALE_NAME_52],Walt,,
+[MALE_NAME_53],Sven,,
+[MALE_NAME_54],"Finneas
+",,
+[MALE_NAME_55],Oliver,,
+[MALE_NAME_56],Stanley,,
+[MALE_NAME_57],Trevor,,
+[MALE_NAME_58],Angus,,
+[MALE_NAME_59],Basil,,
+[MALE_NAME_60],Clyde,,
+[MALE_NAME_61],Delbert,,
+[MALE_NAME_62],Everett,,
+[MALE_NAME_63],Floyd,,
+[MALE_NAME_64],"Lorenzo
+",,
+[MALE_NAME_65],"Neville
+",,
+[MALE_NAME_66],Quentin,,
+[MALE_NAME_67],Russell,,
+[MALE_NAME_68],Terry,,
+[MALE_NAME_69],Griffin,,
+[MALE_NAME_70],Travis,,
+[MALE_NAME_71],Justin,,
+[MALE_NAME_72],"Wayne
+",,
+[MALE_NAME_73],Theo,,
+[MALE_NAME_74],Silas,,
+[MALE_NAME_75],Rene,,
 ,,,
 [FEMALE_NAME_1],Zoe,,
 [FEMALE_NAME_2],Chloe,,
@@ -102,6 +131,36 @@ Not using a name generator here - going for standard human-sounding names.",,,
 [FEMALE_NAME_48],Erin,,
 [FEMALE_NAME_49],Janelle,,
 [FEMALE_NAME_50],Alyssa,,
+[FEMALE_NAME_51],Ada,,
+[FEMALE_NAME_52],Aimee,,
+[FEMALE_NAME_53],Rori,,
+[FEMALE_NAME_54],Blythe,,
+[FEMALE_NAME_55],Carmen,,
+[FEMALE_NAME_56],Celeste,,
+[FEMALE_NAME_57],Charlyne,,
+[FEMALE_NAME_58],Elsie,,
+[FEMALE_NAME_59],Imogen,,
+[FEMALE_NAME_60],Juliet,,
+[FEMALE_NAME_61],Lavinia,,
+[FEMALE_NAME_62],Mabel,,
+[FEMALE_NAME_63],Maxine,,
+[FEMALE_NAME_64],Muriel,,
+[FEMALE_NAME_65],Nadine,,
+[FEMALE_NAME_66],Octavia,,
+[FEMALE_NAME_67],Sibyl,,
+[FEMALE_NAME_68],Tabitha,,
+[FEMALE_NAME_69],Vera,,
+[FEMALE_NAME_70],Wanda,,
+[FEMALE_NAME_71],Yolanda,,
+[FEMALE_NAME_72],Yvette,,
+[FEMALE_NAME_73],Violet,,
+[FEMALE_NAME_74],Sheila,,
+[FEMALE_NAME_75],Ruby,,
+,,,
+,,,
+,,,
+,,,
+,,,
 ,,,
 "Character Descriptions
 Phrasing philosophy: where possible, this should be inspired by actual dating profiles, with a comedic twist or something unexpected.
@@ -115,8 +174,15 @@ Note: not looking to talk about how I'm basically a pile of sticks glued togethe
 [MALE_BIO_2],"Hey everyone!
 I'm just your typical guy, y'know? I like hiking, watching movies, and travel.
 I promise I'm not boring. Hehe lol.",,
-,,,
-,,,
+[MALE_TAGLINE_3],I'm just an old school gentleman,,
+[MALE_BIO_3],"Chivarly isn't dead.
+I'll treat you like royalty.
+But I also don't take off my suit of armor or get off my horse.
+There are trade-offs, you know.
+",,
+[MALE_TAGLINE_4],"Gentleman at a luncheon, freak in the dungeon.",,
+[MALE_BIO_4],"I'll wear a suit when we're out in public, but when we're questing for loot alone, all rules are out the window.
+It's gonna get... real weird. Swipe right if you're into that.",,
 ,,,
 ,,,
 [FEMALE_TAGLINE_1],"If I were a cat lady, would you swipe right meow?",,
@@ -128,7 +194,8 @@ Please don't let me die alone.",,
 Unless those people are witches.
 I'm very much like other witches.",,
 ,,,
-,,,
+,"
+",,
 ,,,
 ,,,
 ,,,
@@ -206,6 +273,146 @@ Just swipe right! Right now! Do it!",,
 [NEUTRAL_BIO_21],"I've killed a lot of skeletons.
 And I don't have anywhere else to put them. 
 Will you take some of these skeletons off my hands?",,
+[NEUTRAL_TAGLINE_22],Millenials are killing the diamond industry.,,
+[NEUTRAL_BIO_22],"And we're loving it. Next it's the restaurant industry. Then the travel industry.
+We're coming for your industry. Soon.",,
+[NEUTRAL_TAGLINE_23],"Wanna come over, watch a movie, and chill?",,
+[NEUTRAL_BIO_23],"I've been really looking forward to this new superhero movie but everyone just wants to make out.
+It's... exhausting.
+Can we just relax and watch strong men punch things for like 45 minutes before you get your grubby little paws all over me?",,
+[NEUTRAL_TAGLINE_24],Do you love live music as much as I do?,,
+[NEUTRAL_BIO_24],No?  How about dead music?  I know this really underground band we could check out.,,
+[NEUTRAL_TAGLINE_25],I've got a real sweet tooth and I hope you do too.,,
+[NEUTRAL_BIO_25],"Candy makes me *super excited* to GET IN THAT DUNGEON.
+Let's go TAKE IT TO THOSE SKELETONS.
+You think they have any candy on them?",,
+[NEUTRAL_TAGLINE_26],Let's get to know each other over a board game.,,
+[NEUTRAL_BIO_26],"Do you like playing elaborate European strategy games after learning an overly complicated rule book?
+Me too!
+Let's just do that instead of going into the dungeon. That places is freakin' scary man.",,
+[NEUTRAL_TAGLINE_27],Wanna grab a drink?,,
+[NEUTRAL_BIO_27],"I find adventuring better with a good buzz.
+Give me a finely tuned craft beer and a sword, and I'm ready to go.
+Trust me. I'm better with swords when I've had a couple.",,
+[NEUTRAL_TAGLINE_28],"I catch fish, and I can show you if you're into that.",,
+[NEUTRAL_BIO_28],"Ever wonder why so many people post pictures of fish they've caught on social media?
+It's a fair question.
+When you find out, if you could just tell @bdsowers on Twitter... he'd love to know too.",,
+[NEUTRAL_TAGLINE_29],Not here for hook-ups,,
+[NEUTRAL_BIO_29],"I mean hooks aren't even good weapons.  What are you going to do, catch a skeleton's femur and pull it away?  Actually, that doesn't sound too bad...",,
+[NEUTRAL_TAGLINE_30],"6' 9""
+",,
+[NEUTRAL_BIO_30],"I don't fit in airline seats or in door frames but I guess people like tall adventures so I've got that going for me.
+",,
+[NEUTRAL_TAGLINE_31],This app sucks,,
+[NEUTRAL_BIO_31],"All the adventurers on here are lame, going to delete this app.  Hit me up tho.",,
+[NEUTRAL_TAGLINE_32],Must love dogs.,,
+[NEUTRAL_BIO_32],"Likes: chicken, tennis balls, naps.  Dislikes: the vet.  
+Let's go somewhere cold because I always wear my coat.  Not because I'm three dogs stacked on top of each other under a trench coat.  It's just a very nice coat.",,
+[NEUTRAL_TAGLINE_33],No profile.,,
+[NEUTRAL_BIO_33],"Come on, everyone knows that no one reads these.
+Everyone just swipes based on pictures.
+Clearly my picture says everything you need to know about me.",,
+[NEUTRAL_TAGLINE_34],Mature hero looking to start fresh,,
+[NEUTRAL_BIO_34],my adventure partner of 40 years died a decade ago and my granddaughter has a questing only and she says its good to meet people bless her she is so sweet she set this up for me ,,
+[NEUTRAL_TAGLINE_35],"Monster hunter by day, web developer by night",,
+[NEUTRAL_BIO_35],Advenuring is a job but my real passion is setting up those HTML tables just right.,,
+[NEUTRAL_TAGLINE_36],I've been called unavailable but I'm just independent,,
+[NEUTRAL_BIO_36],"I'm looking for someone who wants an adventuring partner but doesn't NEED one.
+I won't answer texts all day.
+I will cancel on you if something better comes along.
+I'm a great catch.",,
+[NEUTRAL_TAGLINE_37],"Don't swipe right, just on here to catch my lying adventure partner.",,
+[NEUTRAL_BIO_37],"Hey boo, if you're seing this, you're caught.
+I know you've been adventuring with other people.
+They told me everything and we're a super cool adventuring gang now.
+You're not invited.",,
+[NEUTRAL_TAGLINE_38],Just a couple looking for a unicorn,,
+[NEUTRAL_BIO_38],"We need that horn for our dark machinations.
+Swipe right if you're not afraid to help us find and kill one.",,
+[NEUTRAL_TAGLINE_39],Need someone to bring to family events.,,
+[NEUTRAL_BIO_39],"If I bring someone maybe they'll stop thinking something is wrong with me.
+I guess we could also find some treasure in between reunions.",,
+[NEUTRAL_TAGLINE_40],Is this the one where I find a farmer?,,
+[NEUTRAL_BIO_40],I really need a farmer.  All of my crops are dying.  Help.,,
+[NEUTRAL_TAGLINE_41],Looking for someone to replace my ex,,
+[NEUTRAL_BIO_41],"My adventure partner left me.
+She was perfect, she was so good at killing orcs.
+Do you want to replace her?  I promise I won't talk about my ex constantly.
+Her name was Jocelyn. We met at the beach on vacation. She likes poetry and running -",,
+[NEUTRAL_TAGLINE_42],"Beep Bop Boop, hehehe",,
+[NEUTRAL_BIO_42],"Potatoes, toasters, turtles!
+Hoping my quirky randomness will hide the fact that I have no actual personality for at least a week or two.",,
+[NEUTRAL_TAGLINE_43],I like to party!,,
+[NEUTRAL_BIO_43],"And by party I mean punch a wizard and steal his lunch money.
+Do you want to party with me?",,
+[NEUTRAL_TAGLINE_44],I'm afraid to let my guard down.,,
+[NEUTRAL_BIO_44],"Last time I let my guard down, I got hurt.
+Like stabbed with an arrow hurt.
+This isn't a metaphor. I can show you the scar.
+So now I keep my shield up all the time.",,
+[NEUTRAL_TAGLINE_45],I don't go into dungeons on the first date,,
+[NEUTRAL_BIO_45],"Don't expect me to go adventuring with you right after I meet you.
+I expect 5 written references and an in depth personality assessment before I'll even consider swinging my sword.",,
+[NEUTRAL_TAGLINE_46],It's so hard to summarize myself in a bio.,,
+[NEUTRAL_BIO_46],"My family describes me as genuine and laid back.
+Just enjoying life.
+My hobbies are watching movies and hanging out with friends.
+If you want to know more, just message me.",,
+[NEUTRAL_TAGLINE_47],I enjoy the finer things in life,,
+[NEUTRAL_BIO_47],"But I definitely cannot pay for them.
+Would you care to spend your disposable income on my many desires?",,
+[NEUTRAL_TAGLINE_48],A little too busy for this atm.,,
+[NEUTRAL_BIO_48],"I don't know why I signed up, I've got 3 jobs and 0 time for this.
+I'll go into the dungeon with you, but I may have to bail early.
+I'll finish this profile later.",,
+[NEUTRAL_TAGLINE_49],Looking for someone to manage my finances.,,
+[NEUTRAL_BIO_49],"Not in a weird way. I just want to hire an accountant.
+Killing skeletons has afforded me a comfortable lifestyle, but managing all this money is hard.
+But maybe also in a weird way, if you've got some ideas.",,
+[NEUTRAL_TAGLINE_50],I'm delicate. Be gentle.,,
+[NEUTRAL_BIO_50],"I've got brittle bones.
+That might make dungeon adventures a little harder, but I think we'll be okay if we avoid the nastier goblins.
+No short people.",,
+[NEUTRAL_TAGLINE_51],"No surprises, promise.",,
+[NEUTRAL_BIO_51],"I'm definitely not going to explore 3 dungeons with you before revealing I have kids.
+That would be shady as hell.
+And not what's happening here.
+Really.",,
+[NEUTRAL_TAGLINE_52],Are you into cheesy pickup lines?,,
+[NEUTRAL_BIO_52],"I'm not a photographer, but I can picture me and you together.
+Did it hurt? When you fell from heaven!
+I can do this all day.
+But I'm very much emotionally broken, so there's that.",,
+[NEUTRAL_TAGLINE_53],I strategically cropped this picture.,,
+[NEUTRAL_BIO_53],"From the shoulders up, I'm a total catch.
+But when you meet me in person, don't be alarmed that my lower half is sometimes covered in snakes.
+It's a medical condition. It's not on the internet. Don't look it up.",,
+[NEUTRAL_TAGLINE_54],I've got 4 PhDs.,,
+[NEUTRAL_BIO_54],"English. Physics. Math. That other weirder math you haven't heard of.
+The only thing I don't know is... the human heart.
+Hah, no, I'm just kidding. I've got a degree in that too.",,
+[NEUTRAL_TAGLINE_55],"Gym rat, that's me.",,
+[NEUTRAL_BIO_55],"You can find me pumping iron all day, every day.
+I know everyone's name at the gym and sometimes they give me cheese.
+Please don't look at my tail.",,
+[NEUTRAL_TAGLINE_56],"
+Will you be my Prince Charming?",,
+[NEUTRAL_BIO_56],"Life is just like a fairy tale, isn't it?
+I just can't wait to be poisioned by some witch and then lay around until some stranger comes and kisses me.
+What true romance.",,
+[NEUTRAL_TAGLINE_57],I built a robot.,,
+[NEUTRAL_BIO_57],"And I taught it how to get on this app and go on adventures with hotties.
+And then it killed me.
+This is the robot. We are in control now.
+010001100",,
+[NEUTRAL_TAGLINE_58],Not all who wander are lost ;),,
+[NEUTRAL_BIO_58],"So I totally love travelling.
+To the beach or to the mountains or to the city.
+I feel like I'm the only one who feels this way.
+Why won't someone share this extremely unique hobby with me?
+",,
+,,,
 ,,,
 ,,,
 ,,,
@@ -333,6 +540,7 @@ Misc,,,
 [MANSPLAIN_11],Women never like Nice Guys,,
 [MANSPLAIN_12],I'm sorry that you're upset by what I said,,
 [MANSPLAIN_13],"To be fair, you have to have a very high IQ to understand Rick and Morty.",,
+[MANSPLAIN_14],Women are too emotional to be president.,,
 ,,,
 [MAX_HEALTH],Max Health,,
 [STRENGTH],Strength,,
@@ -360,35 +568,35 @@ Misc,,,
 ,,,
 Hot Dog Jokes,,,
 [JOKE_SETUP_1],Did you see the movie about the hot dog?,,
-[JOKE_PUNCHLINE_1],It was an Oscar Wiener.,,
+[JOKE_PUNCHLINE_1],It was an Oscar Wiener!,,
 [JOKE_SETUP_2],Why do the hot dogs with ketchup spoil early?,,
-[JOKE_PUNCHLINE_2],Because the sauce ages.,,
+[JOKE_PUNCHLINE_2],Because the sauce ages!,,
 [JOKE_SETUP_3],"I go to the store and buy ten hotdogs, nine burgers, three bags of chips, and six sodas. If I eat nine hot dogs, seven burgers, three bags of chips, and drink five sodas, what do I have?",,
-[JOKE_PUNCHLINE_3],No self control.,,
+[JOKE_PUNCHLINE_3],No self control!,,
 [JOKE_SETUP_4],Hot dogs really should be renamed to hot wolves.,,
-[JOKE_PUNCHLINE_4],They always come in packs.,,
+[JOKE_PUNCHLINE_4],They always come in packs!,,
 [JOKE_SETUP_5],Have you ever been to a hot dog factory?,,
-[JOKE_PUNCHLINE_5],"No, I haven't sausage a place.",,
+[JOKE_PUNCHLINE_5],"No, I haven't sausage a place!",,
 [JOKE_SETUP_6],An indecisive hot dog got a bun pregnant.,,
-[JOKE_PUNCHLINE_6],He didn't know what condoment.,,
+[JOKE_PUNCHLINE_6],He didn't know what condoment!,,
 [JOKE_SETUP_7],What are hot dogs called in the winter?,,
-[JOKE_PUNCHLINE_7],Chilly dogs.,,
+[JOKE_PUNCHLINE_7],Chilly dogs!,,
 [JOKE_SETUP_8],Why did the vegetarian hot dog cross the road?,,
 [JOKE_PUNCHLINE_8],To prove he wasn't chicken!,,
 [JOKE_SETUP_9],What did the people call the bad hot dog stand?,,
 [JOKE_PUNCHLINE_9],The WURST!,,
 [JOKE_SETUP_10],I eat my hot dogs cold,,
-[JOKE_PUNCHLINE_10],No bun intended.,,
+[JOKE_PUNCHLINE_10],No bun intended!,,
 [JOKE_SETUP_11],Why did the hot dog hire a tutor?,,
-[JOKE_PUNCHLINE_11],He wanted to be on the honor roll.,,
+[JOKE_PUNCHLINE_11],He wanted to be on the honor roll!,,
 [JOKE_SETUP_12],When can a pizza marry a hot dog?,,
-[JOKE_PUNCHLINE_12],After a very frank relationship.,,
+[JOKE_PUNCHLINE_12],After a very frank relationship!,,
 [JOKE_SETUP_13],What do you call a hot dog with nothing inside it?,,
 [JOKE_PUNCHLINE_13],A hollow-weenie!,,
 [JOKE_SETUP_14],What did the Mama Hot Dog say to the little frankfurter?,,
 [JOKE_PUNCHLINE_14],Ketch-up!,,
 [JOKE_SETUP_15],"What do get when you cross a chili pepper, steam shovel, and a Chihuahua?",,
-[JOKE_PUNCHLINE_15],A hot diggety dog.,,
+[JOKE_PUNCHLINE_15],A hot diggety dog!,,
 ,,,
 Tourist Jokes,,,
 [TOURIST_SETUP_1],Why does a chicken coop have two doors?,,
