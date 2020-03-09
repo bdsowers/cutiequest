@@ -145,6 +145,7 @@ public class SoundManager : MonoBehaviour
         {
             mCurrentMusic = mAudioSourceMap[musicName];
             mCurrentMusic.volume = MusicVolume;
+            mCurrentMusic.loop = true;
             mCurrentMusic.Play();
         }
     }
@@ -154,6 +155,7 @@ public class SoundManager : MonoBehaviour
         mTransitioningMusic = true;
 
         nextMusic.Play();
+        nextMusic.loop = true;
 
         prevMusic.volume = MusicVolume * mMusicVolumeModifier;
         nextMusic.volume = 0f;
