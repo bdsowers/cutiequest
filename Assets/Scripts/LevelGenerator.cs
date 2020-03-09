@@ -86,7 +86,26 @@ public class LevelGenerator : MonoBehaviour
 
         QuirkSpecificSpawns();
 
-        Game.instance.soundManager.PlayRandomMusicInCategory("DungeonMusic");
+        if (Game.instance.currentDungeonFloor == 5)
+        {
+            Game.instance.soundManager.PlayRandomMusicInCategory("BossMusic");
+        }
+        else if (Game.instance.quirkRegistry.IsQuirkActive<GothQuirk>())
+        {
+            Game.instance.soundManager.PlayRandomMusicInCategory("GothMusic");
+        }
+        else if (Game.instance.quirkRegistry.IsQuirkActive<OldTimeyQuirk>())
+        {
+            Game.instance.soundManager.PlayRandomMusicInCategory("OldTimey");
+        }
+        else if (Game.instance.quirkRegistry.IsQuirkActive<Cowfolk>())
+        {
+            Game.instance.soundManager.PlayRandomMusicInCategory("Cowboy");
+        }
+        else
+        {
+            Game.instance.soundManager.PlayRandomMusicInCategory("DungeonMusic");
+        }
 
         Game.instance.playerData.MarkDirty();
 

@@ -56,13 +56,15 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < mAudioSources.Length; ++i)
         {
             mAudioSourceNames.Add(mAudioSources[i].name);
-            mAudioSourceMap.Add(mAudioSources[i].name, mAudioSources[i]);
+
+            if (!mAudioSourceMap.ContainsKey(mAudioSources[i].name))
+                mAudioSourceMap.Add(mAudioSources[i].name, mAudioSources[i]);
         }
 
         mMaxFrequencies.Add("boing", 0.2f);
         mMaxFrequencies.Add("fire", 0.2f);
         mMaxFrequencies.Add("electric", 0.1f);
-        mMaxFrequencies.Add("collect", 0.1f);
+        mMaxFrequencies.Add("collect", 0.2f);
     }
 
     // Update is called once per frame
