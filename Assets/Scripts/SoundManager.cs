@@ -111,10 +111,18 @@ public class SoundManager : MonoBehaviour
         Transform child = transform.Find(categoryName);
         AudioSource[] sources = child.GetComponentsInChildren<AudioSource>();
 
-        string newMusic = sources.Sample().name;
-        while (mCurrentMusic != null && mCurrentMusic.name == newMusic)
+        string newMusic = null;
+        if (sources.Length == 1)
+        {
+            newMusic = sources[0].name;
+        }
+        else
         {
             newMusic = sources.Sample().name;
+            while (mCurrentMusic != null && mCurrentMusic.name == newMusic)
+            {
+                newMusic = sources.Sample().name;
+            }
         }
 
         PlayMusic(newMusic);
