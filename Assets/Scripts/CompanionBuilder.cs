@@ -7,8 +7,6 @@ public class CompanionBuilder : MonoBehaviour
 {
     private const int GAMEPLAY_REUSE_WINDOW_SIZE = 5;
 
-    // todo - once we have more content, actually bump this number up
-    // todo - revisit the reuse window, since gendering throws things off a bit.
     private const int TEXT_REUSE_WINDOW_SIZE = 15;
 
     private List<Quirk> previouslyUsedQuirks = new List<Quirk>();
