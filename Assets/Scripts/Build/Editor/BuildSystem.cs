@@ -48,7 +48,6 @@ public class BuildSystem : MonoBehaviour
 
     public static void SocialMediaBuild()
     {
-        // TODO - consider turning off UI
         string outputPath = BuildPath(mSocialMediaBuildLocation);
 
         BuildOptions options = BuildOptions.None;
@@ -56,6 +55,7 @@ public class BuildSystem : MonoBehaviour
         options |= BuildOptions.AllowDebugging;
 
         List<string> flags = new List<string>();
+        flags.Add("PROMO_BUILD");
 
         Build(outputPath, options, flags, BuildTarget.StandaloneWindows, BuildTargetGroup.Standalone);
     }

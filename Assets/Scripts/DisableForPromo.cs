@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisableForPromo : MonoBehaviour
 {
@@ -32,12 +33,18 @@ public class DisableForPromo : MonoBehaviour
         {
             image.enabled = false;
         }
+
+        TextMeshProUGUI[] text2 = GetComponentsInChildren<TextMeshProUGUI>();
+        foreach(TextMeshProUGUI label in text2)
+        {
+            label.enabled = false;
+        }
 #endif
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
