@@ -23,6 +23,9 @@ public class VampirismStatusEffect : StatusEffect
         int amount = Mathf.RoundToInt(damage * multiplier);
         amount = Mathf.Max(amount, 1);
 
+        // Cap vampirism at 10 to prevent it getting too powerful & to fix an insta-kill bug
+        amount = Mathf.Min(amount, 10);
+
         Game.instance.playerData.health += amount;
         Game.instance.playerData.health = Mathf.Min(Game.instance.playerData.health, Game.instance.avatar.GetComponent<CharacterStatistics>().ModifiedStatValue(CharacterStatType.MaxHealth, Game.instance.avatar.gameObject));
         Game.instance.avatar.GetComponent<Killable>().health = Game.instance.playerData.health;
