@@ -11,6 +11,8 @@ public class Frontloader : MonoBehaviour
     {
         ResolutionManager.SetupResolution();
 
+        Application.targetFrameRate = 60;
+
         StartCoroutine(PlayLogoAnimation());
 
         yield return new WaitForSeconds(2.5f);
