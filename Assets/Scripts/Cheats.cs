@@ -147,6 +147,13 @@ public class Cheats : MonoBehaviour
         {
             TakeScreenshot();
         }
+
+#if PROMO_BUILD
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Camera.main.enabled = false;
+        }
+#endif
     }
 
     void UnlockAllNPCS()
