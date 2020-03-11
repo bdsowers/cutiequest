@@ -36,8 +36,6 @@ public class BuildSystem : MonoBehaviour
         string outputPath = BuildPath(mConventionBuildLocation);
 
         BuildOptions options = BuildOptions.None;
-        options |= BuildOptions.Development;
-        options |= BuildOptions.AllowDebugging;
 
         List<string> flags = new List<string>();
         flags.Add("DEMO");
@@ -51,8 +49,6 @@ public class BuildSystem : MonoBehaviour
         string outputPath = BuildPath(mSocialMediaBuildLocation);
 
         BuildOptions options = BuildOptions.None;
-        options |= BuildOptions.Development;
-        options |= BuildOptions.AllowDebugging;
 
         List<string> flags = new List<string>();
         flags.Add("PROMO_BUILD");
