@@ -65,6 +65,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -101,6 +102,7 @@ GameObject:
   - component: {fileID: 6241106450043950469}
   - component: {fileID: 2172026428172595724}
   - component: {fileID: 970678881333721448}
+  - component: {fileID: 8618574722745017538}
   m_Layer: 16
   m_Name: SpellTarget
   m_TagString: Untagged
@@ -148,6 +150,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef74b925703e7cf4eba54a1e8995d4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8618574722745017538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791090138005552656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b532e152d8939b49b93010cf8fb19c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1875117176897451843
