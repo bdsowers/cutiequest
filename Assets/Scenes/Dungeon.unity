@@ -4318,7 +4318,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QuestR
+  m_Text: Questers Only
 --- !u!1 &1591441422074765863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,7 +4413,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QuestR
+  m_Text: Questers Only
 --- !u!222 &1591441422415485759
 CanvasRenderer:
   m_ObjectHideFlags: 0
