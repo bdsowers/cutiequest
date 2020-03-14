@@ -44,6 +44,8 @@ public class Killable : MonoBehaviour
     public bool isDead { get; private set; }
     public bool isReviving { get; private set; }
 
+    public float deathAdjustment;
+
     // Performance optimization
     private int mKillableMapIndex = -1;
     public int killableMapIndex
@@ -215,6 +217,11 @@ public class Killable : MonoBehaviour
             {
                 GameObject vfx = PrefabManager.instance.InstantiatePrefabByName("CFX2_BrokenHeart");
                 vfx.transform.position = transform.position + Vector3.up * 0.5f;
+
+                if (mEnemy && mEnemy.isBoss)
+                {
+                    mMovement.mesh.transform.DOLocalMoveY(deathAdjustment, 1f).SetDelay(2f);
+                }
             }
             else
             {

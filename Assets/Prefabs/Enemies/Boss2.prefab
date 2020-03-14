@@ -122,6 +122,7 @@ MonoBehaviour:
   deathEffectScale: 0.75
   allowZeroDamage: 0
   invulnerable: 1
+  deathAdjustment: -0.5
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0

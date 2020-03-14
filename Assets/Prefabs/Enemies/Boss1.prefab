@@ -294,6 +294,7 @@ MonoBehaviour:
   deathEffectScale: 0.75
   allowZeroDamage: 0
   invulnerable: 1
+  deathAdjustment: -0.2
 --- !u!114 &8268176248063259198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,16 +927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chr_Dungeon_RockGolem_01
       objectReference: {fileID: 0}
-    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
-    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4162035762347246, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -991,6 +982,16 @@ PrefabInstance:
     - target: {fileID: 4162035762347246, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 465c2ff67db136a4185d4cd24fd5bf3b, type: 2}
+    - target: {fileID: 95559033522841662, guid: 7281e574c8fc0fe4c9da63ce008ae54b,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7281e574c8fc0fe4c9da63ce008ae54b, type: 3}
